@@ -1,22 +1,5 @@
 [
   {
-    "id": 0,
-    "title": "modular.response",
-    "url": "/modular.html",
-    "summary": "I’m unable to generate this summary because the required control metadata (Description/ImplementationGuidance) and contextual sources are not provided. Please supply the relevant sources so I can synthesize the content with inline citations.",
-    "content": "I’m unable to generate this summary because the required control metadata (Description/ImplementationGuidance) and contextual sources are not provided. Please supply the relevant sources so I can synthesize the content with inline citations. ",
-    "ism_control": null,
-    "revision": null,
-    "updated": null,
-    "guideline": null,
-    "topic": null,
-    "date_generated": null,
-    "path": "output/answer/modular.response.md",
-    "essential_eight": [],
-    "pspf_levels": [],
-    "section": null
-  },
-  {
     "id": 1,
     "title": "Internet Explorer 11 is disabled or removed. (ISM-1654)",
     "url": "/row-1-ISM-1654.html",
