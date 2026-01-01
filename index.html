@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISM Controls Implementation Guide</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .search-section {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 16px 20px 16px 50px;
+      font-size: 1.1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-box input:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-box::before {
+      content: "🔍";
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .filter-group select {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 0.95rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .filter-group select:focus {
+      border-color: #667eea;
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .results-count {
+      background: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      color: #667eea;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .clear-btn {
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .clear-btn:hover {
+      background: #ee5a5a;
+      transform: translateY(-2px);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .control-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .control-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    .control-card .ism-id {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .control-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .control-card .section {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .tag.e8 {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    .tag.pspf {
+      background: #f3e5f5;
+      color: #7b1fa2;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .no-results h3 {
+      font-size: 1.5rem;
+      color: #667eea;
+      margin-bottom: 10px;
+    }
+
+    .no-results p {
+      color: #888;
+    }
+
+    .highlight {
+      background: #fff59d;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 60px;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px 20px;
+      }
+      .header h1 {
+        font-size: 1.4rem;
+      }
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+      .filters {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🛡️ ISM Controls Implementation Guide</h1>
+    <p>Implementation guidance for Australian Information Security Manual controls with Essential Eight and PSPF mappings</p>
+  </div>
+
+  <div class="container">
+    <div class="search-section">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search controls by title, ID, or content...">
+      </div>
+      <div class="filters">
+        <div class="filter-group">
+          <label>Essential Eight</label>
+          <select id="filter-e8">
+            <option value="">All Maturity Levels</option>
+            <option value="ML1">ML1 - Maturity Level 1</option>
+            <option value="ML2">ML2 - Maturity Level 2</option>
+            <option value="ML3">ML3 - Maturity Level 3</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>PSPF Classification</label>
+          <select id="filter-pspf">
+            <option value="">All Classifications</option>
+            <option value="NC">NC - No Classification</option>
+            <option value="OS">OS - Official Sensitive</option>
+            <option value="P">P - Protected</option>
+            <option value="S">S - Secret</option>
+            <option value="TS">TS - Top Secret</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Section</label>
+          <select id="filter-section">
+            <option value="">All Sections</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Topic</label>
+          <select id="filter-topic">
+            <option value="">All Topics</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-header">
+      <span class="results-count" id="results-count">Loading...</span>
+      <button class="clear-btn" onclick="clearFilters()">Clear All Filters</button>
+    </div>
+
+    <div id="results-container">
+      <div class="loading">Loading controls...</div>
+    </div>
+  </div>
+
+  <script>
+    let allControls = [];
+    let searchTimeout = null;
+
+    // Load the search index
+    fetch('assets/search_index.json')
+      .then(response => response.json())
+      .then(data => {
+        allControls = data;
+        populateFilterDropdowns();
+        renderResults(allControls);
+      })
+      .catch(err => {
+        document.getElementById('results-container').innerHTML = 
+          '<div class="no-results"><h3>Error Loading Data</h3><p>Please refresh the page to try again.</p></div>';
+        console.error('Failed to load search index:', err);
+      });
+
+    function populateFilterDropdowns() {
+      const sections = [...new Set(allControls.map(c => c.section).filter(Boolean))].sort();
+      const topics = [...new Set(allControls.map(c => c.topic).filter(Boolean))].sort();
+      
+      const sectionSelect = document.getElementById('filter-section');
+      sections.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        sectionSelect.appendChild(opt);
+      });
+      
+      const topicSelect = document.getElementById('filter-topic');
+      topics.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = t;
+        topicSelect.appendChild(opt);
+      });
+    }
+
+    function applyFilters() {
+      const e8 = document.getElementById('filter-e8').value;
+      const pspf = document.getElementById('filter-pspf').value;
+      const section = document.getElementById('filter-section').value;
+      const topic = document.getElementById('filter-topic').value;
+      const search = document.getElementById('search-input').value.toLowerCase().trim();
+      
+      let filtered = allControls.filter(control => {
+        if (e8 && (!control.essential_eight || !control.essential_eight.includes(e8))) {
+          return false;
+        }
+        if (pspf && (!control.pspf_levels || !control.pspf_levels.includes(pspf))) {
+          return false;
+        }
+        if (section && control.section !== section) {
+          return false;
+        }
+        if (topic && control.topic !== topic) {
+          return false;
+        }
+        if (search) {
+          const searchable = [
+            control.title,
+            control.ism_control,
+            control.content,
+            control.section,
+            control.topic
+          ].filter(Boolean).join(' ').toLowerCase();
+          if (!searchable.includes(search)) {
+            return false;
+          }
+        }
+        return true;
+      });
+      
+      renderResults(filtered, search);
+    }
+
+    function highlightText(text, search) {
+      if (!search || !text) return text || '';
+      const regex = new RegExp(`(${search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    function renderResults(controls, search = '') {
+      const container = document.getElementById('results-container');
+      document.getElementById('results-count').textContent = `${controls.length} control${controls.length !== 1 ? 's' : ''} found`;
+      
+      if (controls.length === 0) {
+        container.innerHTML = '<div class="no-results"><h3>No Controls Found</h3><p>Try adjusting your search or filters.</p></div>';
+        return;
+      }
+      
+      container.innerHTML = '<div class="results-grid">' + controls.map(control => {
+        const e8Tags = control.essential_eight ? control.essential_eight.map(e => `<span class="tag e8">${e}</span>`).join('') : '';
+        const pspfTags = control.pspf_levels ? control.pspf_levels.map(p => `<span class="tag pspf">${p}</span>`).join('') : '';
+        const url = 'controls/' + control.path.replace('output/answer/', '');
+        const title = highlightText(control.title || 'Untitled', search);
+        const ismControl = highlightText(control.ism_control || '-', search);
+        
+        return `<a href="${url}" class="control-card">
+          <span class="ism-id">${ismControl}</span>
+          <h3>${title}</h3>
+          <div class="section">${control.section || ''} ${control.topic ? '→ ' + control.topic : ''}</div>
+          <div class="tags">${e8Tags}${pspfTags}</div>
+        </a>`;
+      }).join('') + '</div>';
+    }
+
+    function clearFilters() {
+      document.getElementById('filter-e8').value = '';
+      document.getElementById('filter-pspf').value = '';
+      document.getElementById('filter-section').value = '';
+      document.getElementById('filter-topic').value = '';
+      document.getElementById('search-input').value = '';
+      renderResults(allControls);
+    }
+
+    // Real-time search with debounce
+    document.getElementById('search-input').addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(applyFilters, 150);
+    });
+
+    // Filter change handlers
+    document.getElementById('filter-e8').addEventListener('change', applyFilters);
+    document.getElementById('filter-pspf').addEventListener('change', applyFilters);
+    document.getElementById('filter-section').addEventListener('change', applyFilters);
+    document.getElementById('filter-topic').addEventListener('change', applyFilters);
+  </script>
+</body>
+</html>
