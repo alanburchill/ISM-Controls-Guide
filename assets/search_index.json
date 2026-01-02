@@ -17,7 +17,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Internet Explorer 11 is disabled or removed on Windows endpoints as part of OS hardening. Implement this by applying the UserApplicationHardening-RemoveFeatures.ps1 script, which disables or removes Internet Explorer and related features. Deploy the script via Intune using the Scripts option in the admin center, uploading the PS1 file and assigning it to the target devices; refer to the Intune deployment workflow for scripts and remediations."
   },
   {
     "id": "ISM-1669",
@@ -36,7 +37,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Enable the ASR rule to block Office applications from injecting code into other processes to prevent code injection by Office apps. Refer to ACSC Essential Eight guidance and the ASR documentation for implementation details."
   },
   {
     "id": "ISM-1542",
@@ -55,7 +57,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Microsoft Office is configured to prevent activation of OLE packages. Deploy the Intune PowerShell script OfficeMacroHardening-PreventActivationofOLE.ps1 to import registry keys that block OLE/COM activation in Word, Excel, and PowerPoint, and assign the script to a deployment group. Configure the script to run with the logged-on credentials, not require script signing, and not run in a 64-bit PowerShell host."
   },
   {
     "id": "ISM-1859",
@@ -74,7 +77,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Office productivity suites are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. Apply ACSC Office hardening policies via Intune configuration profiles to implement macro protections, ASR rules, and Defender for Endpoint integration for Office macro activity. Intune supports policy sets to bundle Microsoft 365 Apps and ACSC hardening guidelines for streamlined deployment."
   },
   {
     "id": "ISM-1823",
@@ -93,7 +97,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Office hardening policies deployed via Intune enforce Office security settings and prevent standard users from altering them. Deploy the Intune Office security baseline to apply macro settings, Trust Center protections, and related Office configurations as part of policy delivery. These baselines provide a centralized, enforceable mechanism to ensure Office configurations remain fixed across managed devices."
   },
   {
     "id": "ISM-1486",
@@ -113,7 +118,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Java isn't installed by default on Windows 10 or Windows 11. Web browsers do not process Java from the internet. Use Microsoft Edge and deploy ACSC Edge Hardening Guidelines to enforce these protections, aligning with the ISM-1486 requirement."
   },
   {
     "id": "ISM-1485",
@@ -133,7 +139,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Enable Edge policy to block intrusive ads by applying the Microsoft Edge security baseline in Intune. The baseline preconfigures Edge privacy settings to disable ad personalization and reduce tracking, supporting ad-blocking across devices."
   },
   {
     "id": "ISM-1412",
@@ -152,7 +159,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Deploy ACSC Edge hardening configuration through Intune to enforce the Essential Eight Edge controls across devices. The implementation aligns with ASD and vendor hardening guidance, applying the most restrictive settings when conflicts occur. Edge hardening is implemented via Intune using the ACSC Edge Hardening Guidelines and the Edge Security Baseline."
   },
   {
     "id": "ISM-1585",
@@ -172,7 +180,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Browser security settings are enforced through Intune to prevent users from modifying browser configurations. Edge can be managed via Intune app protection policies and device configuration settings to restrict browsing behavior, including allowed sites and data handling. This approach applies across iOS, Android, and Windows devices, aligning with Intune for Education and Android device restriction guidance to maintain a consistent security posture."
   },
   {
     "id": "ISM-1670",
@@ -191,7 +200,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "PDF applications are blocked from creating child processes. Enable the ASR rule Block Adobe Reader from creating child processes via an Intune Attack Surface Reduction policy to enforce this restriction. This implements PDF hardening guidance by preventing Adobe Reader from spawning child processes."
   },
   {
     "id": "ISM-1860",
@@ -210,7 +220,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "PDF software is hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. Implementation requires applying vendor PDF hardening settings via Intune configuration profiles. This aligns with the Essential Eight user application hardening guidance documented by Microsoft Learn."
   },
   {
     "id": "ISM-1655",
@@ -228,7 +239,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Disabling or removing .NET Framework 3.5 (includes .NET 2.0 and 3.0) reduces the OS attack surface. Implementation uses the UserApplicationHardening-RemoveFeatures.ps1 script and deploys it via Intune using the 'Scripts' option, with these script settings: Run this script using the logged on credentials: No; Enforce script signature check: No; Run script in 64-bit PowerShell Host: No. Assign the script to a deployment group to apply the control across devices."
   },
   {
     "id": "ISM-1824",
@@ -247,7 +259,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Lock PDF security settings using Intune so users cannot change them. Policies deployed via Intune enforce these configurations, ensuring end users cannot modify PDF security settings."
   },
   {
     "id": "ISM-1671",
@@ -267,7 +280,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Microsoft Office macros are disabled by default for users without a demonstrated business requirement. Intune-based deployment disables macros for all Office users and enforces an exception path for approved users by placing them in a dedicated group (Allow macro execution - Trusted Publisher) and applying an All Macros Disabled policy. The approach aligns with ACSC hardening guidance, which includes blocking macros from running in Office files from the Internet and enforcing signing requirements for macros via Trusted Publishers."
   },
   {
     "id": "ISM-1488",
@@ -287,7 +301,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Microsoft Office macros originating from the internet are blocked. Enable policy to block macros from internet-originated files in Intune. This aligns with the Microsoft 365 Apps security baseline and ACSC Office hardening guidance for macro controls."
   },
   {
     "id": "ISM-1672",
@@ -307,7 +322,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Microsoft Office macro antivirus scanning is enabled by configuring Defender Antivirus policy settings via Intune, including forcing runtime scans and enabling macro runtime scan scope for all documents; this requires Windows Defender to be running on the device. Implement the policy using Intune to deploy Defender Antivirus features and to schedule antivirus scans across devices. Macro-related activity and detections are logged via Defender for Endpoint when devices are managed by Intune, enabling review and response."
   },
   {
     "id": "ISM-1673",
@@ -326,7 +342,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Block Win32 API calls from Office macros using the ASR rule. Implement this by configuring Attack Surface Reduction in Intune and enabling the rule to Block. The rule supports Block, Audit, and Warn modes, with Not configured as the default."
   },
   {
     "id": "ISM-1674",
@@ -344,12 +361,13 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Only Microsoft Office macros that are digitally signed by a trusted publisher and governed by Intune policy are allowed to run. Implement Intune-based controls to block macros from untrusted sources and to enable execution only for macros signed by trusted publishers, as outlined by ACSC hardening guidance. To realize this, distribute the code-signing certificate to devices and configure the Trusted Publishers store so macros from that publisher are trusted; macros signed by the same certificate are treated as coming from a trusted publisher. Macros from the internet are blocked by default, reinforcing the trusted-publisher approach over relying on Trusted Locations."
   },
   {
     "id": "ISM-1504",
     "ism_control": "ISM-1504",
-    "title": "Multi-factor authentication is used to authenticate users to their organisation\u2019s online services that process, store or communicate their organisation\u2019s sensitive data. (ISM-1504)",
+    "title": "Multi-factor authentication is used to authenticate users to their organisation’s online services that process, store or communicate their organisation’s sensitive data. (ISM-1504)",
     "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
     "url": "controls-html/ISM-1504.html",
@@ -364,7 +382,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Require MFA for all users accessing sensitive online services through Conditional Access. Deploy a policy covering All users and All resources that enforces MFA via the built-in authentication strengths (including phishing-resistant MFA where applicable). Exclude emergency access/break-glass accounts and validate the policy in report-only mode before turning it on."
   },
   {
     "id": "ISM-1173",
@@ -383,7 +402,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Create a Conditional Access policy requiring MFA for all privileged accounts. MFA enforcement for administrators reduces credential theft risk and aligns with guidance to require MFA for privileged users and administrators. Consider excluding emergency break-glass accounts from the policy or applying separate controls as described in the CA guidance."
   },
   {
     "id": "ISM-0974",
@@ -402,7 +422,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Multi-factor authentication (MFA) is required for standard user sign-ins. Enforce MFA for all users by implementing a Microsoft Entra ID Conditional Access policy that requires MFA for all users (no app exclusions); use built-in templates or baseline policies as guidance to configure the policy."
   },
   {
     "id": "ISM-1872",
@@ -421,7 +442,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "ISM-1872 requires enforcing phishing-resistant MFA for online services by applying authentication strengths to access policies. Adopt phishing-resistant methods such as passkeys (FIDO2), Windows Hello for Business, and certificate-based authentication, and enforce them via Conditional Access authentication strengths. The guidance supports workload identities, time-bound credentials, and CA enforcement to extend phishing-resistant MFA across workloads and tenants."
   },
   {
     "id": "ISM-0843",
@@ -441,7 +463,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "This section documents implementing WDAC-based application control on Windows workstations using App Control for Business, managed via Microsoft Intune. App Control for Business policies use the Windows ApplicationControl CSP to govern allowed apps and can tag apps deployed through Intune as approved via a managed installer. Base policies can be extended with supplemental policies and deployed through Intune to define which applications are allowed to run on devices."
   },
   {
     "id": "ISM-1683",
@@ -460,7 +483,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Configure Entra ID diagnostic settings to save all logs to an appropriate destination, such as a Log Analytics workspace. Log Analytics provides centralized analysis of Entra ID activity logs once forwarding is configured. Integrate Entra ID logs with Azure Monitor logs to enable unified querying and monitoring across Entra ID and other Azure data."
   },
   {
     "id": "ISM-1685",
@@ -479,7 +503,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Credentials for break-glass emergency accounts are long, unique, unpredictable and managed. Configure the break-glass accounts with randomly generated passwords and a physical FIDO2 key for MFA. Implement dual-control retrieval procedures and monitoring to detect and respond to emergency access events."
   },
   {
     "id": "ISM-1896",
@@ -497,7 +522,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Memory integrity is a virtualization-based security (VBS) feature that protects kernel-mode code integrity and the CFG bitmap. Turn on memory integrity across devices by applying Intune security baseline settings. Some devices may experience compatibility issues with memory integrity; verify hardware and driver compatibility before enabling and plan remediation if needed."
   },
   {
     "id": "ISM-1861",
@@ -515,7 +541,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Local Security Authority (LSA) protection isolates the LSASS process to guard credentials from untrusted code. Enable added LSA protection via Intune by creating a custom device configuration profile and configuring the OMA-URI setting ConfigureLsaProtectedProcess to 1 (with UEFI lock) or 2 (without UEFI lock), followed by a reboot. Intune security baselines provide default Windows security configurations that facilitate deploying LSA protection at scale."
   },
   {
     "id": "ISM-1686",
@@ -533,7 +560,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Credential Guard is enabled on devices that meet hardware requirements and can be configured via an Intune device configuration profile. Use a Settings Catalog policy under Device Guard to enable Credential Guard with either “Enabled with UEFI lock” or “Enabled without lock,” assign the policy to the target devices, and restart the device to apply the changes. Verification is done via System Information or PowerShell (Event Viewer can also be used); do not rely on checking the LsaIso.exe process in Task Manager."
   },
   {
     "id": "ISM-1897",
@@ -551,7 +579,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Remote Credential Guard functionality is enabled to protect credentials over an RDP connection. Enable Remote Credential Guard on devices via Intune Settings Catalog policy or a custom Policy CSP, per Microsoft Learn guidance."
   },
   {
     "id": "ISM-1380",
@@ -571,7 +600,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Deploy a Microsoft Entra Conditional Access policy to block cloud administrator sign-ins unless they originate from a trusted known IP address range. Plan the deployment by defining known locations, including pilot testing and staged rollout, and configure the policy to block access by default with optional MFA or session controls as needed. This approach enforces a least-privilege boundary at sign-in time and helps isolate privileged administration from untrusted networks, supporting controlled privileged environments."
   },
   {
     "id": "ISM-1808",
@@ -591,7 +621,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Onboard devices to Microsoft Defender for Endpoint to enable Defender Vulnerability Management (DVM) and continuous risk monitoring. In the Microsoft Defender portal, navigate to Exposure management > Vulnerability management > Vulnerabilities to view CVEs, weaknesses, and device exposure. Use the remediation workflow to create remediation tasks in Intune and apply fixes per security recommendations."
   },
   {
     "id": "ISM-1698",
@@ -611,7 +642,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Daily vulnerability scanning identifies missing patches or vulnerabilities for online services. Monitor the Microsoft 365 Admin Portal Service Health to watch for announcements of service vulnerabilities and advisories."
   },
   {
     "id": "ISM-1699",
@@ -631,12 +663,13 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Onboard devices to Microsoft Defender for Endpoint. Then access Exposure management > Vulnerability management > Vulnerabilities in the Defender portal to review CVEs and remediation recommendations."
   },
   {
     "id": "ISM-1544",
     "ism_control": "ISM-1544",
-    "title": "Microsoft\u2019s recommended application blocklist is implemented. (ISM-1544)",
+    "title": "Microsoft’s recommended application blocklist is implemented. (ISM-1544)",
     "section": "Operating system hardening",
     "topic": "Application control",
     "url": "controls-html/ISM-1544.html",
@@ -650,7 +683,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "App Control for Business (WDAC) enforces the Microsoft-recommended application blocklist by restricting which drivers and applications may run on Windows devices. Implement WDAC policies using App Control for Business, via built-in controls or custom XML, and deploy them with Intune's App Control for Business policies and a managed installer to tag approved apps. Audit mode allows testing without blocking, while Enforce mode enforces the policy."
   },
   {
     "id": "ISM-1702",
@@ -670,7 +704,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Onboard devices to Microsoft Defender for Endpoint to enable vulnerability monitoring and management. In the Microsoft Defender security portal, navigate to Exposure management > Vulnerabilities to view and prioritize vulnerabilities across endpoints. Defender Vulnerability Management provides asset visibility, vulnerability assessments, and remediation workflows, including remediation tasks that can be created in Intune to address identified weaknesses."
   },
   {
     "id": "ISM-1703",
@@ -688,7 +723,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Onboard devices to Microsoft Defender for Endpoint and enable Defender Vulnerability Management to continuously monitor risk across your devices. Then use the Microsoft Defender security portal, under Exposure management > Vulnerabilities, to view identified vulnerabilities and surface remediation actions. Remediation tasks can be tracked within Defender Vulnerability Management and, where applicable, surfaced as Intune security tasks for remediation."
   },
   {
     "id": "ISM-1900",
@@ -706,7 +742,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Onboard devices to Microsoft Defender for Endpoint to enable vulnerability scanning of firmware. Then access the security portal's Exposure management path: Exposure management > Vulnerability management > Vulnerabilities to view CVEs, exposure, and remediation guidance. The Defender Vulnerability Management experience includes hardware and firmware inventories and remediation workflows accessible through Exposure Management."
   },
   {
     "id": "ISM-1876",
@@ -726,7 +763,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Patches for operating system vulnerabilities are applied within 48 hours of release when vendors rate the vulnerability as critical or when working exploits exist. Push these critical OS patches using expedited Windows updates managed through Intune and Windows Autopatch. Windows Autopatch provides expedited deployment and monitoring capabilities to accelerate patching and ensure timely coverage across devices when paired with Intune."
   },
   {
     "id": "ISM-1690",
@@ -746,7 +784,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Configured and enable Windows Autopatch for all workstations via the Intune admin portal. Windows Autopatch automates patching for Windows, Microsoft 365 Apps for Enterprise, Edge, Microsoft Teams, Surface Driver/Firmware, and Published Drivers/Firmware marked as Mandatory in Windows Update, including Windows 365 and Azure Virtual Desktop. Enrollment steps include readiness assessment, admin contacts, and device registration to onboard devices and assign deployment rings."
   },
   {
     "id": "ISM-1692",
@@ -764,7 +803,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF software, and security products are applied within 48 hours of release when vulnerabilities are critical or exploits exist. Configure and enable Windows Autopatch for all workstations via the InTune admin portal, and deploy third-party application updates through the Intune Enterprise Application Catalog; otherwise repackage and redeploy apps with security updates within the required timeline. For the Edge browser, Autopatch configures devices to the Stable channel by default, and Edge update policies are created and verified within Autopatch groups. Defender Vulnerability Management identifies vulnerabilities and can trigger remediation tasks in Intune to close patching gaps."
   },
   {
     "id": "ISM-1901",
@@ -782,7 +822,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Patches, updates, or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF software, and security products are applied within two weeks of release when vulnerabilities are noncritical and no working exploits exist. Configure and enable Windows Autopatch for all workstations via the Intune admin center. For third-party applications, deploy new versions via Intune Enterprise Application Management; otherwise repackage and redeploy all applications requiring security updates within the defined timeline, and configure Edge to the Stable channel for progressive rollouts."
   },
   {
     "id": "ISM-1693",
@@ -801,7 +842,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Patch applications not in the excluded categories within one month of release using Intune deployment. Configure and enable Windows Autopatch for all workstations via the Intune admin portal. For third-party applications, deploy new versions via the Intune Enterprise Application Management catalog; otherwise repackage and redeploy updated applications within the required timeline. Configure Edge to use the Target Channel override, selecting Stable or Extended Stable to align with organizational policy."
   },
   {
     "id": "ISM-1696",
@@ -819,7 +861,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Push critical OS patches within 48 hours using Intune expedited updates with Windows Autopatch. Expedited quality updates via Intune accelerate installation of the latest security updates and require Windows Autopatch licensing to enable the workflow. Windows Autopatch provides governance for patch deployment, including approval/scheduling, gradual rollout, and expedited updates across OS, drivers, and firmware, with deployment rings to tailor coverage."
   },
   {
     "id": "ISM-1902",
@@ -837,12 +880,13 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "ISM-1902 requires patches for workstations, non-internet-facing servers, and non-internet-facing network devices to be applied within one month of release when vulnerabilities are assessed as noncritical by vendors and no working exploits exist. Implement a monthly patch cadence for these non-critical OS updates via Intune Windows AutoPatch to automate and schedule timely deployments."
   },
   {
     "id": "ISM-1659",
     "ism_control": "ISM-1659",
-    "title": "Microsoft\u2019s vulnerable driver blocklist is implemented. (ISM-1659)",
+    "title": "Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)",
     "section": "Operating system hardening",
     "topic": "Application control",
     "url": "controls-html/ISM-1659.html",
@@ -855,7 +899,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Microsoft’s vulnerable driver blocklist is implemented to harden Windows against known vulnerable kernel drivers. Turn on the Microsoft vulnerable driver blocklist using Intune device security settings, applying the blocklist via App Control policy or Defender security baselines, and verify enforcement via Event Viewer (CodeIntegrity Operational log). Microsoft recommends enabling memory protection features such as HVCI (memory integrity) or S mode when possible to augment the blocklist; if not feasible, rely on the blocklist within App Control and test in audit mode before enforcement."
   },
   {
     "id": "ISM-1704",
@@ -875,7 +920,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Regularly review the detected application inventory on all devices via the Microsoft Defender admin portal for software that has reached end-of-support. Then use the current deployment mechanism to remove the application as required."
   },
   {
     "id": "ISM-1511",
@@ -895,7 +941,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Backups of data, applications, and settings are performed and retained in accordance with business criticality and business continuity requirements. Microsoft 365 Backup protects Exchange Online, SharePoint Online, and OneDrive for Business with 1-year retention and fast restore, with backups stored within the Microsoft 365 data boundary and protected by append-only, immutable restore points. Azure Backup covers on-premises and cloud workloads; the Microsoft Azure Recovery Services (MARS) agent backs up files, folders, and system state and can integrate with on-premises Azure Backup Server (MABS) or System Center Data Protection Manager (DPM). Follow the Microsoft 365 Backup setup guidance to enable and configure backups in your tenant."
   },
   {
     "id": "ISM-1810",
@@ -915,7 +962,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Use Azure Backup to take application-consistent VM restore points, providing synchronised restore points across all attached disks. Application consistency is achieved via VSS on Windows VMs or via pre- and post-scripts on Linux, with a backup extension coordinating the snapshot process for app- or file-system consistency. VM restore points are incremental and organized into restore point collections to streamline backup and restore operations."
   },
   {
     "id": "ISM-1811",
@@ -935,7 +983,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Backups of data, applications, and settings are retained in a secure and resilient manner by storing them in an Azure Recovery Services vault configured with geo-redundant storage. Backup data at rest is encrypted by default using platform-managed keys, with an option to encrypt with customer-managed keys stored in Azure Key Vault. The solution also supports protective features such as soft delete and cross-region restore to enhance recoverability."
   },
   {
     "id": "ISM-1815",
@@ -954,7 +1003,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Event logs must be protected from unauthorized modification and deletion to preserve audit trails and support forensic investigations. Implement RBAC in Defender XDR and Sentinel to control access to logs and prevent tampering, leveraging the Unified RBAC model and the ability to create custom roles and scoped permissions."
   },
   {
     "id": "ISM-1621",
@@ -972,7 +1022,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Windows PowerShell 2.0 is disabled or removed by deploying the UserApplicationHardening-RemoveFeatures.ps1 script. Deploy this script via Intune Remediations, which packages a detection script and a remediation script; the remediation runs only when the detection script reports the issue by exiting with code 1, and the scripts must be encoded in UTF-8. Configure Remediations with the following settings: Run this script using the logged-on credentials = No; Enforce script signature check = No; Run script in 64-bit PowerShell = No, and assign the remediation package to device groups or run on-demand as needed."
   },
   {
     "id": "ISM-1622",
@@ -990,7 +1041,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "PowerShell is configured to run in Constrained Language Mode as part of the Essential Eight Application Control mitigations. Enable Constrained Language Mode by deploying a WDAC policy enforced through Intune; WDAC policies can be deployed via Intune for centralized enforcement. WDAC is the preferred enforcement mechanism, and Intune provides a supported deployment path for policy enforcement."
   },
   {
     "id": "ISM-1667",
@@ -1009,7 +1061,8 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Enable the ASR rule that blocks all Office applications from creating child processes and deploy it via Intune (Endpoint Security) to enforce the block. This approach aligns with ACSC Essential Eight guidance and Defender ASR documentation."
   },
   {
     "id": "ISM-1668",
@@ -1028,6 +1081,7 @@
       "P",
       "S",
       "TS"
-    ]
+    ],
+    "content": "Microsoft Office is blocked from creating executable content by enabling the ASR rule via Intune.^ Configure the Attack Surface Reduction setting Block Office applications from creating executable content in the Intune Endpoint Security policy.^ This approach aligns with Essential Eight user application hardening guidance.^"
   }
 ]
