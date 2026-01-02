@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)"
+ism_control: "ISM-1659"
+revision: "1"
+updated: "Dec-23"
+guideline: "Guidelines for system hardening"
+section: "Operating system hardening"
+topic: "Application control"
+essential_eight:
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1659 |
+| **Revision** | 1 |
+| **Updated** | Dec-23 |
+| **Guideline** | Guidelines for system hardening |
+| **Section** | Operating system hardening |
+| **Topic** | Application control |
+| **Essential Eight** | ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Microsoft’s vulnerable driver blocklist is implemented to harden Windows against known vulnerable kernel drivers.[^1] Turn on the Microsoft vulnerable driver blocklist using Intune device security settings, applying the blocklist via App Control policy or Defender security baselines, and verify enforcement via Event Viewer (CodeIntegrity Operational log).[^1][^2] Microsoft recommends enabling memory protection features such as HVCI (memory integrity) or S mode when possible to augment the blocklist; if not feasible, rely on the blocklist within App Control and test in audit mode before enforcement.[^1]
+
+[^1]:Microsoft recommended driver block rules | Microsoft Learn(https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules)
+[^2]:Settings list for the Microsoft Intune security baseline for Microsoft Defender for Endpoint - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-defender)
+
+## Design Decision
+
+> [!NOTE] Enable the Microsoft vulnerable driver blocklist via Intune device security settings to block loading of known vulnerable or malicious drivers on managed Windows devices.
+
+## Prerequisites
+
+* **Licensing:** Not provided in source documentation. [^1]
+* **Permissions/Roles:** Not provided in source documentation. [^2]
+* **Dependencies:** Intune service and Windows devices required. Settings Catalog in Intune is used to configure device configuration policies. [^3]
+
+[^1]:Device restriction settings for Windows devices in Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-restrictions-windows-10)
+[^2]:Device restriction settings for Windows devices in Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-restrictions-windows-10)
+[^3]:Device restriction settings for Windows devices in Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-restrictions-windows-10)
+
+## Implementation Steps
+
+### Turn on Microsoft vulnerable driver blocklist using Intune App Control policy
+
+1. Download the App Control policy refresh tool from the Microsoft link: https://aka.ms/refreshpolicy. [^1]
+
+2. Download and extract the vulnerable driver blocklist binaries from the Microsoft link: https://aka.ms/VulnerableDriverBlockList. [^1]
+
+3. In your environment, select either the audit-only version or the enforced version, and rename the file to SiPolicy.p7b. [^1]
+
+4. Copy SiPolicy.p7b to %windir%\system32\CodeIntegrity. [^1]
+
+5. Run the App Control policy refresh tool you downloaded in Step 1 to activate and refresh all App Control policies on the computer. [^1]
+
+6. To verify policy application:
+   - Open Event Viewer.
+   - Navigate to Applications and Services Logs - Microsoft - Windows - CodeIntegrity - Operational.
+   - Filter the Current Log for Event ID 3099.
+   - Confirm that the PolicyNameBuffer and PolicyIdBuffer match the Name and ID from PolicyInfo settings found in the blocklist App Control Policy XML. Note: a reboot may be required for certain drivers to be blocked. [^1]
+
+7. Note: Blocking vulnerable drivers can cause devices or software to malfunction, and the blocklist is not guaranteed to block every driver. Microsoft balances security with compatibility. [^1]
+
+8. If this setting isn’t possible to enable via Intune device security settings, Microsoft recommends applying the latest blocklist using App Control for Business. [^1]
+
+[^1]:Microsoft recommended driver block rules | Microsoft Learn(https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules)`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

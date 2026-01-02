@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1690) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1690)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1690)"
+ism_control: "ISM-1690"
+revision: "2"
+updated: "Dec-23"
+guideline: "Guidelines for system management"
+section: "System patching"
+topic: "Mitigating known vulnerabilities"
+essential_eight:
+  - "ML1"
+  - "ML2"
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1690)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1690 |
+| **Revision** | 2 |
+| **Updated** | Dec-23 |
+| **Guideline** | Guidelines for system management |
+| **Section** | System patching |
+| **Topic** | Mitigating known vulnerabilities |
+| **Essential Eight** | ML1, ML2, ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Configured and enable Windows Autopatch for all workstations via the Intune admin portal.[^1]
+
+Windows Autopatch automates patching for Windows, Microsoft 365 Apps for Enterprise, Edge, Microsoft Teams, Surface Driver/Firmware, and Published Drivers/Firmware marked as Mandatory in Windows Update, including Windows 365 and Azure Virtual Desktop.[^1]
+
+Enrollment steps include readiness assessment, admin contacts, and device registration to onboard devices and assign deployment rings.[^1]
+
+[^1]:Essential Eight patch applications - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-patch-app)
+
+## Design Decision
+
+> [!NOTE] Windows Autopatch is configured and enabled for all workstations via the Intune admin portal to automate patching per the ImplementationGuidance.
+
+## Prerequisites
+
+* **Licensing:** Windows Autopatch is included with Windows 10/11 Enterprise E3 or higher. There are additional prerequisites for using Autopatch including some network configurations which should be considered part of the rollout. [^1]
+* **Permissions/Roles:** Use roles with the fewest permissions. Minimize the number of Global Administrators. Access to Intune during readiness assessment requires a Global Administrator. [^1]
+* **Dependencies:** Intune and Microsoft Entra ID are required to enroll devices in Windows Autopatch. Admin contacts must be defined per area of focus. Device registration into Windows Autopatch is required before enrollment. [^1]
+
+[^1]:Essential Eight patch applications - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-patch-app)
+
+## Implementation Steps
+
+### Windows Autopatch enrollment and activation in Intune
+
+### Step 1: Readiness assessment
+
+1. As a Global Administrator, go to **Intune**.  
+2. In the left pane, select **Tenant administration** and then navigate to **Windows Autopatch** > **Tenant enrollment**.  
+3. The Readiness assessment tool checks the settings in Microsoft Intune and Microsoft Entra ID to ensure it works with Windows Autopatch as part of enrolling your tenant.  
+4. The Readiness assessment tool provides a report and advises of any issues that must be resolved and [what steps are needed to be performed](/en-us/windows/deployment/windows-autopatch/prepare/windows-autopatch-fix-issues) to get to a ready state.  
+5. The purpose of this step is to confirm your organization has admins for each area of focus, such that the Windows Autopatch Service Engineering Team can contact your organization’s admin regarding your support request in future and expands on the minimum admin set during the enrollment process.  
+
+### Step 2: Admin contacts
+
+1. Sign into **Intune**.  
+2. Under **Tenant administration** in the **Windows Autopatch** section, select **Admin contacts**.  
+3. Select **Add**.  
+4. Enter the contact details including name, email, phone number and preferred language. For a support ticket, the ticket's primary contact's preferred language determines the language used for email communications.  
+5. Select an **Area of focus** and enter details of the contact's knowledge and authority in the specified area of focus.  
+6. Select **Save** to add the contact.  
+7. Repeat for each area of focus.  
+
+Note: An admin may have multiple focus areas, especially in smaller organizations.  
+
+### Step 3: Device registration
+
+The Windows Autopatch device registration process is transparent for end-users.
+
+1. IT admin reviews [Windows Autopatch device registration prerequisites] prior to register devices with Windows Autopatch.  
+2. IT admin identifies devices to be managed by Windows Autopatch and adds them into the Windows Autopatch Device Registration Microsoft Entra group.  
+3. Windows Autopatch then:  
+   1. Performs device readiness prior registration (prerequisite checks)  
+   2. Calculates the deployment ring distribution  
+   3. Assigns devices to a deployment ring, based on the previous calculation  
+   4. Assigns devices to other Microsoft Entra groups required for management  
+   5. Marks devices as active for management so it can apply its update deployment policies  
+4. IT admin then monitors the device registration trends and the update deployment reports.  
+5. The detailed device registration workflow can be found [here](/en-us/windows/deployment/windows-autopatch/deploy/windows-autopatch-device-registration-overview#detailed-device-registration-workflow-diagram).  
+
+All steps reference Windows Autopatch enrollment flow in Intune.  
+[^1]:Essential Eight patch applications - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-patch-app)`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

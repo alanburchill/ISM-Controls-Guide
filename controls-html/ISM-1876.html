@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1876) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1876)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1876)"
+ism_control: "ISM-1876"
+revision: "0"
+updated: "Sep-23"
+guideline: "Guidelines for system management"
+section: "System patching"
+topic: "Mitigating known vulnerabilities"
+essential_eight:
+  - "ML1"
+  - "ML2"
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1876)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1876 |
+| **Revision** | 0 |
+| **Updated** | Sep-23 |
+| **Guideline** | Guidelines for system management |
+| **Section** | System patching |
+| **Topic** | Mitigating known vulnerabilities |
+| **Essential Eight** | ML1, ML2, ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Patches for operating system vulnerabilities are applied within 48 hours of release when vendors rate the vulnerability as critical or when working exploits exist.[^1] Push these critical OS patches using expedited Windows updates managed through Intune and Windows Autopatch.[^3][^5] Windows Autopatch provides expedited deployment and monitoring capabilities to accelerate patching and ensure timely coverage across devices when paired with Intune.[^5]
+
+[^1]:[Essential Eight patch operating systems - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-patch-os)
+[^3]:[Use Intune to expedite Windows quality updates - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/windows-10-expedite-updates)
+[^5]:[Windows quality updates overview | Microsoft Learn](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/manage/windows-autopatch-windows-quality-update-overview)
+
+## Design Decision
+
+> [!NOTE] Adopt Windows Autopatch with expedited quality updates via Intune to push critical OS patches within 48 hours after release. Use Autopatch deployment rings to segment devices and enable rapid, controlled patching while maintaining governance.
+
+## Prerequisites
+
+* **Licensing:** Intune license and Windows Autopatch license are required. Acceptable Windows Autopatch licenses include Windows Enterprise E3/E5, Windows Education A3/A5, Windows Virtual Desktop Access E3/E5, or Microsoft 365 Business Premium. [^1]
+* **Permissions/Roles:** Global Administrator privileges are required for readiness assessment and enrollment; follow least-privilege guidance. [^2]
+* **Dependencies:** Devices are enrolled in Intune and Entra joined or Entra hybrid joined; devices run a supported Windows version/edition (Windows 10/11 Pro, Enterprise, Education, Pro Education, Pro for Workstations) on a supported architecture; devices have access to required endpoints for managed services; Update Health Tools (KB 4023057) is installed. [^3]
+
+[^1]:Use Intune to expedite Windows quality updates - Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/protect/windows-10-expedite-updates)
+[^2]:Use Intune to expedite Windows quality updates - Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/protect/windows-10-expedite-updates)
+[^3]:Use Intune to expedite Windows quality updates - Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/protect/windows-10-expedite-updates)
+
+## Implementation Steps
+
+### Push critical OS patches within 48 hours using Intune expedited updates with Windows Autopatch
+
+1. Run readiness assessment for Windows Autopatch.
+   - As a Global Administrator, open Intune and navigate to Tenant administration > Windows Autopatch > Tenant enrollment to run the readiness assessment. The readiness assessment checks Intune and Entra ID settings and provides a report with issues to resolve. [^5]
+
+2. Configure admin contacts for Windows Autopatch.
+   - Sign into Intune.
+   - In the Windows Autopatch area, select Admin contacts.
+   - Add a contact for each area of focus with name, email, phone, and language.
+   - For each area of focus, provide the contact’s knowledge and authority.
+   - Save and repeat for additional areas as needed. [^5]
+
+3. Register devices to Windows Autopatch.
+   - Review prerequisites for device registration prior to enrolling devices.
+   - Identify devices to manage and add them to the Windows Autopatch Device Registration group in Entra ID.
+   - Windows Autopatch performs device readiness checks, calculates deployment ring distribution, assigns devices to rings, assigns devices to required groups, and marks devices as active for management. [^5]
+   - Monitor device registration trends and update deployment reports. [^5]
+
+4. Assign deployment rings and prepare the Autopatch rollout.
+   - Windows Autopatch deployment rings exist to manage rollout: Test, First, Fast, Broad (and associated behavior). Assign devices to the appropriate rings to progressively deploy updates. Ring definitions include early testing and broader deployment stages. [^5]
+
+5. Use the Autopatch dashboard to monitor update status.
+   - Sign into Intune.
+   - Go to Reports > Windows Autopatch > Windows Quality Updates to view status and trends for enrolled devices. The All Devices Report shows device name, deployment ring, OS version, and update status. [^5]
+
+6. Expedite Windows quality updates to deliver critical OS patches within 48 hours.
+   - Create a Quality updates for Windows 10 and later profile under Devices > Windows > Quality updates for Windows 10 and later (Preview).
+   - Provide a name for the policy.
+   - Define the quality updates that Windows Update for Business should expedite (update must be less than OS version threshold configured in the policy).
+   - Define the number of days until a restart is enforced.
+   - Assign the profile to a group containing all applicable Windows devices. Note: expedited updates override deferrals for the targeted update version. [^3]
+
+   - Prerequisites and tooling for expedited updates:
+     - Ensure necessary licensing (Windows Autopatch-enabled licenses) and device enrollment requirements are met. [^3]
+     - Update health tooling prerequisites, and verify the Update Health Tools presence on devices before expediting updates. See below for a script example used to verify health tooling. [^3]
+
+   - Script (reference-only; executed via admin tooling as appropriate):
+     \`\`\`powershell
+     ### Check for the Microsoft Update Health Service; if found, no remediation is needed.
+     if (Get-Service -Name "Microsoft Update Health Service" -ErrorAction SilentlyContinue) {
+         Write-Host "Microsoft Update Health Service is present."
+         Exit 0
+     } else {
+         Write-Host "Microsoft Update Health Service is missing."
+         Exit 1
+     }
+     \`\`\`
+     [^3]
+
+7. Validate prerequisites and monitor expedited deployments.
+   - After policy deployment, use the Summary and Expedited Update reports to monitor progress, failures, and remediation actions.
+   - Access reports via Reports > Windows updates > Summary and the Windows Expedited Update Report to drill into profile results. [^3]
+
+8. Continue monitoring and adjust as needed.
+   - Use Autopatch reporting to verify the percentage of devices on the latest quality update, and adjust rings or expiration windows as required to maintain coverage. [^5]`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

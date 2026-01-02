@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within one month of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1902) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within one month of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1902)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within one month of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1902)"
+ism_control: "ISM-1902"
+revision: "0"
+updated: "Dec-23"
+guideline: "Guidelines for system management"
+section: "System patching"
+topic: "Mitigating known vulnerabilities"
+essential_eight:
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within one month of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1902)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1902 |
+| **Revision** | 0 |
+| **Updated** | Dec-23 |
+| **Guideline** | Guidelines for system management |
+| **Section** | System patching |
+| **Topic** | Mitigating known vulnerabilities |
+| **Essential Eight** | ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+ISM-1902 requires patches for workstations, non-internet-facing servers, and non-internet-facing network devices to be applied within one month of release when vulnerabilities are assessed as noncritical by vendors and no working exploits exist.[^1] Implement a monthly patch cadence for these non-critical OS updates via Intune Windows AutoPatch to automate and schedule timely deployments.[^1]
+
+[^1]:https://learn.microsoft.com/en-us/compliance/anz/e8-patch-os
+
+## Design Decision
+
+> [!NOTE] The design maintains a monthly patch cadence for non-critical OS updates. It uses Intune Windows AutoPatch to automate patch deployment for workstations and non-internet-facing devices.
+
+## Prerequisites
+
+* **Licensing:** Windows Autopatch is included with Windows 10/11 Enterprise E3 or higher; Defender Vulnerability Management licensing can be standalone or via Defender for Endpoint Plan 2 or E5. [^1][^2]
+* **Permissions/Roles:** Global Administrator role is required to perform the Windows Autopatch readiness assessment. [^1]
+* **Dependencies:** There are additional prerequisites for using Autopatch including network configurations. Devices must be onboarded to Defender for Endpoint to use Defender Vulnerability Management. To enable remediation workflows, enable the Microsoft Intune connection in the Defender portal. [^1][^2]
+
+[^1]:Essential Eight patch operating systems - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-patch-os)
+[^2]:Essential Eight patch applications - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-patch-app)
+
+## Implementation Steps
+
+### Monthly OS patch cadence via Windows Autopatch in Intune
+
+1. Run readiness assessment
+   - As a Global Administrator, open Intune and navigate to Tenant administration > Windows Autopatch > Tenant enrollment. Run the Readiness assessment and review the results. Resolve any issues before enrollment. [^1]
+
+2. Add admin contacts
+   - In Intune, go to Tenant administration > Windows Autopatch > Admin contacts.
+   - Add a contact for each area of focus (e.g., Devices, Updates, etc.).
+   - Provide name, email, phone number, preferred language, and describe the area of focus. Save each contact. [^1]
+
+3. Register devices
+   - Identify devices to be managed by Windows Autopatch and add them to the Windows Autopatch Device Registration group.
+   - Windows Autopatch performs device readiness checks, calculates the deployment ring distribution, assigns devices to deployment rings, assigns devices to required Microsoft Entra groups, and marks devices as active for management. Monitor progress as devices enroll. [^1]
+
+4. Configure deployment rings
+   - Use the standard deployment rings to manage cadence:
+     - Ring 0 – Test devices: install updates 0 days after release.
+     - Ring 1 – Pilot: install updates after 2 days.
+     - Ring 2 – Fast: install updates after 4 days.
+     - Ring 3 – Broad: install updates after 7 days.
+     - Ring 4 – Critical devices: install updates after 14 days.
+   - This ring configuration supports staged deployment and aligns with Windows Update for Business ring behavior. [^1]
+
+5. Assign devices to deployment rings
+   - Based on the deployment ring distribution computed during device registration, assign devices to their respective rings.
+   - Ensure devices are marked as active so update deployment policies apply. [^1]
+
+6. Monitor and report on progress
+   - Access the Autopatch dashboard and reports:
+     - Sign into Intune.
+     - Navigate to Reports > Windows Autopatch > Windows Quality Updates.
+     - Use the All Devices Report to review device name, deployment ring, update status, OS version, and related details. [^1]
+
+7. Align cadence with ISM guidance
+   - Maintain a monthly patch cadence for non-critical OS updates using Autopatch. Patches for noncritical OS updates should be applied within one month of release when no working exploits exist. [^1]
+
+8. Reference and additional details
+   - For more information about Autopatch enrollment and operation, see the Windows Autopatch overview. [Windows Autopatch](/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview)
+
+[^1]:https://learn.microsoft.com/en-us/compliance/anz/e8-patch-os`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

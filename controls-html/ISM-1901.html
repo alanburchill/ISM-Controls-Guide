@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1901) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1901)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1901)"
+ism_control: "ISM-1901"
+revision: "1"
+updated: "Jun-25"
+guideline: "Guidelines for system management"
+section: "System patching"
+topic: "Mitigating known vulnerabilities"
+essential_eight:
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1901)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1901 |
+| **Revision** | 1 |
+| **Updated** | Jun-25 |
+| **Guideline** | Guidelines for system management |
+| **Section** | System patching |
+| **Topic** | Mitigating known vulnerabilities |
+| **Essential Eight** | ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Patches, updates, or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF software, and security products are applied within two weeks of release when vulnerabilities are noncritical and no working exploits exist[^3]. Configure and enable Windows Autopatch for all workstations via the Intune admin center[^2]. For third-party applications, deploy new versions via Intune Enterprise Application Management; otherwise repackage and redeploy all applications requiring security updates within the defined timeline, and configure Edge to the Stable channel for progressive rollouts[^3][^1].
+
+[^1]:What is Windows Autopatch? | Microsoft Learn(https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview)
+[^2]:Start using Windows Autopatch | Microsoft Learn(https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/prepare/windows-autopatch-start-using-autopatch)
+[^3]:Essential Eight patch applications - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-patch-app)
+
+## Design Decision
+
+> [!NOTE] Enable Windows Autopatch for all workstations via the Intune admin portal to automate patching of Windows OS, Microsoft 365 Apps, Edge, and Teams. Deploy third-party app updates via Intune Enterprise Application Catalogue; if updates are not available there, repackage and redeploy affected applications within the required timeline. Configure Edge to the Stable channel to align with Edge updates.
+
+## Prerequisites
+
+* **Licensing:** Windows Autopatch features are available with Business Premium and A3+ licenses; Windows Autopatch is included with Windows 10/11 Enterprise E3 or higher. [^1]
+
+* **Permissions/Roles:** Use roles with the fewest permissions; minimize the number of users with the Global Administrator role. [^4]
+
+* **Dependencies:** Manage updates with Windows Autopatch via Microsoft Intune or Microsoft Graph (Intune or Graph can be used to manage updates with Windows Autopatch). [^4]
+
+[^1]:What is Windows Autopatch?(https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview)
+[^4]:Start using Windows Autopatch?(https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/prepare/windows-autopatch-start-using-autopatch)
+[^5]:Manage Windows Autopatch groups?(https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/manage/windows-autopatch-manage-autopatch-groups)
+
+## Implementation Steps
+
+### Step 1: Prepare and enable Windows Autopatch in Intune
+
+1. Run the Readiness assessment to confirm Intune and Entra ID readiness for Windows Autopatch.[^4]
+2. Enable Windows Autopatch via the Intune/Windows Autopatch enrollment flow to begin managing updates.[^4]
+
+### Step 2: Define admin contacts for Autopatch
+
+1. In Intune, navigate to Windows Autopatch > Admin contacts.  
+2. Add contacts for each area of focus and save. This ensures proper escalation and communication during deployments.[^4]
+
+### Step 3: Register devices for Windows Autopatch
+
+1. Review device registration prerequisites and add devices to the Windows Autopatch Device Registration group.  
+2. Windows Autopatch assigns devices to deployment rings and Microsoft Entra groups as part of the registration workflow.[^4]
+
+### Step 4: Create an Autopatch group and deployment rings
+
+1. In Intune, go to Windows Autopatch > Autopatch groups > Create.  
+2. In Basics, provide a name and description, then proceed.  
+3. In Deployment rings, add deployment rings and configure distribution using Dynamic groups and Assigned groups.  
+4. For each ring, assign one or more Microsoft Entra groups and configure distribution across rings.  
+5. On Update types, select the content types to manage (Quality updates, Feature updates, Driver updates, Microsoft 365 Apps updates, Edge updates).[^5]  
+6. In Release schedules, choose a preset (e.g., Information worker, Shared device) and adjust deferral/deadline as needed.  
+7. Review and create the Autopatch group.  
+8. Note: Autopatch groups and rings require careful membership planning to avoid conflicts.[^5]
+
+### Step 5: Configure Edge updates to the Stable channel
+
+1. Within the Autopatch group settings, ensure Edge updates are configured to benefit from progressive rollouts on the Stable channel. This aligns Edge update behavior with Autopatch provisioning.[^1]
+
+### Step 6: Deploy third-party applications and patches
+
+1. For third-party applications, deploy new versions via Intune Enterprise Application Management (catalog) to target devices. Use the Enterprise Application Management catalog to manage third-party app updates.[^3]  
+2. If third-party apps require packaging, repackage and redeploy updates using Intune Enterprise Application Management as appropriate. This approach aligns with patch application practices for non-Microsoft apps.[^3]
+
+### Step 7: Monitor, verify, and adjust
+
+1. Monitor update status and device readiness via the Windows Autopatch dashboard and Windows Quality Update reports in Intune. Verify that devices are mapping to the correct deployment rings and receiving updates as intended.[^1]
+
+Notes
+
+- Windows Autopatch is a cloud service that automates updates for Windows, Microsoft 365 Apps, Edge, Teams, and related components when enabled via Intune. The Autopatch deployment rings segment devices into rings (Test, First, Fast, Broad) to control rollout.[^1]
+- Edge updates within Autopatch are configured to the Stable channel by default to align with standard progressive rollouts.[^1]
+
+References
+
+[^1]: What is Windows Autopatch? | Microsoft Learn https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview
+[^3]: Essential Eight patch applications - Essential Eight | Microsoft Learn https://learn.microsoft.com/en-us/compliance/anz/e8-patch-app
+[^4]: Start using Windows Autopatch | Microsoft Learn https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/prepare/windows-autopatch-start-using-autopatch
+[^5]: Manage Windows Autopatch groups | Microsoft Learn https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/manage/windows-autopatch-manage-autopatch-groups`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

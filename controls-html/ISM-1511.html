@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backups of data, applications and settings are performed and retained in accordance with business criticality and business continuity requirements. (ISM-1511) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Backups of data, applications and settings are performed and retained in accordance with business criticality and business continuity requirements. (ISM-1511)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Backups of data, applications and settings are performed and retained in accordance with business criticality and business continuity requirements. (ISM-1511)"
+ism_control: "ISM-1511"
+revision: "4"
+updated: "Dec-23"
+guideline: "Guidelines for system management"
+section: "Data backup and restoration"
+topic: "Performing and retaining backups"
+essential_eight:
+  - "ML1"
+  - "ML2"
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Backups of data, applications and settings are performed and retained in accordance with business criticality and business continuity requirements. (ISM-1511)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1511 |
+| **Revision** | 4 |
+| **Updated** | Dec-23 |
+| **Guideline** | Guidelines for system management |
+| **Section** | Data backup and restoration |
+| **Topic** | Performing and retaining backups |
+| **Essential Eight** | ML1, ML2, ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Backups of data, applications, and settings are performed and retained in accordance with business criticality and business continuity requirements.[^1] Microsoft 365 Backup protects Exchange Online, SharePoint Online, and OneDrive for Business with 1-year retention and fast restore, with backups stored within the Microsoft 365 data boundary and protected by append-only, immutable restore points.[^2] Azure Backup covers on-premises and cloud workloads; the Microsoft Azure Recovery Services (MARS) agent backs up files, folders, and system state and can integrate with on-premises Azure Backup Server (MABS) or System Center Data Protection Manager (DPM).[^1] Follow the Microsoft 365 Backup setup guidance to enable and configure backups in your tenant.[^4]
+
+[^1]:Why Pursue ACSC Essential Eight User Backup Guidelines? - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-backups)
+[^2]:Overview of Microsoft 365 Backup | Microsoft Learn(https://learn.microsoft.com/en-us/microsoft-365/backup/backup-overview?view=o365-worldwide)
+[^4]:Set up Microsoft 365 Backup | Microsoft Learn(https://learn.microsoft.com/en-us/microsoft-365/backup/backup-setup?view=o365-worldwide)
+
+## Design Decision
+
+> [!NOTE] Adopt a multi-target backup design aligned with business criticality. Workstations will have Windows Backup and Restore enabled with the restore page shown, and OneDrive for Business will be automatically enabled with Known Folder Backup. On-Prem Servers and Azure VMs will be protected using the Microsoft Azure Recovery Services agent (with DPM or Azure Backup Server integration as applicable), and Microsoft 365 data will be backed up and restorable via Microsoft 365 Backup for SharePoint, Exchange Online, and OneDrive.
+
+## Prerequisites
+
+* **Licensing:** Not provided in source documentation. [^1]
+* **Permissions/Roles:** 
+  - Must have either a SharePoint Administrator or Global Administrator to access the Microsoft 365 admin center and set up Microsoft 365 Backup. [^1]
+  - Microsoft 365 Backup Administrator role exists for full tool control. [^1]
+* **Dependencies:** 
+  - Valid Azure subscription. [^1]
+  - A resource group in Azure. [^1]
+  - Region for the resources. [^1]
+  - An owner or contributor on the Azure subscription. [^1]
+
+[^1]:[Set up Microsoft 365 Backup](https://learn.microsoft.com/en-us/microsoft-365/backup/backup-setup?view=o365-worldwide)
+
+## Implementation Steps
+
+### Windows Workstations
+
+Not provided in source documentation.
+
+### On-Prem Servers
+
+Not provided in source documentation.
+
+### Azure Servers
+
+Not provided in source documentation.
+
+### Microsoft 365 Backup
+
+1. Turn on Microsoft 365 Backup
+   - In the Microsoft 365 admin center, select Setup.
+   - Under Billing and licenses, select Activate pay-as-you-go services.
+   - On the Activate pay-as-you-go services page, select Get started.
+   - On the Pay-as-you-go services page, on the Billing tab, select Syntex services.
+   - On the Syntex page, in the Storage section, select Backup.
+   - On the Backup panel, select Turn on.
+   - On Turn on Backup panel, review the applicable terms of service for Microsoft 365, and then select Save. [^4]
+
+2. Enable email notifications
+   - Sign in to Microsoft 365 admin center as a Global administrator, Microsoft 365 Backup administrator, SharePoint administrator, or Exchange administrator.
+   - Go to the Manage notifications option on the Backup panel, or the Email notifications option on the Microsoft 365 Backup home page.
+   - Turn on notifications.
+   - Add users, distribution lists, or security groups (only email enabled) to the Backup Notification List.
+   - (Optional) Select the checkbox to also receive routine event notifications.
+   - Save. [^4]
+
+3. Create backup policies to protect your data
+   - Go to the Microsoft 365 admin center.
+   - Select Settings.
+   - Select Microsoft 365 Backup from the list of products.
+   - Create backup policies for OneDrive, SharePoint, or Exchange. [backup-view-edit-policies?view=o365-worldwide][^4]
+
+4. Admin roles and backup management privileges
+   - Refer to the Admin role matrix for which workloads each role can manage:
+     - Global Administrator: OneDrive, SharePoint, Exchange
+     - SharePoint Administrator: OneDrive, SharePoint
+     - Exchange Administrator: Exchange
+     - Microsoft 365 Backup Administrator: OneDrive, SharePoint, Exchange
+   - Ensure appropriate roles are assigned to manage backups. [^4]
+
+[^4]:Set up Microsoft 365 Backup(https://learn.microsoft.com/en-us/microsoft-365/backup/backup-setup?view=o365-worldwide)`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

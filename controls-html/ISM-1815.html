@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event logs are protected from unauthorised modification and deletion. (ISM-1815) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Event logs are protected from unauthorised modification and deletion. (ISM-1815)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Event logs are protected from unauthorised modification and deletion. (ISM-1815)"
+ism_control: "ISM-1815"
+revision: "1"
+updated: "Dec-23"
+guideline: "Guidelines for system monitoring"
+section: "Event logging and monitoring"
+topic: "Centralised event logging facility"
+essential_eight:
+  - "ML2"
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Event logs are protected from unauthorised modification and deletion. (ISM-1815)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1815 |
+| **Revision** | 1 |
+| **Updated** | Dec-23 |
+| **Guideline** | Guidelines for system monitoring |
+| **Section** | Event logging and monitoring |
+| **Topic** | Centralised event logging facility |
+| **Essential Eight** | ML2, ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Event logs must be protected from unauthorized modification and deletion to preserve audit trails and support forensic investigations.[^1]
+
+Implement RBAC in Defender XDR and Sentinel to control access to logs and prevent tampering, leveraging the Unified RBAC model and the ability to create custom roles and scoped permissions.[^2][^3]
+
+[^1]:Microsoft cloud security benchmark v2 - Logging and Threat Detection | Microsoft Learn(https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-v2-logging-threat-detection)
+[^2]:Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC) - Microsoft Defender XDR | Microsoft Learn(https://learn.microsoft.com/en-us/defender-xdr/create-custom-rbac-roles)
+[^3]:Microsoft Defender XDR Unified role-based access control (RBAC) - Microsoft Defender XDR | Microsoft Learn(https://learn.microsoft.com/en-us/defender-xdr/manage-rbac)
+
+## Design Decision
+
+> [!NOTE] Enable and enforce RBAC in Defender XDR and Microsoft Sentinel to limit access to event logs, protecting them from tampering.
+
+## Prerequisites
+
+* **Licensing:** Not provided in source documentation.
+* **Permissions/Roles:** Global Administrator or Security Administrator in Microsoft Entra ID is required to access Permissions and roles in the Defender portal. To create a custom RBAC role, you must have Authorization permissions in Microsoft Defender XDR Unified RBAC. [^3]
+* **Dependencies:** Not provided in source documentation.
+
+[^3]:Microsoft Defender XDR Unified role-based access control (RBAC) - Microsoft Defender XDR | Microsoft Learn(https://learn.microsoft.com/en-us/defender-xdr/manage-rbac)
+
+## Implementation Steps
+
+### RBAC-based protection of event logs in Defender XDR and Sentinel
+
+1. Create custom roles to restrict log access and log-management capabilities.
+   - Sign in to the Defender portal.
+   - In the navigation pane, choose Permissions > Roles > Create custom role.
+   - On the Basics tab, enter the role name and an optional description, then select Next.
+   - On the Choose permissions page, select:
+     - Security operations
+     - Security posture
+     - Authorization and settings
+     - Data Operations (Preview) (if Sentinel data lake integration is required)
+   - For each permission group, adjust the Authorization and settings to scope permissions to the required areas and data sources.
+   - If you select All read-only permissions or All read and manage permissions, note that any new permissions added to these categories are automatically included.
+   - Select Apply, then Next to continue.
+   - On the Assign users and data sources page, select Add assignment.
+     - Assignment name: provide a descriptive name.
+     - Employees: select Microsoft Entra security groups or individual users.
+     - Data sources: choose the services where the assigned permissions should apply. If you granted read-only permissions for a single data source, access to other data sources remains restricted.
+     - Data collections: leave as the default Sentinel data lake workspace or adjust as needed.
+     - Enable Include future data sources automatically if required.
+   - Select Next, review the role details, then Submit. [^1]
+
+2. Create a dedicated role to access and manage roles and permissions (Authorization role).
+   - Sign in to the Defender portal as Global Administrator or Security Administrator.
+   - Permissions > Roles > Create custom role.
+   - Basics: enter role name and description; Next.
+   - Authorization and settings: choose Custom permissions.
+   - Authorization: select either:
+     - Select all permissions, or
+     - Read-only
+   - Select Apply, then Next to continue.
+   - Assign users and data sources:
+     - Add assignments with a descriptive Assignment name.
+     - Data sources: choose all data sources or specific data sources (e.g., Microsoft Defender for Endpoint, Microsoft Sentinel data lake) as needed.
+   - Assigned users and groups: add the appropriate users or groups; Next.
+   - Review and Submit. [^1]
+
+3. Activate the Defender XDR Unified RBAC model.
+   - Activate workloads to use the Unified RBAC model in Defender XDR to enforce the configured roles and assignments.
+   - Refer to the activation guidance for exact steps. [^2]
+
+4. Optional: Configure scoped access for Defender for Identity and Defender for Cloud.
+   - Use Unified RBAC to restrict Defender for Identity access to specific Active Directory domains or OUs.
+   - Configure scoped roles for Defender for Cloud to limit access to subscriptions, resource groups, or individual resources.
+   - See Defender XDR RBAC documentation for scoped-access details. [^1]
+
+5. Activate and verify enforcement.
+   - Ensure the Unified RBAC model is active for the targeted workloads to enforce the new roles.
+   - Verify that only authorized users can view and manage event logs within Defender XDR and Sentinel. [^2]
+
+Notes
+- RBAC in Defender XDR and Sentinel enables granular access control over security data and controls, reducing the risk of tampering with event logs. [^1]
+
+[^1]:Microsoft Defender XDR Unified role-based access control (RBAC) - Create custom roles with Microsoft Defender XDR Unified RBAC - https://learn.microsoft.com/en-us/defender-xdr/create-custom-roles
+[^2]:Microsoft Defender XDR Unified role-based access control (RBAC) - Microsoft Defender XDR Unified RBAC - https://learn.microsoft.com/en-us/defender-xdr/manage-rbac
+[^3]:Microsoft Defender XDR Unified role-based access control (RBAC) - Activate Microsoft Defender XDR Unified RBAC - https://learn.microsoft.com/en-us/defender-xdr/activate-defender-rbac`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

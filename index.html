@@ -418,8 +418,7 @@
       container.innerHTML = '<div class="results-grid">' + controls.map(control => {
         const e8Tags = control.essential_eight ? control.essential_eight.map(e => `<span class="tag e8">${e}</span>`).join('') : '';
         const pspfTags = control.pspf_levels ? control.pspf_levels.map(p => `<span class="tag pspf">${p}</span>`).join('') : '';
-        const filename = control.path.replace('output/answer/', '');
-        const url = 'view.html?file=' + encodeURIComponent(filename);
+        const url = 'controls-html/' + control.ism_control + '.html';
         const title = highlightText(control.title || 'Untitled', search);
         const ismControl = highlightText(control.ism_control || '-', search);
         

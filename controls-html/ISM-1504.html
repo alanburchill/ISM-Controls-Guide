@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-factor authentication is used to authenticate users to their organisation’s online services that process, store or communicate their organisation’s sensitive data. (ISM-1504) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Multi-factor authentication is used to authenticate users to their organisation’s online services that process, store or communicate their organisation’s sensitive data. (ISM-1504)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Multi-factor authentication is used to authenticate users to their organisation’s online services that process, store or communicate their organisation’s sensitive data. (ISM-1504)"
+ism_control: "ISM-1504"
+revision: "3"
+updated: "Dec-23"
+guideline: "Guidelines for system hardening"
+section: "Authentication hardening"
+topic: "Multi-factor authentication"
+essential_eight:
+  - "ML1"
+  - "ML2"
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Multi-factor authentication is used to authenticate users to their organisation’s online services that process, store or communicate their organisation’s sensitive data. (ISM-1504)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1504 |
+| **Revision** | 3 |
+| **Updated** | Dec-23 |
+| **Guideline** | Guidelines for system hardening |
+| **Section** | Authentication hardening |
+| **Topic** | Multi-factor authentication |
+| **Essential Eight** | ML1, ML2, ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Require MFA for all users accessing sensitive online services through Conditional Access. Deploy a policy covering All users and All resources that enforces MFA via the built-in authentication strengths (including phishing-resistant MFA where applicable). Exclude emergency access/break-glass accounts and validate the policy in report-only mode before turning it on. 
+
+[^1]:Require MFA for all users with Conditional Access - Microsoft Entra ID | Microsoft Learn(https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-mfa-strength)
+
+## Design Decision
+
+> [!NOTE] Require MFA for all users accessing sensitive online services via Conditional Access to enforce the policy per ImplementationGuidance.
+
+## Prerequisites
+
+* **Licensing:** Risk-based policies require Microsoft Entra ID P2 licenses. [^3]
+* **Permissions/Roles:** Sign in to the Microsoft Entra admin center as at least a Conditional Access Administrator. [^1]
+* **Dependencies:** Microsoft Entra ID (Azure AD) with Conditional Access capabilities. [^2]
+
+[^1]:Require MFA for all users with Conditional Access - Microsoft Entra ID(https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-mfa-strength)
+[^2]:Plan Your Microsoft Entra Conditional Access Deployment - Microsoft Entra ID | Microsoft Learn(https://learn.microsoft.com/en-us/entra/identity/conditional-access/plan-conditional-access)
+[^3]:Conditional Access protections for Generative AI - Microsoft Entra ID | Microsoft Learn(https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-copilot-ai-security)
+
+## Implementation Steps
+
+### Require MFA for all users via Conditional Access
+
+1. Sign in to the Microsoft Entra admin center as at least a Conditional Access Administrator.  
+2. Navigate to Entra ID > Conditional Access > Policies.  
+3. Select New policy.  
+4. Give your policy a meaningful name.  
+5. Under Assignments, select Users or workload identities.  
+   1. Under Include, select All users.  
+   2. Under Exclude,  
+      - Select Users and groups and choose your organization's emergency access or break-glass accounts.  
+      - If you use hybrid identity solutions like Microsoft Entra Connect or Microsoft Entra Connect Cloud Sync, select Directory roles, then Directory Synchronization Accounts.  
+6. Under Target resources > Resources (formerly cloud apps) > Include, select All resources (formerly 'All cloud apps').  
+7. Under Access controls > Grant, select Grant access.  
+   1. Select Require authentication strength, then select the built-in Multifactor authentication strength from the list.  
+   2. Select Save.  
+8. Confirm your settings and set Enable policy to Report-only.  
+9. Select Create to create to enable your policy.  
+10. After confirming your settings using policy impact or report-only mode, move the Enable policy toggle from Report-only to On.  
+
+[^1]:Require MFA for all users with Conditional Access - Microsoft Entra ID | Microsoft Learn(https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-mfa-strength)`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

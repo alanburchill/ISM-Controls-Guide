@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Office macros in files originating from the internet are blocked. (ISM-1488) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Microsoft Office macros in files originating from the internet are blocked. (ISM-1488)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Microsoft Office macros in files originating from the internet are blocked. (ISM-1488)"
+ism_control: "ISM-1488"
+revision: "1"
+updated: "Sep-21"
+guideline: "Guidelines for system hardening"
+section: "User application hardening"
+topic: "Microsoft Office macros"
+essential_eight:
+  - "ML1"
+  - "ML2"
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Microsoft Office macros in files originating from the internet are blocked. (ISM-1488)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1488 |
+| **Revision** | 1 |
+| **Updated** | Sep-21 |
+| **Guideline** | Guidelines for system hardening |
+| **Section** | User application hardening |
+| **Topic** | Microsoft Office macros |
+| **Essential Eight** | ML1, ML2, ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Microsoft Office macros originating from the internet are blocked.[^1] Enable policy to block macros from internet-originated files in Intune.[^3] This aligns with the Microsoft 365 Apps security baseline and ACSC Office hardening guidance for macro controls.[^3][^2]
+
+[^1]:https://learn.microsoft.com/en-us/microsoft-365-apps/security/internet-macros-blocked
+[^2]:https://learn.microsoft.com/en-us/compliance/anz/e8-macro
+[^3]:https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-v2-office-settings
+
+## Design Decision
+
+> [!NOTE] Enable policy to block macros from running in Office files from the Internet via Intune. This ensures internet-originated macros are blocked by default, satisfying the ImplementationGuidance requirement.
+
+## Prerequisites
+
+* **Licensing:** Not provided in source documentation.
+
+* **Permissions/Roles:** Not provided in source documentation.
+
+* **Dependencies:** Microsoft Intune admin center[^3]; Cloud Policy[^2]; Group Policy Management Console[^1]; Administrative Templates (ADMX/ADML) for Office[^1]; ACSC Office Hardening Guidelines policy JSON[^2].
+
+[^1]:Macros from the internet are blocked by default in Office - Microsoft Learn(https://learn.microsoft.com/en-us/microsoft-365-apps/security/internet-macros-blocked)
+[^2]:Essential Eight configure Microsoft Office macro settings - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-macro)
+[^3]:List of settings for the Microsoft 365 Apps for Enterprise security baseline in Intune - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-v2-office-settings)
+
+## Implementation Steps
+
+### Stage 1 — Prepare policy targeting for Office apps and hardening
+
+1. Create a policy container to target users of Office apps and the Office hardening policies. Name it “All Office Users.”[^2]
+
+2. Create the Microsoft 365 Apps for Windows 10 or later app in Intune.[^2]
+
+3. Include the Microsoft 365 Apps as required by your organization.[^2]
+
+4. Set the architecture to 64-bit (recommended).[^2]
+
+5. Set the Update Channel to Semi-Annual Enterprise Channel (recommended).[^2]
+
+6. Do not assign the application yet. This is Stage 1 preparation.[^2]
+
+### Stage 2 — Import ACSC Office Hardening Guidelines policy
+
+1. Save the ACSC Office Hardening Guidelines policy to your local device. 
+   - Policy file: ACSC Office Hardening Guidelines JSON.[^4]
+
+2. In the Intune console, import a policy under Devices > Windows > Configuration profiles > Create > Import Policy.[^2]
+
+3. Name the policy, browse for the policy file saved in Step 1, and click Save.[^2]
+
+4. Save the ACSC Office Hardening policy into Intune as a configuration profile.[^2]
+
+5. Import the script to prevent activation of OLE packages:
+   - Script: OfficeMacroHardening-PreventActivationofOLE.ps1.[^7]
+
+6. Run the script using the currently logged-on credentials: Yes.[^7]
+
+7. Do not enforce script signature check: No. (i.e., do not require signature).[^7]
+
+8. Do not run the script in a 64-bit PowerShell host: No. (i.e., do not restrict to 64-bit).[^7]
+
+9. Assign the script to All Office Users (the group created in Stage 1).[^7]
+
+### Stage 3 — Create policy set combining Microsoft 365 Apps, ACSC Hardening, and ASR
+
+1. Create a policy set: Devices > Policy sets > Create.[^2]
+
+2. Under Application Management > Apps, select Microsoft 365 Apps (for Windows 10 and later) (the app created in Stage 1).[^2]
+
+3. Under Device Management > Device Configuration Profiles, select ACSC Office Hardening (the policy created in Stage 2).[^2]
+
+4. Under Assignments, select All Office Users (created in Stage 1).[^2]
+
+5. Import the Endpoint Security Attack Surface Reduction policy.[^8]
+
+6. In Graph Explorer, authenticate. Create a POST request to:
+   https://graph.microsoft.com/beta/deviceManagement/templates/0e237410-1367-4844-bd7f-15fb0f08943b/createInstance
+   - Copy the JSON from the Attack Surface Reduction policy and paste it in the request body. This is the ACSC Windows Hardening Guidelines-Attack Surface Reduction policy.json.[^8]
+
+7. Optionally modify the name value in the request if necessary.[^8]
+
+8. Assign the ASR policy instance to All Office Users (created in Stage 1).[^2]
+
+### Controlling macro execution and Trusted Publishers
+
+1. Create a group for exempted users who may run macros signed by a Trusted Publisher:
+   - Name: Allow macro execution - Trusted Publisher. Assign exemptions accordingly.[^2]
+
+2. Save the All Macros Disabled policy to your local device:
+   - Policy: All Macros Disabled.json.[^6]
+
+3. Import the All Macros Disabled policy into Intune:
+   - Devices > Windows > Configuration profiles > Create > Import Policy.[^2]
+
+4. Name the policy, browse to the saved policy file, and click Save. Exclude the Allow macro execution - Trusted Publisher group from this policy.[^2]
+
+5. Assign the Macros Enabled for Trusted Publisher policy to the Allow macro execution - Trusted Publisher group:
+   - Policy: Macros Enabled for Trusted Publishers.json.[^5]
+
+6. Save and assign the Macros Enabled for Trusted Publishers policy to the Allow macro execution - Trusted Publisher group.^[^5]
+
+7. Add one or more Trusted Publishers certificates to the Trusted Publisher store on devices:
+   - Use Intune certificate deployment guidance to add certificates (see trusted-publisher guidance).[^11]
+
+8. Create a separate policy per Trusted Publisher (do not bundle multiple publishers in one policy). Deploy each policy to the Allow macro execution - Trusted Publisher group.[^2]
+
+9. Ensure that macros signed by a Trusted Publisher are allowed to run and that unsigned macros remain blocked by the policy set. (Follow guidance in the ACSC hardening policies referenced above.)[^2]
+
+10. If signing macros, use the V3 signature scheme where possible. This aligns with the Trusted Publisher guidance.[^2]
+
+11. By default, all Office users are blocked from macros unless they are part of the Allow macro execution - Trusted Publisher group. This supports the control requirement to block macros from internet-originated files while permitting trusted publishers.[^2]
+
+### Use of security baseline and policy references
+
+- Consider enabling the security baseline setting that blocks macros from running in Office files from the Internet for the user scope. This baseline setting is documented in the Intune Office baseline reference. Baseline default for this setting is Enabled.[^3]
+
+- The referenced Intune baseline also lists related macro-related settings (e.g., Trust Center and VBA macro notification settings) that can be aligned with organizational risk appetite. Refer to the baseline article for full details.[^3]
+
+Links to referenced artifacts
+
+- ACSC Office Hardening Guidelines JSON: ACSC Office Hardening Guidelines.json[^4]
+- Office Macro Hardening Prevent Activation of OLE script: OfficeMacroHardening-PreventActivationofOLE.ps1[^7]
+- All Macros Disabled policy: All Macros Disabled.json[^6]
+- Macros Enabled for Trusted Publishers policy: Macros Enabled for Trusted Publishers.json[^5]
+- Attack Surface Reduction (ASR) policy JSON: ACSC Windows Hardening Guidelines-Attack Surface Reduction.json[^8]
+- ASR policy creation via Graph API: Graph API createInstance endpoint[^9]
+- Trusted Publishers guidance (Intune): Adding a certificate to Trusted Publishers using Intune[^11]
+
+Footnotes
+
+[^2]: Essential Eight configure Microsoft Office macro settings - https://learn.microsoft.com/en-us/compliance/anz/e8-macro
+[^3]: List of settings for the Microsoft 365 Apps for Enterprise security baseline in Intune - https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-v2-office-settings
+[^4]: ACSC Office Hardening Guidelines JSON - https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/office/policies/ACSC%20Office%20Hardening%20Guidelines.json
+[^5]: Macros Enabled for Trusted Publishers JSON - https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/office/policies/Macros%20Enabled%20for%20Trusted%20Publishers.json
+[^6]: All Macros Disabled JSON - https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/office/policies/All%20Macros%20Disabled.json
+[^7]: OfficeMacroHardening-PreventActivationofOLE.ps1 - https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/office/scripts/OfficeMacroHardening-PreventActivationofOLE.ps1
+[^8]: Attack Surface Reduction JSON - https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/policies/ACSC%20Windows%20Hardening%20Guidelines-Attack%20Surface%20Reduction.json
+[^9]: ASR policy Graph API endpoint - https://graph.microsoft.com/beta/deviceManagement/templates/0e237410-1367-4844-bd7f-15fb0f08943b/createInstance
+[^10]: Unblock-File reference - https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/unblock-file
+[^11]: Intune Trusted Publishers certificate deployment guidance - https://techcommunity.microsoft.com/t5/intune-customer-success/adding-a-certificate-to-trusted-publishers-using-microsoft/ba-p/1974488`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

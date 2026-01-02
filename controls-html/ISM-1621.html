@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows PowerShell 2.0 is disabled or removed. (ISM-1621) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Windows PowerShell 2.0 is disabled or removed. (ISM-1621)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Windows PowerShell 2.0 is disabled or removed. (ISM-1621)"
+ism_control: "ISM-1621"
+revision: "1"
+updated: "Sep-21"
+guideline: "Guidelines for system hardening"
+section: "Operating system hardening"
+topic: "PowerShell"
+essential_eight:
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Windows PowerShell 2.0 is disabled or removed. (ISM-1621)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1621 |
+| **Revision** | 1 |
+| **Updated** | Sep-21 |
+| **Guideline** | Guidelines for system hardening |
+| **Section** | Operating system hardening |
+| **Topic** | PowerShell |
+| **Essential Eight** | ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Windows PowerShell 2.0 is disabled or removed by deploying the UserApplicationHardening-RemoveFeatures.ps1 script.[^1] Deploy this script via Intune Remediations, which packages a detection script and a remediation script; the remediation runs only when the detection script reports the issue by exiting with code 1, and the scripts must be encoded in UTF-8.[^2] Configure Remediations with the following settings: Run this script using the logged-on credentials = No; Enforce script signature check = No; Run script in 64-bit PowerShell = No, and assign the remediation package to device groups or run on-demand as needed.[^2]
+
+[^1]:Essential Eight user application hardening - Essential Eight(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^2]:Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
+
+## Design Decision
+
+> [!NOTE] The design uses the provided UserApplicationHardening-RemoveFeatures.ps1 script, deployed via Intune Remediation Scripts, to disable or remove Internet Explorer 11, .NET Framework 3.5 (including 2.0 and 3.0), and Windows PowerShell 2.0, per ImplementationGuidance. Create a script package in Intune Remediations containing a detection script (exit code 1 when the issue is detected) and the remediation script; configure Run this script using the logged on credentials: No, Enforce script signature check: No, Run script in 64-bit PowerShell Host: No, and assign the package to the deployment group.
+
+## Prerequisites
+
+* **Licensing:** Windows Enterprise E3 or E5 (included in Microsoft 365 F3, E3, or E5); Windows Education A3 or A5 (included in Microsoft 365 A3 or A5); Windows Virtual Desktop Access (VDA) per user. [^2]
+
+* **Permissions/Roles:** Intune administrator or a role with Run remediation permission (Remote tasks) to deploy Remediations; Run remediation on-demand requires this permission. [^2]
+
+* **Dependencies:** 
+  - UserApplicationHardening-RemoveFeatures.ps1 script to disable Windows PowerShell 2.0 and other features. [^1]
+  - Remediations in Intune deploy script packages consisting of detection and remediation scripts; built-in script packages can be used for common items. [^2]
+
+[^1]:Essential Eight user application hardening - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^2]:Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
+
+## Implementation Steps
+
+### Deploy UserApplicationHardening-RemoveFeatures.ps1 via Intune Remediations
+
+Not provided in source documentation.`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

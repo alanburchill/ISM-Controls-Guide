@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities. (ISM-1808) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities. (ISM-1808)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities. (ISM-1808)"
+ism_control: "ISM-1808"
+revision: "0"
+updated: "Dec-22"
+guideline: "Guidelines for system management"
+section: "System patching"
+topic: "Scanning for unmitigated vulnerabilities"
+essential_eight:
+  - "ML1"
+  - "ML2"
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities. (ISM-1808)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1808 |
+| **Revision** | 0 |
+| **Updated** | Dec-22 |
+| **Guideline** | Guidelines for system management |
+| **Section** | System patching |
+| **Topic** | Scanning for unmitigated vulnerabilities |
+| **Essential Eight** | ML1, ML2, ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Onboard devices to Microsoft Defender for Endpoint to enable Defender Vulnerability Management (DVM) and continuous risk monitoring.[^1] In the Microsoft Defender portal, navigate to Exposure management > Vulnerability management > Vulnerabilities to view CVEs, weaknesses, and device exposure.[^2] Use the remediation workflow to create remediation tasks in Intune and apply fixes per security recommendations.[^1]
+
+[^1]:Microsoft Defender Vulnerability Management - Microsoft Learn(https://learn.microsoft.com/en-us/defender-vulnerability-management/defender-vulnerability-management)
+[^2]:Vulnerabilities in my organization - Microsoft Defender Vulnerability Management | Microsoft Learn(https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-weaknesses)
+
+## Design Decision
+
+> [!NOTE] Onboard devices to Microsoft Defender for Endpoint, then use the "Microsoft Defender" security portal report under "Exposure management" > "Vulnerabilities" to identify, prioritize, and remediate vulnerabilities across devices.
+
+## Prerequisites
+
+* **Licensing:** Microsoft Defender Vulnerability Management (DVM) standalone offering, or Microsoft Defender for Endpoint Plan 2 or E5 license; full capabilities of DVM are available as an add-on. [^1]
+* **Permissions/Roles:** Must be in the Security Reader AD built-in role to access the Defender portal. [^1]
+* **Dependencies:**
+  - Onboard devices to Defender for Endpoint; if not onboarded, Defender for Endpoint must be running in block mode (passive). [^1]
+  - The Defender portal is accessible via Microsoft Edge (recommended) or Google Chrome; ensure browser compatibility. [^1]
+
+[^1]:Essential Eight patch applications - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-patch-app)
+
+## Implementation Steps
+
+### Onboard devices to Defender for Endpoint
+
+1. Determine onboarding status for each device:
+   - If a device is already onboarded to Defender for Endpoint, Defender Vulnerability Management (DVM) features are enabled and available in the Microsoft Defender portal. 
+   - If a device is not onboarded, DVM requires Defender for Endpoint to be running in block mode (passive).  
+   [^1]
+
+2. Onboard devices to Defender for Endpoint:
+   - Use supported onboarding methods such as Group Policy, Microsoft Endpoint Manager (Intune), or local scripts. 
+   - Refer to guidance for onboarding: Onboard devices and configure Microsoft Defender for Endpoint capabilities.  
+   [^1]
+
+3. After onboarding, ensure Defender Vulnerability Management features are enabled in the Defender portal.  
+   [^1]
+
+4. Access the Defender portal:
+   - Open the Microsoft Defender portal (Edge or Chrome recommended).
+   - At minimum, be granted the Security Reader role to view exposure and vulnerability data.  
+   [^3]
+
+### Access vulnerability data in Defender portal
+
+5. In the Defender portal, navigate to Exposure management > Vulnerability management > Vulnerabilities to view vulnerability data.  
+   [^5]
+
+6. Use the Vulnerability Management view to examine vulnerabilities, including CVEs, threats, and exposed devices. Open a specific vulnerability to see detailed information and associated devices.  
+   [^5]
+
+### Remediation workflow (optional)
+
+7. If remediation is required, enable the Microsoft Intune connection in Defender portal:
+   - In the Defender portal, go to Settings > Endpoints > General > Advanced features.
+   - Turn on Microsoft Intune connection.  
+   [^3]
+
+8. In Vulnerability management, select a security recommendation and choose Remediation options. Complete the form with:
+   - What you are requesting remediation for, applicable device groups, priority, due date, and optional notes.  
+   - Submitting creates a remediation activity in Vulnerability Management and a remediation task in Intune.  
+   [^3]
+
+9. The Intune admin reviews the security task, accepts it, and remediates per the guidance provided. Remediation guidance may include links to relevant Intune configurations.  
+   [^3]
+
+[^1]:[Essential Eight patch applications - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-patch-app)
+[^3]:[Microsoft Defender Vulnerability Management - Microsoft Learn](https://learn.microsoft.com/en-us/defender-vulnerability-management/defender-vulnerability-management)
+[^5]:[Microsoft Defender Vulnerability Management overview page - Microsoft Defender Vulnerability Management | Microsoft Learn](https://learn.microsoft.com/en-us/defender-vulnerability-management/tvm-dashboard-insights)`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A vulnerability scanner is used at least daily to identify missing patches or updates for vulnerabilities in online services. (ISM-1698) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">A vulnerability scanner is used at least daily to identify missing patches or updates for vulnerabilities in online services. (ISM-1698)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "A vulnerability scanner is used at least daily to identify missing patches or updates for vulnerabilities in online services. (ISM-1698)"
+ism_control: "ISM-1698"
+revision: "1"
+updated: "Sep-23"
+guideline: "Guidelines for system management"
+section: "System patching"
+topic: "Scanning for unmitigated vulnerabilities"
+essential_eight:
+  - "ML1"
+  - "ML2"
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# A vulnerability scanner is used at least daily to identify missing patches or updates for vulnerabilities in online services. (ISM-1698)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1698 |
+| **Revision** | 1 |
+| **Updated** | Sep-23 |
+| **Guideline** | Guidelines for system management |
+| **Section** | System patching |
+| **Topic** | Scanning for unmitigated vulnerabilities |
+| **Essential Eight** | ML1, ML2, ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Daily vulnerability scanning identifies missing patches or vulnerabilities for online services[^2]. Monitor the Microsoft 365 Admin Portal Service Health to watch for announcements of service vulnerabilities and advisories[^1].
+
+[^1]:How to check Microsoft 365 service health - Microsoft 365 Enterprise | Microsoft Learn(https://learn.microsoft.com/en-us/microsoft-365/enterprise/view-service-health?view=o365-worldwide)
+[^2]:Microsoft 365 vulnerability scanning and remediation - Microsoft Service Assurance | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/assurance/assurance-microsoft-365-vulnerability-scanning-and-remediation)
+
+## Design Decision
+
+> [!NOTE] Monitor the Microsoft 365 Admin Portal Service Health page to detect and track service vulnerability announcements affecting the tenant.
+
+## Prerequisites
+
+* **Licensing:** Not provided in source documentation.
+* **Permissions/Roles:** Service health view requires admin roles such as Service Support admin or Helpdesk admin. For Lighthouse, at least one Microsoft Entra role with property set microsoft.office365.serviceHealth/allEntities/allTasks. [^1][^3]
+* **Dependencies:** Access to the Microsoft 365 admin center with an admin account to sign in. [^1]
+
+[^1]:[How to check Microsoft 365 service health - Microsoft 365 Enterprise | Microsoft Learn](https://learn.microsoft.com/en-us/microsoft-365/enterprise/view-service-health?view=o365-worldwide)
+[^3]:[View tenant service health in Microsoft 365 Lighthouse - Microsoft 365 Lighthouse | Microsoft Learn](https://learn.microsoft.com/en-us/microsoft-365/lighthouse/m365-lighthouse-view-service-health?view=o365-worldwide)
+
+## Implementation Steps
+
+### Monitor Microsoft 365 Service Health for vulnerability announcements
+
+1. Sign in to the Microsoft 365 admin center at [https://admin.microsoft.com](https://admin.microsoft.com) and authenticate with an admin account. [^1]
+
+2. To view service health, in the left-hand navigation, go to **Health** > **Service health**, or select the **Service health** card on the **Home** dashboard. The dashboard card indicates whether there's an active service issue and links to the detailed **Service health** page. [^1]
+
+3. On the **Service health** page, the health state of each cloud service is shown in a table format. The **Overview** tab shows all services, their current health state, and any active incidents or advisories; the **Issue history** tab shows past incidents. [^1]
+
+4. If you're experiencing an issue and you don't see it listed, select **Report an issue**, and complete the short form. We'll review related data and reports from other organizations to determine if the issue is widespread or originates from the service; if so, it will be added as a new incident or advisory on the **Service health** page. The **Reported issues** tab shows issues your tenant has reported and their status. [^1]
+
+5. To customize your view of which services show up on the dashboard, select **Customize > Custom view**, and clear the checkboxes for the services you want to filter out of your Service health dashboard view. Make sure that the checkbox is selected for each service that you want to monitor. [^1]
+
+6. To sign up for email notifications of new incidents that affect your tenant and status changes for an active incident, select **Customize > Email**, select **Send me email notifications about service health**, and then specify:
+   - Up to two email addresses
+   - Whether you want notifications for incidents or advisories
+   - The services for which you want notification
+   Note: Each admin can have their Preferences set and the above limit of two email addresses is per admin account. [^1]
+
+7. View details of posted service health issue:
+   - In the **Active issues Microsoft is working on** section, select the issue title to see the issue detail page.
+   - The advisory or incident summary provides information such as Title, ID, Last updated, Estimated start time, Affected services, Issue type, Status, User Impact, and All Updates. [^1]
+
+[^1]:How to check Microsoft 365 service health - Microsoft 365 Enterprise | Microsoft Learn(https://learn.microsoft.com/en-us/microsoft-365/enterprise/view-service-health?view=o365-worldwide)`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>

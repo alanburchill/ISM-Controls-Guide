@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Security Authority protection functionality is enabled. (ISM-1861) - ISM Controls Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      text-align: left;
+    }
+    .header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .back-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .header-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #333;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #444;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+    p { line-height: 1.7; margin-bottom: 15px; color: #444; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    ul, ol { margin: 15px 0; padding-left: 25px; }
+    li { margin-bottom: 8px; line-height: 1.6; }
+    a { color: #667eea; text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    code {
+      background: #f1f3f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    pre code { background: none; padding: 0; color: inherit; }
+    blockquote {
+      border-left: 4px solid #667eea;
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p { margin: 0; }
+    hr { border: none; border-top: 2px solid #e0e0e0; margin: 30px 0; }
+    @media (max-width: 768px) {
+      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .content-card { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a href="../" class="back-btn">← Back to Controls</a>
+    <span class="header-title">Local Security Authority protection functionality is enabled. (ISM-1861)</span>
+  </div>
+  <div class="container">
+    <div class="content-card" id="content">
+    </div>
+  </div>
+  <script>
+    const markdown = `---
+title: "Local Security Authority protection functionality is enabled. (ISM-1861)"
+ism_control: "ISM-1861"
+revision: "2"
+updated: "Dec-23"
+guideline: "Guidelines for system hardening"
+section: "Authentication hardening"
+topic: "Protecting credentials"
+essential_eight:
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2025-12-25"
+---
+# Local Security Authority protection functionality is enabled. (ISM-1861)
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1861 |
+| **Revision** | 2 |
+| **Updated** | Dec-23 |
+| **Guideline** | Guidelines for system hardening |
+| **Section** | Authentication hardening |
+| **Topic** | Protecting credentials |
+| **Essential Eight** | ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Local Security Authority (LSA) protection isolates the LSASS process to guard credentials from untrusted code.[^1] Enable added LSA protection via Intune by creating a custom device configuration profile and configuring the OMA-URI setting ConfigureLsaProtectedProcess to 1 (with UEFI lock) or 2 (without UEFI lock), followed by a reboot.[^1] Intune security baselines provide default Windows security configurations that facilitate deploying LSA protection at scale.[^2]
+
+[^1]:Configure added LSA protection | Microsoft Learn(https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/configuring-additional-lsa-protection)
+[^2]:Default configuration of Intune's Windows security baselines - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all)
+
+## Design Decision
+
+> [!NOTE] Enable added LSA protection on devices by deploying an Intune custom configuration that sets the Local Security Authority to run LSASS as a protected process (ConfigureLsaProtectedProcess), or apply a security baseline that enforces LSA protection.
+
+## Prerequisites
+
+* **Licensing:** Not provided in source documentation.
+* **Permissions/Roles:** Not provided in source documentation.
+* **Dependencies:**
+  - Windows 11 version 22H2 or later. [^1]
+  - Enterprise joined (Active Directory domain joined, Microsoft Entra domain joined, or hybrid Microsoft Entra domain joined). [^1]
+  - Device capable of Hypervisor-protected Code Integrity (HVCI). [^1]
+  - Secure Boot and UEFI support if configuring via firmware variable (UEFI variable); otherwise, registry-based configuration is supported. [^1]
+  - Access to management tooling to deploy LSA protection (Intune admin center or Group Policy Management Console). [^1]
+
+[^1]:Configure added LSA protection | Microsoft Learn(https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/configuring-additional-lsa-protection)
+
+## Implementation Steps
+
+### Enable LSA protection by using the registry (single computer)
+
+1. Open the Registry Editor (RegEdit.exe).
+2. Navigate to the following key:
+   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa
+3. Open the RunAsPPL value and set its data as:
+   - To configure the feature with a UEFI variable: 00000001 (DWORD).
+   - To configure the feature without a UEFI variable: 00000002 (DWORD; enforced on Windows 11 version 22H2 and later).
+4. Restart the computer. [^1]
+
+### Enable LSA protection by using Group Policy
+
+1. Open the Group Policy Management Console by entering gpmc.msc in the Run dialog.
+2. Create a new Group Policy Object (GPO) linked at the domain level or to the OU with the computer accounts, or select an existing one.
+3. Right-click the GPO and select Edit to open the Group Policy Management Editor.
+4. Expand Computer Configuration > Preferences > Windows Settings.
+5. Right-click Registry, point to New, and select Registry Item.
+6. In New Registry Properties, configure:
+   - Hive: HKEY_LOCAL_MACHINE
+   - Key Path: SYSTEM\CurrentControlSet\Control\Lsa
+   - Value name: RunAsPPL
+   - Value type: REG_DWORD
+   - Value data: 00000001 (enable with a UEFI variable) or 00000002 (enable without a UEFI variable; enforceable on Windows 11 22H2+)
+7. Select OK. [^1]
+8. Note: To take effect, the GPO change must replicate to all domain controllers in the domain. [^1]
+
+### Enable LSA protection by creating a custom device configuration profile (Intune)
+
+1. In the Intune admin center, go to Devices > Windows > Configuration profiles, and select Create profile.
+2. On Create profile, set:
+   - Platform: Windows 10 and later
+   - Profile type: Templates > Custom
+   - Click Create
+3. On Basics, enter a name and optional description, then select Next.
+4. On Configuration settings, select Add.
+5. On Add row, configure:
+   - Name: (OMA-URI setting name)
+   - OMA-URI: ./Device/Vendor/MSFT/Policy/Config/LocalSecurityAuthority/ConfigureLsaProtectedProcess
+   - Data type: Integer
+   - Value: 1 (LSA protected with UEFI lock) or 2 (LSA protected without UEFI lock)
+6. Select Save, then Next.
+7. On Assignments, configure assignments, then select Next.
+8. On Applicability Rules, configure rules, then select Next.
+9. On Review + create, verify configuration, then select Create.
+10. Restart the computer. For more information about this CSP, see LocalSecurityAuthority - ConfigureLsaProtectedProcess. This approach aligns with Intune security baselines. [^1][^2]
+
+Not provided in source documentation.`;
+    const contentWithoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/m, '');
+    document.getElementById('content').innerHTML = marked.parse(contentWithoutFrontmatter);
+  </script>
+</body>
+</html>
