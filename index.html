@@ -250,6 +250,109 @@
       font-size: 1.2rem;
     }
 
+    /* View toggle buttons */
+    .view-toggle {
+      display: flex;
+      gap: 8px;
+    }
+
+    .view-btn {
+      background: white;
+      border: 2px solid #e0e0e0;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+    }
+
+    .view-btn:hover {
+      border-color: #667eea;
+      color: #667eea;
+    }
+
+    .view-btn.active {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border-color: transparent;
+    }
+
+    /* Table view styles */
+    .results-table {
+      width: 100%;
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .results-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .results-table th {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      padding: 16px 15px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .results-table td {
+      padding: 14px 15px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: middle;
+    }
+
+    .results-table tr:hover td {
+      background: #f8f9ff;
+    }
+
+    .results-table .ism-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .results-table .ism-link:hover {
+      text-decoration: underline;
+    }
+
+    .results-table .title-cell {
+      max-width: 400px;
+    }
+
+    .results-table .title-cell a {
+      color: #1a1a2e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .results-table .title-cell a:hover {
+      color: #667eea;
+    }
+
+    .results-table .tags-cell {
+      min-width: 180px;
+    }
+
+    .results-table .tags-cell .tags {
+      gap: 4px;
+    }
+
+    .results-table .tags-cell .tag {
+      padding: 3px 8px;
+      font-size: 0.7rem;
+    }
+
     @media (max-width: 768px) {
       .header {
         padding: 15px 20px;
@@ -262,6 +365,16 @@
       }
       .filters {
         grid-template-columns: 1fr 1fr;
+      }
+      .results-header {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .results-table {
+        overflow-x: auto;
+      }
+      .results-table table {
+        min-width: 800px;
       }
     }
   </style>
@@ -315,6 +428,14 @@
 
     <div class="results-header">
       <span class="results-count" id="results-count">Loading...</span>
+      <div class="view-toggle">
+        <button class="view-btn active" id="btn-cards" onclick="setView('cards')">
+          <span>▦</span> Cards
+        </button>
+        <button class="view-btn" id="btn-table" onclick="setView('table')">
+          <span>☰</span> Table
+        </button>
+      </div>
       <button class="clear-btn" onclick="clearFilters()">Clear All Filters</button>
     </div>
 
@@ -326,6 +447,9 @@
   <script>
     let allControls = [];
     let searchTimeout = null;
+    let currentView = 'cards';
+    let lastFilteredControls = [];
+    let lastSearch = '';
 
     // Load the search index
     fetch('assets/search_index.json')
@@ -407,6 +531,8 @@
     }
 
     function renderResults(controls, search = '') {
+      lastFilteredControls = controls;
+      lastSearch = search;
       const container = document.getElementById('results-container');
       document.getElementById('results-count').textContent = `${controls.length} control${controls.length !== 1 ? 's' : ''} found`;
       
@@ -415,6 +541,15 @@
         return;
       }
       
+      if (currentView === 'cards') {
+        renderCardsView(controls, search);
+      } else {
+        renderTableView(controls, search);
+      }
+    }
+
+    function renderCardsView(controls, search) {
+      const container = document.getElementById('results-container');
       container.innerHTML = '<div class="results-grid">' + controls.map(control => {
         const e8Tags = control.essential_eight ? control.essential_eight.map(e => `<span class="tag e8">${e}</span>`).join('') : '';
         const pspfTags = control.pspf_levels ? control.pspf_levels.map(p => `<span class="tag pspf">${p}</span>`).join('') : '';
@@ -429,6 +564,47 @@
           <div class="tags">${e8Tags}${pspfTags}</div>
         </a>`;
       }).join('') + '</div>';
+    }
+
+    function renderTableView(controls, search) {
+      const container = document.getElementById('results-container');
+      const rows = controls.map(control => {
+        const e8Tags = control.essential_eight ? control.essential_eight.map(e => `<span class="tag e8">${e}</span>`).join('') : '';
+        const pspfTags = control.pspf_levels ? control.pspf_levels.map(p => `<span class="tag pspf">${p}</span>`).join('') : '';
+        const url = 'controls-html/' + control.ism_control + '.html';
+        const title = highlightText(control.title || 'Untitled', search);
+        const ismControl = highlightText(control.ism_control || '-', search);
+        
+        return `<tr>
+          <td><a href="${url}" class="ism-link">${ismControl}</a></td>
+          <td class="title-cell"><a href="${url}">${title}</a></td>
+          <td>${control.section || '-'}</td>
+          <td>${control.topic || '-'}</td>
+          <td class="tags-cell"><div class="tags">${e8Tags}${pspfTags}</div></td>
+        </tr>`;
+      }).join('');
+      
+      container.innerHTML = `<div class="results-table">
+        <table>
+          <thead>
+            <tr>
+              <th>ISM ID</th>
+              <th>Title</th>
+              <th>Section</th>
+              <th>Topic</th>
+              <th>Tags</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+    }
+
+    function setView(view) {
+      currentView = view;
+      document.getElementById('btn-cards').classList.toggle('active', view === 'cards');
+      document.getElementById('btn-table').classList.toggle('active', view === 'table');
+      renderResults(lastFilteredControls, lastSearch);
     }
 
     function clearFilters() {
