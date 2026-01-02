@@ -313,6 +313,32 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       border-bottom: 1px solid #30363d;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s ease;
+    }
+
+    .results-table th:hover {
+      background: #30363d;
+    }
+
+    .results-table th.sortable::after {
+      content: '⇅';
+      margin-left: 6px;
+      opacity: 0.4;
+      font-size: 0.8em;
+    }
+
+    .results-table th.sort-asc::after {
+      content: '↑';
+      opacity: 1;
+      color: #58a6ff;
+    }
+
+    .results-table th.sort-desc::after {
+      content: '↓';
+      opacity: 1;
+      color: #58a6ff;
     }
 
     .results-table td {
@@ -469,6 +495,8 @@
     let currentView = 'table';
     let lastFilteredControls = [];
     let lastSearch = '';
+    let sortColumn = null;
+    let sortDirection = 'asc';
 
     // Load the search index
     fetch('assets/search_index.json')
@@ -587,7 +615,38 @@
 
     function renderTableView(controls, search) {
       const container = document.getElementById('results-container');
-      const rows = controls.map(control => {
+      
+      // Sort controls if a sort column is set
+      let sortedControls = [...controls];
+      if (sortColumn) {
+        sortedControls.sort((a, b) => {
+          let valA, valB;
+          switch(sortColumn) {
+            case 'ism_control':
+              valA = a.ism_control || '';
+              valB = b.ism_control || '';
+              break;
+            case 'title':
+              valA = (a.title || '').replace(/\s*\(ISM-\d+\)$/, '');
+              valB = (b.title || '').replace(/\s*\(ISM-\d+\)$/, '');
+              break;
+            case 'section':
+              valA = a.section || '';
+              valB = b.section || '';
+              break;
+            case 'topic':
+              valA = a.topic || '';
+              valB = b.topic || '';
+              break;
+            default:
+              return 0;
+          }
+          const comparison = valA.localeCompare(valB, undefined, {numeric: true});
+          return sortDirection === 'asc' ? comparison : -comparison;
+        });
+      }
+      
+      const rows = sortedControls.map(control => {
         const e8Tags = control.essential_eight ? control.essential_eight.map(e => `<span class="tag e8">${e}</span>`).join('') : '';
         const url = 'controls-html/' + control.ism_control + '.html';
         const rawTitle = (control.title || 'Untitled').replace(/\s*\(ISM-\d+\)$/, '');
@@ -603,20 +662,35 @@
         </tr>`;
       }).join('');
       
+      const getSortClass = (col) => {
+        if (sortColumn !== col) return 'sortable';
+        return sortDirection === 'asc' ? 'sortable sort-asc' : 'sortable sort-desc';
+      };
+      
       container.innerHTML = `<div class="results-table">
         <table>
           <thead>
             <tr>
-              <th>ISM ID</th>
-              <th>Title</th>
-              <th>Section</th>
-              <th>Topic</th>
+              <th class="${getSortClass('ism_control')}" onclick="sortTable('ism_control')">ISM ID</th>
+              <th class="${getSortClass('title')}" onclick="sortTable('title')">Title</th>
+              <th class="${getSortClass('section')}" onclick="sortTable('section')">Section</th>
+              <th class="${getSortClass('topic')}" onclick="sortTable('topic')">Topic</th>
               <th>Tags</th>
             </tr>
           </thead>
           <tbody>${rows}</tbody>
         </table>
       </div>`;
+    }
+
+    function sortTable(column) {
+      if (sortColumn === column) {
+        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortColumn = column;
+        sortDirection = 'asc';
+      }
+      renderResults(lastFilteredControls, lastSearch);
     }
 
     function setView(view) {
