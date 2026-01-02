@@ -580,9 +580,9 @@
       const container = document.getElementById('results-container');
       const rows = controls.map(control => {
         const e8Tags = control.essential_eight ? control.essential_eight.map(e => `<span class="tag e8">${e}</span>`).join('') : '';
-        const pspfTags = control.pspf_levels ? control.pspf_levels.map(p => `<span class="tag pspf">${p}</span>`).join('') : '';
         const url = 'controls-html/' + control.ism_control + '.html';
-        const title = highlightText(control.title || 'Untitled', search);
+        const rawTitle = (control.title || 'Untitled').replace(/\s*\(ISM-\d+\)$/, '');
+        const title = highlightText(rawTitle, search);
         const ismControl = highlightText(control.ism_control || '-', search);
         
         return `<tr>
@@ -590,7 +590,7 @@
           <td class="title-cell"><a href="${url}">${title}</a></td>
           <td>${control.section || '-'}</td>
           <td>${control.topic || '-'}</td>
-          <td class="tags-cell"><div class="tags">${e8Tags}${pspfTags}</div></td>
+          <td class="tags-cell"><div class="tags">${e8Tags}</div></td>
         </tr>`;
       }).join('');
       
