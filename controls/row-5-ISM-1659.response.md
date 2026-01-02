@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-1659.html
 title: "Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)"
 ism_control: "ISM-1659"
 revision: "1"

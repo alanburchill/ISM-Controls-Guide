@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-1668.html
 title: "Microsoft Office is blocked from creating executable content. (ISM-1668)"
 ism_control: "ISM-1668"
 revision: "0"

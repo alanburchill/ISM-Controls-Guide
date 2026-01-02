@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-1655.html
 title: ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)"
 ism_control: "ISM-1655"
 revision: "0"

@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-1654.html
 title: "Internet Explorer 11 is disabled or removed. (ISM-1654)"
 ism_control: "ISM-1654"
 revision: "0"

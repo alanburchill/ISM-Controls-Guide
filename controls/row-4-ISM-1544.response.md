@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-1544.html
 title: "Microsoft’s recommended application blocklist is implemented. (ISM-1544)"
 ism_control: "ISM-1544"
 revision: "3"

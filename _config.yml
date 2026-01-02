@@ -6,9 +6,6 @@ description: "Implementation guidance for Australian Information Security Manual
 baseurl: "/ISM-Controls-Guide"
 url: "https://alanburchill.github.io"
 
-# Theme - using minima (built into GitHub Pages, no Gemfile needed)
-theme: minima
-
 # Site settings
 github:
   repository_url: "https://github.com/alanburchill/ISM-Controls-Guide"
@@ -16,16 +13,27 @@ github:
 # Defaults for markdown files
 defaults:
   - scope:
-      path: "controls"
-      type: "pages"
+      path: ""
     values:
       layout: "default"
+  - scope:
+      path: "controls"
+    values:
+      layout: "control"
 
 # Build settings
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
+  footnote_backlink: "&#8617;"
+
+# Exclude files from build
+exclude:
+  - controls-html
+  - scripts
+  - "*.code-workspace"
+  - README.md
 
 # Include these folders
 include:
