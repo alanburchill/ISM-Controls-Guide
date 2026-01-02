@@ -17,7 +17,6 @@
       background: #161b22;
       border-bottom: 1px solid #30363d;
       padding: 15px 40px;
-      
       position: sticky;
       top: 0;
       z-index: 100;
@@ -26,11 +25,11 @@
       gap: 20px;
     }
     .back-btn {
-      background: #21262d; border: 1px solid #30363d;
+      background: #21262d;
+      border: 1px solid #30363d;
       color: white;
-      border: none;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 6px;
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
@@ -40,13 +39,8 @@
       transition: all 0.3s ease;
     }
     .back-btn:hover {
-      transform: translateY(-2px);
       border-color: #58a6ff;
-    }
-    .header-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #e6edf3;
+      color: #58a6ff;
     }
     .container {
       max-width: 900px;
@@ -55,9 +49,9 @@
     }
     .content-card {
       background: #161b22;
-      border-radius: 6px; border: 1px solid #30363d;
+      border: 1px solid #30363d;
+      border-radius: 6px;
       padding: 40px;
-      
       text-align: left;
     }
     h1 {
@@ -95,12 +89,13 @@
       text-align: left;
     }
     th {
-      background: #21262d; border: 1px solid #30363d;
-      color: white;
+      background: #21262d;
+      color: #e6edf3;
       font-weight: 600;
     }
-    tr:nth-child(even) { background: #161b22; } tr:nth-child(odd) { background: #0d1117; }
-    ul, ol { margin: 15px 0; padding-left: 25px; }
+    tr:nth-child(even) { background: #161b22; }
+    tr:nth-child(odd) { background: #0d1117; }
+    ul, ol { margin: 15px 0; padding-left: 25px; color: #8b949e; }
     li { margin-bottom: 8px; line-height: 1.6; }
     a { color: #58a6ff; text-decoration: none; font-weight: 500; }
     a:hover { text-decoration: underline; }
@@ -110,14 +105,16 @@
       border-radius: 4px;
       font-family: 'Consolas', 'Monaco', monospace;
       font-size: 0.9em;
+      color: #e6edf3;
     }
     pre {
       background: #161b22;
       color: #e6edf3;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 6px;
       overflow-x: auto;
       margin: 20px 0;
+      border: 1px solid #30363d;
     }
     pre code { background: none; padding: 0; color: inherit; }
     blockquote {
@@ -125,15 +122,16 @@
       padding: 15px 20px;
       margin: 20px 0;
       background: rgba(88, 166, 255, 0.1);
-      border-radius: 0 8px 8px 0;
+      border-radius: 0 6px 6px 0;
     }
-    blockquote p { margin: 0; }
+    blockquote p { margin: 0; color: #e6edf3; }
     hr { border: none; border-top: 1px solid #30363d; margin: 30px 0; }
     @media (max-width: 768px) {
-      .header { padding: 15px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .header { padding: 15px 20px; }
       .content-card { padding: 25px; }
       h1 { font-size: 1.5rem; }
     }
+
   </style>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
@@ -207,7 +205,7 @@ Local Security Authority (LSA) protection isolates the LSASS process to guard cr
 
 1. Open the Registry Editor (RegEdit.exe).
 2. Navigate to the following key:
-   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa
+   HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa
 3. Open the RunAsPPL value and set its data as:
    - To configure the feature with a UEFI variable: 00000001 (DWORD).
    - To configure the feature without a UEFI variable: 00000002 (DWORD; enforced on Windows 11 version 22H2 and later).
@@ -222,7 +220,7 @@ Local Security Authority (LSA) protection isolates the LSASS process to guard cr
 5. Right-click Registry, point to New, and select Registry Item.
 6. In New Registry Properties, configure:
    - Hive: HKEY_LOCAL_MACHINE
-   - Key Path: SYSTEM\CurrentControlSet\Control\Lsa
+   - Key Path: SYSTEM\\CurrentControlSet\\Control\\Lsa
    - Value name: RunAsPPL
    - Value type: REG_DWORD
    - Value data: 00000001 (enable with a UEFI variable) or 00000002 (enable without a UEFI variable; enforceable on Windows 11 22H2+)

@@ -1,17 +1,11 @@
 [
   {
-    "id": 1,
-    "title": "Internet Explorer 11 is disabled or removed. (ISM-1654)",
-    "url": "controls-html/ISM-1654.html",
-    "summary": "Internet Explorer 11 is disabled or removed on Windows endpoints as part of OS hardening.[^1] Implement this by applying the [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) script, which disables or removes Internet Explorer and related features.[^1] Deploy the script via Intune using the Scripts option in the admin center, uploading the PS1 file and assigning it to the target devices; refer to the Intune deployment workflow for scripts and remediations.[^2][^3]",
-    "content": "Internet Explorer 11 is disabled or removed on Windows endpoints as part of OS hardening.[^1] Implement this by applying the [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) script, which disables or removes Internet Explorer and related features.[^1] Deploy the script via Intune using the Scripts option in the admin center, uploading the PS1 file and assigning it to the target devices; refer to the Intune deployment workflow for scripts and remediations.[^2][^3] ",
+    "id": "ISM-1654",
     "ism_control": "ISM-1654",
-    "revision": "0",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Internet Explorer 11 is disabled or removed. (ISM-1654)",
+    "section": "Operating system hardening",
     "topic": "Hardening operating system configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-1-ISM-1654.response.md",
+    "url": "controls-html/ISM-1654.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -23,22 +17,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Operating system hardening"
+    ]
   },
   {
-    "id": 2,
-    "title": "Microsoft Office is blocked from injecting code into other processes. (ISM-1669)",
-    "url": "controls-html/ISM-1669.html",
-    "summary": "Enable the ASR rule to block Office applications from injecting code into other processes to prevent code injection by Office apps. Refer to ACSC Essential Eight guidance and the ASR documentation for implementation details.[^1][^4]",
-    "content": "Enable the ASR rule to block Office applications from injecting code into other processes to prevent code injection by Office apps. Refer to ACSC Essential Eight guidance and the ASR documentation for implementation details.[^1][^4] ",
+    "id": "ISM-1669",
     "ism_control": "ISM-1669",
-    "revision": "0",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft Office is blocked from injecting code into other processes. (ISM-1669)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-10-ISM-1669.response.md",
+    "url": "controls-html/ISM-1669.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -49,22 +36,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 3,
-    "title": "Microsoft Office is configured to prevent activation of Object Linking and Embedding packages. (ISM-1542)",
-    "url": "controls-html/ISM-1542.html",
-    "summary": "Microsoft Office is configured to prevent activation of OLE packages. Deploy the Intune PowerShell script OfficeMacroHardening-PreventActivationofOLE.ps1 to import registry keys that block OLE/COM activation in Word, Excel, and PowerPoint, and assign the script to a deployment group. Configure the script to run with the logged-on credentials, not require script signing, and not run in a 64-bit PowerShell host. [^1]",
-    "content": "Microsoft Office is configured to prevent activation of OLE packages. Deploy the Intune PowerShell script OfficeMacroHardening-PreventActivationofOLE.ps1 to import registry keys that block OLE/COM activation in Word, Excel, and PowerPoint, and assign the script to a deployment group. Configure the script to run with the logged-on credentials, not require script signing, and not run in a 64-bit PowerShell host. [^1] ",
+    "id": "ISM-1542",
     "ism_control": "ISM-1542",
-    "revision": "0",
-    "updated": "Jan-19",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft Office is configured to prevent activation of Object Linking and Embedding packages. (ISM-1542)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-11-ISM-1542.response.md",
+    "url": "controls-html/ISM-1542.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -75,22 +55,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 4,
-    "title": "Office productivity suites are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1859)",
-    "url": "controls-html/ISM-1859.html",
-    "summary": "Office productivity suites are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur.[^2]",
-    "content": "Office productivity suites are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur.[^2] ",
+    "id": "ISM-1859",
     "ism_control": "ISM-1859",
-    "revision": "2",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Office productivity suites are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1859)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-12-ISM-1859.response.md",
+    "url": "controls-html/ISM-1859.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -101,22 +74,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 5,
-    "title": "Office productivity suite security settings cannot be changed by users. (ISM-1823)",
-    "url": "controls-html/ISM-1823.html",
-    "summary": "Office hardening policies deployed via Intune enforce Office security settings and prevent standard users from altering them[^1]. Deploy the Intune Office security baseline to apply macro settings, Trust Center protections, and related Office configurations as part of policy delivery[^2]. These baselines provide a centralized, enforceable mechanism to ensure Office configurations remain fixed across managed devices[^3].",
-    "content": "Office hardening policies deployed via Intune enforce Office security settings and prevent standard users from altering them[^1]. Deploy the Intune Office security baseline to apply macro settings, Trust Center protections, and related Office configurations as part of policy delivery[^2]. These baselines provide a centralized, enforceable mechanism to ensure Office configurations remain fixed across managed devices[^3]. ",
+    "id": "ISM-1823",
     "ism_control": "ISM-1823",
-    "revision": "0",
-    "updated": "Mar-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Office productivity suite security settings cannot be changed by users. (ISM-1823)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-13-ISM-1823.response.md",
+    "url": "controls-html/ISM-1823.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -127,22 +93,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 6,
-    "title": "Web browsers do not process Java from the internet. (ISM-1486)",
-    "url": "controls-html/ISM-1486.html",
-    "summary": "Java isn't installed by default on Windows 10 or Windows 11. Web browsers do not process Java from the internet. Use Microsoft Edge and deploy ACSC Edge Hardening Guidelines to enforce these protections, aligning with the ISM-1486 requirement.",
-    "content": "Java isn't installed by default on Windows 10 or Windows 11. Web browsers do not process Java from the internet. Use Microsoft Edge and deploy ACSC Edge Hardening Guidelines to enforce these protections, aligning with the ISM-1486 requirement. ",
+    "id": "ISM-1486",
     "ism_control": "ISM-1486",
-    "revision": "1",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Web browsers do not process Java from the internet. (ISM-1486)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-14-ISM-1486.response.md",
+    "url": "controls-html/ISM-1486.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -154,22 +113,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 7,
-    "title": "Web browsers do not process web advertisements from the internet. (ISM-1485)",
-    "url": "controls-html/ISM-1485.html",
-    "summary": "Enable Edge policy to block intrusive ads by applying the Microsoft Edge security baseline in Intune[^1]. The baseline preconfigures Edge privacy settings to disable ad personalization and reduce tracking, supporting ad-blocking across devices[^2].",
-    "content": "Enable Edge policy to block intrusive ads by applying the Microsoft Edge security baseline in Intune[^1]. The baseline preconfigures Edge privacy settings to disable ad personalization and reduce tracking, supporting ad-blocking across devices[^2]. ",
+    "id": "ISM-1485",
     "ism_control": "ISM-1485",
-    "revision": "1",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Web browsers do not process web advertisements from the internet. (ISM-1485)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-15-ISM-1485.response.md",
+    "url": "controls-html/ISM-1485.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -181,22 +133,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 8,
-    "title": "Web browsers are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1412)",
-    "url": "controls-html/ISM-1412.html",
-    "summary": "Deploy ACSC Edge hardening configuration through Intune to enforce the Essential Eight Edge controls across devices. The implementation aligns with ASD and vendor hardening guidance, applying the most restrictive settings when conflicts occur. Edge hardening is implemented via Intune using the ACSC Edge Hardening Guidelines and the Edge Security Baseline.[^1]",
-    "content": "Deploy ACSC Edge hardening configuration through Intune to enforce the Essential Eight Edge controls across devices. The implementation aligns with ASD and vendor hardening guidance, applying the most restrictive settings when conflicts occur. Edge hardening is implemented via Intune using the ACSC Edge Hardening Guidelines and the Edge Security Baseline.[^1] ",
+    "id": "ISM-1412",
     "ism_control": "ISM-1412",
-    "revision": "6",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Web browsers are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1412)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-16-ISM-1412.response.md",
+    "url": "controls-html/ISM-1412.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -207,22 +152,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 9,
-    "title": "Web browser security settings cannot be changed by users. (ISM-1585)",
-    "url": "controls-html/ISM-1585.html",
-    "summary": "Browser security settings are enforced through Intune to prevent users from modifying browser configurations.[^1] Edge can be managed via Intune app protection policies and device configuration settings to restrict browsing behavior, including allowed sites and data handling.[^1][^3] This approach applies across iOS, Android, and Windows devices, aligning with Intune for Education and Android device restriction guidance to maintain a consistent security posture.[^4][^5]",
-    "content": "Browser security settings are enforced through Intune to prevent users from modifying browser configurations.[^1] Edge can be managed via Intune app protection policies and device configuration settings to restrict browsing behavior, including allowed sites and data handling.[^1][^3] This approach applies across iOS, Android, and Windows devices, aligning with Intune for Education and Android device restriction guidance to maintain a consistent security posture.[^4][^5] ",
+    "id": "ISM-1585",
     "ism_control": "ISM-1585",
-    "revision": "2",
-    "updated": "Mar-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Web browser security settings cannot be changed by users. (ISM-1585)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-17-ISM-1585.response.md",
+    "url": "controls-html/ISM-1585.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -234,22 +172,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 10,
-    "title": "PDF applications are blocked from creating child processes. (ISM-1670)",
-    "url": "controls-html/ISM-1670.html",
-    "summary": "PDF applications are blocked from creating child processes. Enable the ASR rule Block Adobe Reader from creating child processes via an Intune Attack Surface Reduction policy to enforce this restriction. This implements PDF hardening guidance by preventing Adobe Reader from spawning child processes.",
-    "content": "PDF applications are blocked from creating child processes. Enable the ASR rule Block Adobe Reader from creating child processes via an Intune Attack Surface Reduction policy to enforce this restriction. This implements PDF hardening guidance by preventing Adobe Reader from spawning child processes. ",
+    "id": "ISM-1670",
     "ism_control": "ISM-1670",
-    "revision": "1",
-    "updated": "Jun-25",
-    "guideline": "Guidelines for system hardening",
+    "title": "PDF applications are blocked from creating child processes. (ISM-1670)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-18-ISM-1670.response.md",
+    "url": "controls-html/ISM-1670.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -260,22 +191,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 11,
-    "title": "PDF applications are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1860)",
-    "url": "controls-html/ISM-1860.html",
-    "summary": "PDF software is hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. Implementation requires applying vendor PDF hardening settings via Intune configuration profiles. This aligns with the Essential Eight user application hardening guidance documented by Microsoft Learn.",
-    "content": "PDF software is hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. Implementation requires applying vendor PDF hardening settings via Intune configuration profiles. This aligns with the Essential Eight user application hardening guidance documented by Microsoft Learn. ",
+    "id": "ISM-1860",
     "ism_control": "ISM-1860",
-    "revision": "3",
-    "updated": "Jun-25",
-    "guideline": "Guidelines for system hardening",
+    "title": "PDF applications are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1860)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-19-ISM-1860.response.md",
+    "url": "controls-html/ISM-1860.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -286,22 +210,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 12,
-    "title": ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)",
-    "url": "controls-html/ISM-1655.html",
-    "summary": "Disabling or removing .NET Framework 3.5 (includes .NET 2.0 and 3.0) reduces the OS attack surface.[^1]",
-    "content": "Disabling or removing .NET Framework 3.5 (includes .NET 2.0 and 3.0) reduces the OS attack surface.[^1] ",
+    "id": "ISM-1655",
     "ism_control": "ISM-1655",
-    "revision": "0",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)",
+    "section": "Operating system hardening",
     "topic": "Hardening operating system configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-2-ISM-1655.response.md",
+    "url": "controls-html/ISM-1655.html",
     "essential_eight": [
       "ML3"
     ],
@@ -311,22 +228,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Operating system hardening"
+    ]
   },
   {
-    "id": 13,
-    "title": "PDF application security settings cannot be changed by users. (ISM-1824)",
-    "url": "controls-html/ISM-1824.html",
-    "summary": "Lock PDF security settings using Intune so users cannot change them.[^1] Policies deployed via Intune enforce these configurations, ensuring end users cannot modify PDF security settings.[^1]",
-    "content": "Lock PDF security settings using Intune so users cannot change them.[^1] Policies deployed via Intune enforce these configurations, ensuring end users cannot modify PDF security settings.[^1] ",
+    "id": "ISM-1824",
     "ism_control": "ISM-1824",
-    "revision": "1",
-    "updated": "Jun-25",
-    "guideline": "Guidelines for system hardening",
+    "title": "PDF application security settings cannot be changed by users. (ISM-1824)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-20-ISM-1824.response.md",
+    "url": "controls-html/ISM-1824.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -337,22 +247,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 14,
-    "title": "Microsoft Office macros are disabled for users that do not have a demonstrated business requirement. (ISM-1671)",
-    "url": "controls-html/ISM-1671.html",
-    "summary": "Microsoft Office macros are disabled by default for users without a demonstrated business requirement.[^1] Intune-based deployment disables macros for all Office users and enforces an exception path for approved users by placing them in a dedicated group (Allow macro execution - Trusted Publisher) and applying an All Macros Disabled policy.[^1] The approach aligns with ACSC hardening guidance, which includes blocking macros from running in Office files from the Internet and enforcing signing requirements for macros via Trusted Publishers.[^1]",
-    "content": "Microsoft Office macros are disabled by default for users without a demonstrated business requirement.[^1] Intune-based deployment disables macros for all Office users and enforces an exception path for approved users by placing them in a dedicated group (Allow macro execution - Trusted Publisher) and applying an All Macros Disabled policy.[^1] The approach aligns with ACSC hardening guidance, which includes blocking macros from running in Office files from the Internet and enforcing signing requirements for macros via Trusted Publishers.[^1] ",
+    "id": "ISM-1671",
     "ism_control": "ISM-1671",
-    "revision": "0",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft Office macros are disabled for users that do not have a demonstrated business requirement. (ISM-1671)",
+    "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-21-ISM-1671.response.md",
+    "url": "controls-html/ISM-1671.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -364,22 +267,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 15,
-    "title": "Microsoft Office macros in files originating from the internet are blocked. (ISM-1488)",
-    "url": "controls-html/ISM-1488.html",
-    "summary": "Microsoft Office macros originating from the internet are blocked.[^1] Enable policy to block macros from internet-originated files in Intune.[^3] This aligns with the Microsoft 365 Apps security baseline and ACSC Office hardening guidance for macro controls.[^3][^2]",
-    "content": "Microsoft Office macros originating from the internet are blocked.[^1] Enable policy to block macros from internet-originated files in Intune.[^3] This aligns with the Microsoft 365 Apps security baseline and ACSC Office hardening guidance for macro controls.[^3][^2] ",
+    "id": "ISM-1488",
     "ism_control": "ISM-1488",
-    "revision": "1",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft Office macros in files originating from the internet are blocked. (ISM-1488)",
+    "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-22-ISM-1488.response.md",
+    "url": "controls-html/ISM-1488.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -391,22 +287,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 16,
-    "title": "Microsoft Office macro antivirus scanning is enabled. (ISM-1672)",
-    "url": "controls-html/ISM-1672.html",
-    "summary": "Microsoft Office macro antivirus scanning is enabled by configuring Defender Antivirus policy settings via Intune, including forcing runtime scans and enabling macro runtime scan scope for all documents; this requires Windows Defender to be running on the device. Implement the policy using Intune to deploy Defender Antivirus features and to schedule antivirus scans across devices. Macro-related activity and detections are logged via Defender for Endpoint when devices are managed by Intune, enabling review and response.[^1][^4][^5]",
-    "content": "Microsoft Office macro antivirus scanning is enabled by configuring Defender Antivirus policy settings via Intune, including forcing runtime scans and enabling macro runtime scan scope for all documents; this requires Windows Defender to be running on the device. Implement the policy using Intune to deploy Defender Antivirus features and to schedule antivirus scans across devices. Macro-related activity and detections are logged via Defender for Endpoint when devices are managed by Intune, enabling review and response.[^1][^4][^5] ",
+    "id": "ISM-1672",
     "ism_control": "ISM-1672",
-    "revision": "0",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft Office macro antivirus scanning is enabled. (ISM-1672)",
+    "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-23-ISM-1672.response.md",
+    "url": "controls-html/ISM-1672.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -418,22 +307,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 17,
-    "title": "Microsoft Office macros are blocked from making Win32 API calls. (ISM-1673)",
-    "url": "controls-html/ISM-1673.html",
-    "summary": "Block Win32 API calls from Office macros using the ASR rule.[^1] Implement this by configuring Attack Surface Reduction in Intune and enabling the rule to Block.[^1] The rule supports Block, Audit, and Warn modes, with Not configured as the default.[^1]",
-    "content": "Block Win32 API calls from Office macros using the ASR rule.[^1] Implement this by configuring Attack Surface Reduction in Intune and enabling the rule to Block.[^1] The rule supports Block, Audit, and Warn modes, with Not configured as the default.[^1] ",
+    "id": "ISM-1673",
     "ism_control": "ISM-1673",
-    "revision": "0",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft Office macros are blocked from making Win32 API calls. (ISM-1673)",
+    "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-24-ISM-1673.response.md",
+    "url": "controls-html/ISM-1673.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -444,22 +326,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 18,
-    "title": "Only Microsoft Office macros running from within a sandboxed environment, a Trusted Location or that are digitally signed by a trusted publisher are allowed to execute. (ISM-1674)",
-    "url": "controls-html/ISM-1674.html",
-    "summary": "Only Microsoft Office macros that are digitally signed by a trusted publisher and governed by Intune policy are allowed to run[^3][^4]. Implement Intune-based controls to block macros from untrusted sources and to enable execution only for macros signed by trusted publishers, as outlined by ACSC hardening guidance[^3]. To realize this, distribute the code-signing certificate to devices and configure the Trusted Publishers store so macros from that publisher are trusted; macros signed by the same certificate are treated as coming from a trusted publisher[^4]. Macros from the internet are blocked by default, reinforcing the trusted-publisher approach over relying on Trusted Locations[^2].",
-    "content": "Only Microsoft Office macros that are digitally signed by a trusted publisher and governed by Intune policy are allowed to run[^3][^4]. Implement Intune-based controls to block macros from untrusted sources and to enable execution only for macros signed by trusted publishers, as outlined by ACSC hardening guidance[^3]. To realize this, distribute the code-signing certificate to devices and configure the Trusted Publishers store so macros from that publisher are trusted; macros signed by the same certificate are treated as coming from a trusted publisher[^4]. Macros from the internet are blocked by default, reinforcing the trusted-publisher approach over relying on Trusted Locations[^2]. ",
+    "id": "ISM-1674",
     "ism_control": "ISM-1674",
-    "revision": "0",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Only Microsoft Office macros running from within a sandboxed environment, a Trusted Location or that are digitally signed by a trusted publisher are allowed to execute. (ISM-1674)",
+    "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-25-ISM-1674.response.md",
+    "url": "controls-html/ISM-1674.html",
     "essential_eight": [
       "ML3"
     ],
@@ -469,22 +344,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 19,
-    "title": "Multi-factor authentication is used to authenticate users to their organisation’s online services that process, store or communicate their organisation’s sensitive data. (ISM-1504)",
-    "url": "controls-html/ISM-1504.html",
-    "summary": "Require MFA for all users accessing sensitive online services through Conditional Access. Deploy a policy covering All users and All resources that enforces MFA via the built-in authentication strengths (including phishing-resistant MFA where applicable). Exclude emergency access/break-glass accounts and validate the policy in report-only mode before turning it on.",
-    "content": "Require MFA for all users accessing sensitive online services through Conditional Access. Deploy a policy covering All users and All resources that enforces MFA via the built-in authentication strengths (including phishing-resistant MFA where applicable). Exclude emergency access/break-glass accounts and validate the policy in report-only mode before turning it on. ",
+    "id": "ISM-1504",
     "ism_control": "ISM-1504",
-    "revision": "3",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Multi-factor authentication is used to authenticate users to their organisation\u2019s online services that process, store or communicate their organisation\u2019s sensitive data. (ISM-1504)",
+    "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-26-ISM-1504.response.md",
+    "url": "controls-html/ISM-1504.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -496,22 +364,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 20,
-    "title": "Multi-factor authentication is used to authenticate privileged users of systems. (ISM-1173)",
-    "url": "controls-html/ISM-1173.html",
-    "summary": "Create a Conditional Access policy requiring MFA for all privileged accounts.[^1][^2] MFA enforcement for administrators reduces credential theft risk and aligns with guidance to require MFA for privileged users and administrators.[^4][^5] Consider excluding emergency break-glass accounts from the policy or applying separate controls as described in the CA guidance.[^1]",
-    "content": "Create a Conditional Access policy requiring MFA for all privileged accounts.[^1][^2] MFA enforcement for administrators reduces credential theft risk and aligns with guidance to require MFA for privileged users and administrators.[^4][^5] Consider excluding emergency break-glass accounts from the policy or applying separate controls as described in the CA guidance.[^1] ",
+    "id": "ISM-1173",
     "ism_control": "ISM-1173",
-    "revision": "4",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Multi-factor authentication is used to authenticate privileged users of systems. (ISM-1173)",
+    "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-27-ISM-1173.response.md",
+    "url": "controls-html/ISM-1173.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -522,22 +383,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 21,
-    "title": "Multi-factor authentication is used to authenticate unprivileged users of systems. (ISM-0974)",
-    "url": "controls-html/ISM-0974.html",
-    "summary": "Multi-factor authentication (MFA) is required for standard user sign-ins.[^2] Enforce MFA for all users by implementing a Microsoft Entra ID Conditional Access policy that requires MFA for all users (no app exclusions); use built-in templates or baseline policies as guidance to configure the policy.[^1]",
-    "content": "Multi-factor authentication (MFA) is required for standard user sign-ins.[^2] Enforce MFA for all users by implementing a Microsoft Entra ID Conditional Access policy that requires MFA for all users (no app exclusions); use built-in templates or baseline policies as guidance to configure the policy.[^1] ",
+    "id": "ISM-0974",
     "ism_control": "ISM-0974",
-    "revision": "6",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Multi-factor authentication is used to authenticate unprivileged users of systems. (ISM-0974)",
+    "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-28-ISM-0974.response.md",
+    "url": "controls-html/ISM-0974.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -548,22 +402,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 22,
-    "title": "Multi-factor authentication used for authenticating users of online services is phishing-resistant. (ISM-1872)",
-    "url": "controls-html/ISM-1872.html",
-    "summary": "ISM-1872 requires enforcing phishing-resistant MFA for online services by applying authentication strengths to access policies.[^3] Adopt phishing-resistant methods such as passkeys (FIDO2), Windows Hello for Business, and certificate-based authentication, and enforce them via Conditional Access authentication strengths.[^1][^3][^5] The guidance supports workload identities, time-bound credentials, and CA enforcement to extend phishing-resistant MFA across workloads and tenants.[^1]",
-    "content": "ISM-1872 requires enforcing phishing-resistant MFA for online services by applying authentication strengths to access policies.[^3] Adopt phishing-resistant methods such as passkeys (FIDO2), Windows Hello for Business, and certificate-based authentication, and enforce them via Conditional Access authentication strengths.[^1][^3][^5] The guidance supports workload identities, time-bound credentials, and CA enforcement to extend phishing-resistant MFA across workloads and tenants.[^1] ",
+    "id": "ISM-1872",
     "ism_control": "ISM-1872",
-    "revision": "1",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Multi-factor authentication used for authenticating users of online services is phishing-resistant. (ISM-1872)",
+    "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-29-ISM-1872.response.md",
+    "url": "controls-html/ISM-1872.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -574,22 +421,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 23,
-    "title": "Application control is implemented on workstations. (ISM-0843)",
-    "url": "controls-html/ISM-0843.html",
-    "summary": "This section documents implementing WDAC-based application control on Windows workstations using App Control for Business, managed via Microsoft Intune. App Control for Business policies use the Windows ApplicationControl CSP to govern allowed apps and can tag apps deployed through Intune as approved via a managed installer[^1][^2]. Base policies can be extended with supplemental policies and deployed through Intune to define which applications are allowed to run on devices[^1][^2].",
-    "content": "This section documents implementing WDAC-based application control on Windows workstations using App Control for Business, managed via Microsoft Intune. App Control for Business policies use the Windows ApplicationControl CSP to govern allowed apps and can tag apps deployed through Intune as approved via a managed installer[^1][^2]. Base policies can be extended with supplemental policies and deployed through Intune to define which applications are allowed to run on devices[^1][^2]. ",
+    "id": "ISM-0843",
     "ism_control": "ISM-0843",
-    "revision": "9",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Application control is implemented on workstations. (ISM-0843)",
+    "section": "Operating system hardening",
     "topic": "Application control",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-3-ISM-0843.response.md",
+    "url": "controls-html/ISM-0843.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -601,22 +441,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Operating system hardening"
+    ]
   },
   {
-    "id": 24,
-    "title": "Successful and unsuccessful multi-factor authentication events are centrally logged. (ISM-1683)",
-    "url": "controls-html/ISM-1683.html",
-    "summary": "Configure Entra ID diagnostic settings to save all logs to an appropriate destination, such as a Log Analytics workspace.[^2]",
-    "content": "Configure Entra ID diagnostic settings to save all logs to an appropriate destination, such as a Log Analytics workspace.[^2] ",
+    "id": "ISM-1683",
     "ism_control": "ISM-1683",
-    "revision": "2",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Successful and unsuccessful multi-factor authentication events are centrally logged. (ISM-1683)",
+    "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-30-ISM-1683.response.md",
+    "url": "controls-html/ISM-1683.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -627,22 +460,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 25,
-    "title": "Credentials for break glass accounts, local administrator accounts and service accounts are long, unique, unpredictable and managed. (ISM-1685)",
-    "url": "controls-html/ISM-1685.html",
-    "summary": "Credentials for break-glass emergency accounts are long, unique, unpredictable and managed. Configure the break-glass accounts with randomly generated passwords and a physical FIDO2 key for MFA. Implement dual-control retrieval procedures and monitoring to detect and respond to emergency access events.",
-    "content": "Credentials for break-glass emergency accounts are long, unique, unpredictable and managed. Configure the break-glass accounts with randomly generated passwords and a physical FIDO2 key for MFA. Implement dual-control retrieval procedures and monitoring to detect and respond to emergency access events. ",
+    "id": "ISM-1685",
     "ism_control": "ISM-1685",
-    "revision": "2",
-    "updated": "Jun-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Credentials for break glass accounts, local administrator accounts and service accounts are long, unique, unpredictable and managed. (ISM-1685)",
+    "section": "Authentication hardening",
     "topic": "Setting credentials for built-in Administrator accounts, break glass accounts, local administrator accounts and service accounts",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-31-ISM-1685.response.md",
+    "url": "controls-html/ISM-1685.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -653,22 +479,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 26,
-    "title": "Memory integrity functionality is enabled. (ISM-1896)",
-    "url": "controls-html/ISM-1896.html",
-    "summary": "Memory integrity is a virtualization-based security (VBS) feature that protects kernel-mode code integrity and the CFG bitmap.[^1] Turn on memory integrity across devices by applying Intune security baseline settings.[^2][^3] Some devices may experience compatibility issues with memory integrity; verify hardware and driver compatibility before enabling and plan remediation if needed.[^1]",
-    "content": "Memory integrity is a virtualization-based security (VBS) feature that protects kernel-mode code integrity and the CFG bitmap.[^1] Turn on memory integrity across devices by applying Intune security baseline settings.[^2][^3] Some devices may experience compatibility issues with memory integrity; verify hardware and driver compatibility before enabling and plan remediation if needed.[^1] ",
+    "id": "ISM-1896",
     "ism_control": "ISM-1896",
-    "revision": "0",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Memory integrity functionality is enabled. (ISM-1896)",
+    "section": "Authentication hardening",
     "topic": "Protecting credentials",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-32-ISM-1896.response.md",
+    "url": "controls-html/ISM-1896.html",
     "essential_eight": [
       "ML3"
     ],
@@ -678,22 +497,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 27,
-    "title": "Local Security Authority protection functionality is enabled. (ISM-1861)",
-    "url": "controls-html/ISM-1861.html",
-    "summary": "Local Security Authority (LSA) protection isolates the LSASS process to guard credentials from untrusted code.[^1] Enable added LSA protection via Intune by creating a custom device configuration profile and configuring the OMA-URI setting ConfigureLsaProtectedProcess to 1 (with UEFI lock) or 2 (without UEFI lock), followed by a reboot.[^1] Intune security baselines provide default Windows security configurations that facilitate deploying LSA protection at scale.[^2]",
-    "content": "Local Security Authority (LSA) protection isolates the LSASS process to guard credentials from untrusted code.[^1] Enable added LSA protection via Intune by creating a custom device configuration profile and configuring the OMA-URI setting ConfigureLsaProtectedProcess to 1 (with UEFI lock) or 2 (without UEFI lock), followed by a reboot.[^1] Intune security baselines provide default Windows security configurations that facilitate deploying LSA protection at scale.[^2] ",
+    "id": "ISM-1861",
     "ism_control": "ISM-1861",
-    "revision": "2",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Local Security Authority protection functionality is enabled. (ISM-1861)",
+    "section": "Authentication hardening",
     "topic": "Protecting credentials",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-33-ISM-1861.response.md",
+    "url": "controls-html/ISM-1861.html",
     "essential_eight": [
       "ML3"
     ],
@@ -703,22 +515,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 28,
-    "title": "Credential Guard functionality is enabled. (ISM-1686)",
-    "url": "controls-html/ISM-1686.html",
-    "summary": "Credential Guard is enabled on devices that meet hardware requirements and can be configured via an Intune device configuration profile[^1]. Use a Settings Catalog policy under Device Guard to enable Credential Guard with either “Enabled with UEFI lock” or “Enabled without lock,” assign the policy to the target devices, and restart the device to apply the changes[^1]. Verification is done via System Information or PowerShell (Event Viewer can also be used); do not rely on checking the LsaIso.exe process in Task Manager[^1].",
-    "content": "Credential Guard is enabled on devices that meet hardware requirements and can be configured via an Intune device configuration profile[^1]. Use a Settings Catalog policy under Device Guard to enable Credential Guard with either “Enabled with UEFI lock” or “Enabled without lock,” assign the policy to the target devices, and restart the device to apply the changes[^1]. Verification is done via System Information or PowerShell (Event Viewer can also be used); do not rely on checking the LsaIso.exe process in Task Manager[^1]. ",
+    "id": "ISM-1686",
     "ism_control": "ISM-1686",
-    "revision": "1",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Credential Guard functionality is enabled. (ISM-1686)",
+    "section": "Authentication hardening",
     "topic": "Protecting credentials",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-34-ISM-1686.response.md",
+    "url": "controls-html/ISM-1686.html",
     "essential_eight": [
       "ML3"
     ],
@@ -728,22 +533,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 29,
-    "title": "Remote Credential Guard functionality is enabled. (ISM-1897)",
-    "url": "controls-html/ISM-1897.html",
-    "summary": "Remote Credential Guard functionality is enabled to protect credentials over an RDP connection.[^1] Enable Remote Credential Guard on devices via Intune Settings Catalog policy or a custom Policy CSP, per Microsoft Learn guidance.[^1][^2]",
-    "content": "Remote Credential Guard functionality is enabled to protect credentials over an RDP connection.[^1] Enable Remote Credential Guard on devices via Intune Settings Catalog policy or a custom Policy CSP, per Microsoft Learn guidance.[^1][^2] ",
+    "id": "ISM-1897",
     "ism_control": "ISM-1897",
-    "revision": "0",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Remote Credential Guard functionality is enabled. (ISM-1897)",
+    "section": "Authentication hardening",
     "topic": "Protecting credentials",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-35-ISM-1897.response.md",
+    "url": "controls-html/ISM-1897.html",
     "essential_eight": [
       "ML3"
     ],
@@ -753,22 +551,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Authentication hardening"
+    ]
   },
   {
-    "id": 30,
-    "title": "Privileged users use separate privileged and unprivileged operating environments. (ISM-1380)",
-    "url": "controls-html/ISM-1380.html",
-    "summary": "Deploy a Microsoft Entra Conditional Access policy to block cloud administrator sign-ins unless they originate from a trusted known IP address range.[^1] Plan the deployment by defining known locations, including pilot testing and staged rollout, and configure the policy to block access by default with optional MFA or session controls as needed.[^1] This approach enforces a least-privilege boundary at sign-in time and helps isolate privileged administration from untrusted networks, supporting controlled privileged environments.[^1]",
-    "content": "Deploy a Microsoft Entra Conditional Access policy to block cloud administrator sign-ins unless they originate from a trusted known IP address range.[^1] Plan the deployment by defining known locations, including pilot testing and staged rollout, and configure the policy to block access by default with optional MFA or session controls as needed.[^1] This approach enforces a least-privilege boundary at sign-in time and helps isolate privileged administration from untrusted networks, supporting controlled privileged environments.[^1] ",
+    "id": "ISM-1380",
     "ism_control": "ISM-1380",
-    "revision": "5",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system management",
+    "title": "Privileged users use separate privileged and unprivileged operating environments. (ISM-1380)",
+    "section": "System administration",
     "topic": "Separate privileged operating environments",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-36-ISM-1380.response.md",
+    "url": "controls-html/ISM-1380.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -780,22 +571,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System administration"
+    ]
   },
   {
-    "id": 31,
-    "title": "A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities. (ISM-1808)",
-    "url": "controls-html/ISM-1808.html",
-    "summary": "Onboard devices to Microsoft Defender for Endpoint to enable Defender Vulnerability Management (DVM) and continuous risk monitoring.[^1] In the Microsoft Defender portal, navigate to Exposure management > Vulnerability management > Vulnerabilities to view CVEs, weaknesses, and device exposure.[^2] Use the remediation workflow to create remediation tasks in Intune and apply fixes per security recommendations.[^1]",
-    "content": "Onboard devices to Microsoft Defender for Endpoint to enable Defender Vulnerability Management (DVM) and continuous risk monitoring.[^1] In the Microsoft Defender portal, navigate to Exposure management > Vulnerability management > Vulnerabilities to view CVEs, weaknesses, and device exposure.[^2] Use the remediation workflow to create remediation tasks in Intune and apply fixes per security recommendations.[^1] ",
+    "id": "ISM-1808",
     "ism_control": "ISM-1808",
-    "revision": "0",
-    "updated": "Dec-22",
-    "guideline": "Guidelines for system management",
+    "title": "A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities. (ISM-1808)",
+    "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-37-ISM-1808.response.md",
+    "url": "controls-html/ISM-1808.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -807,22 +591,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 32,
-    "title": "A vulnerability scanner is used at least daily to identify missing patches or updates for vulnerabilities in online services. (ISM-1698)",
-    "url": "controls-html/ISM-1698.html",
-    "summary": "Daily vulnerability scanning identifies missing patches or vulnerabilities for online services[^2]. Monitor the Microsoft 365 Admin Portal Service Health to watch for announcements of service vulnerabilities and advisories[^1].",
-    "content": "Daily vulnerability scanning identifies missing patches or vulnerabilities for online services[^2]. Monitor the Microsoft 365 Admin Portal Service Health to watch for announcements of service vulnerabilities and advisories[^1]. ",
+    "id": "ISM-1698",
     "ism_control": "ISM-1698",
-    "revision": "1",
-    "updated": "Sep-23",
-    "guideline": "Guidelines for system management",
+    "title": "A vulnerability scanner is used at least daily to identify missing patches or updates for vulnerabilities in online services. (ISM-1698)",
+    "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-38-ISM-1698.response.md",
+    "url": "controls-html/ISM-1698.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -834,22 +611,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 33,
-    "title": "A vulnerability scanner is used at least weekly to identify missing patches or updates for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products. (ISM-1699)",
-    "url": "controls-html/ISM-1699.html",
-    "summary": "Onboard devices to Microsoft Defender for Endpoint.[^3] Then access Exposure management > Vulnerability management > Vulnerabilities in the Defender portal to review CVEs and remediation recommendations.[^5]",
-    "content": "Onboard devices to Microsoft Defender for Endpoint.[^3] Then access Exposure management > Vulnerability management > Vulnerabilities in the Defender portal to review CVEs and remediation recommendations.[^5] ",
+    "id": "ISM-1699",
     "ism_control": "ISM-1699",
-    "revision": "2",
-    "updated": "Jun-25",
-    "guideline": "Guidelines for system management",
+    "title": "A vulnerability scanner is used at least weekly to identify missing patches or updates for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products. (ISM-1699)",
+    "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-39-ISM-1699.response.md",
+    "url": "controls-html/ISM-1699.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -861,22 +631,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 34,
-    "title": "Microsoft’s recommended application blocklist is implemented. (ISM-1544)",
-    "url": "controls-html/ISM-1544.html",
-    "summary": "App Control for Business (WDAC) enforces the Microsoft-recommended application blocklist by restricting which drivers and applications may run on Windows devices. Implement WDAC policies using App Control for Business, via built-in controls or custom XML, and deploy them with Intune's App Control for Business policies and a managed installer to tag approved apps. Audit mode allows testing without blocking, while Enforce mode enforces the policy. [^1][^2][^5]",
-    "content": "App Control for Business (WDAC) enforces the Microsoft-recommended application blocklist by restricting which drivers and applications may run on Windows devices. Implement WDAC policies using App Control for Business, via built-in controls or custom XML, and deploy them with Intune's App Control for Business policies and a managed installer to tag approved apps. Audit mode allows testing without blocking, while Enforce mode enforces the policy. [^1][^2][^5] ",
+    "id": "ISM-1544",
     "ism_control": "ISM-1544",
-    "revision": "3",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft\u2019s recommended application blocklist is implemented. (ISM-1544)",
+    "section": "Operating system hardening",
     "topic": "Application control",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-4-ISM-1544.response.md",
+    "url": "controls-html/ISM-1544.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -887,22 +650,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Operating system hardening"
+    ]
   },
   {
-    "id": 35,
-    "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices. (ISM-1702)",
-    "url": "controls-html/ISM-1702.html",
-    "summary": "Onboard devices to Microsoft Defender for Endpoint to enable vulnerability monitoring and management[^1]. In the Microsoft Defender security portal, navigate to Exposure management > Vulnerabilities to view and prioritize vulnerabilities across endpoints[^3]. Defender Vulnerability Management provides asset visibility, vulnerability assessments, and remediation workflows, including remediation tasks that can be created in Intune to address identified weaknesses[^3].",
-    "content": "Onboard devices to Microsoft Defender for Endpoint to enable vulnerability monitoring and management[^1]. In the Microsoft Defender security portal, navigate to Exposure management > Vulnerabilities to view and prioritize vulnerabilities across endpoints[^3]. Defender Vulnerability Management provides asset visibility, vulnerability assessments, and remediation workflows, including remediation tasks that can be created in Intune to address identified weaknesses[^3]. ",
+    "id": "ISM-1702",
     "ism_control": "ISM-1702",
-    "revision": "2",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system management",
+    "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices. (ISM-1702)",
+    "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-40-ISM-1702.response.md",
+    "url": "controls-html/ISM-1702.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -914,22 +670,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 36,
-    "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in drivers. (ISM-1703)",
-    "url": "controls-html/ISM-1703.html",
-    "summary": "Onboard devices to Microsoft Defender for Endpoint and enable Defender Vulnerability Management to continuously monitor risk across your devices.[^1][^2] Then use the Microsoft Defender security portal, under Exposure management > Vulnerabilities, to view identified vulnerabilities and surface remediation actions.[^4] Remediation tasks can be tracked within Defender Vulnerability Management and, where applicable, surfaced as Intune security tasks for remediation.[^3][^4]",
-    "content": "Onboard devices to Microsoft Defender for Endpoint and enable Defender Vulnerability Management to continuously monitor risk across your devices.[^1][^2] Then use the Microsoft Defender security portal, under Exposure management > Vulnerabilities, to view identified vulnerabilities and surface remediation actions.[^4] Remediation tasks can be tracked within Defender Vulnerability Management and, where applicable, surfaced as Intune security tasks for remediation.[^3][^4] ",
+    "id": "ISM-1703",
     "ism_control": "ISM-1703",
-    "revision": "2",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system management",
+    "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in drivers. (ISM-1703)",
+    "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-41-ISM-1703.response.md",
+    "url": "controls-html/ISM-1703.html",
     "essential_eight": [
       "ML3"
     ],
@@ -939,22 +688,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 37,
-    "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in firmware. (ISM-1900)",
-    "url": "controls-html/ISM-1900.html",
-    "summary": "Onboard devices to Microsoft Defender for Endpoint to enable vulnerability scanning of firmware[^3]. Then access the security portal's Exposure management path: Exposure management > Vulnerability management > Vulnerabilities to view CVEs, exposure, and remediation guidance[^1]. The Defender Vulnerability Management experience includes hardware and firmware inventories and remediation workflows accessible through Exposure Management[^5].",
-    "content": "Onboard devices to Microsoft Defender for Endpoint to enable vulnerability scanning of firmware[^3]. Then access the security portal's Exposure management path: Exposure management > Vulnerability management > Vulnerabilities to view CVEs, exposure, and remediation guidance[^1]. The Defender Vulnerability Management experience includes hardware and firmware inventories and remediation workflows accessible through Exposure Management[^5]. ",
+    "id": "ISM-1900",
     "ism_control": "ISM-1900",
-    "revision": "0",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system management",
+    "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in firmware. (ISM-1900)",
+    "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-42-ISM-1900.response.md",
+    "url": "controls-html/ISM-1900.html",
     "essential_eight": [
       "ML3"
     ],
@@ -964,22 +706,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 38,
-    "title": "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1876)",
-    "url": "controls-html/ISM-1876.html",
-    "summary": "Patches for operating system vulnerabilities are applied within 48 hours of release when vendors rate the vulnerability as critical or when working exploits exist.[^1] Push these critical OS patches using expedited Windows updates managed through Intune and Windows Autopatch.[^3][^5] Windows Autopatch provides expedited deployment and monitoring capabilities to accelerate patching and ensure timely coverage across devices when paired with Intune.[^5]",
-    "content": "Patches for operating system vulnerabilities are applied within 48 hours of release when vendors rate the vulnerability as critical or when working exploits exist.[^1] Push these critical OS patches using expedited Windows updates managed through Intune and Windows Autopatch.[^3][^5] Windows Autopatch provides expedited deployment and monitoring capabilities to accelerate patching and ensure timely coverage across devices when paired with Intune.[^5] ",
+    "id": "ISM-1876",
     "ism_control": "ISM-1876",
-    "revision": "0",
-    "updated": "Sep-23",
-    "guideline": "Guidelines for system management",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1876)",
+    "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-43-ISM-1876.response.md",
+    "url": "controls-html/ISM-1876.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -991,22 +726,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 39,
-    "title": "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1690)",
-    "url": "controls-html/ISM-1690.html",
-    "summary": "Configured and enable Windows Autopatch for all workstations via the Intune admin portal.[^1]",
-    "content": "Configured and enable Windows Autopatch for all workstations via the Intune admin portal.[^1] ",
+    "id": "ISM-1690",
     "ism_control": "ISM-1690",
-    "revision": "2",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system management",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1690)",
+    "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-44-ISM-1690.response.md",
+    "url": "controls-html/ISM-1690.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -1018,22 +746,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 40,
-    "title": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1692)",
-    "url": "controls-html/ISM-1692.html",
-    "summary": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF software, and security products are applied within 48 hours of release when vulnerabilities are critical or exploits exist. Configure and enable Windows Autopatch for all workstations via the InTune admin portal, and deploy third-party application updates through the Intune Enterprise Application Catalog; otherwise repackage and redeploy apps with security updates within the required timeline. For the Edge browser, Autopatch configures devices to the Stable channel by default, and Edge update policies are created and verified within Autopatch groups. Defender Vulnerability Management identifies vulnerabilities and can trigger remediation tasks in Intune to close patching gaps.",
-    "content": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF software, and security products are applied within 48 hours of release when vulnerabilities are critical or exploits exist. Configure and enable Windows Autopatch for all workstations via the InTune admin portal, and deploy third-party application updates through the Intune Enterprise Application Catalog; otherwise repackage and redeploy apps with security updates within the required timeline. For the Edge browser, Autopatch configures devices to the Stable channel by default, and Edge update policies are created and verified within Autopatch groups. Defender Vulnerability Management identifies vulnerabilities and can trigger remediation tasks in Intune to close patching gaps. ",
+    "id": "ISM-1692",
     "ism_control": "ISM-1692",
-    "revision": "2",
-    "updated": "Jun-25",
-    "guideline": "Guidelines for system management",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1692)",
+    "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-45-ISM-1692.response.md",
+    "url": "controls-html/ISM-1692.html",
     "essential_eight": [
       "ML3"
     ],
@@ -1043,22 +764,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 41,
-    "title": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1901)",
-    "url": "controls-html/ISM-1901.html",
-    "summary": "Patches, updates, or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF software, and security products are applied within two weeks of release when vulnerabilities are noncritical and no working exploits exist[^3]. Configure and enable Windows Autopatch for all workstations via the Intune admin center[^2]. For third-party applications, deploy new versions via Intune Enterprise Application Management; otherwise repackage and redeploy all applications requiring security updates within the defined timeline, and configure Edge to the Stable channel for progressive rollouts[^3][^1].",
-    "content": "Patches, updates, or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF software, and security products are applied within two weeks of release when vulnerabilities are noncritical and no working exploits exist[^3]. Configure and enable Windows Autopatch for all workstations via the Intune admin center[^2]. For third-party applications, deploy new versions via Intune Enterprise Application Management; otherwise repackage and redeploy all applications requiring security updates within the defined timeline, and configure Edge to the Stable channel for progressive rollouts[^3][^1]. ",
+    "id": "ISM-1901",
     "ism_control": "ISM-1901",
-    "revision": "1",
-    "updated": "Jun-25",
-    "guideline": "Guidelines for system management",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1901)",
+    "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-46-ISM-1901.response.md",
+    "url": "controls-html/ISM-1901.html",
     "essential_eight": [
       "ML3"
     ],
@@ -1068,22 +782,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 42,
-    "title": "Patches, updates or other vendor mitigations for vulnerabilities in applications other than office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within one month of release. (ISM-1693)",
-    "url": "controls-html/ISM-1693.html",
-    "summary": "Patch applications not in the excluded categories within one month of release using Intune deployment.[^1] Configure and enable Windows Autopatch for all workstations via the Intune admin portal. For third-party applications, deploy new versions via the Intune Enterprise Application Management catalog; otherwise repackage and redeploy updated applications within the required timeline.[^3][^4][^1] Configure Edge to use the Target Channel override, selecting Stable or Extended Stable to align with organizational policy.[^2]",
-    "content": "Patch applications not in the excluded categories within one month of release using Intune deployment.[^1] Configure and enable Windows Autopatch for all workstations via the Intune admin portal. For third-party applications, deploy new versions via the Intune Enterprise Application Management catalog; otherwise repackage and redeploy updated applications within the required timeline.[^3][^4][^1] Configure Edge to use the Target Channel override, selecting Stable or Extended Stable to align with organizational policy.[^2] ",
+    "id": "ISM-1693",
     "ism_control": "ISM-1693",
-    "revision": "3",
-    "updated": "Jun-25",
-    "guideline": "Guidelines for system management",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in applications other than office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within one month of release. (ISM-1693)",
+    "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-47-ISM-1693.response.md",
+    "url": "controls-html/ISM-1693.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -1094,22 +801,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 43,
-    "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1696)",
-    "url": "controls-html/ISM-1696.html",
-    "summary": "Push critical OS patches within 48 hours using Intune expedited updates with Windows Autopatch. Expedited quality updates via Intune accelerate installation of the latest security updates and require Windows Autopatch licensing to enable the workflow[^1][^3]. Windows Autopatch provides governance for patch deployment, including approval/scheduling, gradual rollout, and expedited updates across OS, drivers, and firmware, with deployment rings to tailor coverage[^4].",
-    "content": "Push critical OS patches within 48 hours using Intune expedited updates with Windows Autopatch. Expedited quality updates via Intune accelerate installation of the latest security updates and require Windows Autopatch licensing to enable the workflow[^1][^3]. Windows Autopatch provides governance for patch deployment, including approval/scheduling, gradual rollout, and expedited updates across OS, drivers, and firmware, with deployment rings to tailor coverage[^4]. ",
+    "id": "ISM-1696",
     "ism_control": "ISM-1696",
-    "revision": "1",
-    "updated": "Sep-23",
-    "guideline": "Guidelines for system management",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1696)",
+    "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-48-ISM-1696.response.md",
+    "url": "controls-html/ISM-1696.html",
     "essential_eight": [
       "ML3"
     ],
@@ -1119,22 +819,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 44,
-    "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within one month of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1902)",
-    "url": "controls-html/ISM-1902.html",
-    "summary": "ISM-1902 requires patches for workstations, non-internet-facing servers, and non-internet-facing network devices to be applied within one month of release when vulnerabilities are assessed as noncritical by vendors and no working exploits exist.[^1] Implement a monthly patch cadence for these non-critical OS updates via Intune Windows AutoPatch to automate and schedule timely deployments.[^1]",
-    "content": "ISM-1902 requires patches for workstations, non-internet-facing servers, and non-internet-facing network devices to be applied within one month of release when vulnerabilities are assessed as noncritical by vendors and no working exploits exist.[^1] Implement a monthly patch cadence for these non-critical OS updates via Intune Windows AutoPatch to automate and schedule timely deployments.[^1] ",
+    "id": "ISM-1902",
     "ism_control": "ISM-1902",
-    "revision": "0",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system management",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within one month of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1902)",
+    "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-49-ISM-1902.response.md",
+    "url": "controls-html/ISM-1902.html",
     "essential_eight": [
       "ML3"
     ],
@@ -1144,22 +837,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 45,
-    "title": "Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)",
-    "url": "controls-html/ISM-1659.html",
-    "summary": "Microsoft’s vulnerable driver blocklist is implemented to harden Windows against known vulnerable kernel drivers.[^1] Turn on the Microsoft vulnerable driver blocklist using Intune device security settings, applying the blocklist via App Control policy or Defender security baselines, and verify enforcement via Event Viewer (CodeIntegrity Operational log).[^1][^2] Microsoft recommends enabling memory protection features such as HVCI (memory integrity) or S mode when possible to augment the blocklist; if not feasible, rely on the blocklist within App Control and test in audit mode before enforcement.[^1]",
-    "content": "Microsoft’s vulnerable driver blocklist is implemented to harden Windows against known vulnerable kernel drivers.[^1] Turn on the Microsoft vulnerable driver blocklist using Intune device security settings, applying the blocklist via App Control policy or Defender security baselines, and verify enforcement via Event Viewer (CodeIntegrity Operational log).[^1][^2] Microsoft recommends enabling memory protection features such as HVCI (memory integrity) or S mode when possible to augment the blocklist; if not feasible, rely on the blocklist within App Control and test in audit mode before enforcement.[^1] ",
+    "id": "ISM-1659",
     "ism_control": "ISM-1659",
-    "revision": "1",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft\u2019s vulnerable driver blocklist is implemented. (ISM-1659)",
+    "section": "Operating system hardening",
     "topic": "Application control",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-5-ISM-1659.response.md",
+    "url": "controls-html/ISM-1659.html",
     "essential_eight": [
       "ML3"
     ],
@@ -1169,22 +855,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Operating system hardening"
+    ]
   },
   {
-    "id": 46,
-    "title": "Office productivity suites, web browsers and their extensions, email clients, PDF applications, Adobe Flash Player, and security products that are no longer supported by vendors are removed. (ISM-1704)",
-    "url": "controls-html/ISM-1704.html",
-    "summary": "Regularly review the detected application inventory on all devices via the Microsoft Defender admin portal for software that has reached end-of-support. Then use the current deployment mechanism to remove the application as required.[^1]",
-    "content": "Regularly review the detected application inventory on all devices via the Microsoft Defender admin portal for software that has reached end-of-support. Then use the current deployment mechanism to remove the application as required.[^1] ",
+    "id": "ISM-1704",
     "ism_control": "ISM-1704",
-    "revision": "3",
-    "updated": "Jun-25",
-    "guideline": "Guidelines for system management",
+    "title": "Office productivity suites, web browsers and their extensions, email clients, PDF applications, Adobe Flash Player, and security products that are no longer supported by vendors are removed. (ISM-1704)",
+    "section": "System patching",
     "topic": "Cessation of support",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-50-ISM-1704.response.md",
+    "url": "controls-html/ISM-1704.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -1196,22 +875,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "System patching"
+    ]
   },
   {
-    "id": 47,
-    "title": "Backups of data, applications and settings are performed and retained in accordance with business criticality and business continuity requirements. (ISM-1511)",
-    "url": "controls-html/ISM-1511.html",
-    "summary": "Backups of data, applications, and settings are performed and retained in accordance with business criticality and business continuity requirements.[^1] Microsoft 365 Backup protects Exchange Online, SharePoint Online, and OneDrive for Business with 1-year retention and fast restore, with backups stored within the Microsoft 365 data boundary and protected by append-only, immutable restore points.[^2] Azure Backup covers on-premises and cloud workloads; the Microsoft Azure Recovery Services (MARS) agent backs up files, folders, and system state and can integrate with on-premises Azure Backup Server (MABS) or System Center Data Protection Manager (DPM).[^1] Follow the Microsoft 365 Backup setup guidance to enable and configure backups in your tenant.[^4]",
-    "content": "Backups of data, applications, and settings are performed and retained in accordance with business criticality and business continuity requirements.[^1] Microsoft 365 Backup protects Exchange Online, SharePoint Online, and OneDrive for Business with 1-year retention and fast restore, with backups stored within the Microsoft 365 data boundary and protected by append-only, immutable restore points.[^2] Azure Backup covers on-premises and cloud workloads; the Microsoft Azure Recovery Services (MARS) agent backs up files, folders, and system state and can integrate with on-premises Azure Backup Server (MABS) or System Center Data Protection Manager (DPM).[^1] Follow the Microsoft 365 Backup setup guidance to enable and configure backups in your tenant.[^4] ",
+    "id": "ISM-1511",
     "ism_control": "ISM-1511",
-    "revision": "4",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system management",
+    "title": "Backups of data, applications and settings are performed and retained in accordance with business criticality and business continuity requirements. (ISM-1511)",
+    "section": "Data backup and restoration",
     "topic": "Performing and retaining backups",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-51-ISM-1511.response.md",
+    "url": "controls-html/ISM-1511.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -1223,22 +895,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Data backup and restoration"
+    ]
   },
   {
-    "id": 48,
-    "title": "Backups of data, applications and settings are synchronised to enable restoration to a common point in time. (ISM-1810)",
-    "url": "controls-html/ISM-1810.html",
-    "summary": "Use Azure Backup to take application-consistent VM restore points, providing synchronised restore points across all attached disks[^1]. Application consistency is achieved via VSS on Windows VMs or via pre- and post-scripts on Linux, with a backup extension coordinating the snapshot process for app- or file-system consistency[^1]. VM restore points are incremental and organized into restore point collections to streamline backup and restore operations[^1].",
-    "content": "Use Azure Backup to take application-consistent VM restore points, providing synchronised restore points across all attached disks[^1]. Application consistency is achieved via VSS on Windows VMs or via pre- and post-scripts on Linux, with a backup extension coordinating the snapshot process for app- or file-system consistency[^1]. VM restore points are incremental and organized into restore point collections to streamline backup and restore operations[^1]. ",
+    "id": "ISM-1810",
     "ism_control": "ISM-1810",
-    "revision": "1",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system management",
+    "title": "Backups of data, applications and settings are synchronised to enable restoration to a common point in time. (ISM-1810)",
+    "section": "Data backup and restoration",
     "topic": "Performing and retaining backups",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-52-ISM-1810.response.md",
+    "url": "controls-html/ISM-1810.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -1250,22 +915,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Data backup and restoration"
+    ]
   },
   {
-    "id": 49,
-    "title": "Backups of data, applications and settings are retained in a secure and resilient manner. (ISM-1811)",
-    "url": "controls-html/ISM-1811.html",
-    "summary": "Backups of data, applications, and settings are retained in a secure and resilient manner by storing them in an Azure Recovery Services vault configured with geo-redundant storage.[^1][^3] Backup data at rest is encrypted by default using platform-managed keys, with an option to encrypt with customer-managed keys stored in Azure Key Vault.[^3] The solution also supports protective features such as soft delete and cross-region restore to enhance recoverability.[^3]",
-    "content": "Backups of data, applications, and settings are retained in a secure and resilient manner by storing them in an Azure Recovery Services vault configured with geo-redundant storage.[^1][^3] Backup data at rest is encrypted by default using platform-managed keys, with an option to encrypt with customer-managed keys stored in Azure Key Vault.[^3] The solution also supports protective features such as soft delete and cross-region restore to enhance recoverability.[^3] ",
+    "id": "ISM-1811",
     "ism_control": "ISM-1811",
-    "revision": "1",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system management",
+    "title": "Backups of data, applications and settings are retained in a secure and resilient manner. (ISM-1811)",
+    "section": "Data backup and restoration",
     "topic": "Performing and retaining backups",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-53-ISM-1811.response.md",
+    "url": "controls-html/ISM-1811.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -1277,22 +935,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Data backup and restoration"
+    ]
   },
   {
-    "id": 50,
-    "title": "Event logs are protected from unauthorised modification and deletion. (ISM-1815)",
-    "url": "controls-html/ISM-1815.html",
-    "summary": "Event logs must be protected from unauthorized modification and deletion to preserve audit trails and support forensic investigations.[^1]",
-    "content": "Event logs must be protected from unauthorized modification and deletion to preserve audit trails and support forensic investigations.[^1] ",
+    "id": "ISM-1815",
     "ism_control": "ISM-1815",
-    "revision": "1",
-    "updated": "Dec-23",
-    "guideline": "Guidelines for system monitoring",
+    "title": "Event logs are protected from unauthorised modification and deletion. (ISM-1815)",
+    "section": "Event logging and monitoring",
     "topic": "Centralised event logging facility",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-54-ISM-1815.response.md",
+    "url": "controls-html/ISM-1815.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -1303,22 +954,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Event logging and monitoring"
+    ]
   },
   {
-    "id": 51,
-    "title": "Windows PowerShell 2.0 is disabled or removed. (ISM-1621)",
-    "url": "controls-html/ISM-1621.html",
-    "summary": "Windows PowerShell 2.0 is disabled or removed by deploying the UserApplicationHardening-RemoveFeatures.ps1 script.[^1] Deploy this script via Intune Remediations, which packages a detection script and a remediation script; the remediation runs only when the detection script reports the issue by exiting with code 1, and the scripts must be encoded in UTF-8.[^2] Configure Remediations with the following settings: Run this script using the logged-on credentials = No; Enforce script signature check = No; Run script in 64-bit PowerShell = No, and assign the remediation package to device groups or run on-demand as needed.[^2]",
-    "content": "Windows PowerShell 2.0 is disabled or removed by deploying the UserApplicationHardening-RemoveFeatures.ps1 script.[^1] Deploy this script via Intune Remediations, which packages a detection script and a remediation script; the remediation runs only when the detection script reports the issue by exiting with code 1, and the scripts must be encoded in UTF-8.[^2] Configure Remediations with the following settings: Run this script using the logged-on credentials = No; Enforce script signature check = No; Run script in 64-bit PowerShell = No, and assign the remediation package to device groups or run on-demand as needed.[^2] ",
+    "id": "ISM-1621",
     "ism_control": "ISM-1621",
-    "revision": "1",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Windows PowerShell 2.0 is disabled or removed. (ISM-1621)",
+    "section": "Operating system hardening",
     "topic": "PowerShell",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-6-ISM-1621.response.md",
+    "url": "controls-html/ISM-1621.html",
     "essential_eight": [
       "ML3"
     ],
@@ -1328,22 +972,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Operating system hardening"
+    ]
   },
   {
-    "id": 52,
-    "title": "PowerShell is configured to use Constrained Language Mode. (ISM-1622)",
-    "url": "controls-html/ISM-1622.html",
-    "summary": "PowerShell is configured to run in Constrained Language Mode as part of the Essential Eight Application Control mitigations.[^2] Enable Constrained Language Mode by deploying a WDAC policy enforced through Intune; WDAC policies can be deployed via Intune for centralized enforcement.[^1] WDAC is the preferred enforcement mechanism, and Intune provides a supported deployment path for policy enforcement.[^1]",
-    "content": "PowerShell is configured to run in Constrained Language Mode as part of the Essential Eight Application Control mitigations.[^2] Enable Constrained Language Mode by deploying a WDAC policy enforced through Intune; WDAC policies can be deployed via Intune for centralized enforcement.[^1] WDAC is the preferred enforcement mechanism, and Intune provides a supported deployment path for policy enforcement.[^1] ",
+    "id": "ISM-1622",
     "ism_control": "ISM-1622",
-    "revision": "0",
-    "updated": "Oct-20",
-    "guideline": "Guidelines for system hardening",
+    "title": "PowerShell is configured to use Constrained Language Mode. (ISM-1622)",
+    "section": "Operating system hardening",
     "topic": "PowerShell",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-7-ISM-1622.response.md",
+    "url": "controls-html/ISM-1622.html",
     "essential_eight": [
       "ML3"
     ],
@@ -1353,22 +990,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "Operating system hardening"
+    ]
   },
   {
-    "id": 53,
-    "title": "Microsoft Office is blocked from creating child processes. (ISM-1667)",
-    "url": "controls-html/ISM-1667.html",
-    "summary": "Enable the ASR rule that blocks all Office applications from creating child processes and deploy it via Intune (Endpoint Security) to enforce the block.[^1][^3] This approach aligns with ACSC Essential Eight guidance and Defender ASR documentation.[^2]",
-    "content": "Enable the ASR rule that blocks all Office applications from creating child processes and deploy it via Intune (Endpoint Security) to enforce the block.[^1][^3] This approach aligns with ACSC Essential Eight guidance and Defender ASR documentation.[^2] ",
+    "id": "ISM-1667",
     "ism_control": "ISM-1667",
-    "revision": "0",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft Office is blocked from creating child processes. (ISM-1667)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-8-ISM-1667.response.md",
+    "url": "controls-html/ISM-1667.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -1379,22 +1009,15 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   },
   {
-    "id": 54,
-    "title": "Microsoft Office is blocked from creating executable content. (ISM-1668)",
-    "url": "controls-html/ISM-1668.html",
-    "summary": "Microsoft Office is blocked from creating executable content by enabling the ASR rule via Intune.^[^1] Configure the Attack Surface Reduction setting Block Office applications from creating executable content in the Intune Endpoint Security policy.^[^1] This approach aligns with Essential Eight user application hardening guidance.^[^2]",
-    "content": "Microsoft Office is blocked from creating executable content by enabling the ASR rule via Intune.^[^1] Configure the Attack Surface Reduction setting Block Office applications from creating executable content in the Intune Endpoint Security policy.^[^1] This approach aligns with Essential Eight user application hardening guidance.^[^2] ",
+    "id": "ISM-1668",
     "ism_control": "ISM-1668",
-    "revision": "0",
-    "updated": "Sep-21",
-    "guideline": "Guidelines for system hardening",
+    "title": "Microsoft Office is blocked from creating executable content. (ISM-1668)",
+    "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "date_generated": "2025-12-25",
-    "path": "output/answer/row-9-ISM-1668.response.md",
+    "url": "controls-html/ISM-1668.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -1405,7 +1028,6 @@
       "P",
       "S",
       "TS"
-    ],
-    "section": "User application hardening"
+    ]
   }
 ]
