@@ -322,14 +322,20 @@
       color: #667eea;
       text-decoration: none;
       font-weight: 600;
+      white-space: nowrap;
     }
 
     .results-table .ism-link:hover {
       text-decoration: underline;
     }
 
+    .results-table .ism-cell {
+      width: 1%;
+      white-space: nowrap;
+    }
+
     .results-table .title-cell {
-      max-width: 350px;
+      width: 45%;
     }
 
     .results-table .title-cell a {
@@ -344,6 +350,8 @@
 
     .results-table .tags-cell {
       min-width: 140px;
+      width: 1%;
+      white-space: nowrap;
     }
 
     .results-table .tags-cell .tags {
@@ -578,7 +586,7 @@
         const ismControl = highlightText(control.ism_control || '-', search);
         
         return `<tr>
-          <td><a href="${url}" class="ism-link">${ismControl}</a></td>
+          <td class="ism-cell"><a href="${url}" class="ism-link">${ismControl}</a></td>
           <td class="title-cell"><a href="${url}">${title}</a></td>
           <td>${control.section || '-'}</td>
           <td>${control.topic || '-'}</td>
