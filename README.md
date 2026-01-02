@@ -1,10 +1,10 @@
-# ISM Controls Implementation Guide
+# Essential 8 Guide
 
-Implementation guidance for Australian Information Security Manual (ISM) controls with Essential Eight and PSPF mappings.
+Implementation guidance for Australian Essential Eight (E8) controls in Microsoft environments, with ISM control mappings and PSPF classifications.
 
 ## Live Site
 
-🔗 **[View the Guide](https://alanburchill.github.io/ISM-Controls-Guide)**
+🔗 **[Visit e8guide.com](https://e8guide.com)**
 
 ## Contents
 

@@ -6,7 +6,7 @@ layout: null
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISM Controls Implementation Guide</title>
+  <title>Essential 8 Guide - Microsoft Implementation</title>
   <style>
     * {
       margin: 0;
@@ -425,15 +425,114 @@ layout: null
         min-width: 800px;
       }
     }
+
+    .intro-section {
+      background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 30px;
+      margin-bottom: 25px;
+    }
+
+    .intro-section h2 {
+      color: #58a6ff;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .intro-section p {
+      color: #8b949e;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .intro-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-section strong {
+      color: #e6edf3;
+    }
+
+    .intro-section a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    .intro-section a:hover {
+      text-decoration: underline;
+    }
+
+    .intro-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .intro-feature {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 15px;
+    }
+
+    .intro-feature strong {
+      color: #58a6ff;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .intro-feature span {
+      color: #8b949e;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>🛡️ ISM Controls Implementation Guide</h1>
-    <p>Implementation guidance for Australian Information Security Manual controls with Essential Eight and PSPF mappings</p>
+    <h1>🛡️ Essential 8 Guide</h1>
+    <p>Implementation guidance for Australian Essential Eight controls in Microsoft environments</p>
   </div>
 
   <div class="container">
+    <div class="intro-section">
+      <h2>👋 Welcome, IT Professionals</h2>
+      <p>
+        This guide provides <strong>practical, step-by-step implementation guidance</strong> for the 
+        <a href="https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight" target="_blank">Australian Essential Eight (E8)</a> 
+        security controls, specifically tailored for <strong>Microsoft environments</strong> using 
+        <strong>Microsoft Intune</strong> and <strong>Entra ID</strong>.
+      </p>
+      <p>
+        Each control page includes implementation steps, prerequisites, PowerShell scripts, and references to 
+        official Microsoft and ACSC documentation. Controls are mapped to both 
+        <strong>Essential Eight Maturity Levels (ML1-ML3)</strong> and 
+        <strong>PSPF security classifications</strong>.
+      </p>
+      <div class="intro-features">
+        <div class="intro-feature">
+          <strong>54 Controls</strong>
+          <span>Detailed implementation guides</span>
+        </div>
+        <div class="intro-feature">
+          <strong>Microsoft Focused</strong>
+          <span>Intune, Entra ID, Defender</span>
+        </div>
+        <div class="intro-feature">
+          <strong>E8 Maturity Levels</strong>
+          <span>ML1, ML2, ML3 mappings</span>
+        </div>
+        <div class="intro-feature">
+          <strong>PSPF Aligned</strong>
+          <span>Government classifications</span>
+        </div>
+      </div>
+    </div>
+
     <div class="search-section">
       <div class="search-box">
         <input type="text" id="search-input" placeholder="Search controls by title, ID, or content...">

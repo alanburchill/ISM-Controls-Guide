@@ -1,10 +1,10 @@
-# Jekyll configuration for ISM Controls Implementation Guide
-# GitHub Pages site: https://alanburchill.github.io/ISM-Controls-Guide
+# Jekyll configuration for Essential 8 Guide
+# Website: https://e8guide.com
 
-title: "ISM Controls Implementation Guide"
-description: "Implementation guidance for Australian Information Security Manual (ISM) controls with Essential Eight and PSPF mappings"
-baseurl: "/ISM-Controls-Guide"
-url: "https://alanburchill.github.io"
+title: "Essential 8 Guide"
+description: "Implementation guidance for Australian Essential Eight controls in Microsoft environments - ISM controls with PSPF mappings"
+baseurl: ""
+url: "https://e8guide.com"
 
 # Site settings
 github:
