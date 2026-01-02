@@ -45,9 +45,9 @@ Microsoft Office is blocked from creating executable content by enabling the ASR
 * **Permissions/Roles:** Not provided in source documentation. [^2]
 * **Dependencies:** Not provided in source documentation. [^3]
 
-[^1]:Intune endpoint security Attack surface reduction settings - Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings)
-[^2]:Essential Eight user application hardening - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
-[^3]:Default configuration of Intune's Windows security baselines - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all)
+[^1]:[Intune endpoint security Attack surface reduction settings - Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings)
+[^2]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^3]:[Default configuration of Intune's Windows security baselines - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all)
 
 ## Implementation Steps
 
@@ -68,5 +68,5 @@ Microsoft Office is blocked from creating executable content by enabling the ASR
 > - The ASR rule to block Office from creating executable content is part of the ACSC-recommended Attack Surface Reduction settings. The underlying policy references the executable-content block rule (3B576869-A4EC-4529-8536-B80A7769E899). [^1][^2]
 > - This section mirrors the implementation approach described for blocking Office from creating executable content via an Intune ASR policy import. [^2]
 
-[^1]: Intune endpoint security Attack surface reduction settings - Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings)
-[^2]: ACSC Windows Hardening Guidelines-Attack Surface Reduction.json - Microsoft Intune ACSC guidelines(https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/policies/ACSC%20Windows%20Hardening%20Guidelines-Attack%20Surface%20Reduction.json)
+[^1]:[ Intune endpoint security Attack surface reduction settings - Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings)
+[^2]:[ ACSC Windows Hardening Guidelines-Attack Surface Reduction.json - Microsoft Intune ACSC guidelines](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/policies/ACSC%20Windows%20Hardening%20Guidelines-Attack%20Surface%20Reduction.json)

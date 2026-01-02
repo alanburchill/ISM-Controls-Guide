@@ -35,11 +35,11 @@ date_generated: "2025-12-25"
 
 Enable the ASR rule that blocks all Office applications from creating child processes and deploy it via Intune (Endpoint Security) to enforce the block.[^1][^3] This approach aligns with ACSC Essential Eight guidance and Defender ASR documentation.[^2]
 
-[^1]:Essential Eight user application hardening - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^1]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
 
-[^2]:Enable attack surface reduction rules - Microsoft Defender for Endpoint | Microsoft Learn(https://learn.microsoft.com/en-us/defender-endpoint/enable-attack-surface-reduction)
+[^2]:[Enable attack surface reduction rules - Microsoft Defender for Endpoint | Microsoft Learn](https://learn.microsoft.com/en-us/defender-endpoint/enable-attack-surface-reduction)
 
-[^3]:Intune endpoint security Attack surface reduction settings - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings)
+[^3]:[Intune endpoint security Attack surface reduction settings - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings)
 
 ## Design Decision
 
@@ -51,8 +51,8 @@ Enable the ASR rule that blocks all Office applications from creating child proc
 * **Permissions/Roles:** Not provided in source documentation. [^1]
 * **Dependencies:** Microsoft Defender Antivirus must be the primary antivirus; Real-time protection must be on; Cloud-Delivery Protection must be on; Cloud Protection network connectivity must be on. [^2]
 
-[^1]:Essential Eight user application hardening - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
-[^2]:Enable attack surface reduction rules - Microsoft Defender for Endpoint(https://learn.microsoft.com/en-us/defender-endpoint/enable-attack-surface-reduction)
+[^1]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^2]:[Enable attack surface reduction rules - Microsoft Defender for Endpoint](https://learn.microsoft.com/en-us/defender-endpoint/enable-attack-surface-reduction)
 
 ## Implementation Steps
 

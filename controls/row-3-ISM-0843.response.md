@@ -36,8 +36,8 @@ date_generated: "2025-12-25"
 
 This section documents implementing WDAC-based application control on Windows workstations using App Control for Business, managed via Microsoft Intune. App Control for Business policies use the Windows ApplicationControl CSP to govern allowed apps and can tag apps deployed through Intune as approved via a managed installer[^1][^2]. Base policies can be extended with supplemental policies and deployed through Intune to define which applications are allowed to run on devices[^1][^2]. 
 
-[^1]:Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
-[^2]:Windows 11 Security Book - Application And Driver Control | Microsoft Learn(https://learn.microsoft.com/en-us/windows/security/book/application-security-application-and-driver-control)
+[^1]:[Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
+[^2]:[Windows 11 Security Book - Application And Driver Control | Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/book/application-security-application-and-driver-control)
 
 ## Design Decision
 
@@ -49,7 +49,7 @@ This section documents implementing WDAC-based application control on Windows wo
 * **Permissions/Roles:** Intune Administrator role required to enable the managed installer; App Control for Business permission (Delete, Read, Assign, Create, Update, and View Reports); View reports requires either App Control for Business permission with View Reports or Organization permission with Read. Government cloud support applies to Intune endpoint security App Control for Business. [^1]
 * **Dependencies:** Intune endpoint security App Control for Business; Intune Management Extension as a managed installer on enrolled Windows devices; Devices enrolled in Intune; RBAC permissions as described; Intune supports US Government clouds and 21Vianet. [^1]
 
-[^1]:Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
+[^1]:[Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
 
 ## Implementation Steps
 

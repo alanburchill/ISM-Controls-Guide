@@ -34,8 +34,8 @@ date_generated: "2025-12-25"
 
 Windows PowerShell 2.0 is disabled or removed by deploying the UserApplicationHardening-RemoveFeatures.ps1 script.[^1] Deploy this script via Intune Remediations, which packages a detection script and a remediation script; the remediation runs only when the detection script reports the issue by exiting with code 1, and the scripts must be encoded in UTF-8.[^2] Configure Remediations with the following settings: Run this script using the logged-on credentials = No; Enforce script signature check = No; Run script in 64-bit PowerShell = No, and assign the remediation package to device groups or run on-demand as needed.[^2]
 
-[^1]:Essential Eight user application hardening - Essential Eight(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
-[^2]:Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
+[^1]:[Essential Eight user application hardening - Essential Eight](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^2]:[Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
 
 ## Design Decision
 
@@ -51,8 +51,8 @@ Windows PowerShell 2.0 is disabled or removed by deploying the UserApplicationHa
   - UserApplicationHardening-RemoveFeatures.ps1 script to disable Windows PowerShell 2.0 and other features. [^1]
   - Remediations in Intune deploy script packages consisting of detection and remediation scripts; built-in script packages can be used for common items. [^2]
 
-[^1]:Essential Eight user application hardening - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
-[^2]:Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
+[^1]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^2]:[Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
 
 ## Implementation Steps
 

@@ -36,9 +36,9 @@ date_generated: "2025-12-25"
 
 Internet Explorer 11 is disabled or removed on Windows endpoints as part of OS hardening.[^1] Implement this by applying the [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) script, which disables or removes Internet Explorer and related features.[^1] Deploy the script via Intune using the Scripts option in the admin center, uploading the PS1 file and assigning it to the target devices; refer to the Intune deployment workflow for scripts and remediations.[^2][^3]
 
-[^1]:Resources and references(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden#resources-and-references)
-[^2]:Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
-[^3]:Intune-ACSC-Windows-Hardening-Guidelines/scripts/UserApplicationHardening-RemoveFeatures.ps1 at main · microsoft/Intune-ACSC-Windows-Hardening-Guidelines · GitHub(https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1)
+[^1]:[Resources and references](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden#resources-and-references)
+[^2]:[Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
+[^3]:[Intune-ACSC-Windows-Hardening-Guidelines/scripts/UserApplicationHardening-RemoveFeatures.ps1 at main · microsoft/Intune-ACSC-Windows-Hardening-Guidelines · GitHub](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1)
 
 ## Design Decision
 
@@ -50,7 +50,7 @@ Internet Explorer 11 is disabled or removed on Windows endpoints as part of OS h
 * **Permissions/Roles:** Not provided in source documentation. [^1]
 * **Dependencies:** [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1); Deploy using Microsoft Intune with the Scripts option. [^1]
 
-[^1]:Resources and references(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden#resources-and-references)
+[^1]:[Resources and references](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden#resources-and-references)
 
 ## Implementation Steps
 
@@ -84,6 +84,6 @@ Notes:
 
 - The script file referenced here is hosted remotely. [^3]
 
-[^1]:Resources and references (https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden#resources-and-references)
-[^2]:Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn (https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
-[^3]:Intune-ACSC-Windows-Hardening-Guidelines/scripts/UserApplicationHardening-RemoveFeatures.ps1 (https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1)
+[^1]:[Resources and references ](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden#resources-and-references)
+[^2]:[Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn ](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
+[^3]:[Intune-ACSC-Windows-Hardening-Guidelines/scripts/UserApplicationHardening-RemoveFeatures.ps1 ](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1)

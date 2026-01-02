@@ -35,9 +35,9 @@ date_generated: "2025-12-25"
 
 App Control for Business (WDAC) enforces the Microsoft-recommended application blocklist by restricting which drivers and applications may run on Windows devices. Implement WDAC policies using App Control for Business, via built-in controls or custom XML, and deploy them with Intune's App Control for Business policies and a managed installer to tag approved apps. Audit mode allows testing without blocking, while Enforce mode enforces the policy. [^1][^2][^5]
 
-[^1]:Use App Control to secure PowerShell - PowerShell | Microsoft Learn(https://learn.microsoft.com/en-us/powershell/scripting/security/app-control/application-control?view=powershell-7.5)
-[^2]:Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
-[^5]:Windows 11 Security Book - Application And Driver Control | Microsoft Learn(https://learn.microsoft.com/en-us/windows/security/book/application-security-application-and-driver-control)
+[^1]:[Use App Control to secure PowerShell - PowerShell | Microsoft Learn](https://learn.microsoft.com/en-us/powershell/scripting/security/app-control/application-control?view=powershell-7.5)
+[^2]:[Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
+[^5]:[Windows 11 Security Book - Application And Driver Control | Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/book/application-security-application-and-driver-control)
 
 ## Design Decision
 
@@ -51,9 +51,9 @@ App Control for Business (WDAC) enforces the Microsoft-recommended application b
 
 * **Dependencies:** Windows 10 includes App Control for Business. Windows Server 2022 and Windows 11 and later versions support App Control for Business contexts. An Intune environment with App Control for Business policies and the Intune Management Extension as a managed installer is required. For In-Memory OLTP scenarios, the Hekaton DLL generator must be designated as a WDAC Managed Installer. [^1][^2][^3]
 
-[^1]:Use App Control to secure PowerShell - PowerShell | Microsoft Learn (https://learn.microsoft.com/en-us/powershell/scripting/security/app-control/application-control?view=powershell-7.5)
-[^2]:Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune - Microsoft Intune | Microsoft Learn (https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
-[^3]:Create In-Memory OLTP App Control and Managed Installer Policies - SQL Server | Microsoft Learn (https://learn.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/create-in-memory-oltp-app-control-managed-installer?view=sql-server-ver17)
+[^1]:[Use App Control to secure PowerShell - PowerShell | Microsoft Learn ](https://learn.microsoft.com/en-us/powershell/scripting/security/app-control/application-control?view=powershell-7.5)
+[^2]:[Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune - Microsoft Intune | Microsoft Learn ](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
+[^3]:[Create In-Memory OLTP App Control and Managed Installer Policies - SQL Server | Microsoft Learn ](https://learn.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/create-in-memory-oltp-app-control-managed-installer?view=sql-server-ver17)
 
 ## Implementation Steps
 
@@ -134,4 +134,4 @@ App Control for Business (WDAC) enforces the Microsoft-recommended application b
 
 > Note: The WDAC policy must still allow apps as configured; removing the managed installer does not automatically reconfigure WDAC rules.[^1]
 
-[^1]:Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
+[^1]:[Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)

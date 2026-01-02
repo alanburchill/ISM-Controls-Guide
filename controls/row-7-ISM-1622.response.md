@@ -34,8 +34,8 @@ date_generated: "2025-12-25"
 
 PowerShell is configured to run in Constrained Language Mode as part of the Essential Eight Application Control mitigations.[^2] Enable Constrained Language Mode by deploying a WDAC policy enforced through Intune; WDAC policies can be deployed via Intune for centralized enforcement.[^1] WDAC is the preferred enforcement mechanism, and Intune provides a supported deployment path for policy enforcement.[^1]
 
-[^1]:Essential Eight application control - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)
-[^2]:Essential Eight user application hardening - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^1]:[Essential Eight application control - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)
+[^2]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
 
 ## Design Decision
 

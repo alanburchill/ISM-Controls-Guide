@@ -34,8 +34,8 @@ date_generated: "2025-12-25"
 
 Microsoft’s vulnerable driver blocklist is implemented to harden Windows against known vulnerable kernel drivers.[^1] Turn on the Microsoft vulnerable driver blocklist using Intune device security settings, applying the blocklist via App Control policy or Defender security baselines, and verify enforcement via Event Viewer (CodeIntegrity Operational log).[^1][^2] Microsoft recommends enabling memory protection features such as HVCI (memory integrity) or S mode when possible to augment the blocklist; if not feasible, rely on the blocklist within App Control and test in audit mode before enforcement.[^1]
 
-[^1]:Microsoft recommended driver block rules | Microsoft Learn(https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules)
-[^2]:Settings list for the Microsoft Intune security baseline for Microsoft Defender for Endpoint - Microsoft Intune | Microsoft Learn(https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-defender)
+[^1]:[Microsoft recommended driver block rules | Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules)
+[^2]:[Settings list for the Microsoft Intune security baseline for Microsoft Defender for Endpoint - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-defender)
 
 ## Design Decision
 
@@ -47,9 +47,9 @@ Microsoft’s vulnerable driver blocklist is implemented to harden Windows again
 * **Permissions/Roles:** Not provided in source documentation. [^2]
 * **Dependencies:** Intune service and Windows devices required. Settings Catalog in Intune is used to configure device configuration policies. [^3]
 
-[^1]:Device restriction settings for Windows devices in Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-restrictions-windows-10)
-[^2]:Device restriction settings for Windows devices in Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-restrictions-windows-10)
-[^3]:Device restriction settings for Windows devices in Microsoft Intune(https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-restrictions-windows-10)
+[^1]:[Device restriction settings for Windows devices in Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-restrictions-windows-10)
+[^2]:[Device restriction settings for Windows devices in Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-restrictions-windows-10)
+[^3]:[Device restriction settings for Windows devices in Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/configuration/device-restrictions-windows-10)
 
 ## Implementation Steps
 
@@ -75,4 +75,4 @@ Microsoft’s vulnerable driver blocklist is implemented to harden Windows again
 
 8. If this setting isn’t possible to enable via Intune device security settings, Microsoft recommends applying the latest blocklist using App Control for Business. [^1]
 
-[^1]:Microsoft recommended driver block rules | Microsoft Learn(https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules)
+[^1]:[Microsoft recommended driver block rules | Microsoft Learn](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules)

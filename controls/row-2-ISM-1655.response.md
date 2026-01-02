@@ -38,7 +38,7 @@ Implementation uses the UserApplicationHardening-RemoveFeatures.ps1 script and d
 
 Assign the script to a deployment group to apply the control across devices.[^1]
 
-[^1]:Essential Eight user application hardening - Essential Eight | Microsoft Learn(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^1]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
 
 ## Design Decision
 
@@ -68,5 +68,5 @@ Note: The script turns off the .NET Framework 3.5 feature if installed[^3].
 
 2. Assign the script to a deployment group[^1].
 
-[^1]:Essential Eight user application hardening - Essential Eight(https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
-[^3]:Deploy .NET Framework 3.5 by using Deployment Image Servicing and Management (DISM)(https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-net-framework-35-by-using-deployment-image-servicing-and-management--dism?view=windows-11)
+[^1]:[Essential Eight user application hardening - Essential Eight](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^3]:[Deploy .NET Framework 3.5 by using Deployment Image Servicing and Management (DISM)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-net-framework-35-by-using-deployment-image-servicing-and-management--dism?view=windows-11)
