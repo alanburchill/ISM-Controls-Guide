@@ -607,7 +607,7 @@ layout: null
             <label><input type="checkbox" value="ML1" checked> ML1</label>
             <label><input type="checkbox" value="ML2" checked> ML2</label>
             <label><input type="checkbox" value="ML3" checked> ML3</label>
-            <label><input type="checkbox" value="none"> None</label>
+            <label><input type="checkbox" value="none" checked> None</label>
           </div>
         </div>
         <div class="filter-group">
@@ -883,9 +883,9 @@ layout: null
     }
 
     function clearFilters() {
-      // Reset E8 checkboxes to all checked except 'none'
+      // Reset E8 checkboxes to all checked
       document.querySelectorAll('#filter-e8 input[type="checkbox"]').forEach(cb => {
-        cb.checked = cb.value !== 'none';
+        cb.checked = true;
       });
       document.getElementById('filter-pspf').value = '';
       document.getElementById('filter-section').value = '';
