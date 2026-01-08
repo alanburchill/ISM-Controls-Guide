@@ -131,6 +131,43 @@ layout: null
       letter-spacing: 0.5px;
     }
 
+    .filter-group select,
+    .checkbox-group {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 0.95rem;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      background: #0d1117;
+      color: #e6edf3;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #e6edf3;
+      text-transform: none;
+      letter-spacing: normal;
+      margin-bottom: 0;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #58a6ff;
+    }
+
     .filter-group select {
       width: 100%;
       padding: 12px 15px;
@@ -565,13 +602,13 @@ layout: null
       </div>
       <div class="filters">
         <div class="filter-group">
-          <label>Essential Eight</label>
-          <select id="filter-e8">
-            <option value="">All Maturity Levels</option>
-            <option value="ML1">ML1 - Maturity Level 1</option>
-            <option value="ML2">ML2 - Maturity Level 2</option>
-            <option value="ML3">ML3 - Maturity Level 3</option>
-          </select>
+          <label>Essential Eight Maturity Level</label>
+          <div class="checkbox-group" id="filter-e8">
+            <label><input type="checkbox" value="ML1" checked> ML1</label>
+            <label><input type="checkbox" value="ML2" checked> ML2</label>
+            <label><input type="checkbox" value="ML3" checked> ML3</label>
+            <label><input type="checkbox" value="none"> None</label>
+          </div>
         </div>
         <div class="filter-group">
           <label>PSPF Classification</label>
@@ -661,16 +698,33 @@ layout: null
       });
     }
 
+    function getSelectedE8Levels() {
+      const checkboxes = document.querySelectorAll('#filter-e8 input[type="checkbox"]:checked');
+      return Array.from(checkboxes).map(cb => cb.value);
+    }
+
     function applyFilters() {
-      const e8 = document.getElementById('filter-e8').value;
+      const e8Selected = getSelectedE8Levels();
       const pspf = document.getElementById('filter-pspf').value;
       const section = document.getElementById('filter-section').value;
       const topic = document.getElementById('filter-topic').value;
       const search = document.getElementById('search-input').value.toLowerCase().trim();
       
       let filtered = allControls.filter(control => {
-        if (e8 && (!control.essential_eight || !control.essential_eight.includes(e8))) {
-          return false;
+        // E8 filter - multi-select logic
+        if (e8Selected.length > 0) {
+          const hasNoML = !control.essential_eight || control.essential_eight.length === 0;
+          const noneSelected = e8Selected.includes('none');
+          const mlLevels = e8Selected.filter(v => v !== 'none');
+          
+          // Check if control matches any selected ML level OR has no ML (if 'none' selected)
+          const matchesML = mlLevels.length > 0 && control.essential_eight && 
+                           mlLevels.some(ml => control.essential_eight.includes(ml));
+          const matchesNone = noneSelected && hasNoML;
+          
+          if (!matchesML && !matchesNone) {
+            return false;
+          }
         }
         if (pspf && (!control.pspf_levels || !control.pspf_levels.includes(pspf))) {
           return false;
@@ -829,7 +883,10 @@ layout: null
     }
 
     function clearFilters() {
-      document.getElementById('filter-e8').value = '';
+      // Reset E8 checkboxes to all checked except 'none'
+      document.querySelectorAll('#filter-e8 input[type="checkbox"]').forEach(cb => {
+        cb.checked = cb.value !== 'none';
+      });
       document.getElementById('filter-pspf').value = '';
       document.getElementById('filter-section').value = '';
       document.getElementById('filter-topic').value = '';
@@ -844,7 +901,9 @@ layout: null
     });
 
     // Filter change handlers
-    document.getElementById('filter-e8').addEventListener('change', applyFilters);
+    document.querySelectorAll('#filter-e8 input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', applyFilters);
+    });
     document.getElementById('filter-pspf').addEventListener('change', applyFilters);
     document.getElementById('filter-section').addEventListener('change', applyFilters);
     document.getElementById('filter-topic').addEventListener('change', applyFilters);
