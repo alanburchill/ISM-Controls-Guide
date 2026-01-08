@@ -40,7 +40,7 @@ Deploy through the InTune 'Scripts' option: upload the script, set Run this scri
 
 [^1]: [Use PowerShell Scripts on Windows Devices in Intune](https://learn.microsoft.com/en-us/intune/intune-service/apps/powershell-scripts)
 [^2]: [Privileged access deployment](https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-deployment#manage-local-applications)
-[^3]: [Powershell Scripts and Remediations | ASD](https://blueprint.asd.gov.au/design/platform/client/device-security/)
+[^3]: [Powershell Scripts and Remediations - ASD](https://blueprint.asd.gov.au/design/platform/client/device-security/)
 
 ## Design Decision
 
@@ -56,7 +56,7 @@ Deploy through the InTune 'Scripts' option: upload the script, set Run this scri
 
 [^1]: [Use PowerShell Scripts on Windows Devices in Intune](https://learn.microsoft.com/en-us/intune/intune-service/apps/powershell-scripts)
 
-[^3]: [Powershell Scripts and Remediations | In some cases Microsoft Intune policies may not exist for a particular endpoint setting.](https://blueprint.asd.gov.au/design/platform/client/device-security/)
+[^3]: [Powershell Scripts and Remediations - In some cases Microsoft Intune policies may not exist for a particular endpoint setting.](https://blueprint.asd.gov.au/design/platform/client/device-security/)
 
 ## Implementation Steps
 

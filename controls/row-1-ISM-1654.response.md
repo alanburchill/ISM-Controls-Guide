@@ -36,7 +36,7 @@ date_generated: "2026-01-08"
 
 Internet Explorer 11 is not installed on workstations as part of user-application hardening.[^1] ASD Essential Eight guidance describes hardening of user applications and deployment via Intune on endpoints.[^2] Not provided in source documentation.
 
-[^1]: [Internet Explorer 11 | Internet Explorer is not installed on<SYSTEM-NAME>workstations.](https://blueprint.asd.gov.au/design/platform/client/device-configuration/)
+[^1]: [Internet Explorer 11 - Internet Explorer is not installed on<SYSTEM-NAME>workstations.](https://blueprint.asd.gov.au/design/platform/client/device-configuration/)
 
 [^2]: [User application hardening](https://blueprint.asd.gov.au/security-and-governance/system-security-plan/system-hardening-user-apps/)
 

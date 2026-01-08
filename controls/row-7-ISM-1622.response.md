@@ -50,9 +50,9 @@ Enable Constrained Language Mode for PowerShell by enforcing a Windows Defender 
 
 [^1]: [Policy rules and file rules and policy creation](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#essential-eight-application-control-using-wdac-for-ml2#Policy_rules_and_file_rules_and_policy_creation)
 [^3]: [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/#Windows Defender application control)
-[^4]: [Powershell Scripts and Remediations | ASD Windows hardening guidelines | Microsoft Intune - profile configurations | Security Baselines](https://blueprint.asd.gov.au/design/platform/client/device-security/)
+[^4]: [Powershell Scripts and Remediations - ASD Windows hardening guidelines - Microsoft Intune - profile configurations - Security Baselines](https://blueprint.asd.gov.au/design/platform/client/device-security/)
 [^5]: [How App Control works with PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/security/app-control/how-app-control-works?view=powershell-7.5#powershell-restrictions-under-constrained-language-mode#PowerShell-restrictions-under-constrained-language-mode)
-[^6]: [Note | Windows Defender for Application Control (WDAC) is used to restricts the applications that users can run on Windows devices System Core (kernel). Applications deployed to Windows devices using Endpoint Manager need WDAC rules implemented as part of the deployment process.](https://blueprint.asd.gov.au/design/platform/client/application-management/#NoteWDAC)
+[^6]: [Note - Windows Defender for Application Control (WDAC) is used to restricts the applications that users can run on Windows devices System Core (kernel). Applications deployed to Windows devices using Endpoint Manager need WDAC rules implemented as part of the deployment process.](https://blueprint.asd.gov.au/design/platform/client/application-management/#NoteWDAC)
 
 ## Implementation Steps
 
