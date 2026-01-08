@@ -50,7 +50,11 @@ Controls also include PSPF (Protective Security Policy Framework) classification
 
 ## Disclaimer
 
-This guide is provided for informational purposes only. Always validate implementations against your organisation's specific requirements and consult official ACSC and Microsoft documentation.
+This guide is provided for informational purposes only. **All content is AI-generated from primary sources** (official Microsoft and ACSC documentation) and should be carefully reviewed before implementation. Content may contain errors or become outdated—always validate against your organisation's specific requirements and consult official documentation.
+
+## Feedback
+
+Found an error or have suggestions? Contact: **alan** [at] **burchill** [dot] **id** [dot] **au**
 
 ## Links
 
@@ -60,4 +64,4 @@ This guide is provided for informational purposes only. Always validate implemen
 
 ---
 
-*Built with Jekyll and hosted on GitHub Pages.*
+*AI-generated content from primary sources. Built with Jekyll and hosted on GitHub Pages.*
