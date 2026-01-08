@@ -1,10 +1,9 @@
 ---
-permalink: /controls-html/ISM-1668.html
 title: "Microsoft Office is blocked from creating executable content. (ISM-1668)"
 ism_control: "ISM-1668"
 revision: "0"
 updated: "Sep-21"
-guideline: "Guidelines for system hardening"
+guideline: ""
 section: "User application hardening"
 topic: "Hardening user application configurations"
 essential_eight:
@@ -16,7 +15,7 @@ pspf_levels:
   - "P"
   - "S"
   - "TS"
-date_generated: "2025-12-25"
+date_generated: "2026-01-08"
 ---
 # Microsoft Office is blocked from creating executable content. (ISM-1668)
 
@@ -25,7 +24,7 @@ date_generated: "2025-12-25"
 | **ISM Control** | ISM-1668 |
 | **Revision** | 0 |
 | **Updated** | Sep-21 |
-| **Guideline** | Guidelines for system hardening |
+| **Guideline** | Not provided |
 | **Section** | User application hardening |
 | **Topic** | Hardening user application configurations |
 | **Essential Eight** | ML2, ML3 |
@@ -33,40 +32,30 @@ date_generated: "2025-12-25"
 
 ## Summary
 
-Microsoft Office is blocked from creating executable content by enabling the ASR rule via Intune.^[^1] Configure the Attack Surface Reduction setting Block Office applications from creating executable content in the Intune Endpoint Security policy.^[^1] This approach aligns with Essential Eight user application hardening guidance.^[^2]
+Enable the ASR rule to block Office apps from creating executable content via Intune Endpoint Protection.[^2] This setting is configured under Microsoft Defender Exploit Guard in an Intune Endpoint Protection profile.[^1] This approach aligns with ASD Microsoft Office hardening guidance, which includes blocking Office applications from creating executable content.[^3]
+
+[^1]: [Microsoft Defender Exploit Guard in Intune](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-protection-windows-10#microsoft-defender-exploit-guard)
+[^2]: [Attack surface reduction policy settings for endpoint security in Intune](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings#attack-surface-reduction-mdm)
+[^3]: [ASD Blueprint: Microsoft Office hardening](https://blueprint.asd.gov.au/design/endpoints/windows/security/microsoft-office-hardening/)
 
 ## Design Decision
 
-> [!NOTE] Enable the ASR rule to block Office applications from creating executable content via Intune.
+> [!NOTE] Enable the Attack Surface Reduction rule to block Office apps from creating executable content via Intune. This design choice hardens Office usage in line with the control objective.
 
 ## Prerequisites
 
-* **Licensing:** Not provided in source documentation. [^1]
-* **Permissions/Roles:** Not provided in source documentation. [^2]
-* **Dependencies:** Not provided in source documentation. [^3]
-
-[^1]:[Intune endpoint security Attack surface reduction settings - Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings)
-[^2]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
-[^3]:[Default configuration of Intune's Windows security baselines - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/security-baseline-settings-mdm-all)
+No specific prerequisites identified in source documentation.
 
 ## Implementation Steps
 
-### Enable ASR rule to block Office executable content
+### Enable ASR to Block Office Executable Content
 
-1. Open Graph Explorer and authenticate.[^2]
+1. In Intune, open Attack Surface Reduction (MDM) policy settings.[^2]
+2. Set the option "Block Office applications from creating executable content" to Block.[^2]
+3. Save the policy.  
+4. Optional: Review related ASR settings to strengthen protection, such as blocking Office applications from creating child processes and blocking Win32 API calls from Office macros.[^2][^3]
+5. Refer to ASD Microsoft Office hardening guidance for design context.[^3]
 
-2. Create a POST request, using the beta schema to the Attack Surface Reduction policy endpoint:
-   https://graph.microsoft.com/beta/deviceManagement/templates/0e237410-1367-4844-bd7f-15fb0f08943b/createInstance
-   This creates a new ASR policy instance.[^2]
-
-3. Copy the JSON from the ACSC Windows Hardening Guidelines Attack Surface Reduction policy and paste it into the request body. The referenced policy is available remotely:
-   [ACSC Windows Hardening Guidelines-Attack Surface Reduction.json](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/policies/ACSC%20Windows%20Hardening%20Guidelines-Attack%20Surface%20Reduction.json) . By importing this ASR Rule profile, Microsoft Office is blocked from creating executable content (3B576869-A4EC-4529-8536-B80A7769E899) and injecting code into other processes. [^2]
-
-4. (Optional) Modify the *name* value in the request body if necessary. [^2]
-
-> Notes
-> - The ASR rule to block Office from creating executable content is part of the ACSC-recommended Attack Surface Reduction settings. The underlying policy references the executable-content block rule (3B576869-A4EC-4529-8536-B80A7769E899). [^1][^2]
-> - This section mirrors the implementation approach described for blocking Office from creating executable content via an Intune ASR policy import. [^2]
-
-[^1]:[ Intune endpoint security Attack surface reduction settings - Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings)
-[^2]:[ ACSC Windows Hardening Guidelines-Attack Surface Reduction.json - Microsoft Intune ACSC guidelines](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/policies/ACSC%20Windows%20Hardening%20Guidelines-Attack%20Surface%20Reduction.json)
+[^1]: [Microsoft Defender Exploit Guard](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-protection-windows-10#microsoft-defender-exploit-guard)
+[^2]: [Attack surface reduction policy settings for endpoint security in Intune](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-asr-profile-settings#attack-surface-reduction-mdm)
+[^3]: [ASD Blueprint: Microsoft Office hardening](https://blueprint.asd.gov.au/design/endpoints/windows/security/microsoft-office-hardening/)

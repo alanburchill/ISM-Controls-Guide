@@ -1,10 +1,9 @@
 ---
-permalink: /controls-html/ISM-1655.html
 title: ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)"
 ism_control: "ISM-1655"
 revision: "0"
 updated: "Sep-21"
-guideline: "Guidelines for system hardening"
+guideline: ""
 section: "Operating system hardening"
 topic: "Hardening operating system configurations"
 essential_eight:
@@ -15,7 +14,7 @@ pspf_levels:
   - "P"
   - "S"
   - "TS"
-date_generated: "2025-12-25"
+date_generated: "2026-01-08"
 ---
 # .NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)
 
@@ -24,7 +23,7 @@ date_generated: "2025-12-25"
 | **ISM Control** | ISM-1655 |
 | **Revision** | 0 |
 | **Updated** | Sep-21 |
-| **Guideline** | Guidelines for system hardening |
+| **Guideline** | Not provided |
 | **Section** | Operating system hardening |
 | **Topic** | Hardening operating system configurations |
 | **Essential Eight** | ML3 |
@@ -32,41 +31,47 @@ date_generated: "2025-12-25"
 
 ## Summary
 
-Disabling or removing .NET Framework 3.5 (includes .NET 2.0 and 3.0) reduces the OS attack surface.[^1]
+ISM-1655 requires that .NET Framework 3.5 (including .NET 2.0 and 3.0) be disabled or removed. Implement using the provided script UserApplicationHardening-RemoveFeatures.ps1 and deploy it through the InTune 'Scripts' option to automate removal on endpoints. This approach aligns with ASD Essential Eight guidance for User Application Hardening.[^1][^2]
 
-Implementation uses the UserApplicationHardening-RemoveFeatures.ps1 script and deploys it via Intune using the 'Scripts' option, with these script settings: Run this script using the logged on credentials: No; Enforce script signature check: No; Run script in 64-bit PowerShell Host: No.[^1]
+[^1]: [https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features#use-windows-powershell-to-disable-specific-features](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features#use-windows-powershell-to-disable-specific-features)
 
-Assign the script to a deployment group to apply the control across devices.[^1]
-
-[^1]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^2]: [https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/](https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/)
 
 ## Design Decision
 
-> [!NOTE] The design uses the UserApplicationHardening-RemoveFeatures.ps1 script to disable .NET Framework 3.5 (including 2.0 and 3.0) and Windows PowerShell 2.0, aligning with the control requirement. Deploy this script through Intune using the Scripts option to enforce removal across managed devices.
+> [!NOTE] Disable .NET Framework 3.5 (includes .NET 2.0 and 3.0) using the UserApplicationHardening-RemoveFeatures.ps1 script. Deploy the script through the Intune 'Scripts' option.
 
 ## Prerequisites
 
-* **Licensing:** Not provided in source documentation. [^1]
-* **Permissions/Roles:** Not provided in source documentation. [^1]
-* **Dependencies:** [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) and Intune Script deployment capability. [^1]
+* **Permissions/Roles:** The current user must be a member of the local Administrators group to add or remove Windows features. [^2]
 
-[^1]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+* **Dependencies:** Microsoft Intune is required to deploy the UserApplicationHardening-RemoveFeatures.ps1 script to Windows client devices using the InTune 'Scripts' option; Windows PowerShell capabilities on client devices are required to execute the script. [^1]
+
+[^1]: [Add, remove, or hide Windows features (windows-10) – Use Windows PowerShell to disable specific features](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features#use-windows-powershell-to-disable-specific-features)
+
+[^2]: [Deploy .NET Framework 3.5 by using Deployment Image Servicing and Management (DISM)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-net-framework-35-by-using-deployment-image-servicing-and-management--dism?view=windows-11#deploy-net-framework-35-by-using-deployment-image-servicing-and-management-dism)
 
 ## Implementation Steps
 
-### Deploy UserApplicationHardening-RemoveFeatures.ps1 via Intune Scripts
+### Remove features using UserApplicationHardening-RemoveFeatures.ps1
 
-The UserApplicationHardening-RemoveFeatures.ps1 PowerShell script disables or removes .NET Framework 3.5 (includes .NET 2.0 and 3.0), Internet Explorer, and Windows PowerShell 2.0 as part of the Essential Eight user application hardening controls[^1]. The script is referenced remotely and deployed via Intune using the 'Scripts' option[^1].
+1. Deploy the UserApplicationHardening-RemoveFeatures.ps1 PowerShell script to target Windows devices using the InTune Scripts option.[^1]
 
-Note: The script turns off the .NET Framework 3.5 feature if installed[^3].
+2. The script disables the required Windows features, including .NET Framework 3.5, per Essential Eight guidance.[^3]
 
-1. Add the [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) as a PowerShell script with the following options:
+3. If a device cannot access Windows Update to obtain feature files, ensure the script can use a local or offline source to manage features in a deployment image or offline context. This can involve DISM/Disable-WindowsOptionalFeature workflows as described in the referenced guidance.[^2][^1]
 
-- Run this script using the logged on credentials: **No**
-- Enforce script signature check: **No**
-- Run script in 64-bit PowerShell Host: **No**[^1]
+4. As part of Essential Eight hardening, ensure Windows PowerShell 2.0 is disabled or removed, and configure PowerShell to use Constrained Language Mode where applicable.[^3]
 
-2. Assign the script to a deployment group[^1].
+5. Verify the feature removal after script execution:
+   - Run the following command to verify .NET Framework 3.5 (NetFx3) is disabled or removed:
+     ```powershell
+     Get-WindowsOptionalFeature -Online -FeatureName NetFx3
+     ```
+   - Check that the FeatureState indicates Disabled (or Removed).[^1]
 
-[^1]:[Essential Eight user application hardening - Essential Eight](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
-[^3]:[Deploy .NET Framework 3.5 by using Deployment Image Servicing and Management (DISM)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-net-framework-35-by-using-deployment-image-servicing-and-management--dism?view=windows-11)
+6. Monitor and document the outcome of the deployment, including any restart requirements or follow-up actions, and adjust the Intune script deployment as needed.[^1]
+
+[^1]: [Use Windows PowerShell to disable specific features](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features#use-windows-powershell-to-disable-specific-features)
+[^2]: [Deploy .NET Framework 3.5 by using Deployment Image Servicing and Management (DISM)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-net-framework-35-by-using-deployment-image-servicing-and-management--dism?view=windows-11#deploy-net-framework-35-by-using-deployment-image-servicing-and-management-dism)
+[^3]: [Essential Eight guidance](https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/)

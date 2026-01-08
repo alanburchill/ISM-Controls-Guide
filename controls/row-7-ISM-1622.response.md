@@ -1,10 +1,9 @@
 ---
-permalink: /controls-html/ISM-1622.html
 title: "PowerShell is configured to use Constrained Language Mode. (ISM-1622)"
 ism_control: "ISM-1622"
 revision: "0"
 updated: "Oct-20"
-guideline: "Guidelines for system hardening"
+guideline: ""
 section: "Operating system hardening"
 topic: "PowerShell"
 essential_eight:
@@ -15,7 +14,7 @@ pspf_levels:
   - "P"
   - "S"
   - "TS"
-date_generated: "2025-12-25"
+date_generated: "2026-01-08"
 ---
 # PowerShell is configured to use Constrained Language Mode. (ISM-1622)
 
@@ -24,7 +23,7 @@ date_generated: "2025-12-25"
 | **ISM Control** | ISM-1622 |
 | **Revision** | 0 |
 | **Updated** | Oct-20 |
-| **Guideline** | Guidelines for system hardening |
+| **Guideline** | Not provided |
 | **Section** | Operating system hardening |
 | **Topic** | PowerShell |
 | **Essential Eight** | ML3 |
@@ -32,93 +31,60 @@ date_generated: "2025-12-25"
 
 ## Summary
 
-PowerShell is configured to run in Constrained Language Mode as part of the Essential Eight Application Control mitigations.[^2] Enable Constrained Language Mode by deploying a WDAC policy enforced through Intune; WDAC policies can be deployed via Intune for centralized enforcement.[^1] WDAC is the preferred enforcement mechanism, and Intune provides a supported deployment path for policy enforcement.[^1]
+Enable Constrained Language Mode for PowerShell by enforcing a Windows Defender Application Control (WDAC) policy.[^3][^5] Deploy WDAC policies to cloud-managed devices using Intune; WDAC rules and policy updates are controlled via Intune.[^3][^6] Create WDAC policies via the WDAC Wizard (recommended) or via Configurable Code Integrity PowerShell cmdlets.[^1][^2]
 
-[^1]:[Essential Eight application control - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)
-[^2]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^1]: [Policy Rules and File Rules and Policy Creation](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#essential-eight-application-control-using-wdac-for-ml2#Policy_rules_and_file_rules_and_policy_creation)
+[^2]: [Policy_creation_methods](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#essential-eight-application-control-using-wdac-for-ml2#Policy_creation_methods)
+[^3]: [Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/#Windows Defender application control)
+[^5]: [PowerShell restrictions under constrained language mode](https://learn.microsoft.com/en-us/powershell/scripting/security/app-control/how-app-control-works?view=powershell-7.5#powershell-restrictions-under-constrained-language-mode#PowerShell-restrictions-under-constrained-language-mode)
+[^6]: [NoteWDAC](https://blueprint.asd.gov.au/design/platform/client/application-management/#NoteWDAC)
 
 ## Design Decision
 
-> [!NOTE] Constrained Language Mode will be enabled via a WDAC policy enforced through Intune.
+> [!NOTE] Enable Constrained Language Mode for PowerShell by enforcing Windows Defender Application Control policies via Intune. This restricts PowerShell execution to approved language features on managed devices.
 
 ## Prerequisites
 
-* **Licensing:** Microsoft 365-related licensing requirements described in Microsoft 365 and Office 365 service descriptions. [^1]
-* **Permissions/Roles:** Appropriate permissions by administrators across the solutions used within this document. [^1]
-* **Dependencies:** Windows 11 22H2 Enterprise; Intune for management solution; Defender for Endpoint; Microsoft Sentinel for Security information and event management. [^1]
+* **Dependencies:** WDAC (Windows Defender Application Control) must be available on Windows endpoints and configured to enforce Constrained Language Mode for PowerShell[^3][^5]. WDAC policy creation can be performed via PowerShell Config CI Cmdlets or the WDAC Wizard (recommended)[^1]. WDAC policies can be deployed via Intune for cloud-managed devices or Group Policy for hybrid devices[^3]. Audit mode must be used prior to enforcement when deploying WDAC[^3]. Intune can deploy configuration scripts and remediations to configure WDAC rules via the Intune management extension[^4]. Endpoint Manager deployments require WDAC rules; WDAC is used to restrict applications and is deployed via Intune or Endpoint Manager[^6].
 
-[^1]:[Essential Eight application control - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)
+[^1]: [Policy rules and file rules and policy creation](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#essential-eight-application-control-using-wdac-for-ml2#Policy_rules_and_file_rules_and_policy_creation)
+[^3]: [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/#Windows Defender application control)
+[^4]: [Powershell Scripts and Remediations | ASD Windows hardening guidelines | Microsoft Intune - profile configurations | Security Baselines](https://blueprint.asd.gov.au/design/platform/client/device-security/)
+[^5]: [How App Control works with PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/security/app-control/how-app-control-works?view=powershell-7.5#powershell-restrictions-under-constrained-language-mode#PowerShell-restrictions-under-constrained-language-mode)
+[^6]: [Note | Windows Defender for Application Control (WDAC) is used to restricts the applications that users can run on Windows devices System Core (kernel). Applications deployed to Windows devices using Endpoint Manager need WDAC rules implemented as part of the deployment process.](https://blueprint.asd.gov.au/design/platform/client/application-management/#NoteWDAC)
 
 ## Implementation Steps
 
-### Enable Constrained Language Mode via WDAC policy enforced through Intune
+### Enable Constrained Language Mode via WDAC using Intune
 
-1. Create a WDAC audit policy using the Windows Defender App Control Wizard.
-   - Open the Windows Defender App Control Wizard and select Policy Creator.
-   - Choose Multiple Policy Format and Base Policy, then select Next.
-   - In Policy Template, select Default Windows Mode or Allow Microsoft Mode. This document uses Allow Microsoft Mode. [^1]
-   - Modify Policy Name and Policy File Location as needed, then select Next.
-   - Within Policy Rules, configure:
-     - Disable Script Enforcement: Disabled
-     - Intelligent Security Graph: Disabled
-     - Managed installer: Enabled
-     - User Mode Code Integrity: Required
-     - Allow Supplement Policies: Required
-   - In Policy Signing Rules, add any required signers as needed. [^1]
-   - Continue to Next and create the policy. The wizard generates an XML policy and a GUID-based identity for the policy. [^1]
-   - Note: Microsoft recommends using publisher-based rules where appropriate and, if needed, hash-based rules for unsigned references. [^1]
+1. Choose WDAC policy creation method:
+   - There are two primary ways to create a WDAC policy: PowerShell Configurable Code Integrity Cmdlets or the WDAC Policy Wizard. [^1][^2]
 
-2. Deploy the WDAC audit policy via Intune.
-   1. Sign in to Intune admin center.
-   2. Devices > Configuration Profiles > Create Profile.
-   3. Platform: Windows 10 or later; Profile type: Templates > Custom.
-   4. Name the policy (for example, "Application Control – Microsoft Allow – Audit") and select Next.
-   5. Under OMA-URI Settings, Add:
-      - OMA-URI: ./Vendor/MSFT/ApplicationControl/Policies/<PolicyGUID>/Policy
-      - Data Type: Base64 (File)
-      - Note: Replace <PolicyGUID> with the PolicyTypeID found in the generated policy XML (mergedPolicy.xml produced by the WDAC Wizard) [^1].
-   6. Copy the CIP file generated by the WDAC Wizard (GUID).CIP, rename to .BIN (for example, {GUID}.bin).
-   7. Upload the BIN under Base64 (File).
-   8. Save and deploy the profile to the intended group.
-   9. Follow prompts to complete deployment. The policy will be deployed as an audit policy to the target devices. [^1]
-   10. Monitor deployment status and verify policy XML and CIP/BIN alignment with the policy GUID. [^1]
+2. Create the WDAC policy with the chosen method:
+   - If using the WDAC Policy Wizard (recommended), use the wizard to create, edit, and merge policies; the tool uses the Config CI PowerShell cmdlets, and the output policy is equivalent to PowerShell-generated policy. [^2]
+   - If using PowerShell, automate policy creation and policy XML generation with Config CI Cmdlets. [^1]
 
-3. Switch to enforce policy.
-   1. Open the Windows Defender App Control Wizard and select Policy Editor.
-   2. Open the policy XML to be changed to enforced and disable Audit Mode under Policy Rules.
-   3. Select Next within Policy Rules.
-   4. Create an Update Policy with an amended version and a new CIP file.
-   5. In Intune, go to Devices > Configuration Profiles > Create Profile (Windows 10 or later, Custom).
-   6. Name the profile (e.g., "Application Control – Enforce Policy") and select Next.
-   7. Under OMA-URI Settings, Add:
-      - OMA-URI: ./Vendor/MSFT/ApplicationControl/Policies/<PolicyGUID>/Policy
-      - Data Type: Base64 (File)
-      - Note: Policy GUID must match the PolicyTypeID in the mergedPolicy.xml generated earlier. [^1]
-   8. Copy the new CIP file and rename to .BIN (e.g., {GUID}.bin).
-   9. Upload the BIN under Base64 (File).
-   10. Save and deploy the Enforce Policy configuration profile to the intended system.
-   11. Exclude the previously deployed audit policy from enforcement if required. [^1]
-   12. Reboot the target devices to apply the enforced WDAC policy. [^1]
-   13. Validate that enforcement is active and that only organization-approved code is allowed to run. [^1]
-   14. Monitor WDAC events and adjust policy as needed. [^1]
+3. Configure the policy to enforce Constrained Language Mode for PowerShell:
+   - Enable Script Enforcement in the policy. [^3]
+   - Script Enforcement restricts PowerShell to Constrained Language Mode. [^5]
 
-4. Validate Constrained Language Mode and WDAC enforcement.
-   - Validate WDAC enforcement status on enrolled devices and confirm Constrained Language Mode is active for PowerShell.
-   - Use centralized monitoring or Defender for Endpoint/Explorer workflows to verify enforcement and log generation. [^2]
-   - Optionally use a WDAC-aware extension or tooling to detect enforcement; refer to WDAC enforcement checks documented for WDAC-enabled infrastructure management. [^3]
+4. Enable Managed Installer support:
+   - WDAC should enable Managed Installer so items deployed via a managed installer are added to the allow list. [^3]
 
-5. Referenced scripts and additional hardening guidance.
-   - For related hardening scripts referenced in this guidance, see:
-     - OfficeMacroHardening-PreventActivationofOLE.ps1. https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/office/scripts/OfficeMacroHardening-PreventActivationofOLE.ps1
-     - UserApplicationHardening-RemoveFeatures.ps1. https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1
-   - These scripts are referenced remotely in the context of supporting the Essential Eight hardening guidance. [^2]
+5. Plan and execute deployment through Intune:
+   - WDAC is controlled via Intune for cloud-managed devices. [^3]
+   - Deploy WDAC policy through Intune; if needed, use Configuration Scripts or Remediations to apply policy updates. [^4]
 
-Notes and references
-- The steps above derive from the WDAC-based Essential Eight guidance for implementing application control and WDAC via Intune, including policy design, audit deployment, and transition to enforcement. [^1]
-- Constrained Language Mode is the guardrail that WDAC policies help enforce for PowerShell and related language features as part of the Essential Eight control set. [^2]
-- WDAC enforcement status and related extension-based verification approaches are documented for WDAC-enforced infrastructure management. [^3]
+6. Use Audit Mode before enforcement:
+   - Deploy the policy in Audit Mode prior to switching to enforcement to observe behavior. [^3]
 
-Footnotes
-- [^1]:Essential Eight application control - Essential Eight | Microsoft Learn. https://learn.microsoft.com/en-us/compliance/anz/e8-app-control
-- [^2]:Essential Eight user application hardening - Essential Eight | Microsoft Learn. https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden
-- [^3]:Extension support for the management of Windows Defender Application Control (WDAC) enforced infrastructure - Microsoft Learn. https://learn.microsoft.com/en-us/windows-server/manage/windows-admin-center/extend/guides/application-control-infrastructure-extensions
+7. Refer to policy creation and WDAC design guidance as you implement:
+   - For policy rules, file rules, and policy creation details, consult the WDAC policy documentation. [^1]
+   - For Intune-based deployment approaches and remediation scripts, refer to the ASD platform guidance. [^4]
+
+[^1]: [Policy rules and file rules and policy creation](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#essential-eight-application-control-using-wdac-for-ml2#Policy_rules_and_file_rules_and_policy_creation)
+[^2]: [Policy_creation_methods](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control#essential-eight-application-control-using-wdac-for-ml2#Policy_creation_methods)
+[^3]: [Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/#Windows Defender application control)
+[^4]: [Powershell Scripts and Remediations](https://blueprint.asd.gov.au/design/platform/client/device-security/)
+[^5]: [PowerShell restrictions under constrained language mode](https://learn.microsoft.com/en-us/powershell/scripting/security/app-control/how-app-control-works?view=powershell-7.5#powershell-restrictions-under-constrained-language-mode)
+[^6]: [NoteWDAC](https://blueprint.asd.gov.au/design/platform/client/application-management/#NoteWDAC)

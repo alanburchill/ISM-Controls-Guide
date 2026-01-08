@@ -1,10 +1,9 @@
 ---
-permalink: /controls-html/ISM-1621.html
 title: "Windows PowerShell 2.0 is disabled or removed. (ISM-1621)"
 ism_control: "ISM-1621"
 revision: "1"
 updated: "Sep-21"
-guideline: "Guidelines for system hardening"
+guideline: ""
 section: "Operating system hardening"
 topic: "PowerShell"
 essential_eight:
@@ -15,7 +14,7 @@ pspf_levels:
   - "P"
   - "S"
   - "TS"
-date_generated: "2025-12-25"
+date_generated: "2026-01-08"
 ---
 # Windows PowerShell 2.0 is disabled or removed. (ISM-1621)
 
@@ -24,7 +23,7 @@ date_generated: "2025-12-25"
 | **ISM Control** | ISM-1621 |
 | **Revision** | 1 |
 | **Updated** | Sep-21 |
-| **Guideline** | Guidelines for system hardening |
+| **Guideline** | Not provided |
 | **Section** | Operating system hardening |
 | **Topic** | PowerShell |
 | **Essential Eight** | ML3 |
@@ -32,30 +31,34 @@ date_generated: "2025-12-25"
 
 ## Summary
 
-Windows PowerShell 2.0 is disabled or removed by deploying the UserApplicationHardening-RemoveFeatures.ps1 script.[^1] Deploy this script via Intune Remediations, which packages a detection script and a remediation script; the remediation runs only when the detection script reports the issue by exiting with code 1, and the scripts must be encoded in UTF-8.[^2] Configure Remediations with the following settings: Run this script using the logged-on credentials = No; Enforce script signature check = No; Run script in 64-bit PowerShell = No, and assign the remediation package to device groups or run on-demand as needed.[^2]
+PowerShell 2.0 is disabled or removed on Windows devices as part of OS hardening.[^2]
 
-[^1]:[Essential Eight user application hardening - Essential Eight](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
-[^2]:[Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
+Implement by deploying a PowerShell script that removes legacy features using the Intune management extension.[^1][^3]
+
+Deploy through the InTune 'Scripts' option: upload the script, set Run this script using the logged on credentials to No, assign to the appropriate groups, and rely on Intune to report success or failure.[^2][^3]
+
+[^1]: [Use PowerShell Scripts on Windows Devices in Intune](https://learn.microsoft.com/en-us/intune/intune-service/apps/powershell-scripts)
+[^2]: [Privileged access deployment](https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-deployment#manage-local-applications)
+[^3]: [Powershell Scripts and Remediations | ASD](https://blueprint.asd.gov.au/design/platform/client/device-security/)
 
 ## Design Decision
 
-> [!NOTE] The design uses the provided UserApplicationHardening-RemoveFeatures.ps1 script, deployed via Intune Remediation Scripts, to disable or remove Internet Explorer 11, .NET Framework 3.5 (including 2.0 and 3.0), and Windows PowerShell 2.0, per ImplementationGuidance. Create a script package in Intune Remediations containing a detection script (exit code 1 when the issue is detected) and the remediation script; configure Run this script using the logged on credentials: No, Enforce script signature check: No, Run script in 64-bit PowerShell Host: No, and assign the package to the deployment group.
+> [!NOTE] Remove PowerShell 2.0 by deploying a dedicated script through the Intune 'Scripts' option.
 
 ## Prerequisites
 
-* **Licensing:** Windows Enterprise E3 or E5 (included in Microsoft 365 F3, E3, or E5); Windows Education A3 or A5 (included in Microsoft 365 A3 or A5); Windows Virtual Desktop Access (VDA) per user. [^2]
+* **Permissions/Roles:** PowerShell scripts run under administrator privileges when deployed in a user context with administrator rights. [^1]
 
-* **Permissions/Roles:** Intune administrator or a role with Run remediation permission (Remote tasks) to deploy Remediations; Run remediation on-demand requires this permission. [^2]
+* **Dependencies:** Requires Microsoft Intune service and the Intune management extension to upload and run PowerShell scripts on Windows devices. [^1]
 
-* **Dependencies:** 
-  - UserApplicationHardening-RemoveFeatures.ps1 script to disable Windows PowerShell 2.0 and other features. [^1]
-  - Remediations in Intune deploy script packages consisting of detection and remediation scripts; built-in script packages can be used for common items. [^2]
+* **Dependencies:** Intune supports deploying PowerShell scripts through the Intune management extension; scripts execute on endpoints and report results. [^3]
 
-[^1]:[Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
-[^2]:[Use Remediations to Detect and Fix Support Issues - Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/remediations)
+[^1]: [Use PowerShell Scripts on Windows Devices in Intune](https://learn.microsoft.com/en-us/intune/intune-service/apps/powershell-scripts)
+
+[^3]: [Powershell Scripts and Remediations | In some cases Microsoft Intune policies may not exist for a particular endpoint setting.](https://blueprint.asd.gov.au/design/platform/client/device-security/)
 
 ## Implementation Steps
 
-### Deploy UserApplicationHardening-RemoveFeatures.ps1 via Intune Remediations
+### Using UserApplicationHardening-RemoveFeatures.ps1 script via Intune
 
 Not provided in source documentation.
