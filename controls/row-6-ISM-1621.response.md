@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-1621.html
 title: "Windows PowerShell 2.0 is disabled or removed. (ISM-1621)"
 ism_control: "ISM-1621"
 revision: "1"

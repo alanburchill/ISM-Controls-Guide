@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-0843.html
 title: "Application control is implemented on workstations. (ISM-0843)"
 ism_control: "ISM-0843"
 revision: "9"

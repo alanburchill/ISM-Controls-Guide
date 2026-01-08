@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-1667.html
 title: "Microsoft Office is blocked from creating child processes. (ISM-1667)"
 ism_control: "ISM-1667"
 revision: "0"

@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-1622.html
 title: "PowerShell is configured to use Constrained Language Mode. (ISM-1622)"
 ism_control: "ISM-1622"
 revision: "0"

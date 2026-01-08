@@ -1,4 +1,5 @@
 ---
+permalink: /controls-html/ISM-1659.html
 title: "Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)"
 ism_control: "ISM-1659"
 revision: "1"
@@ -55,5 +56,6 @@ To apply the blocklist, download the vulnerable driver blocklist binary, select 
 
 Not provided in source documentation.
 ---
+permalink: /controls-html/ISM-1659.html
 ⚠️ **URL Validation Warnings:**
 - **https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/appcontrol-for-business-and-applocker-overview** - HTTP 404
