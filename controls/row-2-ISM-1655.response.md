@@ -1,4 +1,5 @@
 ---
+permalink: /controls/ISM-1655.html
 title: ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed."
 ism_control: "ISM-1655"
 revision: "0"
@@ -16,6 +17,7 @@ pspf_levels:
   - "TS"
 date_generated: "2026-01-13"
 ---
+
 # .NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed.
 
 | Property | Value |

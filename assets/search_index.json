@@ -5,7 +5,7 @@
     "title": "Internet Explorer 11 is disabled or removed. (ISM-1654)",
     "section": "Operating system hardening",
     "topic": "Hardening operating system configurations",
-    "url": "controls-html/ISM-1654.html",
+    "url": "controls/ISM-1654.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -26,7 +26,7 @@
     "title": "Microsoft Office is blocked from injecting code into other processes. (ISM-1669)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1669.html",
+    "url": "controls/ISM-1669.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -46,7 +46,7 @@
     "title": "Microsoft Office is configured to prevent activation of Object Linking and Embedding packages. (ISM-1542)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1542.html",
+    "url": "controls/ISM-1542.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -66,7 +66,7 @@
     "title": "Office productivity suites are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1859)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1859.html",
+    "url": "controls/ISM-1859.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -86,7 +86,7 @@
     "title": "Office productivity suite security settings cannot be changed by users. (ISM-1823)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1823.html",
+    "url": "controls/ISM-1823.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -106,7 +106,7 @@
     "title": "Web browsers do not process Java from the internet. (ISM-1486)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1486.html",
+    "url": "controls/ISM-1486.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -127,7 +127,7 @@
     "title": "Web browsers do not process web advertisements from the internet. (ISM-1485)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1485.html",
+    "url": "controls/ISM-1485.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -148,7 +148,7 @@
     "title": "Web browsers are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1412)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1412.html",
+    "url": "controls/ISM-1412.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -168,7 +168,7 @@
     "title": "Web browser security settings cannot be changed by users. (ISM-1585)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1585.html",
+    "url": "controls/ISM-1585.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -189,7 +189,7 @@
     "title": "PDF applications are blocked from creating child processes. (ISM-1670)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1670.html",
+    "url": "controls/ISM-1670.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -209,7 +209,7 @@
     "title": "PDF applications are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1860)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1860.html",
+    "url": "controls/ISM-1860.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -229,7 +229,7 @@
     "title": ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)",
     "section": "Operating system hardening",
     "topic": "Hardening operating system configurations",
-    "url": "controls-html/ISM-1655.html",
+    "url": "controls/ISM-1655.html",
     "essential_eight": [
       "ML3"
     ],
@@ -248,7 +248,7 @@
     "title": "PDF application security settings cannot be changed by users. (ISM-1824)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1824.html",
+    "url": "controls/ISM-1824.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -268,7 +268,7 @@
     "title": "Microsoft Office macros are disabled for users that do not have a demonstrated business requirement. (ISM-1671)",
     "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "url": "controls-html/ISM-1671.html",
+    "url": "controls/ISM-1671.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -289,7 +289,7 @@
     "title": "Microsoft Office macros in files originating from the internet are blocked. (ISM-1488)",
     "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "url": "controls-html/ISM-1488.html",
+    "url": "controls/ISM-1488.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -310,7 +310,7 @@
     "title": "Microsoft Office macro antivirus scanning is enabled. (ISM-1672)",
     "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "url": "controls-html/ISM-1672.html",
+    "url": "controls/ISM-1672.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -331,7 +331,7 @@
     "title": "Microsoft Office macros are blocked from making Win32 API calls. (ISM-1673)",
     "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "url": "controls-html/ISM-1673.html",
+    "url": "controls/ISM-1673.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -351,7 +351,7 @@
     "title": "Only Microsoft Office macros running from within a sandboxed environment, a Trusted Location or that are digitally signed by a trusted publisher are allowed to execute. (ISM-1674)",
     "section": "User application hardening",
     "topic": "Microsoft Office macros",
-    "url": "controls-html/ISM-1674.html",
+    "url": "controls/ISM-1674.html",
     "essential_eight": [
       "ML3"
     ],
@@ -370,7 +370,7 @@
     "title": "Multi-factor authentication is used to authenticate users to their organisation’s online services that process, store or communicate their organisation’s sensitive data. (ISM-1504)",
     "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "url": "controls-html/ISM-1504.html",
+    "url": "controls/ISM-1504.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -391,7 +391,7 @@
     "title": "Multi-factor authentication is used to authenticate privileged users of systems. (ISM-1173)",
     "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "url": "controls-html/ISM-1173.html",
+    "url": "controls/ISM-1173.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -411,7 +411,7 @@
     "title": "Multi-factor authentication is used to authenticate unprivileged users of systems. (ISM-0974)",
     "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "url": "controls-html/ISM-0974.html",
+    "url": "controls/ISM-0974.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -431,7 +431,7 @@
     "title": "Multi-factor authentication used for authenticating users of online services is phishing-resistant. (ISM-1872)",
     "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "url": "controls-html/ISM-1872.html",
+    "url": "controls/ISM-1872.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -451,7 +451,7 @@
     "title": "Application control is implemented on workstations. (ISM-0843)",
     "section": "Operating system hardening",
     "topic": "Application control",
-    "url": "controls-html/ISM-0843.html",
+    "url": "controls/ISM-0843.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -472,7 +472,7 @@
     "title": "Successful and unsuccessful multi-factor authentication events are centrally logged. (ISM-1683)",
     "section": "Authentication hardening",
     "topic": "Multi-factor authentication",
-    "url": "controls-html/ISM-1683.html",
+    "url": "controls/ISM-1683.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -492,7 +492,7 @@
     "title": "Credentials for break glass accounts, local administrator accounts and service accounts are long, unique, unpredictable and managed. (ISM-1685)",
     "section": "Authentication hardening",
     "topic": "Setting credentials for built-in Administrator accounts, break glass accounts, local administrator accounts and service accounts",
-    "url": "controls-html/ISM-1685.html",
+    "url": "controls/ISM-1685.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -512,7 +512,7 @@
     "title": "Memory integrity functionality is enabled. (ISM-1896)",
     "section": "Authentication hardening",
     "topic": "Protecting credentials",
-    "url": "controls-html/ISM-1896.html",
+    "url": "controls/ISM-1896.html",
     "essential_eight": [
       "ML3"
     ],
@@ -531,7 +531,7 @@
     "title": "Local Security Authority protection functionality is enabled. (ISM-1861)",
     "section": "Authentication hardening",
     "topic": "Protecting credentials",
-    "url": "controls-html/ISM-1861.html",
+    "url": "controls/ISM-1861.html",
     "essential_eight": [
       "ML3"
     ],
@@ -550,7 +550,7 @@
     "title": "Credential Guard functionality is enabled. (ISM-1686)",
     "section": "Authentication hardening",
     "topic": "Protecting credentials",
-    "url": "controls-html/ISM-1686.html",
+    "url": "controls/ISM-1686.html",
     "essential_eight": [
       "ML3"
     ],
@@ -569,7 +569,7 @@
     "title": "Remote Credential Guard functionality is enabled. (ISM-1897)",
     "section": "Authentication hardening",
     "topic": "Protecting credentials",
-    "url": "controls-html/ISM-1897.html",
+    "url": "controls/ISM-1897.html",
     "essential_eight": [
       "ML3"
     ],
@@ -588,7 +588,7 @@
     "title": "Privileged users use separate privileged and unprivileged operating environments. (ISM-1380)",
     "section": "System administration",
     "topic": "Separate privileged operating environments",
-    "url": "controls-html/ISM-1380.html",
+    "url": "controls/ISM-1380.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -609,7 +609,7 @@
     "title": "A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities. (ISM-1808)",
     "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "url": "controls-html/ISM-1808.html",
+    "url": "controls/ISM-1808.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -630,7 +630,7 @@
     "title": "A vulnerability scanner is used at least daily to identify missing patches or updates for vulnerabilities in online services. (ISM-1698)",
     "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "url": "controls-html/ISM-1698.html",
+    "url": "controls/ISM-1698.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -651,7 +651,7 @@
     "title": "A vulnerability scanner is used at least weekly to identify missing patches or updates for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products. (ISM-1699)",
     "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "url": "controls-html/ISM-1699.html",
+    "url": "controls/ISM-1699.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -672,7 +672,7 @@
     "title": "Microsoft’s recommended application blocklist is implemented. (ISM-1544)",
     "section": "Operating system hardening",
     "topic": "Application control",
-    "url": "controls-html/ISM-1544.html",
+    "url": "controls/ISM-1544.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -692,7 +692,7 @@
     "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices. (ISM-1702)",
     "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "url": "controls-html/ISM-1702.html",
+    "url": "controls/ISM-1702.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -713,7 +713,7 @@
     "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in drivers. (ISM-1703)",
     "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "url": "controls-html/ISM-1703.html",
+    "url": "controls/ISM-1703.html",
     "essential_eight": [
       "ML3"
     ],
@@ -732,7 +732,7 @@
     "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in firmware. (ISM-1900)",
     "section": "System patching",
     "topic": "Scanning for unmitigated vulnerabilities",
-    "url": "controls-html/ISM-1900.html",
+    "url": "controls/ISM-1900.html",
     "essential_eight": [
       "ML3"
     ],
@@ -751,7 +751,7 @@
     "title": "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1876)",
     "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "url": "controls-html/ISM-1876.html",
+    "url": "controls/ISM-1876.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -772,7 +772,7 @@
     "title": "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1690)",
     "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "url": "controls-html/ISM-1690.html",
+    "url": "controls/ISM-1690.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -793,7 +793,7 @@
     "title": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1692)",
     "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "url": "controls-html/ISM-1692.html",
+    "url": "controls/ISM-1692.html",
     "essential_eight": [
       "ML3"
     ],
@@ -812,7 +812,7 @@
     "title": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1901)",
     "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "url": "controls-html/ISM-1901.html",
+    "url": "controls/ISM-1901.html",
     "essential_eight": [
       "ML3"
     ],
@@ -831,7 +831,7 @@
     "title": "Patches, updates or other vendor mitigations for vulnerabilities in applications other than office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within one month of release. (ISM-1693)",
     "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "url": "controls-html/ISM-1693.html",
+    "url": "controls/ISM-1693.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -851,7 +851,7 @@
     "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1696)",
     "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "url": "controls-html/ISM-1696.html",
+    "url": "controls/ISM-1696.html",
     "essential_eight": [
       "ML3"
     ],
@@ -870,7 +870,7 @@
     "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within one month of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1902)",
     "section": "System patching",
     "topic": "Mitigating known vulnerabilities",
-    "url": "controls-html/ISM-1902.html",
+    "url": "controls/ISM-1902.html",
     "essential_eight": [
       "ML3"
     ],
@@ -889,7 +889,7 @@
     "title": "Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)",
     "section": "Operating system hardening",
     "topic": "Application control",
-    "url": "controls-html/ISM-1659.html",
+    "url": "controls/ISM-1659.html",
     "essential_eight": [
       "ML3"
     ],
@@ -908,7 +908,7 @@
     "title": "Office productivity suites, web browsers and their extensions, email clients, PDF applications, Adobe Flash Player, and security products that are no longer supported by vendors are removed. (ISM-1704)",
     "section": "System patching",
     "topic": "Cessation of support",
-    "url": "controls-html/ISM-1704.html",
+    "url": "controls/ISM-1704.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -929,7 +929,7 @@
     "title": "Backups of data, applications and settings are performed and retained in accordance with business criticality and business continuity requirements. (ISM-1511)",
     "section": "Data backup and restoration",
     "topic": "Performing and retaining backups",
-    "url": "controls-html/ISM-1511.html",
+    "url": "controls/ISM-1511.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -950,7 +950,7 @@
     "title": "Backups of data, applications and settings are synchronised to enable restoration to a common point in time. (ISM-1810)",
     "section": "Data backup and restoration",
     "topic": "Performing and retaining backups",
-    "url": "controls-html/ISM-1810.html",
+    "url": "controls/ISM-1810.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -971,7 +971,7 @@
     "title": "Backups of data, applications and settings are retained in a secure and resilient manner. (ISM-1811)",
     "section": "Data backup and restoration",
     "topic": "Performing and retaining backups",
-    "url": "controls-html/ISM-1811.html",
+    "url": "controls/ISM-1811.html",
     "essential_eight": [
       "ML1",
       "ML2",
@@ -992,7 +992,7 @@
     "title": "Event logs are protected from unauthorised modification and deletion. (ISM-1815)",
     "section": "Event logging and monitoring",
     "topic": "Centralised event logging facility",
-    "url": "controls-html/ISM-1815.html",
+    "url": "controls/ISM-1815.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -1012,7 +1012,7 @@
     "title": "Windows PowerShell 2.0 is disabled or removed. (ISM-1621)",
     "section": "Operating system hardening",
     "topic": "PowerShell",
-    "url": "controls-html/ISM-1621.html",
+    "url": "controls/ISM-1621.html",
     "essential_eight": [
       "ML3"
     ],
@@ -1031,7 +1031,7 @@
     "title": "PowerShell is configured to use Constrained Language Mode. (ISM-1622)",
     "section": "Operating system hardening",
     "topic": "PowerShell",
-    "url": "controls-html/ISM-1622.html",
+    "url": "controls/ISM-1622.html",
     "essential_eight": [
       "ML3"
     ],
@@ -1050,7 +1050,7 @@
     "title": "Microsoft Office is blocked from creating child processes. (ISM-1667)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1667.html",
+    "url": "controls/ISM-1667.html",
     "essential_eight": [
       "ML2",
       "ML3"
@@ -1070,7 +1070,7 @@
     "title": "Microsoft Office is blocked from creating executable content. (ISM-1668)",
     "section": "User application hardening",
     "topic": "Hardening user application configurations",
-    "url": "controls-html/ISM-1668.html",
+    "url": "controls/ISM-1668.html",
     "essential_eight": [
       "ML2",
       "ML3"

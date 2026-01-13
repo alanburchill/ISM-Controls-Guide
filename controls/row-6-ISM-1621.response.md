@@ -1,4 +1,5 @@
 ---
+permalink: /controls/ISM-1621.html
 title: "Windows PowerShell 2.0 is disabled or removed."
 ism_control: "ISM-1621"
 revision: "1"
@@ -16,6 +17,7 @@ pspf_levels:
   - "TS"
 date_generated: "2026-01-13"
 ---
+
 # Windows PowerShell 2.0 is disabled or removed.
 
 | Property | Value |

@@ -1,4 +1,5 @@
 ---
+permalink: /controls/ISM-0843.html
 title: "Application control is implemented on workstations."
 ism_control: "ISM-0843"
 revision: "9"
@@ -18,6 +19,7 @@ pspf_levels:
   - "TS"
 date_generated: "2026-01-13"
 ---
+
 # Application control is implemented on workstations.
 
 | Property | Value |

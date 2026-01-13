@@ -23,7 +23,7 @@ scripts/            → Legacy generation scripts (NOT USED - Jekyll handles con
 Each file follows this structure:
 ```yaml
 ---
-permalink: /controls-html/ISM-XXXX.html  # Required for URL routing
+permalink: /controls/ISM-XXXX.html  # Required for URL routing
 title: "Control description (ISM-XXXX)"
 ism_control: "ISM-XXXX"
 essential_eight: ["ML1", "ML2", "ML3"]   # Maturity levels
@@ -45,7 +45,7 @@ topic: "Subcategory"
 
 ### Adding New Controls
 1. Create `controls/row-N-ISM-XXXX.response.md` with required front matter
-2. Include `permalink: /controls-html/ISM-XXXX.html` to maintain URL structure
+2. Include `permalink: /controls/ISM-XXXX.html` to maintain URL structure
 3. Update `assets/search_index.json` to include the new control for search
 
 ### Styling
@@ -76,7 +76,7 @@ bundle exec jekyll serve
 
 ## Important Notes
 
-- `controls-html/` folder is **legacy** - Jekyll now generates HTML from markdown
+- `controls/` folder is **legacy** - Jekyll now generates HTML from markdown
 - The `scripts/` folder contains old Python/PowerShell generators (superseded by Jekyll)
-- Front matter `permalink` is critical - controls expect `/controls-html/ISM-XXXX.html` URLs
+- Front matter `permalink` is critical - controls expect `/controls/ISM-XXXX.html` URLs
 - Footnotes use kramdown syntax: `[^1]` with `[^1]: Reference text` at end

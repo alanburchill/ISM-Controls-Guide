@@ -1,4 +1,5 @@
 ---
+permalink: /controls/ISM-1544.html
 title: "Microsoft’s recommended application blocklist is implemented."
 ism_control: "ISM-1544"
 revision: "3"
@@ -17,6 +18,7 @@ pspf_levels:
   - "TS"
 date_generated: "2026-01-13"
 ---
+
 # Microsoft’s recommended application blocklist is implemented.
 
 | Property | Value |

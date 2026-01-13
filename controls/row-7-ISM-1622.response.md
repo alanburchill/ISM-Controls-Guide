@@ -1,4 +1,5 @@
 ---
+permalink: /controls/ISM-1622.html
 title: "PowerShell is configured to use Constrained Language Mode."
 ism_control: "ISM-1622"
 revision: "0"
@@ -16,6 +17,7 @@ pspf_levels:
   - "TS"
 date_generated: "2026-01-13"
 ---
+
 # PowerShell is configured to use Constrained Language Mode.
 
 | Property | Value |

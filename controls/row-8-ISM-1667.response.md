@@ -1,4 +1,5 @@
 ---
+permalink: /controls/ISM-1667.html
 title: "Microsoft Office is blocked from creating child processes."
 ism_control: "ISM-1667"
 revision: "0"
@@ -17,6 +18,7 @@ pspf_levels:
   - "TS"
 date_generated: "2026-01-13"
 ---
+
 # Microsoft Office is blocked from creating child processes.
 
 | Property | Value |

@@ -1,4 +1,5 @@
 ---
+permalink: /controls/ISM-1659.html
 title: "Microsoft’s vulnerable driver blocklist is implemented."
 ism_control: "ISM-1659"
 revision: "1"
@@ -16,6 +17,7 @@ pspf_levels:
   - "TS"
 date_generated: "2026-01-13"
 ---
+
 # Microsoft’s vulnerable driver blocklist is implemented.
 
 | Property | Value |
