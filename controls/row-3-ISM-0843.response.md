@@ -1,6 +1,5 @@
 ---
-permalink: /controls-html/ISM-0843.html
-title: "Application control is implemented on workstations. (ISM-0843)"
+title: "Application control is implemented on workstations."
 ism_control: "ISM-0843"
 revision: "9"
 updated: "Sep-21"
@@ -17,9 +16,9 @@ pspf_levels:
   - "P"
   - "S"
   - "TS"
-date_generated: "2026-01-08"
+date_generated: "2026-01-13"
 ---
-# Application control is implemented on workstations. (ISM-0843)
+# Application control is implemented on workstations.
 
 | Property | Value |
 |----------|-------|
@@ -34,56 +33,62 @@ date_generated: "2026-01-08"
 
 ## Summary
 
-App Control for Business enforces application trust on Windows endpoints by allowing only verified apps and drivers to run. Configure WDAC policies through Intune as the managed installer, uploading policy XML to deploy across cloud-managed devices. WDAC relies on hash, publisher certificate, and path rules and supports Microsoft-recommended blocklists; the set of allowed applications is managed in Intune.[^1][^2]
-
-[^1]: [App Control for Business](https://learn.microsoft.com/en-us/windows/security/book/application-security-application-and-driver-control#app-control-for-business#App Control for Business)
-
-[^2]: [Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)
+Not provided in source documentation.
 
 ## Design Decision
 
-> [!NOTE] App Control for Business will be implemented on Windows workstations using WDAC policies deployed via Intune. It will restrict execution to verified applications and drivers.
+Use **App Control for Business** to (1) configure the **WDAC policy** and (2) deploy the policy via **Intune**.
+
+> [!NOTE]
+> Deploying WDAC policies via Intune centralizes control and enables managed installers.
 
 ## Prerequisites
 
-* **Licensing:** Microsoft Intune Plan 1 licensing at minimum. [^1]
+- **Licensing:** **Microsoft Intune Plan 1** licensing is required if Intune is used to configure devices for **App Control for Business** policies.[^1]
 
-* **Dependencies:** App Control for Business configuration is performed via Windows Defender Application Control and can be configured through Intune, including setting up Intune as a managed installer. WDAC policies can be uploaded as an XML file for Intune to package and deploy. WDAC is controlled via Intune for cloud-managed devices and Group Policy for hybrid devices. [^1][^2]
+- **Permissions/Roles:** Access to the **Microsoft Intune admin center** is required to create and manage **App Control for Business** policies.[^1]
 
-[^1]: [App Control for Business](https://learn.microsoft.com/en-us/windows/security/book/application-security-application-and-driver-control#app-control-for-business#App Control for Business)
-[^2]: [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)
+- **Dependencies:** The Intune Management Extension must be configured as a managed installer to deploy **App Control for Business** policies via Intune.[^1]
+
+[^1]: [Manage approved apps for Windows devices with App Control for Business policy and Managed Installers in Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/protect/endpoint-security-app-control-policy)
 
 ## Implementation Steps
 
-### App Control for Business with Intune
+### Configure App Control for Business policy using Intune UI
 
-1. Configure App Control for Business in the admin console and set Intune as the managed installer. [^1]
+1. Sign in to the Microsoft Intune admin center. Go to Endpoint security > **App Control for Business** > select the **App Control for Business** tab and then select Create Policy.[^1]
 
-2. Use the built-in App Control for Business options in Intune and, if needed, upload WDAC policy XML for packaging and deployment. [^1]
+2. On **Basics**, configure:
+   - **Name**: Enter a descriptive name for the profile.
+   - **Description**: Optional but recommended.
 
-3. Package and deploy WDAC policies via Intune. Intune can deploy policies as an XML file. [^1]
+3. On **Configuration settings**, choose a Configuration settings format: **XML data**. If you select this option but don't add XML properties to the policy, it acts as Not configured.  
+> [!NOTE]
+> If you select XML data and don't add XML properties, the policy acts as Not configured.
 
-4. Enable the managed installer in Intune to simplify allowing line-of-business apps. [^1]
+4. On **Built-in controls**, configure:
+   - **Enable trust of Windows components and store apps**: When this setting is Enabled (the default), managed devices can run Windows components and store apps, as well as other apps you might configure as trusted. Apps that aren't defined as trusted by this policy are blocked from running. This setting also supports an Audit only mode.
 
-5. Deploy WDAC in Audit mode prior to enforcement to validate policy behavior. [^2]
+5. Under “Select additional options for trusting apps,” enable:
+   - **Trust apps with a good reputation**
+   - **Trust apps from managed installers**
 
-6. Configure WDAC using a combination of publisher certificates and path rules to define trusted software boundaries. [^2]
+6. On the **Scope tags** page, select any desired scope tags to apply, then select Next.
 
-7. Restrict the following filetypes to an approved set on workstations: executables, software libraries, scripts, installers, compiled HTML, HTML applications, control panel applets, and drivers. [^4]
+7. For **Assignments**, select the groups that receive the policy, then select Next. (Note: WDAC policies apply to only the device scope.)
 
-8. Implement Microsoft’s blocklists: use the recommended application blocklist and the vulnerable driver blocklist. [^4]
+8. On **Review + create**, review your settings and then select Create. When you select Create, your changes are saved, and the policy is assigned. The policy is also shown in the policy list.
 
-9. Deploy WDAC policies via Intune as cloud-managed devices; for hybrid environments, complementary use of Group Policy is possible. [^2]
+| Setting | Value |
+| ------- | ----- |
+| Configuration format
 
-10. Enable logging of App Control events and forward them to a centralized analytics solution (e.g., Log Analytics). [^4]
+## Additional related information
 
-11. Maintain and review the allowed applications list in the Intune portal on a regular cadence. [^4]
+- ASD Blueprint: Windows Defender application control provides design decisions for deploying WDAC on Windows endpoints and management via Intune [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)
 
-12. For ML2 and ML3 maturity levels, validate WDAC rule-sets annually (or more frequently). [^4]
+- ASD Blueprint: Application control outlines Essential Eight guidance for application control and cloud-managed deployment via Intune [ASD Blueprint: Application control](https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
 
-13. After successful audit, transition from audit mode to enforcement to block untrusted applications. [^2]
+- Windows 11 Security Book - Application And Driver Control summarizes App Control and driver restrictions and how Smart App Control complements WDAC [Windows 11 Security Book - Application And Driver Control](https://learn.microsoft.com/en-us/windows/security/book/application-security-application-and-driver-control)
 
-[^1]: [App Control for Business](https://learn.microsoft.com/en-us/windows/security/book/application-security-application-and-driver-control#app-control-for-business#App Control for Business)
-[^2]: [Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)
-[^3]: [Application management](https://blueprint.asd.gov.au/design/platform/client/application-management/)
-[^4]: [Essential Eight - Application control](https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
+- Essential Eight application control provides guidance on implementing application control using WDAC and related controls for enterprise environments [Essential Eight application control](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)

@@ -1,6 +1,5 @@
 ---
-permalink: /controls-html/ISM-1655.html
-title: ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)"
+title: ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed."
 ism_control: "ISM-1655"
 revision: "0"
 updated: "Sep-21"
@@ -15,9 +14,9 @@ pspf_levels:
   - "P"
   - "S"
   - "TS"
-date_generated: "2026-01-08"
+date_generated: "2026-01-13"
 ---
-# .NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)
+# .NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed.
 
 | Property | Value |
 |----------|-------|
@@ -32,47 +31,36 @@ date_generated: "2026-01-08"
 
 ## Summary
 
-ISM-1655 requires that .NET Framework 3.5 (including .NET 2.0 and 3.0) be disabled or removed. Implement using the provided script UserApplicationHardening-RemoveFeatures.ps1 and deploy it through the InTune 'Scripts' option to automate removal on endpoints. This approach aligns with ASD Essential Eight guidance for User Application Hardening.[^1][^2]
+Disable or remove **.NET Framework 3.5 (includes .NET 2.0 and 3.0)** via deployment and deploy **UserApplicationHardening-RemoveFeatures.ps1** using the **InTune Scripts** option.[^1]
 
-[^1]: [https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features#use-windows-powershell-to-disable-specific-features](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features#use-windows-powershell-to-disable-specific-features)
-
-[^2]: [https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/](https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/)
+[^1]: [Essential Eight user application hardening - Essential Eight](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
 
 ## Design Decision
 
-> [!NOTE] Disable .NET Framework 3.5 (includes .NET 2.0 and 3.0) using the UserApplicationHardening-RemoveFeatures.ps1 script. Deploy the script through the Intune 'Scripts' option.
+Use **Microsoft Intune** to (1) configure **.NET Framework 3.5 (includes .NET 2.0 and 3.0) Disabled or Removed** and (2) deploy **UserApplicationHardening-RemoveFeatures.ps1** via **InTune 'Scripts' option**.
+
+> [!NOTE]
+> Deploying **UserApplicationHardening-RemoveFeatures.ps1** also disables **.NET Framework 3.5 (includes .NET 2.0 and 3.0)**.
 
 ## Prerequisites
 
-* **Permissions/Roles:** The current user must be a member of the local Administrators group to add or remove Windows features. [^2]
+- **Dependencies:** Access to the **UserApplicationHardening-RemoveFeatures.ps1** PowerShell script; the script turns off the .NET Framework 3.5 (includes .NET 2.0 and 3.0) feature, if installed.[^1]
 
-* **Dependencies:** Microsoft Intune is required to deploy the UserApplicationHardening-RemoveFeatures.ps1 script to Windows client devices using the InTune 'Scripts' option; Windows PowerShell capabilities on client devices are required to execute the script. [^1]
-
-[^1]: [Add, remove, or hide Windows features (windows-10) – Use Windows PowerShell to disable specific features](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features#use-windows-powershell-to-disable-specific-features)
-
-[^2]: [Deploy .NET Framework 3.5 by using Deployment Image Servicing and Management (DISM)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-net-framework-35-by-using-deployment-image-servicing-and-management--dism?view=windows-11#deploy-net-framework-35-by-using-deployment-image-servicing-and-management-dism)
+[^1]: [Essential Eight user application hardening - Essential Eight | Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
 
 ## Implementation Steps
 
-### Remove features using UserApplicationHardening-RemoveFeatures.ps1
+### Deploy Script using Intune Scripts
 
-1. Deploy the UserApplicationHardening-RemoveFeatures.ps1 PowerShell script to target Windows devices using the InTune Scripts option.[^1]
+1. Add **UserApplicationHardening-RemoveFeatures.ps1** as a PowerShell script using Intune Scripts.[^1]
+2. Deploy the script to target devices using Intune Scripts.[^1]
+3. The script disables the **.NET Framework 3.5** (includes .NET 2.0 and 3.0) feature, if installed.[^1]
 
-2. The script disables the required Windows features, including .NET Framework 3.5, per Essential Eight guidance.[^3]
+> [!NOTE]
+> Not provided in source documentation.
 
-3. If a device cannot access Windows Update to obtain feature files, ensure the script can use a local or offline source to manage features in a deployment image or offline context. This can involve DISM/Disable-WindowsOptionalFeature workflows as described in the referenced guidance.[^2][^1]
+[^1]: [Essential Eight user application hardening - Essential Eight](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
 
-4. As part of Essential Eight hardening, ensure Windows PowerShell 2.0 is disabled or removed, and configure PowerShell to use Constrained Language Mode where applicable.[^3]
+## Additional related information
 
-5. Verify the feature removal after script execution:
-   - Run the following command to verify .NET Framework 3.5 (NetFx3) is disabled or removed:
-     ```powershell
-     Get-WindowsOptionalFeature -Online -FeatureName NetFx3
-     ```
-   - Check that the FeatureState indicates Disabled (or Removed).[^1]
-
-6. Monitor and document the outcome of the deployment, including any restart requirements or follow-up actions, and adjust the Intune script deployment as needed.[^1]
-
-[^1]: [Use Windows PowerShell to disable specific features](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features#use-windows-powershell-to-disable-specific-features)
-[^2]: [Deploy .NET Framework 3.5 by using Deployment Image Servicing and Management (DISM)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-net-framework-35-by-using-deployment-image-servicing-and-management--dism?view=windows-11#deploy-net-framework-35-by-using-deployment-image-servicing-and-management-dism)
-[^3]: [Essential Eight guidance](https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/)
+- ASD Blueprint for User Application Hardening provides essential eight guidance on hardening user applications and practical implementation considerations [ASD Blueprint: User application hardening](https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/).[^2]
