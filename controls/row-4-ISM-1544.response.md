@@ -1,6 +1,5 @@
 ---
-permalink: /controls-html/ISM-1544.html
-title: "Microsoft’s recommended application blocklist is implemented. (ISM-1544)"
+title: "Microsoft’s recommended application blocklist is implemented."
 ism_control: "ISM-1544"
 revision: "3"
 updated: "Dec-23"
@@ -16,9 +15,9 @@ pspf_levels:
   - "P"
   - "S"
   - "TS"
-date_generated: "2026-01-08"
+date_generated: "2026-01-13"
 ---
-# Microsoft’s recommended application blocklist is implemented. (ISM-1544)
+# Microsoft’s recommended application blocklist is implemented.
 
 | Property | Value |
 |----------|-------|
@@ -33,42 +32,75 @@ date_generated: "2026-01-08"
 
 ## Summary
 
-WDAC enforces application control on Windows endpoints by restricting execution to an approved set. Implement WDAC using App Control for Business to configure and deploy policies delivered through Intune, leveraging a combination of hash, publisher certificate, and path rules; enable Script Enforcement, Store Applications, and Dynamic Code Security, and enable Managed Installer. Begin in audit mode before enforcement, and apply Microsoft blocklists (e.g., Microsoft’s recommended application blocklist and Microsoft’s vulnerable driver blocklist) to align with the Essential Eight.  
+Configure **WDAC** via **App Control for Business** and deploy the WDAC policy via **Intune** to implement **Microsoft’s recommended application blocklist** on Windows workstations.[^1][^2][^10]
 
-[^2]: [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)  
-[^4]: [Application control](https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
+[^1]: [ASD Blueprint: Application control](https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
+[^2]: [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)
+[^10]: [Application Control for Windows](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/appcontrol)
 
 ## Design Decision
 
-> [!NOTE] WDAC will be implemented using Windows Defender Application Control policies managed through Intune to enforce application control on Windows endpoints.
+Use **App Control for Business** to configure **WDAC policy enforcement** and deploy **ScriptName.ps1** via **Intune**.
+
+> [!NOTE]
+> Centralized WDAC policy management is achieved through **App Control for Business**.
 
 ## Prerequisites
 
-- **Dependencies:** Windows Defender Application Control (WDAC) is used to enforce application control on Windows workstations and is configured via Microsoft Intune for cloud-managed devices or via Group Policy for hybrid devices. [^1]
+- **Licensing - Intune Plan 1 licensing** is required for devices managed via Intune to configure WDAC policies.[^1]
 
-[^1]: [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)
+- **Dependencies - Microsoft Intune access** is required to configure WDAC policies for cloud-managed devices; Group Policy can be used for hybrid devices.[^2]
+
+[^1]: [ASD Blueprint: Application control](https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
+[^2]: [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)
 
 ## Implementation Steps
 
-### WDAC deployment using App Control for Business via Intune
+### Use App Control for Business Wizard to create and deploy WDAC policy
 
-1. Plan deployment using App Control for Business (WDAC) via Intune for cloud-managed devices; for hybrid devices, configure via Group Policy.[^1]
+1. Open the **Windows Defender App Control Wizard** (App Control for Business) to create a WDAC policy.[^8]  
+2. In Policy Creator, create a base policy and add rules. Use publisher-based rules where possible.[^3]  
+3. Configure the policy with the following options:
+   
+   | Setting | Value |
+   | ------- | ----- |
+   | **Application Control method** | **Publisher-based rules (recommended)** |
+   | **Script Enforcement** | **Enabled** |
+   | **Update policy No Reboot** | **Enabled** |
+   | **Dynamic Code Security** | **Enabled** |
+   | **Hypervisor-protected code integrity** | **Enabled** |
+   | **Enforce Store Applications** | **Enabled** |
+   | **Flight Signing** | **Disabled** |
+   | **Managed Installer** | **Enabled** |
+   
+   These options align with WDAC guidance and ASD recommendations.[^2]  
+4. Save the policy in Policy Creator and prepare it for deployment.[^3]  
+5. Deploy the policy to target devices or users. This is typically done via cloud management (Intune) for managed devices.[^2]  
 
-2. Deploy WDAC in audit mode first to verify compatibility and capture policy-violation events before enforcing.[^1]
+> [!NOTE]
+> The App Control for Business Wizard can help in creating and editing WDAC policies.[^8]
 
-3. Create a WDAC policy that uses a combination of hash, publisher certificate, and path rules to define trusted software.[^1]
+[^2]: [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)
+[^3]: [Essential Eight application control - Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)
+[^8]: [WDAC enforced infrastructure in Windows Admin Center](https://learn.microsoft.com/en-us/windows-server/manage/windows-admin-center/use/manage-application-control-infrastructure)
 
-4. Leverage managed installers to populate the allow list; items deployed via the managed installer are added to the allow list.[^1]
+### Deploy WDAC policy via Intune using App Control for Business
 
-5. Enable Script Enforcement and Constrained Language mode for Windows PowerShell to restrict script execution.[^1]
+1. Sign in to the Microsoft Intune admin center. Navigate to Devices -> Configuration Profiles and create a new profile. Choose the profile type as a Custom or Template suitable for WDAC policy deployment.[^3]  
+2. In the profile, configure the policy data using the Windows Defender App Control Wizard generated policy. Under OMA-URI Settings, add the policy data as a Base64-encoded file (BIN). The policy data is derived from the WDAC policy XML produced by the Wizard and converted to a BIN file as described by the WDAC deployment process.[^3]  
+3. Copy the CIP file generated by the policy wizard, rename it to a .BIN extension, and upload it under Base64 (File) in the Intune profile.[^3]  
+4. Save the profile and assign it to the desired deployment group. This enables WDAC policy enforcement on target devices managed by Intune.[^3]  
+5. Monitor deployment and WDAC policy events to verify enforcement. WDAC policy monitoring can be reviewed via WDAC event IDs and security telemetry; integration with Microsoft Defender for Endpoint and SIEM solutions is supported.[^3]  
 
-6. Enforce Windows Hardware Quality Labs signing for drivers; require EV signers for drivers; block unsigned drivers.[^1]
+> [!NOTE]
+> The WDAC policy wizard can assist with policy creation and rule configuration, including publisher-based rules and supplemental policies when needed.[^3]
 
-7. Apply blocklists as part of the WDAC policy, including Microsoft’s recommended application blocklist and Microsoft’s vulnerable driver blocklist.[^1]
+[^3]: [Essential Eight application control - Microsoft Learn](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)
 
-8. Configure Update Policy No Reboot to allow policy updates without requiring a reboot.[^1]
+## Additional related information
 
-9. Validate in audit mode, then transition to enforcement; monitor WDAC events and centralize logging for analysis (e.g., forward events to Log Analytics) per Essential Eight guidance.[^2]
+- Guidance for implementing WDAC in Windows environments, including policy creation and monitoring via Intune and Group Policy [Implementing application control](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/implementing-application-control)
 
-[^1]: [ASD Blueprint: Windows Defender application control](https://blueprint.asd.gov.au/design/endpoints/windows/security/windows-defender-application-control/)
-[^2]: [Application control](https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
+- Microsoft recommended driver block rules provide steps to apply and validate the vulnerable driver blocklist as part of WDAC policy [Microsoft recommended driver block rules](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules)
+
+- WDAC on Hololens devices shows how WDAC is applied to specialized hardware and the policy considerations [WDAC on Hololens](https://learn.microsoft.com/en-us/hololens/windows-defender-application-control-wdac)

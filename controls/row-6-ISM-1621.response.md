@@ -1,6 +1,5 @@
 ---
-permalink: /controls-html/ISM-1621.html
-title: "Windows PowerShell 2.0 is disabled or removed. (ISM-1621)"
+title: "Windows PowerShell 2.0 is disabled or removed."
 ism_control: "ISM-1621"
 revision: "1"
 updated: "Sep-21"
@@ -15,9 +14,9 @@ pspf_levels:
   - "P"
   - "S"
   - "TS"
-date_generated: "2026-01-08"
+date_generated: "2026-01-13"
 ---
-# Windows PowerShell 2.0 is disabled or removed. (ISM-1621)
+# Windows PowerShell 2.0 is disabled or removed.
 
 | Property | Value |
 |----------|-------|
@@ -32,34 +31,66 @@ date_generated: "2026-01-08"
 
 ## Summary
 
-PowerShell 2.0 is disabled or removed on Windows devices as part of OS hardening.[^2]
+Configure **Disable Windows PowerShell 2.0** using the **UserApplicationHardening-RemoveFeatures.ps1** script and deploy it with the **Intune 'Scripts' option**.[^1]
 
-Implement by deploying a PowerShell script that removes legacy features using the Intune management extension.[^1][^3]
-
-Deploy through the InTune 'Scripts' option: upload the script, set Run this script using the logged on credentials to No, assign to the appropriate groups, and rely on Intune to report success or failure.[^2][^3]
-
-[^1]: [Use PowerShell Scripts on Windows Devices in Intune](https://learn.microsoft.com/en-us/intune/intune-service/apps/powershell-scripts)
-[^2]: [Privileged access deployment](https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-deployment#manage-local-applications)
-[^3]: [Powershell Scripts and Remediations - ASD](https://blueprint.asd.gov.au/design/platform/client/device-security/)
+[^1]: [Essential Eight user application hardening - Essential Eight](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
 
 ## Design Decision
 
-> [!NOTE] Remove PowerShell 2.0 by deploying a dedicated script through the Intune 'Scripts' option.
+Use **Essential Eight** to (1) configure **Windows PowerShell 2.0 removal** and (2) deploy **UserApplicationHardening-RemoveFeatures.ps1** via **InTune 'Scripts' option**.
+
+> [!NOTE]
+> Deploying **UserApplicationHardening-RemoveFeatures.ps1** also disables **.NET Framework 3.5** (includes .NET 2.0 and 3.0) and **Windows PowerShell 2.0**.
 
 ## Prerequisites
 
-* **Permissions/Roles:** PowerShell scripts run under administrator privileges when deployed in a user context with administrator rights. [^1]
+### Dependencies
+- Ability to create and deploy a **Settings Catalog** policy[^1].
+- Access to the **UserApplicationHardening-RemoveFeatures.ps1**[^1].
 
-* **Dependencies:** Requires Microsoft Intune service and the Intune management extension to upload and run PowerShell scripts on Windows devices. [^1]
-
-* **Dependencies:** Intune supports deploying PowerShell scripts through the Intune management extension; scripts execute on endpoints and report results. [^3]
-
-[^1]: [Use PowerShell Scripts on Windows Devices in Intune](https://learn.microsoft.com/en-us/intune/intune-service/apps/powershell-scripts)
-
-[^3]: [Powershell Scripts and Remediations - In some cases Microsoft Intune policies may not exist for a particular endpoint setting.](https://blueprint.asd.gov.au/design/platform/client/device-security/)
+[^1]: [Essential Eight user application hardening - Essential Eight](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
 
 ## Implementation Steps
 
-### Using UserApplicationHardening-RemoveFeatures.ps1 script via Intune
+### Remove Internet Explorer 11 and related features using **UserApplicationHardening-RemoveFeatures.ps1**
 
-Not provided in source documentation.
+1. Sign in to the Microsoft Intune admin center. Navigate to Devices > Scripts and remediations > Platform scripts > Add > Windows 10 and later. [^4]
+
+2. In Basics, provide:
+   - Name: Enter a name for the PowerShell script.
+   - Description: Enter a description for the PowerShell script.
+
+3. In Script settings, specify:
+   - Script location: Browse to the PowerShell script. The script must be less than 200 KB (ASCII). 
+   - Script content: Use the script file **UserApplicationHardening-RemoveFeatures.ps1**. If URL is not provided, the script name should be bold.
+
+4. Configure the following script execution options:
+
+| Setting | Value |
+| ------- | ----- |
+| Run this script using the logged on credentials | No |
+| Enforce script signature check | No |
+| Run script in 64-bit PowerShell Host | No |
+
+5. Assign the script to a deployment group. [^4]
+
+6. Monitor run status in the Intune portal. If the script fails, follow the retry guidance shown in the Intune script deployment flow. [^4]
+
+> [!NOTE]
+> This script also disables **.NET Framework 3.5** (includes **.NET 2.0** and **3.0**) and **Windows PowerShell 2.0**. [^1]
+
+[^1]: [Essential Eight user application hardening - Essential Eight](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+
+[^4]: [Add PowerShell Scripts to Windows Devices in Microsoft Intune - Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/apps/powershell-scripts)
+
+## Additional related information
+
+- Windows features management with PowerShell guidance for disabling specific features including Windows PowerShell 2.0 [Add, remove, or hide Windows features](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features)
+
+- Intune PowerShell script deployment guidance shows how to create, configure, and assign PowerShell scripts to devices [Add PowerShell Scripts to Windows Devices in Microsoft Intune - Microsoft Intune](https://learn.microsoft.com/en-us/intune/intune-service/apps/powershell-scripts)
+
+- Blocking PowerShell for EDU Tenants provides blocking guidance for PowerShell usage in educational environments [Blocking PowerShell for EDU Tenants - School Data Sync](https://learn.microsoft.com/en-us/schooldatasync/blocking-powershell-for-edu)
+
+- ASD Blueprint: Windows features outlines recommended Windows features configuration and notes that PowerShell 2.0 should be disabled or removed [ASD Blueprint: Windows features](https://blueprint.asd.gov.au/design/endpoints/windows/configuration/windows-features/)
+
+- Deploying a privileged access solution offers guidance on finishing workstation hardening and script-based controls [Deploying a privileged access solution - Privileged access](https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-deployment)
