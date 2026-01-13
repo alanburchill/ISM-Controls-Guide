@@ -1,0 +1,58 @@
+name: Controls maintenance
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Apply changes (true/false)'
+        required: false
+        default: 'false'
+      rename:
+        description: 'Rename files to ISM-XXXX.md (true/false)'
+        required: false
+        default: 'false'
+      create_pr:
+        description: 'Open a PR when apply=true (true/false)'
+        required: false
+        default: 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run controls maintenance (dry-run by default)
+        shell: bash
+        env:
+          APPLY: ${{ inputs.apply }}
+          RENAME: ${{ inputs.rename }}
+        run: |
+          echo "apply=${APPLY}, rename=${RENAME}"
+          ARGS=""
+          if [ "${RENAME}" = "true" ]; then ARGS="$ARGS --rename"; fi
+          if [ "${APPLY}" = "true" ]; then ARGS="$ARGS --apply"; fi
+          python scripts/fix_controls_links.py $ARGS
+
+      - name: Create Pull Request with changes
+        if: ${{ inputs.apply == 'true' && inputs.create_pr == 'true' }}
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: controls maintenance — permalinks/links/rename"
+          branch: "controls-maintenance-${{ github.run_id }}"
+          title: "chore: controls maintenance"
+          body: |
+            Automated maintenance: ensured permalinks for controls, replaced legacy links, and optionally renamed files to ISM-XXXX.md.
+          labels: automated
