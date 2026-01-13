@@ -70,3 +70,4 @@ package-lock.json
 yarn.lock
 
 # End of .gitignore
+scripts/
