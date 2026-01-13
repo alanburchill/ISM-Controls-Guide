@@ -1,13 +1,10 @@
-# Jekyll configuration for ISM Controls Implementation Guide
-# GitHub Pages site: https://alanburchill.github.io/ISM-Controls-Guide
+# Jekyll configuration for Essential 8 Guide
+# Website: https://e8guide.com
 
-title: "ISM Controls Implementation Guide"
-description: "Implementation guidance for Australian Information Security Manual (ISM) controls with Essential Eight and PSPF mappings"
-baseurl: "/ISM-Controls-Guide"
-url: "https://alanburchill.github.io"
-
-# Theme - using minima (built into GitHub Pages, no Gemfile needed)
-theme: minima
+title: "Essential 8 Guide"
+description: "Implementation guidance for Australian Essential Eight controls in Microsoft environments - ISM controls with PSPF mappings"
+baseurl: ""
+url: "https://e8guide.com"
 
 # Site settings
 github:
@@ -16,16 +13,27 @@ github:
 # Defaults for markdown files
 defaults:
   - scope:
-      path: "controls"
-      type: "pages"
+      path: ""
     values:
       layout: "default"
+  - scope:
+      path: "controls"
+    values:
+      layout: "control"
 
 # Build settings
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
+  footnote_backlink: "&#8617;"
+
+# Exclude files from build
+exclude:
+  - controls-html
+  - scripts
+  - "*.code-workspace"
+  - README.md
 
 # Include these folders
 include:

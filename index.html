@@ -1,0 +1,912 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Essential 8 Guide - Microsoft Implementation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #0d1117;
+      min-height: 100vh;
+      color: #e6edf3;
+    }
+
+    .header {
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-content {
+      flex: 1;
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      color: #8b949e;
+      font-size: 0.95rem;
+    }
+
+    .about-link {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #e6edf3;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .about-link:hover {
+      border-color: #58a6ff;
+      color: #58a6ff;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .search-section {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 16px 20px 16px 50px;
+      font-size: 1.1rem;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      background: #0d1117;
+      color: #e6edf3;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-box input::placeholder {
+      color: #8b949e;
+    }
+
+    .search-box input:focus {
+      border-color: #58a6ff;
+      box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+    }
+
+    .search-box::before {
+      content: "🔍";
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #8b949e;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .filter-group select,
+    .checkbox-group {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 0.95rem;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      background: #0d1117;
+      color: #e6edf3;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #e6edf3;
+      text-transform: none;
+      letter-spacing: normal;
+      margin-bottom: 0;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #58a6ff;
+    }
+
+    .filter-group select {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 0.95rem;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      background: #0d1117;
+      color: #e6edf3;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .filter-group select:focus {
+      border-color: #58a6ff;
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .results-count {
+      background: #161b22;
+      border: 1px solid #30363d;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #58a6ff;
+    }
+
+    .clear-btn {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #e6edf3;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .clear-btn:hover {
+      background: #30363d;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .control-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 24px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .control-card:hover {
+      border-color: #58a6ff;
+      background: #1c2128;
+    }
+
+    .control-card .ism-id {
+      display: inline-block;
+      background: rgba(88, 166, 255, 0.15);
+      color: #58a6ff;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .control-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e6edf3;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .control-card .section {
+      font-size: 0.85rem;
+      color: #8b949e;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .tag.e8 {
+      background: rgba(56, 139, 253, 0.15);
+      color: #58a6ff;
+    }
+
+    .tag.pspf {
+      background: rgba(163, 113, 247, 0.15);
+      color: #a371f7;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+    }
+
+    .no-results h3 {
+      font-size: 1.5rem;
+      color: #58a6ff;
+      margin-bottom: 10px;
+    }
+
+    .no-results p {
+      color: #8b949e;
+    }
+
+    .highlight {
+      background: rgba(187, 128, 9, 0.4);
+      color: #e6edf3;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 60px;
+      color: #8b949e;
+      font-size: 1.2rem;
+    }
+
+    /* View toggle buttons */
+    .view-toggle {
+      display: flex;
+      gap: 8px;
+    }
+
+    .view-btn {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #e6edf3;
+      padding: 10px 18px;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+    }
+
+    .view-btn:hover {
+      border-color: #58a6ff;
+      color: #58a6ff;
+    }
+
+    .view-btn.active {
+      background: rgba(88, 166, 255, 0.15);
+      color: #58a6ff;
+      border-color: #58a6ff;
+    }
+
+    /* Table view styles */
+    .results-table {
+      width: 100%;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      overflow: hidden;
+      font-size: 0.8rem;
+    }
+
+    .results-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .results-table th {
+      background: #21262d;
+      color: #e6edf3;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #30363d;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s ease;
+    }
+
+    .results-table th:hover {
+      background: #30363d;
+    }
+
+    .results-table th.sortable::after {
+      content: '⇅';
+      margin-left: 6px;
+      opacity: 0.4;
+      font-size: 0.8em;
+    }
+
+    .results-table th.sort-asc::after {
+      content: '↑';
+      opacity: 1;
+      color: #58a6ff;
+    }
+
+    .results-table th.sort-desc::after {
+      content: '↓';
+      opacity: 1;
+      color: #58a6ff;
+    }
+
+    .results-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #21262d;
+      vertical-align: middle;
+      line-height: 1.3;
+      color: #e6edf3;
+    }
+
+    .results-table tr:hover td {
+      background: #1c2128;
+    }
+
+    .results-table .ism-link {
+      color: #58a6ff;
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .results-table .ism-link:hover {
+      text-decoration: underline;
+    }
+
+    .results-table .ism-cell {
+      width: 1%;
+      white-space: nowrap;
+    }
+
+    .results-table .title-cell {
+      width: 45%;
+    }
+
+    .results-table .title-cell a {
+      color: #e6edf3;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .results-table .title-cell a:hover {
+      color: #58a6ff;
+    }
+
+    .results-table .tags-cell {
+      min-width: 140px;
+      width: 1%;
+      white-space: nowrap;
+    }
+
+    .results-table .tags-cell .tags {
+      gap: 3px;
+    }
+
+    .results-table .tags-cell .tag {
+      padding: 2px 5px;
+      font-size: 0.6rem;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px 20px;
+      }
+      .header h1 {
+        font-size: 1.4rem;
+      }
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+      .filters {
+        grid-template-columns: 1fr 1fr;
+      }
+      .results-header {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .results-table {
+        overflow-x: auto;
+      }
+      .results-table table {
+        min-width: 800px;
+      }
+    }
+
+    .intro-section {
+      background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 30px;
+      margin-bottom: 25px;
+    }
+
+    .intro-section h2 {
+      color: #58a6ff;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .intro-section p {
+      color: #8b949e;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .intro-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-section strong {
+      color: #e6edf3;
+    }
+
+    .intro-section a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    .intro-section a:hover {
+      text-decoration: underline;
+    }
+
+    .intro-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .intro-feature {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 15px;
+    }
+
+    .intro-feature strong {
+      color: #58a6ff;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .intro-feature span {
+      color: #8b949e;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-content">
+      <h1>🛡️ Essential 8 Guide</h1>
+      <p>Implementation guidance for Australian Essential Eight controls in Microsoft environments</p>
+    </div>
+    <a href="about/" class="about-link">About</a>
+  </div>
+
+  <div class="container">
+    <div class="intro-section">
+      <h2>👋 Welcome, IT Professionals</h2>
+      <p>
+        This guide provides <strong>practical, step-by-step implementation guidance</strong> for the 
+        <a href="https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight" target="_blank">Australian Essential Eight (E8)</a> 
+        security controls, specifically tailored for <strong>Microsoft environments</strong> using 
+        <strong>Microsoft Intune</strong> and <strong>Entra ID</strong>.
+      </p>
+      <p>
+        Each control page includes implementation steps, prerequisites, PowerShell scripts, and references to 
+        official Microsoft and ACSC documentation. Controls are mapped to both 
+        <strong>Essential Eight Maturity Levels (ML1-ML3)</strong> and 
+        <strong>PSPF security classifications</strong>.
+      </p>
+      <div class="intro-features">
+        <div class="intro-feature">
+          <strong>54 Controls</strong>
+          <span>Detailed implementation guides</span>
+        </div>
+        <div class="intro-feature">
+          <strong>Microsoft Focused</strong>
+          <span>Intune, Entra ID, Defender</span>
+        </div>
+        <div class="intro-feature">
+          <strong>E8 Maturity Levels</strong>
+          <span>ML1, ML2, ML3 mappings</span>
+        </div>
+        <div class="intro-feature">
+          <strong>PSPF Aligned</strong>
+          <span>Government classifications</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-section">
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search controls by title, ID, or content...">
+      </div>
+      <div class="filters">
+        <div class="filter-group">
+          <label>Essential Eight Maturity Level</label>
+          <div class="checkbox-group" id="filter-e8">
+            <label><input type="checkbox" value="ML1" checked> ML1</label>
+            <label><input type="checkbox" value="ML2" checked> ML2</label>
+            <label><input type="checkbox" value="ML3" checked> ML3</label>
+            <label><input type="checkbox" value="none" checked> None</label>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label>PSPF Classification</label>
+          <select id="filter-pspf">
+            <option value="">All Classifications</option>
+            <option value="NC">NC - No Classification</option>
+            <option value="OS">OS - Official Sensitive</option>
+            <option value="P">P - Protected</option>
+            <option value="S">S - Secret</option>
+            <option value="TS">TS - Top Secret</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Section</label>
+          <select id="filter-section">
+            <option value="">All Sections</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Topic</label>
+          <select id="filter-topic">
+            <option value="">All Topics</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-header">
+      <span class="results-count" id="results-count">Loading...</span>
+      <div class="view-toggle">
+        <button class="view-btn" id="btn-cards" onclick="setView('cards')">
+          <span>▦</span> Cards
+        </button>
+        <button class="view-btn active" id="btn-table" onclick="setView('table')">
+          <span>☰</span> Table
+        </button>
+      </div>
+      <button class="clear-btn" onclick="clearFilters()">Clear All Filters</button>
+    </div>
+
+    <div id="results-container">
+      <div class="loading">Loading controls...</div>
+    </div>
+  </div>
+
+  <script>
+    let allControls = [];
+    let searchTimeout = null;
+    let currentView = 'table';
+    let lastFilteredControls = [];
+    let lastSearch = '';
+    let sortColumn = 'section';
+    let sortDirection = 'asc';
+
+    // Load the search index
+    fetch('assets/search_index.json')
+      .then(response => response.json())
+      .then(data => {
+        allControls = data;
+        populateFilterDropdowns();
+        renderResults(allControls);
+      })
+      .catch(err => {
+        document.getElementById('results-container').innerHTML = 
+          '<div class="no-results"><h3>Error Loading Data</h3><p>Please refresh the page to try again.</p></div>';
+        console.error('Failed to load search index:', err);
+      });
+
+    function populateFilterDropdowns() {
+      const sections = [...new Set(allControls.map(c => c.section).filter(Boolean))].sort();
+      const topics = [...new Set(allControls.map(c => c.topic).filter(Boolean))].sort();
+      
+      const sectionSelect = document.getElementById('filter-section');
+      sections.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        sectionSelect.appendChild(opt);
+      });
+      
+      const topicSelect = document.getElementById('filter-topic');
+      topics.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = t;
+        topicSelect.appendChild(opt);
+      });
+    }
+
+    function getSelectedE8Levels() {
+      const checkboxes = document.querySelectorAll('#filter-e8 input[type="checkbox"]:checked');
+      return Array.from(checkboxes).map(cb => cb.value);
+    }
+
+    function applyFilters() {
+      const e8Selected = getSelectedE8Levels();
+      const pspf = document.getElementById('filter-pspf').value;
+      const section = document.getElementById('filter-section').value;
+      const topic = document.getElementById('filter-topic').value;
+      const search = document.getElementById('search-input').value.toLowerCase().trim();
+      
+      let filtered = allControls.filter(control => {
+        // E8 filter - multi-select logic
+        if (e8Selected.length > 0) {
+          const hasNoML = !control.essential_eight || control.essential_eight.length === 0;
+          const noneSelected = e8Selected.includes('none');
+          const mlLevels = e8Selected.filter(v => v !== 'none');
+          
+          // Check if control matches any selected ML level OR has no ML (if 'none' selected)
+          const matchesML = mlLevels.length > 0 && control.essential_eight && 
+                           mlLevels.some(ml => control.essential_eight.includes(ml));
+          const matchesNone = noneSelected && hasNoML;
+          
+          if (!matchesML && !matchesNone) {
+            return false;
+          }
+        }
+        if (pspf && (!control.pspf_levels || !control.pspf_levels.includes(pspf))) {
+          return false;
+        }
+        if (section && control.section !== section) {
+          return false;
+        }
+        if (topic && control.topic !== topic) {
+          return false;
+        }
+        if (search) {
+          const searchable = [
+            control.title,
+            control.ism_control,
+            control.content,
+            control.section,
+            control.topic
+          ].filter(Boolean).join(' ').toLowerCase();
+          if (!searchable.includes(search)) {
+            return false;
+          }
+        }
+        return true;
+      });
+      
+      renderResults(filtered, search);
+    }
+
+    function highlightText(text, search) {
+      if (!search || !text) return text || '';
+      const regex = new RegExp(`(${search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    function renderResults(controls, search = '') {
+      lastFilteredControls = controls;
+      lastSearch = search;
+      const container = document.getElementById('results-container');
+      document.getElementById('results-count').textContent = `${controls.length} control${controls.length !== 1 ? 's' : ''} found`;
+      
+      if (controls.length === 0) {
+        container.innerHTML = '<div class="no-results"><h3>No Controls Found</h3><p>Try adjusting your search or filters.</p></div>';
+        return;
+      }
+      
+      if (currentView === 'cards') {
+        renderCardsView(controls, search);
+      } else {
+        renderTableView(controls, search);
+      }
+    }
+
+    function renderCardsView(controls, search) {
+      const container = document.getElementById('results-container');
+      container.innerHTML = '<div class="results-grid">' + controls.map(control => {
+        const e8Tags = control.essential_eight ? control.essential_eight.map(e => `<span class="tag e8">${e}</span>`).join('') : '';
+        const pspfTags = control.pspf_levels ? control.pspf_levels.map(p => `<span class="tag pspf">${p}</span>`).join('') : '';
+        const url = 'controls/' + control.ism_control + '.html';
+        const title = highlightText(control.title || 'Untitled', search);
+        const ismControl = highlightText(control.ism_control || '-', search);
+        
+        return `<a href="${url}" class="control-card">
+          <span class="ism-id">${ismControl}</span>
+          <h3>${title}</h3>
+          <div class="section">${control.section || ''} ${control.topic ? '→ ' + control.topic : ''}</div>
+          <div class="tags">${e8Tags}${pspfTags}</div>
+        </a>`;
+      }).join('') + '</div>';
+    }
+
+    function renderTableView(controls, search) {
+      const container = document.getElementById('results-container');
+      
+      // Sort controls if a sort column is set
+      let sortedControls = [...controls];
+      if (sortColumn) {
+        sortedControls.sort((a, b) => {
+          let valA, valB;
+          switch(sortColumn) {
+            case 'ism_control':
+              valA = a.ism_control || '';
+              valB = b.ism_control || '';
+              break;
+            case 'title':
+              valA = (a.title || '').replace(/\s*\(ISM-\d+\)$/, '');
+              valB = (b.title || '').replace(/\s*\(ISM-\d+\)$/, '');
+              break;
+            case 'section':
+              valA = a.section || '';
+              valB = b.section || '';
+              break;
+            case 'topic':
+              valA = a.topic || '';
+              valB = b.topic || '';
+              break;
+            default:
+              return 0;
+          }
+          const comparison = valA.localeCompare(valB, undefined, {numeric: true});
+          return sortDirection === 'asc' ? comparison : -comparison;
+        });
+      }
+      
+      const rows = sortedControls.map(control => {
+        const e8Tags = control.essential_eight ? control.essential_eight.map(e => `<span class="tag e8">${e}</span>`).join('') : '';
+        const url = 'controls/' + control.ism_control + '.html';
+        const rawTitle = (control.title || 'Untitled').replace(/\s*\(ISM-\d+\)$/, '');
+        const title = highlightText(rawTitle, search);
+        const ismControl = highlightText(control.ism_control || '-', search);
+        
+        return `<tr>
+          <td class="ism-cell"><a href="${url}" class="ism-link">${ismControl}</a></td>
+          <td class="title-cell"><a href="${url}">${title}</a></td>
+          <td>${control.section || '-'}</td>
+          <td>${control.topic || '-'}</td>
+          <td class="tags-cell"><div class="tags">${e8Tags}</div></td>
+        </tr>`;
+      }).join('');
+      
+      const getSortClass = (col) => {
+        if (sortColumn !== col) return 'sortable';
+        return sortDirection === 'asc' ? 'sortable sort-asc' : 'sortable sort-desc';
+      };
+      
+      container.innerHTML = `<div class="results-table">
+        <table>
+          <thead>
+            <tr>
+              <th class="${getSortClass('ism_control')}" onclick="sortTable('ism_control')">ISM ID</th>
+              <th class="${getSortClass('title')}" onclick="sortTable('title')">Title</th>
+              <th class="${getSortClass('section')}" onclick="sortTable('section')">Section</th>
+              <th class="${getSortClass('topic')}" onclick="sortTable('topic')">Topic</th>
+              <th>Tags</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+    }
+
+    function sortTable(column) {
+      if (sortColumn === column) {
+        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortColumn = column;
+        sortDirection = 'asc';
+      }
+      renderResults(lastFilteredControls, lastSearch);
+    }
+
+    function setView(view) {
+      currentView = view;
+      document.getElementById('btn-cards').classList.toggle('active', view === 'cards');
+      document.getElementById('btn-table').classList.toggle('active', view === 'table');
+      renderResults(lastFilteredControls, lastSearch);
+    }
+
+    function clearFilters() {
+      // Reset E8 checkboxes to all checked
+      document.querySelectorAll('#filter-e8 input[type="checkbox"]').forEach(cb => {
+        cb.checked = true;
+      });
+      document.getElementById('filter-pspf').value = '';
+      document.getElementById('filter-section').value = '';
+      document.getElementById('filter-topic').value = '';
+      document.getElementById('search-input').value = '';
+      renderResults(allControls);
+    }
+
+    // Real-time search with debounce
+    document.getElementById('search-input').addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(applyFilters, 150);
+    });
+
+    // Filter change handlers
+    document.querySelectorAll('#filter-e8 input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', applyFilters);
+    });
+    document.getElementById('filter-pspf').addEventListener('change', applyFilters);
+    document.getElementById('filter-section').addEventListener('change', applyFilters);
+    document.getElementById('filter-topic').addEventListener('change', applyFilters);
+  </script>
+</body>
+</html>
