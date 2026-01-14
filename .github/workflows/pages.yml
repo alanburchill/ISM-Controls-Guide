@@ -32,10 +32,12 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Build with Jekyll
+      - name: Build with Jekyll (Bundler)
         run: |
-          gem install jekyll bundler
-          jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          gem install bundler
+          bundle config set deployment 'true'
+          bundle install --jobs 4 --retry 3
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
 
