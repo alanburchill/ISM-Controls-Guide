@@ -1,0 +1,87 @@
+---
+title: "Microsoft’s vulnerable driver blocklist is implemented."
+ism_control: "ISM-1659"
+revision: "1"
+updated: "Dec-23"
+guideline: ""
+section: "Operating system hardening"
+topic: "Application control"
+essential_eight:
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2026-01-15"
+---
+# Microsoft’s vulnerable driver blocklist is implemented.
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1659 |
+| **Revision** | 1 |
+| **Updated** | Dec-23 |
+| **Guideline** | Not provided |
+| **Section** | Operating system hardening |
+| **Topic** | Application control |
+| **Essential Eight** | ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Microsoft’s vulnerable driver blocklist is implemented to prevent loading vulnerable kernel drivers, reducing the risk of kernel-mode malware and privilege escalation. The control is enforced through WDAC policies managed in Intune, following Microsoft guidance to deploy the vulnerable driver blocklist across devices[^1][^2]
+
+### Justification
+
+Not provided in source documentation.
+
+[^1]: ASD Blueprint: Application control - ASD's Blueprint for Secure Cloud (https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
+[^2]: Application and driver control (https://learn.microsoft.com/en-us/windows/security/book/application-security-application-and-driver-control)
+
+## Design Decision
+
+> [!NOTE]
+> The **Microsoft vulnerable driver blocklist** will be enabled via **Intune device security settings**. The WDAC configuration will include the **Microsoft vulnerable driver blocklist** and will be enforced through Intune management.
+
+## Prerequisites
+
+- **Dependencies:**
+  - Devices running **Windows 10 or later** [^2]
+  - Devices managed by **Microsoft Intune** and enrolled in **Entra ID** (hybrid Azure AD join supported) [^2][^3]
+  - **WDAC App Control** policies deployed via **Intune** (Platform – Windows 10 or Later) [^2]
+  - Access to the vulnerable driver blocklist workflow:
+    - Download and extract the vulnerable driver blocklist binaries [^1]
+    - Download the **App Control policy refresh tool** [^1]
+    - Rename the blocklist policy file to **SiPolicy.p7b** (audit or enforce version) and copy to the path **%windir%\system32\CodeIntegrity** [^1]
+    - Run the App Control policy refresh tool to activate and refresh policies [^1]
+  - When applying, select either the audit only version or the enforced version of the blocklist as appropriate [^1]
+
+[^1]: [Microsoft recommended driver block rules](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules)
+[^2]: [Essential Eight application control](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)
+[^3]: [ASD Blueprint: Application control | ASD's Blueprint for Secure Cloud](https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
+
+## Implementation Steps
+
+### Turn on Microsoft vulnerable driver blocklist in Intune device security settings
+
+- Microsoft vulnerable driver blocklist has been enabled by default starting with Windows 11 2022 update, memory integrity (HVCI), Smart App Control, or S mode must be active.[^7]
+
+1. Sign in to the Intune admin center.[^2]
+2. Within Intune, go to Devices and then Configuration Profiles. Next, create a Profile > Platform – Windows 10 or Later, Profile Type Templates and Custom.[^2]
+3. Create a name for the policy (for example, 'Application Control - Microsoft Allow – Audit') and select Next.[^2]
+4. Under **OMA-URI Settings**, select Add. Note: This Information is dependent on the Policy ID generated from the Windows Defender App Control Wizard for the policy XML created from "Create Audit Policy" from the section above: - Name = Microsoft Allow Audit - OMA-URL = ./Vendor/MSFT/ApplicationControl/Policies/CB46B243-C19C-4870-B098-A2080923755C/Policy - Data Type = Base64 (File).[^2]
+5. When the Windows Defender App Control Wizard generated the policy XML, it also created a CIP file. Copy the CIP file and rename the file extension to .BIN for example {CB46B243-C19C-4870-B098-A2080923755C}.bin.[^2]
+6. Upload the BIN under Base64 (File).[^2]
+7. Select Save and follow the prompts to create the Configuration Profile. Deploy the policy to the intended system(s).[^2]
+8. If any vulnerable drivers are already running that the policy would block, you must reboot your computer for those drivers to be blocked.[^1]
+9. Activate and refresh all App Control policies on devices by running the App Control policy refresh tool you downloaded to activate and refresh all App Control policies on your computer.[^1]
+10. To verify the policy, open Event Viewer. Browse to Applications and Services Logs - Microsoft - Windows - CodeIntegrity - Operational. Select Filter Current Log... Replace "<All Event IDs>" with "3099" and select OK.
+
+## Additional related information
+
+- Driver security checklist explains how to report questionable drivers using the Microsoft Vulnerable and Malicious Driver Reporting Center [Driver security checklist](https://learn.microsoft.com/en-us/windows-hardware/drivers/driversecurity/driver-security-checklist)
+- Protect your organization from the effects of tampering describes tamper-resiliency features for WDAC deployments and policy integrity [Protect your organization from the effects of tampering](https://learn.microsoft.com/en-us/defender-endpoint/tamper-resiliency)
+- Kernel Mode Hardware-enforced Stack Protection explains how to handle incompatible drivers and enable stack protection [Kernel Mode Hardware-enforced Stack Protection](https://learn.microsoft.com/en-us/windows-server/security/kernel-mode-hardware-stack-protection)
+- What's new in Windows 11 IoT Enterprise LTSC 2024 highlights recent security features and guidance relevant to WDAC and driver protection [What’s new in Windows 11 IoT Enterprise LTSC 2024](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/whats-new/windows-11-iot-enterprise-ltsc-2024)

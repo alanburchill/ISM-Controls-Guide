@@ -1,0 +1,73 @@
+---
+title: "Windows PowerShell 2.0 is disabled or removed."
+ism_control: "ISM-1621"
+revision: "1"
+updated: "Sep-21"
+guideline: ""
+section: "Operating system hardening"
+topic: "PowerShell"
+essential_eight:
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2026-01-15"
+---
+# Windows PowerShell 2.0 is disabled or removed.
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1621 |
+| **Revision** | 1 |
+| **Updated** | Sep-21 |
+| **Guideline** | Not provided |
+| **Section** | Operating system hardening |
+| **Topic** | PowerShell |
+| **Essential Eight** | ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+Disabling Windows PowerShell 2.0 reduces the attack surface by eliminating legacy PowerShell execution. Implement using the script **UserApplicationHardening-RemoveFeatures.ps1** and deploy it via the InTune 'Scripts' option; the script also disables .NET Framework 3.5 (including .NET 2.0 and 3.0) and Windows PowerShell 2.0, and should be configured to run with non-interactive credentials, without signature checks, and not in a 64-bit host, assigned to the appropriate deployment group.[^1]
+
+### Footnotes
+
+[^1]: Essential Eight user application hardening (https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+
+## Design Decision
+
+> [!NOTE]
+> The [**UserApplicationHardening-RemoveFeatures.ps1**](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) script will be deployed via the InTune **Scripts** option to remove Internet Explorer 11 as part of Windows PowerShell hardening, and it will disable Windows PowerShell 2.0 and .NET Framework 3.5. The script will be assigned to a deployment group for execution.
+
+## Prerequisites
+
+Not provided in source documentation.
+
+## Implementation Steps
+
+### Using UserApplicationHardening-RemoveFeatures.ps1 Script with InTune Scripts Deployment
+
+1. Add [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune/ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) as a PowerShell script with the following options:
+- Run this script using the logged on credentials: No
+- Enforce script signature check: No
+- Run script in 64-bit PowerShell Host: No
+[^1]
+
+2. Assign the script to a deployment group using the InTune scripts deployment mechanism.  
+Note: This script also disables .NET Framework 3.5 (includes .NET 2.0 and 3.0) and Windows PowerShell 2.0.  
+[^1]
+
+[^1]: Essential Eight user application hardening (https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+
+## Additional related information
+
+- How App Control works with PowerShell provides policy enforcement guidance for PowerShell under App Control [How App Control works with PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/security/app-control/how-app-control-works?view=powershell-7.5)
+- Use Windows PowerShell to disable specific features explains how to disable Windows features with DISM and PowerShell and how Intune scripts can automate this [Use Windows PowerShell to disable specific features](https://learn.microsoft.com/en-us/windows/client-management/client-tools/add-remove-hide-features)
+- Disable-PSSessionConfiguration cmdlet description describes how to disable PS sessions to prevent usage [Disable-PSSessionConfiguration](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/disable-pssessionconfiguration?view=powershell-7.5)
+- ASD Blueprint: User application hardening describes essential eight guidance for hardening user applications including PS controls [ASD Blueprint: User application hardening](https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/)
+---
+⚠️ **URL Validation Warnings:**
+- **https://github.com/microsoft/Intune/ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1** - HTTP 404

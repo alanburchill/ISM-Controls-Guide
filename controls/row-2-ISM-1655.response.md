@@ -1,0 +1,75 @@
+---
+title: ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed."
+ism_control: "ISM-1655"
+revision: "0"
+updated: "Sep-21"
+guideline: ""
+section: "Operating system hardening"
+topic: "Hardening operating system configurations"
+essential_eight:
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2026-01-15"
+---
+# .NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed.
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-1655 |
+| **Revision** | 0 |
+| **Updated** | Sep-21 |
+| **Guideline** | Not provided |
+| **Section** | Operating system hardening |
+| **Topic** | Hardening operating system configurations |
+| **Essential Eight** | ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+**.NET Framework 3.5 (including .NET 2.0 and 3.0) is disabled or removed** to reduce the attack surface from legacy runtimes. Implement using the **UserApplicationHardening-RemoveFeatures.ps1** script and deploy it through the InTune 'Scripts' option.
+
+[^1]: [Essential Eight user application hardening](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+
+## Design Decision
+
+> [!NOTE]
+> The [**UserApplicationHardening-RemoveFeatures.ps1**](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) script will be deployed via **Intune Scripts** to disable or remove the .NET Framework 3.5 (including .NET 2.0 and 3.0) feature.
+
+## Prerequisites
+
+### Permissions/Roles
+- Devices must be joined to Microsoft Entra ID, including hybrid joined and Workplace Joined (WPJ).[^2]
+- Devices must be enrolled in Intune.[^2]
+
+### Dependencies
+- Use of the **Intune Management Extension** to deploy scripts; plan to Deploy via the Intune 'Scripts' option.[^2]
+- Devices must be running **Windows 10 version 1607 or later**; if enrolled using automatic enrollment, version 1709 or later. The Intune management extension does not support Windows in S mode.[^2]
+- Devices must be joined to **Microsoft Entra ID** (including hybrid join or WPJ) and enrolled in **Intune**; co-managed devices using Configuration Manager are supported.[^2]
+- For devices behind firewalls and proxy servers, enable communication for Intune.[^2]
+- The implementation uses the script **UserApplicationHardening-RemoveFeatures.ps1** to disable **.NET Framework 3.5** (includes 2.0 and 3.0) if installed.[^1]
+
+[^1]: Essential Eight user application hardening (https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^2]: Intune Management Extension for Windows (https://learn.microsoft.com/en-us/intune/intune-service/apps/intune-management-extension)
+
+## Implementation Steps
+
+### Use Intune Scripts option to deploy UserApplicationHardening-RemoveFeatures.ps1
+
+1. Verify device prerequisites for the Intune management extension and script deployment.[^2]
+2. In the Intune console, assign the script [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) to target devices or user groups.[^1]
+3. The Intune management extension installs automatically when a PowerShell script or Win32 app is assigned to the device.[^2]
+4. After deployment, the script disables or removes **.NET Framework 3.5 (includes 2.0 and 3.0)** feature if installed.[^1]
+
+[^1]: [Essential Eight user application hardening](https://learn.microsoft.com/en-us/compliance/anz/e8-app-harden)
+[^2]: [Intune Management Extension for Windows](https://learn.microsoft.com/en-us/intune/intune-service/apps/intune-management-extension)
+
+## Additional related information
+
+- Microsoft .NET Framework 3.5 Deployment Considerations clarifies the deployment model for .NET 3.5 including how the payload is obtained and installed on Windows devices [Microsoft .NET Framework 3.5 Deployment Considerations](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/microsoft-net-framework-35-deployment-considerations?view=windows-11)[^8]
+- ASD Blueprint for User Application Hardening provides architecture-level guidance on applying Essential Eight hardening practices for app control and deployment [ASD Blueprint: User application hardening](https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/)[^5]
+- Windows Roadmap outlines Microsoft's direction for Windows features and changes to .NET Framework 3.5, including on-demand changes and emphasis on modern runtimes [Windows Roadmap: Microsoft Windows for Business](https://www.microsoft.com/en-us/windows/business/roadmap)[^6]
