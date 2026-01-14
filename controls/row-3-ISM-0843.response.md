@@ -1,0 +1,97 @@
+---
+title: "Application control is implemented on workstations."
+ism_control: "ISM-0843"
+revision: "9"
+updated: "Sep-21"
+guideline: ""
+section: "Operating system hardening"
+topic: "Application control"
+essential_eight:
+  - "ML1"
+  - "ML2"
+  - "ML3"
+pspf_levels:
+  - "NC"
+  - "OS"
+  - "P"
+  - "S"
+  - "TS"
+date_generated: "2026-01-15"
+---
+# Application control is implemented on workstations.
+
+| Property | Value |
+|----------|-------|
+| **ISM Control** | ISM-0843 |
+| **Revision** | 9 |
+| **Updated** | Sep-21 |
+| **Guideline** | Not provided |
+| **Section** | Operating system hardening |
+| **Topic** | Application control |
+| **Essential Eight** | ML1, ML2, ML3 |
+| **PSPF Levels** | NC, OS, P, S, TS |
+
+## Summary
+
+App control on workstations uses **Windows Defender Application Control** to restrict execution to trusted applications, reducing risk from malware and unauthorized software.[^1]
+
+Implemented via **App Control for Business** and deployed through **Intune** to enforce policies across devices.[^2]
+
+### Footnotes
+
+[^1]: [ASD Blueprint - Application control - ASD's Blueprint for Secure Cloud](https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
+
+[^2]: [App Control for Business and AppLocker Overview](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/appcontrol-and-applocker-overview)
+
+## Design Decision
+
+> [!NOTE]
+> The **App Control for Business** policy will be deployed via **Intune** to enforce **Windows Defender Application Control** on workstations as part of operating system hardening. Policies will be defined based on publisher certificates, file hashes and file paths to authorize trusted software. This aligns with the App Control for Business deployment guidance via Intune.
+
+## Prerequisites
+
+### Dependencies
+- **Windows 10 or Windows 11 devices** capable of App Control policy deployment. [^1]
+- **Management through an MDM solution such as Intune or Group Policy** to deploy WDAC policies. [^1]
+- **Intune administration privileges** to create and deploy WDAC policies via Intune. [^2]
+- **Windows PowerShell** available for WDAC policy creation and customization. [^3]
+- **Group Policy deployment** is supported as an alternative, but is limited to single-policy format policies on Windows Server 2016 and 2019. [^1]
+
+### Permissions/Roles
+- **Intune Administrator role** to perform policy creation and deployment in Intune. [^2]
+
+[^1]: App Control for Business and AppLocker Overview (https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/appcontrol-and-applocker-overview)
+[^2]: Essential Eight application control (https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)
+[^3]: WDAC and Windows PowerShell to allow or blocks apps on HoloLens 2 devices with Microsoft Intune (https://learn.microsoft.com/en-us/intune/intune-service/configuration/custom-profile-hololens)
+
+## Implementation Steps
+
+### Deploy WDAC audit policy via Intune
+
+1. Sign in to Intune admin center. [^1]
+2. Within Intune admin center, go to **Devices** and then **Configuration Profiles**. [^1]
+3. Next, create a **Profile** > **Platform – Windows 10 or Later, Profile Type Templates and Custom**. [^1]
+4. Create a name for the policy (for example, '**Application Control - Microsoft Allow – Audit**') and select Next. [^1]
+5. Under ****OMA-URI Settings**, select Add. [^1]
+
+Note
+
+This Information is dependent on the Policy ID generated from the Windows Defender App Control Wizard for the policy XML created from "Create Audit Policy" from the section above: - Name = Microsoft Allow Audit - OMA-URL = ./Vendor/MSFT/ApplicationControl/Policies/CB46B243-C19C-4870-B098-A2080923755C/Policy - Data Type = Base64 (File)
+
+6. When the Windows Defender App Control Wizard generated the policy XML, it also created the (GUID).CIP file. The CIP file needs to be copied and rename the file extension to .BIN for example {CB46B243-C19C-4870-B098-A2080923755C}.bin. [^1]
+7. Upload the BIN under Base64 (File). [^1]
+8. Select Save. [^1]
+9. Follow the prompts to create the **Configuration Profile**. [^1]
+10. Deploy the policy you created, for example, '**Application Control - Microsoft Allow – Audit**', Configuration Profile to the intended system. [^1]
+
+> [!NOTE]
+> [Optional note about side effects or additional information from Context].[^1]
+
+[^1]: [Essential Eight application control](https://learn.microsoft.com/en-us/compliance/anz/e8-app-control)
+
+## Additional related information
+
+- ASD Blueprint for Application control provides design guidance for WDAC and cloud-managed deployment, including Intune deployment patterns [ASD Blueprint: Application control](https://blueprint.asd.gov.au/security-and-governance/essential-eight/application-control/)
+- WDAC enforced infrastructure in Windows Admin Center describes centralized WDAC management via Windows Admin Center for workstations and servers [WDAC enforced infrastructure in Windows Admin Center](https://learn.microsoft.com/en-us/windows-server/manage/windows-admin-center/use/manage-application-control-infrastructure)
+- Windows Defender Application Control Deployment Guide provides end-to-end WDAC policy creation, auditing, and deployment guidance for enterprises [Windows Defender Application Control Deployment Guide](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide)
+- App Control for Business Wizard assists in creating and editing WDAC policies for Intune deployments [App Control for Business Wizard](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/appcontrol-wizard)
