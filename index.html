@@ -21,51 +21,6 @@ layout: null
       color: #e6edf3;
     }
 
-    .header {
-      background: #161b22;
-      border-bottom: 1px solid #30363d;
-      padding: 20px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      text-align: left;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .header-content {
-      flex: 1;
-    }
-
-    .header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #e6edf3;
-      margin-bottom: 5px;
-    }
-
-    .header p {
-      color: #8b949e;
-      font-size: 0.95rem;
-    }
-
-    .about-link {
-      background: #21262d;
-      border: 1px solid #30363d;
-      color: #e6edf3;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .about-link:hover {
-      border-color: #58a6ff;
-      color: #58a6ff;
-    }
-
     .container {
       max-width: 1400px;
       margin: 0 auto;
@@ -553,13 +508,7 @@ layout: null
   </style>
 </head>
 <body>
-  <div class="header">
-    <div class="header-content">
-      <h1>🛡️ Essential 8 Guide</h1>
-      <p>Implementation guidance for Australian Essential Eight controls in Microsoft environments</p>
-    </div>
-    <a href="about/" class="about-link">About</a>
-  </div>
+  {% include header.html %}
 
   <div class="container">
     <div class="intro-section">
