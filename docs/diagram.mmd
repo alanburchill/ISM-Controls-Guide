@@ -1,0 +1,36 @@
+%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart LR
+  repo["`GitHub repo
+controls/*.md
+(raw .md visible)`"]:::repo
+  drafts["`_drafts/
+OR published:false
+OR exclude patterns`"]:::draft
+  repo -.-> drafts
+  repo --> pr["`Pull Request
+Reviewers + CI checks`"]
+  pr --> checks{"CI checks pass?"}
+  checks -- Yes --> merge["`Merge to main`"]
+  checks -- No --> fixes["`Fix & update PR`"] --> pr
+  merge --> actions["`GitHub Actions
+Build & Test`"]
+  actions --> jekyll["`Jekyll build
+(bundle exec jekyll build)`"]
+  jekyll --> artifact["`Upload artifact
+actions/upload-pages-artifact`"]
+  artifact --> deploy["`Deploy to GitHub Pages
+(actions/deploy-pages)`"]
+  deploy --> pages["`GitHub Pages
+(public site)`"]
+  repo -.-> ignore["`_site in .gitignore
+(do not check in build)`"]:::note
+  repo --> private["`Private build repo
+(optional)`"]:::private
+  private --> deploy
+  pr --> cleanup["`Auto-delete head branch
+(optional)`"]:::note
+
+  classDef repo fill:#ffffff,stroke:#0b3d91,stroke-width:2px,color:#0b0b0b;
+  classDef draft fill:#fff7e0,stroke:#8a5a00,stroke-width:2px,color:#111111;
+  classDef note fill:#e6f0ff,stroke:#1e40af,stroke-width:2px,color:#0b0b0b;
+  classDef private fill:#e8fdf5,stroke:#047857,stroke-width:2px,color:#0b0b0b;
