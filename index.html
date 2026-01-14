@@ -908,5 +908,15 @@ layout: null
     document.getElementById('filter-section').addEventListener('change', applyFilters);
     document.getElementById('filter-topic').addEventListener('change', applyFilters);
   </script>
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer" style="background:#161b22;border-top:1px solid #30363d;padding:20px 40px;margin-top:40px;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+      <div style="color:#94a3b8;font-size:0.9rem;">
+        Site generated: {{ site.time | date: "%Y-%m-%d %H:%M %Z" }}
+      </div>
+      <div style="color:#94a3b8;font-size:0.9rem;text-align:right;max-width:620px;">
+        <strong style="color:#e6edf3;">AI-generated content:</strong> This site contains AI-assisted content created from primary sources and may contain errors or be out of date. Always verify with official documentation. See <a href="{{ site.baseurl }}/about.html" style="color:#58a6ff;text-decoration:none;">About</a> for details.
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

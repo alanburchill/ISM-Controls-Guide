@@ -125,5 +125,23 @@
       {{ content }}
     </div>
   </div>
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+    <div class="container" style="max-width:900px; margin: 20px auto;">
+      <div class="content-card" style="padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;">
+        <div class="footer-left" style="color:#94a3b8; font-size:0.9rem;">
+          {% if page.last_modified_at %}
+            Last updated: {{ page.last_modified_at | date: "%Y-%m-%d %H:%M %Z" }}
+          {% elsif page.date %}
+            Last updated: {{ page.date | date: "%Y-%m-%d" }}
+          {% else %}
+            Site generated: {{ site.time | date: "%Y-%m-%d %H:%M %Z" }}
+          {% endif %}
+        </div>
+        <div class="footer-right" style="color:#94a3b8; font-size:0.9rem; text-align:right; max-width:620px;">
+          <strong style="color:#e6edf3;">AI-generated content:</strong> This site contains AI-assisted content created from primary sources and may contain errors or be out of date. Always verify with official documentation. See <a href="{{ site.baseurl }}/about.html">About</a> for details.
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
