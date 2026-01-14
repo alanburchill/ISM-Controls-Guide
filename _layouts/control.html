@@ -16,13 +16,27 @@
     .header {
       background: #161b22;
       border-bottom: 1px solid #30363d;
-      padding: 15px 40px;
+      padding: 20px 40px;
       position: sticky;
       top: 0;
       z-index: 100;
+      text-align: left;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 20px;
+    }
+    .header-content {
+      flex: 1;
+    }
+    .header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 5px;
+    }
+    .header p {
+      color: #8b949e;
+      font-size: 0.95rem;
     }
     .back-btn {
       background: #21262d;
@@ -186,9 +200,9 @@
 </head>
 <body>
   <div class="header">
-    <div style="flex:1;">
-      <h1 style="font-size:1.5rem;font-weight:700;color:#e6edf3;margin-bottom:5px;">🛡️ Essential 8 Guide</h1>
-      <p style="color:#8b949e;font-size:0.9rem;margin:0;">Implementation guidance for Australian Essential Eight controls in Microsoft environments</p>
+    <div class="header-content">
+      <h1>🛡️ Essential 8 Guide</h1>
+      <p>Implementation guidance for Australian Essential Eight controls in Microsoft environments</p>
     </div>
     <a href="{{ site.baseurl }}/" class="back-btn">← Back to Controls</a>
   </div>
