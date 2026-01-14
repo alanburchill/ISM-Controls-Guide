@@ -70,4 +70,5 @@ package-lock.json
 yarn.lock
 
 # End of .gitignore
+.playwright-mcp/
 scripts/
