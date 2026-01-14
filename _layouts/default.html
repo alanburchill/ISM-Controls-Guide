@@ -22,6 +22,21 @@
       display: flex;
       align-items: center;
       gap: 20px;
+      justify-content: space-between;
+    }
+    .about-link {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #e6edf3;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .about-link:hover {
+      border-color: #58a6ff;
+      color: #58a6ff;
     }
     .back-btn {
       background: #21262d;
@@ -122,6 +137,7 @@
       <h1 style="font-size:1.8rem;font-weight:700;color:#e6edf3;margin-bottom:5px;">🛡️ Essential 8 Guide</h1>
       <p style="color:#8b949e;font-size:0.95rem;margin:0;">Implementation guidance for Australian Essential Eight controls in Microsoft environments</p>
     </div>
+    <a href="{{ site.baseurl }}/about" class="about-link">About</a>
   </div>
   <div class="container">
     <div style="margin-bottom:20px;">
