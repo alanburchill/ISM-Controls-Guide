@@ -74,32 +74,22 @@
   {% include header.html %}
   <div class="container">
     <div style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:center;">
+      <div style="display:flex; gap:12px; align-items:center;">
       <a href="{{ site.baseurl }}/" class="back-btn">← Back to Controls</a>
 
-      {% comment %} Previous / Next control navigation (alphabetical by title) {% endcomment %}
-      {% assign controls = site.pages | where: "layout", "control" | sort: "ism_control" %}
-      {% for c in controls %}
-        {% if c.url == page.url %}
-          {% assign idx = forloop.index0 %}
-        {% endif %}
-      {% endfor %}
-      {% assign prev_idx = idx | minus: 1 %}
-      {% assign next_idx = idx | plus: 1 %}
-
-      <div class="control-nav" role="navigation" aria-label="Control navigation">
-        {% if prev_idx >= 0 %}
-          {% assign prev = controls[prev_idx] %}
-          <a class="prev-control" href="{{ site.baseurl }}{{ prev.url }}">← {{ prev.title }}</a>
-        {% else %}
-          <span></span>
-        {% endif %}
-
-        {% if next_idx < controls.size %}
-          {% assign next = controls[next_idx] %}
-          <a class="next-control" href="{{ site.baseurl }}{{ next.url }}">{{ next.title }} →</a>
-        {% endif %}
-      </div>
+      {% if prev_idx >= 0 %}
+        {% assign prev = controls[prev_idx] %}
+        <a class="prev-control back-btn" href="{{ site.baseurl }}{{ prev.url }}" aria-label="Previous control">← {{ prev.ism_control }}</a>
+      {% endif %}
     </div>
+
+    <div style="display:flex; gap:12px; align-items:center;">
+      {% if next_idx < controls.size %}
+        {% assign next = controls[next_idx] %}
+        <a class="next-control back-btn" href="{{ site.baseurl }}{{ next.url }}" aria-label="Next control">{{ next.ism_control }} →</a>
+      {% endif %}
+    </div>
+  </div>
     <div class="content-card">
       {{ content }}
     </div>
