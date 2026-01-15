@@ -78,7 +78,8 @@
       <a href="{{ site.baseurl }}/" class="back-btn">← Back to Controls</a>
 
       {% comment %} Build controls list and find current index for prev/next navigation {% endcomment %}
-      {% assign controls = site.pages | where: "layout", "control" | sort: "ism_control" %}
+      {% comment %} Collect control pages by URL since defaults may not apply to site.pages layout property {% endcomment %}
+      {% assign controls = site.pages | where_exp: "p", "p.url contains '/controls/'" | sort: "ism_control" %}
       {% assign idx = nil %}
       {% for c in controls %}
         {% if c.url == page.url %}
