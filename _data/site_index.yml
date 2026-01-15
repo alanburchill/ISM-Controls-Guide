@@ -238,7 +238,7 @@ Data backup and restoration:
 
 Event logging and monitoring:
   - title: "Event logs are protected from unauthorised modification and deletion. (ISM-1815)"
-    url: "/row-54-ISM-1815.html"
+    url: "/controls/ISM-1815.html"
     ism_control: "ISM-1815"
     guideline: "Guidelines for system monitoring"
     revision: "1"
