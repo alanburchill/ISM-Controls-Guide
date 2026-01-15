@@ -117,6 +117,22 @@
     <div class="content-card">
       {{ content }}
     </div>
+
+    <div style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:center;">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <a href="{{ site.baseurl }}/" class="back-btn">HOME</a>
+
+        {% if prev_idx >= 0 %}
+          <a class="prev-control back-btn" href="{{ site.baseurl }}{{ prev.url }}" aria-label="Previous control">← {{ prev.ism_control }}</a>
+        {% endif %}
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center;">
+        {% if next_idx < grouped.size %}
+          <a class="next-control back-btn" href="{{ site.baseurl }}{{ next.url }}" aria-label="Next control">{{ next.ism_control }} →</a>
+        {% endif %}
+      </div>
+    </div>
   </div>
   <script>
     // Convert GitHub-style alerts [!NOTE], [!WARNING], etc. to styled callouts
