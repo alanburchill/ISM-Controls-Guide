@@ -87,8 +87,10 @@
       {% endfor %}
       {% if idx != nil %}
         {% assign prev_idx = idx | minus: 1 %}
+        {% assign next_idx = idx | plus: 1 %}
       {% else %}
         {% assign prev_idx = -1 %}
+        {% assign next_idx = controls.size %}
       {% endif %}
 
       {% if prev_idx >= 0 %}
