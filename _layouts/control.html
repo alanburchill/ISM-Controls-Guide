@@ -77,6 +77,20 @@
       <div style="display:flex; gap:12px; align-items:center;">
       <a href="{{ site.baseurl }}/" class="back-btn">← Back to Controls</a>
 
+      {% comment %} Build controls list and find current index for prev/next navigation {% endcomment %}
+      {% assign controls = site.pages | where: "layout", "control" | sort: "ism_control" %}
+      {% assign idx = nil %}
+      {% for c in controls %}
+        {% if c.url == page.url %}
+          {% assign idx = forloop.index0 %}
+        {% endif %}
+      {% endfor %}
+      {% if idx != nil %}
+        {% assign prev_idx = idx | minus: 1 %}
+      {% else %}
+        {% assign prev_idx = -1 %}
+      {% endif %}
+
       {% if prev_idx >= 0 %}
         {% assign prev = controls[prev_idx] %}
         <a class="prev-control back-btn" href="{{ site.baseurl }}{{ prev.url }}" aria-label="Previous control">← {{ prev.ism_control }}</a>
