@@ -79,7 +79,8 @@
 
       {% comment %} Build controls list and find current index for prev/next navigation {% endcomment %}
       {% comment %} Collect control pages by URL since defaults may not apply to site.pages layout property {% endcomment %}
-      {% assign controls = site.pages | where_exp: "p", "p.url contains '/controls/'" | sort: "ism_control" %}
+      {% comment %} Try matching by page path if URL matching doesn't find items (more robust) {% endcomment %}
+      {% assign controls = site.pages | where_exp: "p", "p.path contains 'controls/'" | sort: "ism_control" %}
       {% assign idx = nil %}
       {% for c in controls %}
         {% if c.url == page.url %}
