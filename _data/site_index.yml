@@ -293,7 +293,7 @@ Operating system hardening:
       - "TS"
 
   - title: "Internet Explorer 11 is disabled or removed. (ISM-1654)"
-    url: "/row-1-ISM-1654.html"
+    url: "/controls/ISM-1654.html"
     ism_control: "ISM-1654"
     guideline: "Guidelines for system hardening"
     revision: "0"
