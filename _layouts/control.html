@@ -83,7 +83,7 @@
       {% assign controls = site.pages | where_exp: "p", "p.path contains 'controls/'" | sort: "ism_control" %}
       {% assign idx = nil %}
       {% for c in controls %}
-        {% if c.path == page.path %}
+        {% if c.ism_control == page.ism_control %}
           {% assign idx = forloop.index0 %}
         {% endif %}
       {% endfor %}
