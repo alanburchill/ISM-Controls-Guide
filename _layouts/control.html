@@ -84,8 +84,10 @@
 
 
       {% assign idx = nil %}
-      {% for c in controls %}
-        {% if c.ism_control == page.ism_control %}
+      {% comment %} Group controls by ism_control to remove duplicates and provide canonical prev/next sequence {% endcomment %}
+      {% assign grouped = controls | group_by: "ism_control" %}
+      {% for g in grouped %}
+        {% if g.name == page.ism_control %}
           {% assign idx = forloop.index0 %}
         {% endif %}
       {% endfor %}
@@ -94,18 +96,20 @@
         {% assign next_idx = idx | plus: 1 %}
       {% else %}
         {% assign prev_idx = -1 %}
-        {% assign next_idx = controls.size %}
+        {% assign next_idx = grouped.size %}
       {% endif %}
 
       {% if prev_idx >= 0 %}
-        {% assign prev = controls[prev_idx] %}
+        {% assign prev_group = grouped[prev_idx] %}
+        {% assign prev = prev_group.items | first %}
         <a class="prev-control back-btn" href="{{ site.baseurl }}{{ prev.url }}" aria-label="Previous control">← {{ prev.ism_control }}</a>
       {% endif %}
     </div>
 
     <div style="display:flex; gap:12px; align-items:center;">
-      {% if next_idx < controls.size %}
-        {% assign next = controls[next_idx] %}
+      {% if next_idx < grouped.size %}
+        {% assign next_group = grouped[next_idx] %}
+        {% assign next = next_group.items | first %}
         <a class="next-control back-btn" href="{{ site.baseurl }}{{ next.url }}" aria-label="Next control">{{ next.ism_control }} →</a>
       {% endif %}
     </div>
