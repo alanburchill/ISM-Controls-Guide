@@ -81,6 +81,9 @@
       {% comment %} Collect control pages by URL since defaults may not apply to site.pages layout property {% endcomment %}
       {% comment %} Try matching by page path if URL matching doesn't find items (more robust) {% endcomment %}
       {% assign controls = site.pages | where_exp: "p", "p.path contains 'controls/'" | sort: "ism_control" %}
+
+      <!-- DEBUG: show controls info -->
+      <div style="color:#94a3b8; font-size:0.9rem; margin-left:12px;">Controls found: {{ controls.size }} — first few: {% for c in controls limit:5 %}{{ c.ism_control }} {% endfor %} — current: {{ page.ism_control }}</div>
       {% assign idx = nil %}
       {% for c in controls %}
         {% if c.ism_control == page.ism_control %}
