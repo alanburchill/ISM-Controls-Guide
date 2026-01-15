@@ -77,7 +77,7 @@
       <a href="{{ site.baseurl }}/" class="back-btn">← Back to Controls</a>
 
       {% comment %} Previous / Next control navigation (alphabetical by title) {% endcomment %}
-      {% assign controls = site.pages | where: "layout", "control" | sort: "title" %}
+      {% assign controls = site.pages | where: "layout", "control" | sort: "ism_control" %}
       {% for c in controls %}
         {% if c.url == page.url %}
           {% assign idx = forloop.index0 %}
