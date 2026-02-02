@@ -544,7 +544,7 @@ layout: null
         </div>
         <div class="filter-group">
           <label>PSPF Classification</label>
-          <select id="filter-pspf">
+          <select id="filter-pspf" title="PSPF Classification">
             <option value="">All Classifications</option>
             <option value="NC">NC - No Classification</option>
             <option value="OS">OS - Official Sensitive</option>
@@ -555,14 +555,24 @@ layout: null
         </div>
         <div class="filter-group">
           <label>Section</label>
-          <select id="filter-section">
+          <select id="filter-section" title="Section">
             <option value="">All Sections</option>
           </select>
         </div>
         <div class="filter-group">
           <label>Topic</label>
-          <select id="filter-topic">
+          <select id="filter-topic" title="Topic">
             <option value="">All Topics</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Updated</label>
+          <select id="filter-updated" title="Updated" multiple>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Revision</label>
+          <select id="filter-revision" title="Revision" multiple>
           </select>
         </div>
       </div>
@@ -595,11 +605,32 @@ layout: null
     let sortColumn = 'section';
     let sortDirection = 'asc';
 
+    const siteIndex = {{ site.data.site_index | jsonify }};
+    const controlMetadata = {};
+    Object.values(siteIndex || {}).forEach(sectionItems => {
+      if (!Array.isArray(sectionItems)) return;
+      sectionItems.forEach(item => {
+        if (item && item.ism_control) {
+          controlMetadata[item.ism_control] = {
+            updated: item.updated || '',
+            revision: item.revision || ''
+          };
+        }
+      });
+    });
+
     // Load the search index
     fetch('assets/search_index.json')
       .then(response => response.json())
       .then(data => {
-        allControls = data;
+        allControls = data.map(control => {
+          const meta = controlMetadata[control.ism_control] || {};
+          return {
+            ...control,
+            updated: meta.updated || control.updated || '',
+            revision: meta.revision || control.revision || ''
+          };
+        });
         populateFilterDropdowns();
         renderResults(allControls);
       })
@@ -612,6 +643,15 @@ layout: null
     function populateFilterDropdowns() {
       const sections = [...new Set(allControls.map(c => c.section).filter(Boolean))].sort();
       const topics = [...new Set(allControls.map(c => c.topic).filter(Boolean))].sort();
+      const updatedValues = [...new Set(allControls.map(c => c.updated).filter(Boolean))].sort();
+      const revisionValues = [...new Set(allControls.map(c => c.revision).filter(Boolean))].sort((a, b) => {
+        const numA = Number(a);
+        const numB = Number(b);
+        if (!Number.isNaN(numA) && !Number.isNaN(numB)) {
+          return numA - numB;
+        }
+        return String(a).localeCompare(String(b), undefined, { numeric: true });
+      });
       
       const sectionSelect = document.getElementById('filter-section');
       sections.forEach(s => {
@@ -628,6 +668,27 @@ layout: null
         opt.textContent = t;
         topicSelect.appendChild(opt);
       });
+
+      const updatedSelect = document.getElementById('filter-updated');
+      updatedValues.forEach(u => {
+        const opt = document.createElement('option');
+        opt.value = u;
+        opt.textContent = u;
+        updatedSelect.appendChild(opt);
+      });
+
+      const revisionSelect = document.getElementById('filter-revision');
+      revisionValues.forEach(r => {
+        const opt = document.createElement('option');
+        opt.value = r;
+        opt.textContent = r;
+        revisionSelect.appendChild(opt);
+      });
+    }
+
+    function getSelectedValues(selectId) {
+      const select = document.getElementById(selectId);
+      return Array.from(select.selectedOptions).map(option => option.value).filter(Boolean);
     }
 
     function getSelectedE8Levels() {
@@ -640,6 +701,8 @@ layout: null
       const pspf = document.getElementById('filter-pspf').value;
       const section = document.getElementById('filter-section').value;
       const topic = document.getElementById('filter-topic').value;
+      const updatedSelected = getSelectedValues('filter-updated');
+      const revisionSelected = getSelectedValues('filter-revision');
       const search = document.getElementById('search-input').value.toLowerCase().trim();
       
       let filtered = allControls.filter(control => {
@@ -665,6 +728,12 @@ layout: null
           return false;
         }
         if (topic && control.topic !== topic) {
+          return false;
+        }
+        if (updatedSelected.length > 0 && (!control.updated || !updatedSelected.includes(control.updated))) {
+          return false;
+        }
+        if (revisionSelected.length > 0 && (!control.revision || !revisionSelected.includes(control.revision))) {
           return false;
         }
         if (search) {
@@ -822,6 +891,9 @@ layout: null
       document.getElementById('filter-pspf').value = '';
       document.getElementById('filter-section').value = '';
       document.getElementById('filter-topic').value = '';
+      document.querySelectorAll('#filter-updated option, #filter-revision option').forEach(option => {
+        option.selected = false;
+      });
       document.getElementById('search-input').value = '';
       renderResults(allControls);
     }
@@ -839,6 +911,8 @@ layout: null
     document.getElementById('filter-pspf').addEventListener('change', applyFilters);
     document.getElementById('filter-section').addEventListener('change', applyFilters);
     document.getElementById('filter-topic').addEventListener('change', applyFilters);
+    document.getElementById('filter-updated').addEventListener('change', applyFilters);
+    document.getElementById('filter-revision').addEventListener('change', applyFilters);
   </script>
   <footer class="site-footer" role="contentinfo" aria-label="Site footer" style="background:#161b22;border-top:1px solid #30363d;padding:20px 40px;margin-top:40px;">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
