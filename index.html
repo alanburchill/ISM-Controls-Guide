@@ -80,6 +80,23 @@ layout: null
       color: #e6edf3;
     }
 
+    /* Narrower layout for specific filters to avoid excessive right padding */
+    #filter-updated,
+    #filter-revision {
+      max-width: 220px;
+      padding-right: 8px;
+    }
+
+    @media (max-width: 768px) {
+      /* On small screens these should flow to full width like other filters */
+      #filter-updated,
+      #filter-revision {
+        max-width: none;
+        width: 100%;
+        padding-right: 12px;
+      }
+    }
+
     .checkbox-group {
       display: flex;
       flex-wrap: wrap;
