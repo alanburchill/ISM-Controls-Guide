@@ -660,7 +660,26 @@ layout: null
     function populateFilterDropdowns() {
       const sections = [...new Set(allControls.map(c => c.section).filter(Boolean))].sort();
       const topics = [...new Set(allControls.map(c => c.topic).filter(Boolean))].sort();
-      const updatedValues = [...new Set(allControls.map(c => c.updated).filter(Boolean))].sort();
+      const updatedValues = [...new Set(allControls.map(c => c.updated).filter(Boolean))];
+      // Sort updated values by year then month (newest first). Expected formats: "Dec-23", "Jan-19".
+      const monthMap = { Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6, Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12 };
+      function parseUpdatedDate(s) {
+        if (!s) return { y: 0, m: 0 };
+        const parts = s.split('-').map(p => p.trim());
+        let mon = parts[0] || '';
+        let yr = parts[1] || '';
+        // handle two-digit year -> 2000s
+        if (yr.length === 2 && /^\d{2}$/.test(yr)) yr = '20' + yr;
+        const yNum = Number(yr) || 0;
+        const mNum = monthMap[mon] || Number(mon) || 0;
+        return { y: yNum, m: mNum };
+      }
+      updatedValues.sort((a, b) => {
+        const da = parseUpdatedDate(a);
+        const db = parseUpdatedDate(b);
+        if (da.y !== db.y) return db.y - da.y; // newer year first
+        return db.m - da.m; // newer month first
+      });
       const revisionValues = [...new Set(allControls.map(c => c.revision).filter(Boolean))].sort((a, b) => {
         const numA = Number(a);
         const numB = Number(b);
