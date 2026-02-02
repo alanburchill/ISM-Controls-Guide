@@ -670,6 +670,12 @@ layout: null
       });
 
       const updatedSelect = document.getElementById('filter-updated');
+      // Add an 'All Dates' option which acts as a select-all sentinel
+      const updatedAllOpt = document.createElement('option');
+      updatedAllOpt.value = '__all__';
+      updatedAllOpt.textContent = 'All Dates';
+      updatedAllOpt.selected = true;
+      updatedSelect.appendChild(updatedAllOpt);
       updatedValues.forEach(u => {
         const opt = document.createElement('option');
         opt.value = u;
@@ -678,6 +684,12 @@ layout: null
       });
 
       const revisionSelect = document.getElementById('filter-revision');
+      // Add an 'All' option which acts as a select-all sentinel
+      const revisionAllOpt = document.createElement('option');
+      revisionAllOpt.value = '__all__';
+      revisionAllOpt.textContent = 'All';
+      revisionAllOpt.selected = true;
+      revisionSelect.appendChild(revisionAllOpt);
       revisionValues.forEach(r => {
         const opt = document.createElement('option');
         opt.value = r;
@@ -688,7 +700,10 @@ layout: null
 
     function getSelectedValues(selectId) {
       const select = document.getElementById(selectId);
-      return Array.from(select.selectedOptions).map(option => option.value).filter(Boolean);
+      const values = Array.from(select.selectedOptions).map(option => option.value);
+      // If the sentinel 'All' option is selected, treat it as no filter
+      if (values.includes('__all__')) return [];
+      return values.filter(v => v !== '__all__');
     }
 
     function getSelectedE8Levels() {
@@ -891,9 +906,14 @@ layout: null
       document.getElementById('filter-pspf').value = '';
       document.getElementById('filter-section').value = '';
       document.getElementById('filter-topic').value = '';
+      // Reset 'Updated' and 'Revision' selects to their 'All' sentinel option
       document.querySelectorAll('#filter-updated option, #filter-revision option').forEach(option => {
         option.selected = false;
       });
+      const updAll = document.querySelector('#filter-updated option[value="__all__"]');
+      if (updAll) updAll.selected = true;
+      const revAll = document.querySelector('#filter-revision option[value="__all__"]');
+      if (revAll) revAll.selected = true;
       document.getElementById('search-input').value = '';
       renderResults(allControls);
     }
