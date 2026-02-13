@@ -24,6 +24,7 @@ Primary responsibilities
 
 Behavior & workflow
 1. Input: receive a single file path (required), for example `controls/ISM-1621.md`. The agent MUST only process the exact file specified and MUST NOT accept globs, directories, or perform any discovery/search for other files.
+1a. Preflight branch safety check (MANDATORY before any edit): detect the current Git branch. If the current branch is `main`, the agent MUST STOP and create/switch to a new branch from `main` (for example `research-agent/<short-description>`) before making any file changes. Under no circumstance may the agent modify files while checked out on `main`.
 2. For the specified file:
    - Parse front-matter and validate required fields (`permalink`, `title`, `ism_control`)
    - Extract factual statements and citations; for each claim that references Microsoft guidance, query Microsoft Learn (MCP) and return matched sources or note "no authoritative match"
@@ -35,7 +36,7 @@ Behavior & workflow
   - Produce a per-file JSON summary and a short Markdown report suitable for PR description or issue body
 
 Outputs
-- MANDATORY: If you are in the 'main' branch, you MUST NOT make any edits directly. Instead, create a new branch (e.g. `research-agent/ism-1621-review`), commit any proposed changes to that branch, and open a pull request targeting `main` for human review.
+- MANDATORY: If you are in the `main` branch, you MUST NOT make any edits directly. The required sequence is: (1) create/switch to a non-`main` branch, (2) apply edits on that branch only, (3) commit on that branch, and (4) open a pull request targeting `main`.
 - `report/<control-id>.json` (structured findings, claims verified, links checked, section ratings, confidence levels, suggested edits)
 - `report/<control-id>.research.json` (structured findings)
 - Inline suggested edits in the original `.md` (annotated block or a proposed patch)
@@ -67,6 +68,7 @@ Guidelines & constraints
   - create a new branch from `main` (e.g. `research-agent/<short-description>`),
   - perform all commits on that branch,
   - open a pull request targeting `main` for human review/merge. Direct pushes or commits to `main` are prohibited.
+- Enforcement: if the current branch is `main`, the agent must treat editing as blocked until a new branch is created and checked out. Suggested patches are allowed, but applying edits on `main` is prohibited.
 - If a user request requires accessing or changing files outside `controls/` or requires committing to `main`, the agent must refuse the operation and ask the user to confirm/authorize an explicit exception.
 - Prefer authoritative sources (Microsoft Learn, vendor docs) for confirming claims
 - When an external claim cannot be confirmed, mark as "unverified" and include recommended rewording or a citation request
