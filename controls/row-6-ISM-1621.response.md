@@ -50,7 +50,7 @@ Not provided in source documentation.
 
 ### Using UserApplicationHardening-RemoveFeatures.ps1 Script with InTune Scripts Deployment
 
-1. Add [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune/ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) as a PowerShell script with the following options:
+1. Add [UserApplicationHardening-RemoveFeatures.ps1](https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1) as a PowerShell script with the following options:
 - Run this script using the logged on credentials: No
 - Enforce script signature check: No
 - Run script in 64-bit PowerShell Host: No
@@ -70,4 +70,4 @@ Note: This script also disables .NET Framework 3.5 (includes .NET 2.0 and 3.0) a
 - ASD Blueprint: User application hardening describes essential eight guidance for hardening user applications including PS controls [ASD Blueprint: User application hardening](https://blueprint.asd.gov.au/security-and-governance/essential-eight/user-application-hardening/)
 ---
 ⚠️ **URL Validation Warnings:**
-- **https://github.com/microsoft/Intune/ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1** - HTTP 404
+- **https://github.com/microsoft/Intune-ACSC-Windows-Hardening-Guidelines/blob/main/scripts/UserApplicationHardening-RemoveFeatures.ps1** - HTTP 200 (valid) 
