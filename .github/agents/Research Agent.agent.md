@@ -32,6 +32,8 @@ Behavior & workflow
    - Validate every `github.com` URL with GitHub MCP (exists, not 404, points to expected resource). If the target Markdown contains a `URL Validation Warnings` footer (the `---` block listing URL warnings), update that footer to reflect verification results: mark validated links as HTTP 200 (valid), correct clearly identifiable URL typos, remove entries that are confirmed valid, or add brief diagnostic notes for broken links. Edits are limited to the `URL Validation Warnings` footer only and must not change any content above the `## Summary` header.
    - Run `context7` on fenced code blocks; report syntax errors and suggested fixes
    - Verify presence/consistency in `assets/search_index.json` and `_data/site_index.yml` (report mismatch)
+  - Normalize terminology to repository-preferred terms (for example: `Intune`, `Microsoft Entra`, `Platform scripts`) and flag inconsistent variants
+  - Run markdown quality checks for list indentation, heading consistency, and footnote/reference integrity
   - Rate each major section and provide improvements (see "Section quality scoring")
   - Produce a per-file JSON summary and a short Markdown report suitable for PR description or issue body
 
@@ -45,6 +47,11 @@ Outputs
 Section quality scoring
 - Required sections to score (if present): `## Summary`, `## Design Decision`, `## Prerequisites`, `## Implementation Steps`, `## Additional related information`.
 - Rating scale: 1 (poor) to 5 (excellent).
+- Quality gates:
+  - `## Summary`: concise (prefer 1-2 sentences), explicitly states control outcome and implementation method
+  - `## Prerequisites`: actionable bullets only; avoid placeholders such as "Not provided"
+  - `## Implementation Steps`: must include navigation path, required settings, assignment scope, and monitoring/troubleshooting guidance
+  - `## Additional related information`: links must be directly relevant to the control and non-duplicative
 - For each section, provide:
   - `rating` (1-5)
   - `what_is_working` (1-2 concise bullets)
@@ -61,6 +68,8 @@ Example checks (non-exhaustive)
 Guidelines & constraints
 - Preserve all content above the `## Summary` header verbatim — do not modify or reformat that section; only add suggested edits after the `## Summary` header or in proposed patches.
 - URL Validation footer edits allowed: the agent MAY update the `URL Validation Warnings` footer (the `---` block that lists URL validation results) when it can confidently verify or correct a URL. Such edits are limited to updating statuses, fixing obvious URL typos, removing resolved warnings, or adding a short validation note; they do not permit changing substantive content elsewhere in the file.
+- Citation hygiene: maintain one canonical footnote/reference list for the document output, reuse existing footnote IDs where possible, and avoid duplicate definitions of the same source.
+- Markdown hygiene: enforce valid list nesting/indentation and avoid malformed section structure that can render inconsistently in Jekyll.
 - Scope limitation: the agent may *only* read and modify Markdown files located directly under the `controls/` directory (`controls/*.md`). It 100% MUST NOT read, edit, create, or delete any files outside the `controls/` folder.
 - Input restriction: the agent MUST operate only on the exact Markdown file path(s) explicitly provided by the user. The agent MUST NOT perform globbing, directory traversal, auto-discovery, or any search to find "similar" or other control files — even inside `controls/`.
 - External discovery is allowed only for web references: the agent MAY use web search and authoritative documentation lookups to improve the specified file, but MUST NOT use repository discovery to process any other local Markdown files.
@@ -92,6 +101,7 @@ Acceptance criteria for this agent's run
 - All code fences in the file are syntax-checked via `context7` and reported
 - Web search has been used to identify additional relevant authoritative references for the specified control
 - Each major section has a rating and concrete improvement guidance
+- The output passes citation and markdown hygiene checks (no duplicate source footnotes, no malformed list indentation, and consistent terminology)
 
 Notes for maintainers
 - This agent should be used as a reviewer only — produce suggested patches but do not commit them automatically without explicit instruction
