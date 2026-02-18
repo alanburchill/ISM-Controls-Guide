@@ -1,0 +1,77 @@
+# Preview deployment for the research-review-controls branch
+#
+# Builds the Jekyll site from this branch and pushes the output to the
+# `gh-pages-preview` branch.  To view it as a live GitHub Pages site:
+#
+#   1. Go to: Settings → Pages → Source
+#   2. Change source to "Deploy from a branch"
+#   3. Select branch: gh-pages-preview  /  folder: / (root)
+#   4. Save — the site will be live at https://alanburchill.github.io/ISM-Controls-Guide/
+#      (NOTE: this temporarily replaces e8guide.com, which will show the preview)
+#   5. When done testing, change the source back to "GitHub Actions"
+#      and push to main (or run the Deploy to GitHub Pages workflow manually)
+#      to restore production.
+#
+# The workflow runs automatically on every push to this branch so the
+# preview branch stays up to date.  It can also be triggered manually
+# from the Actions tab.
+
+name: Deploy Preview (research-review-controls)
+
+on:
+  push:
+    branches: ["research-review-controls"]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to push to gh-pages-preview branch
+
+concurrency:
+  group: "preview"
+  cancel-in-progress: true   # cancel superseded preview builds on rapid pushes
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # needed for jekyll-last-modified-at
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: false
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle config set deployment 'false'
+          bundle install --jobs 4 --retry 3
+
+      - name: Build with Jekyll
+        # Deploy as a subdirectory so the github.io root remains usable.
+        # The preview is served at: https://alanburchill.github.io/ISM-Controls-Guide/
+        # With no custom domain on the gh-pages-preview source, baseurl = repo name.
+        run: bundle exec jekyll build --baseurl "/ISM-Controls-Guide"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Inject preview banner
+        # Adds a non-intrusive banner at the top of every HTML page so it is
+        # immediately obvious this is a preview and not the production site.
+        run: |
+          find _site -name "*.html" -exec sed -i \
+            's|<body>|<body><div style="background:#d29922;color:#0d1117;padding:6px 16px;font-size:0.85rem;text-align:center;position:sticky;top:0;z-index:9999;">⚠️ PREVIEW — branch: research-review-controls — not production</div>|g' \
+            {} \;
+
+      - name: Deploy to gh-pages-preview branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages-preview
+          commit_message: "preview: ${{ github.sha }} — ${{ github.event.head_commit.message }}"
+          force_orphan: false   # keep history so diffs are visible between builds
