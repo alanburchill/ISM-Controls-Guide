@@ -1,20 +1,24 @@
 # Preview deployment for the research-review-controls branch
 #
-# Builds the Jekyll site from this branch and pushes the output to the
-# `gh-pages-preview` branch.  To view it as a live GitHub Pages site:
+# Builds the Jekyll site from this branch and deploys it to a SEPARATE
+# repository (ISM-Controls-Guide-preview) so it gets its own GitHub Pages URL:
 #
-#   1. Go to: Settings → Pages → Source
-#   2. Change source to "Deploy from a branch"
-#   3. Select branch: gh-pages-preview  /  folder: / (root)
-#   4. Save — the site will be live at https://alanburchill.github.io/ISM-Controls-Guide/
-#      (NOTE: this temporarily replaces e8guide.com, which will show the preview)
-#   5. When done testing, change the source back to "GitHub Actions"
-#      and push to main (or run the Deploy to GitHub Pages workflow manually)
-#      to restore production.
+#   https://alanburchill.github.io/ISM-Controls-Guide-preview/
 #
-# The workflow runs automatically on every push to this branch so the
-# preview branch stays up to date.  It can also be triggered manually
-# from the Actions tab.
+# This has ZERO impact on the production site (e8guide.com) — no source
+# switching, no CNAME conflicts.
+#
+# ── One-time setup required ──────────────────────────────────────────────────
+# 1. Create a public repo: https://github.com/alanburchill/ISM-Controls-Guide-preview
+# 2. Enable Pages on it: Settings → Pages → Deploy from a branch → gh-pages / root
+# 3. Create a fine-grained PAT scoped to ISM-Controls-Guide-preview
+#    with Contents: Read and Write permission.
+# 4. Add it as a secret on THIS repo:
+#    Settings → Secrets and variables → Actions → PREVIEW_DEPLOY_TOKEN
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# The preview URL is always live and always reflects the latest push to this
+# branch.  Trigger manually from Actions tab or it runs on every push.
 
 name: Deploy Preview (research-review-controls)
 
@@ -24,7 +28,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # needed to push to gh-pages-preview branch
+  contents: read
 
 concurrency:
   group: "preview"
@@ -52,26 +56,28 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Build with Jekyll
-        # Deploy as a subdirectory so the github.io root remains usable.
-        # The preview is served at: https://alanburchill.github.io/ISM-Controls-Guide/
-        # With no custom domain on the gh-pages-preview source, baseurl = repo name.
-        run: bundle exec jekyll build --baseurl "/ISM-Controls-Guide"
+        # baseurl must match the preview repo name so all asset/page links resolve correctly
+        run: bundle exec jekyll build --baseurl "/ISM-Controls-Guide-preview"
         env:
           JEKYLL_ENV: production
 
+      - name: Remove CNAME (preview must not claim the custom domain)
+        run: rm -f _site/CNAME
+
       - name: Inject preview banner
-        # Adds a non-intrusive banner at the top of every HTML page so it is
-        # immediately obvious this is a preview and not the production site.
+        # Sticky banner on every page so it is immediately obvious this is preview
         run: |
           find _site -name "*.html" -exec sed -i \
-            's|<body>|<body><div style="background:#d29922;color:#0d1117;padding:6px 16px;font-size:0.85rem;text-align:center;position:sticky;top:0;z-index:9999;">⚠️ PREVIEW — branch: research-review-controls — not production</div>|g' \
+            's|<body>|<body><div style="background:#d29922;color:#0d1117;padding:6px 16px;font-size:0.85rem;text-align:center;position:sticky;top:0;z-index:9999;">⚠️ PREVIEW — branch: research-review-controls — <a href="https://e8guide.com" style="color:#0d1117;font-weight:bold;">production site</a></div>|g' \
             {} \;
 
-      - name: Deploy to gh-pages-preview branch
+      - name: Deploy to ISM-Controls-Guide-preview repo
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.PREVIEW_DEPLOY_TOKEN }}
+          external_repository: alanburchill/ISM-Controls-Guide-preview
+          publish_branch: gh-pages
           publish_dir: ./_site
-          publish_branch: gh-pages-preview
-          commit_message: "preview: ${{ github.sha }} — ${{ github.event.head_commit.message }}"
-          force_orphan: false   # keep history so diffs are visible between builds
+          commit_message: "preview: ${{ github.sha }}"
+          force_orphan: false
+
