@@ -81,3 +81,60 @@ jobs:
           commit_message: "preview: ${{ github.sha }}"
           force_orphan: false
 
+  smoke-test:
+    name: Smoke Test (post-deploy)
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages to propagate
+        # Pages can take up to ~90 s to reflect a new deploy
+        run: sleep 90
+
+      - name: Run SEO / analytics checks
+        run: |
+          BASE="https://alanburchill.github.io/ISM-Controls-Guide-preview"
+          PASS=0; FAIL=0
+
+          check() {
+            local label="$1" url="$2" pattern="$3"
+            local body
+            body=$(curl -s --max-time 15 "$url")
+            if echo "$body" | grep -q "$pattern"; then
+              echo "✅  $label"
+              PASS=$((PASS+1))
+            else
+              echo "❌  $label  (url: $url)"
+              FAIL=$((FAIL+1))
+            fi
+          }
+
+          echo "── Homepage checks ─────────────────────────────────"
+          check "GA4 tag present"            "$BASE/"                  "G-542SSSJ56F"
+          check "gtag.js loaded"             "$BASE/"                  "googletagmanager.com/gtag/js"
+          check "GSC verification meta"      "$BASE/"                  "google-site-verification"
+          check "meta description"           "$BASE/"                  'name="description"'
+          check "canonical link"             "$BASE/"                  'rel="canonical"'
+          check "Open Graph title"           "$BASE/"                  "og:title"
+          check "Twitter card"               "$BASE/"                  "twitter:card"
+          check "SVG data URI favicon"       "$BASE/"                  "data:image/svg"
+          check "Preview banner"             "$BASE/"                  "PREVIEW"
+
+          echo ""
+          echo "── Control page checks ─────────────────────────────"
+          check "GA4 on control page"        "$BASE/controls/ISM-0843.html"  "G-542SSSJ56F"
+          check "Canonical on control page"  "$BASE/controls/ISM-0843.html"  'rel="canonical"'
+          check "JSON-LD structured data"    "$BASE/controls/ISM-0843.html"  "application/ld+json"
+          check "meta description (control)" "$BASE/controls/ISM-0843.html"  'name="description"'
+
+          echo ""
+          echo "── Ancillary files ─────────────────────────────────"
+          check "sitemap.xml accessible"     "$BASE/sitemap.xml"       "<sitemapindex"
+          check "sitemap-1.xml accessible"   "$BASE/sitemap-1.xml"     "<urlset"
+          check "robots.txt accessible"      "$BASE/robots.txt"        "Sitemap:"
+          check "security.txt accessible"    "$BASE/.well-known/security.txt"  "Contact:"
+          check "feed.xml accessible"        "$BASE/feed.xml"          "<feed"
+          check "404 page accessible"        "$BASE/404.html"          "404"
+
+          echo ""
+          echo "── Results: $PASS passed, $FAIL failed ─────────────"
+          [ "$FAIL" -eq 0 ] || exit 1
