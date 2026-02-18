@@ -1,0 +1,26 @@
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+
+<!-- Meta description -->
+{%- assign _page_desc = page.description | default: page.title | truncate: 155 | default: site.description -%}
+<meta name="description" content="{{ _page_desc | strip_html | escape }}">
+
+<!-- Google Search Console ownership verification -->
+{% if site.google_site_verification %}
+<meta name="google-site-verification" content="{{ site.google_site_verification }}">
+{% endif %}
+
+<!-- Open Graph / Social sharing -->
+<meta property="og:title" content="{{ page.title | default: site.title }} - Essential 8 Guide">
+<meta property="og:description" content="{{ _page_desc | strip_html | escape }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.title }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{ page.title | default: site.title }} - Essential 8 Guide">
+<meta name="twitter:description" content="{{ _page_desc | strip_html | escape }}">
+
+<!-- Emoji favicon — no image file required -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F6E1;&#xFE0F;</text></svg>">

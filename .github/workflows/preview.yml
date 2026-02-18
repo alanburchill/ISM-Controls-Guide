@@ -1,0 +1,141 @@
+# Preview deployment for the research-review-controls branch
+#
+# Builds the Jekyll site from this branch and deploys it to a SEPARATE
+# repository (ISM-Controls-Guide-preview) so it gets its own GitHub Pages URL:
+#
+#   https://alanburchill.github.io/ISM-Controls-Guide-preview/
+#
+# This has ZERO impact on the production site (e8guide.com) — no source
+# switching, no CNAME conflicts.
+#
+# ── One-time setup required ──────────────────────────────────────────────────
+# 1. Create a public repo: https://github.com/alanburchill/ISM-Controls-Guide-preview
+# 2. Enable Pages on it: Settings → Pages → Deploy from a branch → gh-pages / root
+# 3. Create a fine-grained PAT scoped to ISM-Controls-Guide-preview
+#    with Contents: Read and Write permission.
+# 4. Add it as a secret on THIS repo:
+#    Settings → Secrets and variables → Actions → PREVIEW_DEPLOY_TOKEN
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# The preview URL is always live and always reflects the latest push to this
+# branch.  Trigger manually from Actions tab or it runs on every push.
+
+name: Deploy Preview (research-review-controls)
+
+on:
+  push:
+    branches: ["research-review-controls"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "preview"
+  cancel-in-progress: true   # cancel superseded preview builds on rapid pushes
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # needed for jekyll-last-modified-at
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: false
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle config set deployment 'false'
+          bundle install --jobs 4 --retry 3
+
+      - name: Build with Jekyll
+        # baseurl must match the preview repo name so all asset/page links resolve correctly
+        run: bundle exec jekyll build --baseurl "/ISM-Controls-Guide-preview"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Remove CNAME (preview must not claim the custom domain)
+        run: rm -f _site/CNAME
+
+      - name: Inject preview banner
+        # Sticky banner on every page so it is immediately obvious this is preview
+        run: |
+          find _site -name "*.html" -exec sed -i \
+            's|<body>|<body><div style="background:#d29922;color:#0d1117;padding:6px 16px;font-size:0.85rem;text-align:center;position:sticky;top:0;z-index:9999;">⚠️ PREVIEW — branch: research-review-controls — <a href="https://e8guide.com" style="color:#0d1117;font-weight:bold;">production site</a></div>|g' \
+            {} \;
+
+      - name: Deploy to ISM-Controls-Guide-preview repo
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.PREVIEW_DEPLOY_TOKEN }}
+          external_repository: alanburchill/ISM-Controls-Guide-preview
+          publish_branch: gh-pages
+          publish_dir: ./_site
+          commit_message: "preview: ${{ github.sha }}"
+          force_orphan: false
+
+  smoke-test:
+    name: Smoke Test (post-deploy)
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages to propagate
+        # Pages can take up to ~90 s to reflect a new deploy
+        run: sleep 90
+
+      - name: Run SEO / analytics checks
+        run: |
+          BASE="https://alanburchill.github.io/ISM-Controls-Guide-preview"
+          PASS=0; FAIL=0
+
+          check() {
+            local label="$1" url="$2" pattern="$3"
+            local body
+            body=$(curl -s --max-time 15 "$url")
+            if echo "$body" | grep -q "$pattern"; then
+              echo "✅  $label"
+              PASS=$((PASS+1))
+            else
+              echo "❌  $label  (url: $url)"
+              FAIL=$((FAIL+1))
+            fi
+          }
+
+          echo "── Homepage checks ─────────────────────────────────"
+          check "GA4 tag present"            "$BASE/"                  "G-542SSSJ56F"
+          check "gtag.js loaded"             "$BASE/"                  "googletagmanager.com/gtag/js"
+          check "GSC verification meta"      "$BASE/"                  "google-site-verification"
+          check "meta description"           "$BASE/"                  'name="description"'
+          check "canonical link"             "$BASE/"                  'rel="canonical"'
+          check "Open Graph title"           "$BASE/"                  "og:title"
+          check "Twitter card"               "$BASE/"                  "twitter:card"
+          check "SVG data URI favicon"       "$BASE/"                  "data:image/svg"
+          check "Preview banner"             "$BASE/"                  "PREVIEW"
+
+          echo ""
+          echo "── Control page checks ─────────────────────────────"
+          check "GA4 on control page"        "$BASE/controls/ISM-0843.html"  "G-542SSSJ56F"
+          check "Canonical on control page"  "$BASE/controls/ISM-0843.html"  'rel="canonical"'
+          check "JSON-LD structured data"    "$BASE/controls/ISM-0843.html"  "application/ld+json"
+          check "meta description (control)" "$BASE/controls/ISM-0843.html"  'name="description"'
+
+          echo ""
+          echo "── Ancillary files ─────────────────────────────────"
+          check "sitemap.xml accessible"          "$BASE/sitemap.xml"       "<sitemapindex"
+          check "sitemap-1.xml accessible"        "$BASE/sitemap-1.xml"     "<urlset"
+          check "robots.txt accessible"           "$BASE/robots.txt"        "Sitemap:"
+          check "security.txt accessible"         "$BASE/.well-known/security.txt"  "Contact:"
+          check "feed.xml accessible"             "$BASE/feed.xml"          "<feed"
+          check "404 page accessible"             "$BASE/404.html"          "404"
+          check "GSC verification file served"    "$BASE/google010e8f920b8d5758.html" "google-site-verification"
+
+          echo ""
+          echo "── Results: $PASS passed, $FAIL failed ─────────────"
+          [ "$FAIL" -eq 0 ] || exit 1

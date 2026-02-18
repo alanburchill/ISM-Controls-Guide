@@ -1,0 +1,26 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- assign all_pages = site.pages | where_exp: "p", "p.sitemap != false" -%}
+{%- for p in all_pages -%}
+  {%- unless p.url contains '.xml' or p.url contains '.json' or p.url contains '.css' or p.url contains '.js' or p.url contains '.txt' or p.url contains '.csv' or p.url contains '.zip' -%}
+  <url>
+    <loc>{{ site.url }}{{ p.url | replace: 'index.html', '' }}</loc>
+    {%- if p.date_generated -%}
+    <lastmod>{{ p.date_generated | date_to_xmlschema }}</lastmod>
+    {%- elsif p.last_modified_at -%}
+    <lastmod>{{ p.last_modified_at | date_to_xmlschema }}</lastmod>
+    {%- elsif p.updated -%}
+    <lastmod>{{ p.updated }}</lastmod>
+    {%- else -%}
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    {%- endif -%}
+    <changefreq>monthly</changefreq>
+    <priority>{% if p.url == "/" %}1.0{% elsif p.url contains '/controls/' %}0.8{% else %}0.6{% endif %}</priority>
+  </url>
+  {%- endunless -%}
+{%- endfor -%}
+</urlset>

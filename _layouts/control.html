@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: page.ism_control }} - Essential 8 Guide</title>
+  {% include seo.html %}
+  {% include analytics.html %}
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
   <style>
     /* Page-specific styles */
@@ -69,6 +71,34 @@
     }
     .callout-caution .callout-title { color: #f85149; }
   </style>
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "name": {{ page.ism_control | jsonify }},
+    "headline": {{ page.title | truncate: 110 | jsonify }},
+    "description": {{ page.title | truncate: 155 | jsonify }},
+    "url": "{{ site.url }}{{ page.url }}",
+    "dateModified": "{{ page.date_generated }}",
+    "inLanguage": "en-AU",
+    "author": {
+      "@type": "Organization",
+      "name": "Essential 8 Guide",
+      "url": "{{ site.url }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Essential 8 Guide",
+      "url": "{{ site.url }}"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": {{ site.title | jsonify }},
+      "url": "{{ site.url }}"
+    }
+  }
+  </script>
 </head>
 <body>
   {% include header.html %}
