@@ -10,7 +10,7 @@ Tracks the review progress of each file in `controls/`. Updated as each phase of
 | **Phase 0** | Prompt-leak artifact scan (`ImplementationGuidance`, internal placeholders) | ✅ Complete |
 | **Phase 1** | URL validation — sampled Microsoft Learn (25) + ASD Blueprint/GitHub (22) | ✅ Complete |
 | **Phase 2** | URL validation — remaining learn.microsoft.com patterns (redirects, 404s, deprecated) | ✅ Complete |
-| **Phase 3** | Content accuracy — verify referenced pages support claims made | 🔄 In progress (4/54 complete) |
+| **Phase 3** | Content accuracy — verify referenced pages support claims made | 🔄 In progress (14/54 complete) |
 
 ---
 
@@ -26,16 +26,16 @@ Legend: ✅ Reviewed & clean | ⚠️ Issues found → fixed | 🔲 Not yet revi
 | [ISM-0974.md](../controls/ISM-0974.md) | MFA used to authenticate unprivileged users of systems. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed [^2] link text to reflect actual page title; fixed PCI-DSS [H] link text mismatch in Additional Info |
 | [ISM-1173.md](../controls/ISM-1173.md) | MFA used to authenticate privileged users of systems. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed broken seg2_ops URL (wrong path `/microsoft-365/app-certification/` → `/microsoft-365-app-certification/`); corrected [^1] link text from section heading to page title |
 | [ISM-1380.md](../controls/ISM-1380.md) | Privileged users use separate privileged and unprivileged operating environments. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed two broken `www.microsoft.com` PAW URLs (404) → learn.microsoft.com equivalents; updated [^3] title to reflect archived status; added preview caveat to Administrator Protection note |
-| [ISM-1412.md](../controls/ISM-1412.md) | Web browsers are hardened using ASD and vendor hardening guidance. | ✅ | ⚠️ | ⚠️ | 🔲 | Fixed prompt-leak; replaced deprecated policy-csp-browser link |
-| [ISM-1485.md](../controls/ISM-1485.md) | Web browsers do not process web advertisements from the internet. | ✅ | ✅ | ✅ | 🔲 | |
-| [ISM-1486.md](../controls/ISM-1486.md) | Web browsers do not process Java from the internet. | ✅ | ✅ | ✅ | 🔲 | |
-| [ISM-1488.md](../controls/ISM-1488.md) | Microsoft Office macros in files originating from the internet are blocked. | ✅ | ✅ | ✅ | 🔲 | |
-| [ISM-1504.md](../controls/ISM-1504.md) | MFA used to authenticate users to online services handling sensitive data. | ✅ | ✅ | ✅ | 🔲 | |
-| [ISM-1511.md](../controls/ISM-1511.md) | Backups of data, applications and settings are performed and retained. | ✅ | ✅ | ⚠️ | 🔲 | Fixed backup-azure-disk-backup → disk-backup-overview (404) |
-| [ISM-1542.md](../controls/ISM-1542.md) | Microsoft Office is configured to prevent activation of OLE packages. | ✅ | ✅ | ✅ | 🔲 | |
-| [ISM-1544.md](../controls/ISM-1544.md) | Microsoft's recommended application blocklist is implemented. | ✅ | ✅ | ✅ | 🔲 | |
-| [ISM-1585.md](../controls/ISM-1585.md) | Web browser security settings cannot be changed by users. | ✅ | ✅ | ✅ | 🔲 | |
-| [ISM-1621.md](../controls/ISM-1621.md) | Windows PowerShell 2.0 is disabled or removed. | ✅ | ✅ | ✅ | 🔲 | |
+| [ISM-1412.md](../controls/ISM-1412.md) | Web browsers are hardened using ASD and vendor hardening guidance. | ✅ | ⚠️ | ⚠️ | ⚠️ | P3: Removed wrong iOS/Android [^2] source; corrected [^2] dep reference to [^1]; fixed Edge policies link text mismatch |
+| [ISM-1485.md](../controls/ISM-1485.md) | Web browsers do not process web advertisements from the internet. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed wrong [^2] source (MDE onboarding → e8-app-harden); added missing [^3] and [^5] footnote definitions (phantom citations); updated Additional Info link text for [^2] |
+| [ISM-1486.md](../controls/ISM-1486.md) | Web browsers do not process Java from the internet. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed [^4] inside blockquote (moved to root); removed blockquote padding lines; added content to empty Justification heading |
+| [ISM-1488.md](../controls/ISM-1488.md) | Microsoft Office macros in files originating from the internet are blocked. | ✅ | ✅ | ✅ | ✅ | P3: All URLs verified clean — no changes required |
+| [ISM-1504.md](../controls/ISM-1504.md) | MFA used to authenticate users to online services handling sensitive data. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed Security defaults link text: `Configure Security Defaults for...` → `Security defaults in Microsoft Entra ID` |
+| [ISM-1511.md](../controls/ISM-1511.md) | Backups of data, applications and settings are performed and retained. | ✅ | ✅ | ⚠️ | ⚠️ | P1/P2: Fixed disk-backup-overview URL. P3: Fixed 3 link text mismatches in Additional Info; removed broken `^[^1]`/`^[^2]` superscript markers from Summary (no definitions existed) |
+| [ISM-1542.md](../controls/ISM-1542.md) | Microsoft Office is configured to prevent activation of OLE packages. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed 3× `InTune` → `Intune`; fixed wrong `[^2]` citation for Intune admin access → `[^1]` |
+| [ISM-1544.md](../controls/ISM-1544.md) | Microsoft's recommended application blocklist is implemented. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed dangling `[^8]` (undefined 3× in Prerequisites) → replaced with `[^1]` |
+| [ISM-1585.md](../controls/ISM-1585.md) | Web browser security settings cannot be changed by users. | ✅ | ✅ | ✅ | ⚠️ | P3: Added missing `[^3]` and `[^4]` footnote definitions (dangling refs); fixed 3 link text mismatches in Additional Info |
+| [ISM-1621.md](../controls/ISM-1621.md) | Windows PowerShell 2.0 is disabled or removed. | ✅ | ✅ | ✅ | ⚠️ | P3: Removed `— Microsoft Learn` / `— GitHub` suffixes from footnote link texts; corrected subsection-heading link text in Additional Info to actual page title |
 | [ISM-1622.md](../controls/ISM-1622.md) | PowerShell is configured to use Constrained Language Mode. | ✅ | ✅ | ✅ | 🔲 | |
 | [ISM-1654.md](../controls/ISM-1654.md) | Internet Explorer 11 is disabled or removed. | ✅ | ✅ | ✅ | 🔲 | |
 | [ISM-1655.md](../controls/ISM-1655.md) | .NET Framework 3.5 is disabled or removed. | ✅ | ✅ | ✅ | 🔲 | |
@@ -86,7 +86,7 @@ Legend: ✅ Reviewed & clean | ⚠️ Issues found → fixed | 🔲 Not yet revi
 | Lint (L) | 54 | 54 | 54/54 |
 | Prompt-leak (P0) | 2 | 2 | 54/54 |
 | URL validation (P1/P2) | 8 | 8 | 54/54 |
-| Content accuracy (P3) | 4 | 4 | 4/54 |
+| Content accuracy (P3) | 13 | 13 | 14/54 |
 
 ## Changes Made (Commit `e23c449`)
 
@@ -100,6 +100,21 @@ Legend: ✅ Reviewed & clean | ⚠️ Issues found → fixed | 🔲 Not yet revi
 | ISM-1859.md | Fixed `e8-app-hard` (404) → `e8-app-harden` |
 | ISM-1861.md | Fixed `windows-security/identity-protection` and `windows-iot/iot-enterprise` path prefix errors |
 | ISM-1896.md | Removed `ImplementationGuidance` placeholder; fixed two `windows-security/` path prefix errors |
+
+## Changes Made (Phase 3 — Content Accuracy Review, files 5–14)
+
+| File | Change |
+|------|--------|
+| ISM-1412.md | Removed wrong iOS/Android `[^2]` source (Manage Microsoft Edge on iOS/Android) — all ACSC hardening citations now use `[^1]`; fixed Additional Info `Microsoft Edge browser policies` → `Microsoft Edge - Policies` (actual title) |
+| ISM-1485.md | Replaced wrong `[^2]` source (MDE onboarding — unrelated to ads blocking) with e8-app-harden page; added missing `[^3]` footnote definition (phantom citation); added missing `[^5]` footnote definition; updated Additional Info link text to match new `[^2]` source |
+| ISM-1486.md | Fixed `[^4]` footnote definition inside a blockquote (will not render in kramdown) — moved to root level; removed blockquote padding lines `>\n>\n>`; added placeholder content to empty `### Justification` heading |
+| ISM-1488.md | No changes — all URLs verified accurate |
+| ISM-1504.md | Fixed Security defaults Additional Info link text: `Configure Security Defaults for Microsoft Entra ID` → `Security defaults in Microsoft Entra ID` (actual page title) |
+| ISM-1511.md | Removed broken `^[^1]`/`^[^2]` superscript markers from Summary (no footnote definitions existed for them); fixed 3 Additional Info link texts: `Backup center overview` → `About Backup center for Azure Backup and Azure Site Recovery`; `How to enable Azure Backup` → `Azure Backup service documentation`; `Backups under ACSC Essential Eight` → `Why Pursue ACSC Essential Eight User Backup Guidelines?` |
+| ISM-1542.md | Fixed `InTune` → `Intune` in Design Decision and 2 section headings; fixed wrong `[^2]` citation (MS14-064 security bulletin) for Intune admin access claim → `[^1]` (e8-app-harden) |
+| ISM-1544.md | Fixed dangling `[^8]` (undefined footnote referenced 3× in Prerequisites) → replaced all with `[^1]` (Application and driver control) |
+| ISM-1585.md | Added missing `[^3]` definition (LockdownFavorites → Edge policies reference); added missing `[^4]` definition (DoNotAllowUsersToChangePolicies → device-restrictions-windows-10); fixed 3 Additional Info link text mismatches: privacy settings title, site list location title, and Intune Education page title |
+| ISM-1621.md | Removed `— Microsoft Learn` suffix from `[^1]` link text and `— GitHub` suffix from `[^2]`; removed `— Microsoft Learn` from `[^3]`; corrected Additional Info entry `Use Windows PowerShell to disable specific features` → `Add, remove, or hide Windows features` (actual page title; original text was a section heading within the page) |
 
 ## Changes Made (Phase 3 — Content Accuracy Review, first 4 files)
 
