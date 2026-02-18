@@ -49,7 +49,7 @@ plugins:
 # ── Google / SEO ──────────────────────────────────────────────────────────────
 # Google Analytics 4 Measurement ID  (e.g. G-XXXXXXXXXX)
 # Leave blank to disable GA tracking.
-google_analytics: ""
+google_analytics: "G-542SSSJ56F"
 
 # Google Search Console ownership verification token
 # Found in: Search Console → Settings → Ownership verification → HTML tag
