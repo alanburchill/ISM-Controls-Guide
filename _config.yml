@@ -44,3 +44,18 @@ include:
 # Plugins
 plugins:
   - jekyll-last-modified-at
+  - jekyll-feed
+
+# ── Google / SEO ──────────────────────────────────────────────────────────────
+# Google Analytics 4 Measurement ID  (e.g. G-XXXXXXXXXX)
+# Leave blank to disable GA tracking.
+google_analytics: ""
+
+# Google Search Console ownership verification token
+# Found in: Search Console → Settings → Ownership verification → HTML tag
+# Copy only the content="…" value (without the surrounding quotes).
+google_site_verification: ""
+
+# ── Jekyll Feed (RSS/Atom) ─────────────────────────────────────────────────────
+feed:
+  path: feed.xml
