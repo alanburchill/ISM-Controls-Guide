@@ -10,7 +10,7 @@ Tracks the review progress of each file in `controls/`. Updated as each phase of
 | **Phase 0** | Prompt-leak artifact scan (`ImplementationGuidance`, internal placeholders) | ✅ Complete |
 | **Phase 1** | URL validation — sampled Microsoft Learn (25) + ASD Blueprint/GitHub (22) | ✅ Complete |
 | **Phase 2** | URL validation — remaining learn.microsoft.com patterns (redirects, 404s, deprecated) | ✅ Complete |
-| **Phase 3** | Content accuracy — verify referenced pages support claims made | ⏳ Not started |
+| **Phase 3** | Content accuracy — verify referenced pages support claims made | 🔄 In progress (4/54 complete) |
 
 ---
 
@@ -22,10 +22,10 @@ Legend: ✅ Reviewed & clean | ⚠️ Issues found → fixed | 🔲 Not yet revi
 
 | File | Control Description | L | P0 | P1/P2 | P3 | Notes |
 |------|---------------------|---|----|-------|----|-------|
-| [ISM-0843.md](../controls/ISM-0843.md) | Application control is implemented on workstations. | ✅ | ✅ | ⚠️ | 🔲 | Fixed old WDAC deployment guide path |
-| [ISM-0974.md](../controls/ISM-0974.md) | MFA used to authenticate unprivileged users of systems. | ✅ | ✅ | ✅ | 🔲 | |
-| [ISM-1173.md](../controls/ISM-1173.md) | MFA used to authenticate privileged users of systems. | ✅ | ✅ | ✅ | 🔲 | |
-| [ISM-1380.md](../controls/ISM-1380.md) | Privileged users use separate privileged and unprivileged operating environments. | ✅ | ✅ | ✅ | 🔲 | |
+| [ISM-0843.md](../controls/ISM-0843.md) | Application control is implemented on workstations. | ✅ | ✅ | ⚠️ | ⚠️ | P1/P2: Fixed old WDAC deployment guide path. P3: Re-cited Group Policy claim from [^4] HoloLens page (wrong source) to [^2]; removed unused [^4] footnote; fixed deployment guide link text to match actual page title |
+| [ISM-0974.md](../controls/ISM-0974.md) | MFA used to authenticate unprivileged users of systems. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed [^2] link text to reflect actual page title; fixed PCI-DSS [H] link text mismatch in Additional Info |
+| [ISM-1173.md](../controls/ISM-1173.md) | MFA used to authenticate privileged users of systems. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed broken seg2_ops URL (wrong path `/microsoft-365/app-certification/` → `/microsoft-365-app-certification/`); corrected [^1] link text from section heading to page title |
+| [ISM-1380.md](../controls/ISM-1380.md) | Privileged users use separate privileged and unprivileged operating environments. | ✅ | ✅ | ✅ | ⚠️ | P3: Fixed two broken `www.microsoft.com` PAW URLs (404) → learn.microsoft.com equivalents; updated [^3] title to reflect archived status; added preview caveat to Administrator Protection note |
 | [ISM-1412.md](../controls/ISM-1412.md) | Web browsers are hardened using ASD and vendor hardening guidance. | ✅ | ⚠️ | ⚠️ | 🔲 | Fixed prompt-leak; replaced deprecated policy-csp-browser link |
 | [ISM-1485.md](../controls/ISM-1485.md) | Web browsers do not process web advertisements from the internet. | ✅ | ✅ | ✅ | 🔲 | |
 | [ISM-1486.md](../controls/ISM-1486.md) | Web browsers do not process Java from the internet. | ✅ | ✅ | ✅ | 🔲 | |
@@ -86,7 +86,7 @@ Legend: ✅ Reviewed & clean | ⚠️ Issues found → fixed | 🔲 Not yet revi
 | Lint (L) | 54 | 54 | 54/54 |
 | Prompt-leak (P0) | 2 | 2 | 54/54 |
 | URL validation (P1/P2) | 8 | 8 | 54/54 |
-| Content accuracy (P3) | — | — | 0/54 |
+| Content accuracy (P3) | 4 | 4 | 4/54 |
 
 ## Changes Made (Commit `e23c449`)
 
@@ -100,3 +100,12 @@ Legend: ✅ Reviewed & clean | ⚠️ Issues found → fixed | 🔲 Not yet revi
 | ISM-1859.md | Fixed `e8-app-hard` (404) → `e8-app-harden` |
 | ISM-1861.md | Fixed `windows-security/identity-protection` and `windows-iot/iot-enterprise` path prefix errors |
 | ISM-1896.md | Removed `ImplementationGuidance` placeholder; fixed two `windows-security/` path prefix errors |
+
+## Changes Made (Phase 3 — Content Accuracy Review, first 4 files)
+
+| File | Change |
+|------|--------|
+| ISM-0843.md | Re-cited [^4] HoloLens page (wrong source for Group Policy claim) → `[^2]` appcontrol-and-applocker-overview; re-cited PowerShell claim to `[^3]` e8-app-control; removed now-unused `[^4]` footnote definition; corrected deployment guide link text `App Control for Business Deployment Guide` → `Deploying App Control for Business policies` |
+| ISM-0974.md | Corrected `[^2]` link text from generic heading `Create a Conditional Access policy` to reflect actual page title; corrected PCI-DSS link text in Additional Info from `Security domain: phishing-resistant passwordless authentication` → `Microsoft Entra ID and PCI-DSS Requirement 8` |
+| ISM-1173.md | Fixed broken `[^4]` seg2_ops URL (`/microsoft-365/app-certification/` → `/microsoft-365-app-certification/`); corrected `[^1]` link text from section heading to actual page title |
+| ISM-1380.md | Fixed `[^1]` broken `www.microsoft.com` PAW deployment URL → `learn.microsoft.com` equivalent; fixed broken `privileged-access-strategy` URL on `www.microsoft.com` → `learn.microsoft.com`; updated `[^3]` title to include `(archived)` to reflect Microsoft's archival notice; added `(preview — rollout deferred)` caveat to Administrator Protection note |
