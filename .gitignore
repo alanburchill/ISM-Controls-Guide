@@ -51,19 +51,23 @@ venv/
 *.cache
 coverage/
 
+# Downloaded artifacts / large binaries
+*.zip
+*.iso
+*.img
+
+# VS Code workspace files
+*.code-workspace
+
+# Tooling / audit artefacts (not used for site generation)
+url_inventory.csv
+HEADER_CONSOLIDATION.md
+
 # Secrets / credentials
 *.pem
 *.key
 .env.local
 .env.*.local
-
-# OS generated files
-Thumbs.db
-ehthumbs.db
-
-# Images and large binaries (if any generated)
-*.iso
-*.img
 
 # Keep node and ruby package artifacts out
 package-lock.json

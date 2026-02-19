@@ -36,6 +36,11 @@ Four batches reviewed every control for:
 - Resolved all outstanding `markdownlint` errors across `controls/*.md`
 - Updated `.markdownlint.json` to relax `MD013` (line length) for table rows only
 
+### Footnote format fix
+- **Issue:** 55 footnote definitions across 22 control files used old bare-text formats — either `Title (<url>)` (auto-link) or `Title — <url>` — which render as plain text rather than hyperlinks. Four footnote titles also contained `|` pipe characters, which kramdown was interpreting as table column separators, rendering a spurious one-cell table in the page footer.
+- **Fix:** Converted all footnote definitions to the correct `[Title](url)` format. Replaced `|` with `—` in the four affected titles (ISM-1704, ISM-1810, ISM-1692, ISM-1486).
+- **Files affected:** ISM-1485, ISM-1486, ISM-1542, ISM-1544, ISM-1585, ISM-1654, ISM-1655, ISM-1659, ISM-1667, ISM-1670, ISM-1671, ISM-1672, ISM-1673, ISM-1674, ISM-1686, ISM-1692, ISM-1698, ISM-1699, ISM-1702, ISM-1704, ISM-1808, ISM-1810, ISM-1824
+
 ---
 
 ## 2. Cross-Control Scoping Fix — Server vs. Workstation Patching
