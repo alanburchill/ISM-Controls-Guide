@@ -60,6 +60,7 @@ coverage/
 *.code-workspace
 
 # Tooling / audit artefacts (not used for site generation)
+docs/
 url_inventory.csv
 HEADER_CONSOLIDATION.md
 
