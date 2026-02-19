@@ -64,6 +64,16 @@ docs/
 url_inventory.csv
 HEADER_CONSOLIDATION.md
 
+# Legacy generation scripts (superseded by Jekyll)
+scripts/
+
+# Broken/dev-only GitHub Actions workflows
+.github/workflows/add-permalinks.yml
+.github/workflows/generate-controls.yml
+
+# VS Code Copilot agent definitions (local dev only)
+.github/agents/
+
 # Secrets / credentials
 *.pem
 *.key
@@ -76,4 +86,3 @@ yarn.lock
 
 # End of .gitignore
 .playwright-mcp/
-scripts/
