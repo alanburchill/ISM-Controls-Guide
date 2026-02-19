@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1690",
+  "title": "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1690)",
+  "url": "/controls/ISM-1690.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Configured and enable Windows Autopatch for all workstations via the Intune admin portal.",
+  "source_file": "controls/ISM-1690.md"
+}

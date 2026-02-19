@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1544",
+  "title": "Microsoft’s recommended application blocklist is implemented. (ISM-1544)",
+  "url": "/controls/ISM-1544.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "App Control for Business (WDAC) enforces the Microsoft-recommended application blocklist by restricting which drivers and applications may run on Windows devices.",
+  "source_file": "controls/ISM-1544.md"
+}

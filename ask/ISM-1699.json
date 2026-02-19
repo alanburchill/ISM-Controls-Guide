@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1699",
+  "title": "A vulnerability scanner is used at least weekly to identify missing patches or updates for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products. (ISM-1699)",
+  "url": "/controls/ISM-1699.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Onboard devices to Microsoft Defender for Endpoint. Then access Exposure management > Vulnerability management > Vulnerabilities in the Defender portal to review CVEs and remediation recommendations.",
+  "source_file": "controls/ISM-1699.md"
+}

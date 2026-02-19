@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1659",
+  "title": "Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)",
+  "url": "/controls/ISM-1659.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Microsoft’s vulnerable driver blocklist is implemented to harden Windows against known vulnerable kernel drivers.",
+  "source_file": "controls/ISM-1659.md"
+}

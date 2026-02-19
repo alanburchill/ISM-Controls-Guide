@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1585",
+  "title": "Web browser security settings cannot be changed by users. (ISM-1585)",
+  "url": "/controls/ISM-1585.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Browser security settings are enforced through Intune to prevent users from modifying browser configurations.",
+  "source_file": "controls/ISM-1585.md"
+}

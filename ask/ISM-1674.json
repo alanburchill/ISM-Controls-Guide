@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1674",
+  "title": "Only Microsoft Office macros running from within a sandboxed environment, a Trusted Location or that are digitally signed by a trusted publisher are allowed to execute. (ISM-1674)",
+  "url": "/controls/ISM-1674.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Only Microsoft Office macros that are digitally signed by a trusted publisher and governed by Intune policy are allowed to run.",
+  "source_file": "controls/ISM-1674.md"
+}

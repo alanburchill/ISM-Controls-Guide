@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1668",
+  "title": "Microsoft Office is blocked from creating executable content. (ISM-1668)",
+  "url": "/controls/ISM-1668.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Microsoft Office is blocked from creating executable content by enabling the ASR rule via Intune.^ Configure the Attack Surface Reduction setting Block Office applications from creating executable content in the Intun...",
+  "source_file": "controls/ISM-1668.md"
+}

@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1693",
+  "title": "Patches, updates or other vendor mitigations for vulnerabilities in applications other than office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within one month of release. (ISM-1693)",
+  "url": "/controls/ISM-1693.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Patch applications not in the excluded categories within one month of release using Intune deployment.",
+  "source_file": "controls/ISM-1693.md"
+}

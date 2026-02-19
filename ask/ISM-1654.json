@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1654",
+  "title": "Internet Explorer 11 is disabled or removed. (ISM-1654)",
+  "url": "/controls/ISM-1654.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Internet Explorer 11 is disabled or removed on Windows endpoints as part of OS hardening.",
+  "source_file": "controls/ISM-1654.md"
+}

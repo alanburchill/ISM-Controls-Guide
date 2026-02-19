@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1696",
+  "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1696)",
+  "url": "/controls/ISM-1696.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Push critical OS patches within 48 hours using Intune expedited updates with Windows Autopatch.",
+  "source_file": "controls/ISM-1696.md"
+}

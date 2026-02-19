@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1897",
+  "title": "Remote Credential Guard functionality is enabled. (ISM-1897)",
+  "url": "/controls/ISM-1897.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Remote Credential Guard functionality is enabled to protect credentials over an RDP connection.",
+  "source_file": "controls/ISM-1897.md"
+}

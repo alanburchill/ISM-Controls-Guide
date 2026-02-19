@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1686",
+  "title": "Credential Guard functionality is enabled. (ISM-1686)",
+  "url": "/controls/ISM-1686.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Credential Guard is enabled on devices that meet hardware requirements and can be configured via an Intune device configuration profile.",
+  "source_file": "controls/ISM-1686.md"
+}

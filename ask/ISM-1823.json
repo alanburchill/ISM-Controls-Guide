@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1823",
+  "title": "Office productivity suite security settings cannot be changed by users. (ISM-1823)",
+  "url": "/controls/ISM-1823.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Office hardening policies deployed via Intune enforce Office security settings and prevent standard users from altering them.",
+  "source_file": "controls/ISM-1823.md"
+}

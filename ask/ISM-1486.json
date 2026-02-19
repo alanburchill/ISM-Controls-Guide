@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1486",
+  "title": "Web browsers do not process Java from the internet. (ISM-1486)",
+  "url": "/controls/ISM-1486.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Java isn't installed by default on Windows 10 or Windows 11.",
+  "source_file": "controls/ISM-1486.md"
+}

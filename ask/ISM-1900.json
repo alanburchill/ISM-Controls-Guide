@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1900",
+  "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in firmware. (ISM-1900)",
+  "url": "/controls/ISM-1900.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Onboard devices to Microsoft Defender for Endpoint to enable vulnerability scanning of firmware.",
+  "source_file": "controls/ISM-1900.md"
+}

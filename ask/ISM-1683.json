@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1683",
+  "title": "Successful and unsuccessful multi-factor authentication events are centrally logged. (ISM-1683)",
+  "url": "/controls/ISM-1683.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Configure Entra ID diagnostic settings to save all logs to an appropriate destination, such as a Log Analytics workspace.",
+  "source_file": "controls/ISM-1683.md"
+}

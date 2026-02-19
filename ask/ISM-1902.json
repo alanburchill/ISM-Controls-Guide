@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1902",
+  "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within one month of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1902)",
+  "url": "/controls/ISM-1902.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "ISM-1902 requires patches for workstations, non-internet-facing servers, and non-internet-facing network devices to be applied within one month of release when vulnerabilities are assessed as noncritical by vendors an...",
+  "source_file": "controls/ISM-1902.md"
+}

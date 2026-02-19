@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1380",
+  "title": "Privileged users use separate privileged and unprivileged operating environments. (ISM-1380)",
+  "url": "/controls/ISM-1380.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Deploy a Microsoft Entra Conditional Access policy to block cloud administrator sign-ins unless they originate from a trusted known IP address range.",
+  "source_file": "controls/ISM-1380.md"
+}

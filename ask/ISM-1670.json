@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1670",
+  "title": "PDF applications are blocked from creating child processes. (ISM-1670)",
+  "url": "/controls/ISM-1670.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "PDF applications are blocked from creating child processes.",
+  "source_file": "controls/ISM-1670.md"
+}

@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1504",
+  "title": "Multi-factor authentication is used to authenticate users to their organisation’s online services that process, store or communicate their organisation’s sensitive data. (ISM-1504)",
+  "url": "/controls/ISM-1504.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Require MFA for all users accessing sensitive online services through Conditional Access.",
+  "source_file": "controls/ISM-1504.md"
+}

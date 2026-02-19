@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1671",
+  "title": "Microsoft Office macros are disabled for users that do not have a demonstrated business requirement. (ISM-1671)",
+  "url": "/controls/ISM-1671.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Microsoft Office macros are disabled by default for users without a demonstrated business requirement.",
+  "source_file": "controls/ISM-1671.md"
+}

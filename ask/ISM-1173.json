@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1173",
+  "title": "Multi-factor authentication is used to authenticate privileged users of systems. (ISM-1173)",
+  "url": "/controls/ISM-1173.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Create a Conditional Access policy requiring MFA for all privileged accounts.",
+  "source_file": "controls/ISM-1173.md"
+}

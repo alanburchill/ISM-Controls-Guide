@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1667",
+  "title": "Microsoft Office is blocked from creating child processes. (ISM-1667)",
+  "url": "/controls/ISM-1667.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Enable the ASR rule that blocks all Office applications from creating child processes and deploy it via Intune (Endpoint Security) to enforce the block.",
+  "source_file": "controls/ISM-1667.md"
+}

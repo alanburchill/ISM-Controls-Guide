@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1622",
+  "title": "PowerShell is configured to use Constrained Language Mode. (ISM-1622)",
+  "url": "/controls/ISM-1622.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "PowerShell is configured to run in Constrained Language Mode as part of the Essential Eight Application Control mitigations.",
+  "source_file": "controls/ISM-1622.md"
+}

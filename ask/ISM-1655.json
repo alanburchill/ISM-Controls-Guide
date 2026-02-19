@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1655",
+  "title": ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)",
+  "url": "/controls/ISM-1655.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Disabling or removing .NET Framework 3.5 (includes .NET 2.0 and 3.0) reduces the OS attack surface.",
+  "source_file": "controls/ISM-1655.md"
+}

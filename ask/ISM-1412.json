@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1412",
+  "title": "Web browsers are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1412)",
+  "url": "/controls/ISM-1412.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Deploy ACSC Edge hardening configuration through Intune to enforce the Essential Eight Edge controls across devices.",
+  "source_file": "controls/ISM-1412.md"
+}

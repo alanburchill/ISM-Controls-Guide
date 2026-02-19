@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1808",
+  "title": "A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities. (ISM-1808)",
+  "url": "/controls/ISM-1808.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Onboard devices to Microsoft Defender for Endpoint to enable Defender Vulnerability Management (DVM) and continuous risk monitoring.",
+  "source_file": "controls/ISM-1808.md"
+}

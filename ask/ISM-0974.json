@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-0974",
+  "title": "Multi-factor authentication is used to authenticate unprivileged users of systems. (ISM-0974)",
+  "url": "/controls/ISM-0974.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Multi-factor authentication (MFA) is required for standard user sign-ins.",
+  "source_file": "controls/ISM-0974.md"
+}

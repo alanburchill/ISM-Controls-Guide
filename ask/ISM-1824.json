@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1824",
+  "title": "PDF application security settings cannot be changed by users. (ISM-1824)",
+  "url": "/controls/ISM-1824.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Lock PDF security settings using Intune so users cannot change them. Policies deployed via Intune enforce these configurations, ensuring end users cannot modify PDF security settings.",
+  "source_file": "controls/ISM-1824.md"
+}

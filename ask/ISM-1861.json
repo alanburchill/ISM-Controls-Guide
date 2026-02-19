@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1861",
+  "title": "Local Security Authority protection functionality is enabled. (ISM-1861)",
+  "url": "/controls/ISM-1861.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Local Security Authority (LSA) protection isolates the LSASS process to guard credentials from untrusted code.",
+  "source_file": "controls/ISM-1861.md"
+}

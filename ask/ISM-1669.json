@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1669",
+  "title": "Microsoft Office is blocked from injecting code into other processes. (ISM-1669)",
+  "url": "/controls/ISM-1669.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Enable the ASR rule to block Office applications from injecting code into other processes to prevent code injection by Office apps.",
+  "source_file": "controls/ISM-1669.md"
+}

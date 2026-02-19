@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1859",
+  "title": "Office productivity suites are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1859)",
+  "url": "/controls/ISM-1859.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Office productivity suites are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur.",
+  "source_file": "controls/ISM-1859.md"
+}

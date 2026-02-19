@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1703",
+  "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in drivers. (ISM-1703)",
+  "url": "/controls/ISM-1703.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Onboard devices to Microsoft Defender for Endpoint and enable Defender Vulnerability Management to continuously monitor risk across your devices.",
+  "source_file": "controls/ISM-1703.md"
+}

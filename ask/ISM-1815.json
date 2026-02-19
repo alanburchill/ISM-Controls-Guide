@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1815",
+  "title": "Event logs are protected from unauthorised modification and deletion. (ISM-1815)",
+  "url": "/controls/ISM-1815.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Event logs must be protected from unauthorized modification and deletion to preserve audit trails and support forensic investigations.",
+  "source_file": "controls/ISM-1815.md"
+}

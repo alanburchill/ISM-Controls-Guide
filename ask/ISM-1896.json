@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1896",
+  "title": "Memory integrity functionality is enabled. (ISM-1896)",
+  "url": "/controls/ISM-1896.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Memory integrity is a virtualization-based security (VBS) feature that protects kernel-mode code integrity and the CFG bitmap.",
+  "source_file": "controls/ISM-1896.md"
+}

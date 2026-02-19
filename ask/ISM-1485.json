@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1485",
+  "title": "Web browsers do not process web advertisements from the internet. (ISM-1485)",
+  "url": "/controls/ISM-1485.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Enable Edge policy to block intrusive ads by applying the Microsoft Edge security baseline in Intune.",
+  "source_file": "controls/ISM-1485.md"
+}

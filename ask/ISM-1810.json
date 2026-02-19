@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1810",
+  "title": "Backups of data, applications and settings are synchronised to enable restoration to a common point in time. (ISM-1810)",
+  "url": "/controls/ISM-1810.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Use Azure Backup to take application-consistent VM restore points, providing synchronised restore points across all attached disks.",
+  "source_file": "controls/ISM-1810.md"
+}

@@ -1,0 +1,326 @@
+[
+  {
+    "ism_control": "ISM-1654",
+    "title": "Internet Explorer 11 is disabled or removed. (ISM-1654)",
+    "url": "/controls/ISM-1654.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1669",
+    "title": "Microsoft Office is blocked from injecting code into other processes. (ISM-1669)",
+    "url": "/controls/ISM-1669.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1542",
+    "title": "Microsoft Office is configured to prevent activation of Object Linking and Embedding packages. (ISM-1542)",
+    "url": "/controls/ISM-1542.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1859",
+    "title": "Office productivity suites are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1859)",
+    "url": "/controls/ISM-1859.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1823",
+    "title": "Office productivity suite security settings cannot be changed by users. (ISM-1823)",
+    "url": "/controls/ISM-1823.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1486",
+    "title": "Web browsers do not process Java from the internet. (ISM-1486)",
+    "url": "/controls/ISM-1486.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1485",
+    "title": "Web browsers do not process web advertisements from the internet. (ISM-1485)",
+    "url": "/controls/ISM-1485.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1412",
+    "title": "Web browsers are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1412)",
+    "url": "/controls/ISM-1412.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1585",
+    "title": "Web browser security settings cannot be changed by users. (ISM-1585)",
+    "url": "/controls/ISM-1585.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1670",
+    "title": "PDF applications are blocked from creating child processes. (ISM-1670)",
+    "url": "/controls/ISM-1670.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1860",
+    "title": "PDF applications are hardened using ASD and vendor hardening guidance, with the most restrictive guidance taking precedence when conflicts occur. (ISM-1860)",
+    "url": "/controls/ISM-1860.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1655",
+    "title": ".NET Framework 3.5 (includes .NET 2.0 and 3.0) is disabled or removed. (ISM-1655)",
+    "url": "/controls/ISM-1655.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1824",
+    "title": "PDF application security settings cannot be changed by users. (ISM-1824)",
+    "url": "/controls/ISM-1824.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1671",
+    "title": "Microsoft Office macros are disabled for users that do not have a demonstrated business requirement. (ISM-1671)",
+    "url": "/controls/ISM-1671.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1488",
+    "title": "Microsoft Office macros in files originating from the internet are blocked. (ISM-1488)",
+    "url": "/controls/ISM-1488.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1672",
+    "title": "Microsoft Office macro antivirus scanning is enabled. (ISM-1672)",
+    "url": "/controls/ISM-1672.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1673",
+    "title": "Microsoft Office macros are blocked from making Win32 API calls. (ISM-1673)",
+    "url": "/controls/ISM-1673.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1674",
+    "title": "Only Microsoft Office macros running from within a sandboxed environment, a Trusted Location or that are digitally signed by a trusted publisher are allowed to execute. (ISM-1674)",
+    "url": "/controls/ISM-1674.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1504",
+    "title": "Multi-factor authentication is used to authenticate users to their organisation’s online services that process, store or communicate their organisation’s sensitive data. (ISM-1504)",
+    "url": "/controls/ISM-1504.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1173",
+    "title": "Multi-factor authentication is used to authenticate privileged users of systems. (ISM-1173)",
+    "url": "/controls/ISM-1173.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-0974",
+    "title": "Multi-factor authentication is used to authenticate unprivileged users of systems. (ISM-0974)",
+    "url": "/controls/ISM-0974.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1872",
+    "title": "Multi-factor authentication used for authenticating users of online services is phishing-resistant. (ISM-1872)",
+    "url": "/controls/ISM-1872.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-0843",
+    "title": "Application control is implemented on workstations. (ISM-0843)",
+    "url": "/controls/ISM-0843.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1683",
+    "title": "Successful and unsuccessful multi-factor authentication events are centrally logged. (ISM-1683)",
+    "url": "/controls/ISM-1683.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1685",
+    "title": "Credentials for break glass accounts, local administrator accounts and service accounts are long, unique, unpredictable and managed. (ISM-1685)",
+    "url": "/controls/ISM-1685.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1896",
+    "title": "Memory integrity functionality is enabled. (ISM-1896)",
+    "url": "/controls/ISM-1896.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1861",
+    "title": "Local Security Authority protection functionality is enabled. (ISM-1861)",
+    "url": "/controls/ISM-1861.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1686",
+    "title": "Credential Guard functionality is enabled. (ISM-1686)",
+    "url": "/controls/ISM-1686.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1897",
+    "title": "Remote Credential Guard functionality is enabled. (ISM-1897)",
+    "url": "/controls/ISM-1897.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1380",
+    "title": "Privileged users use separate privileged and unprivileged operating environments. (ISM-1380)",
+    "url": "/controls/ISM-1380.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1808",
+    "title": "A vulnerability scanner with an up-to-date vulnerability database is used for vulnerability scanning activities. (ISM-1808)",
+    "url": "/controls/ISM-1808.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1698",
+    "title": "A vulnerability scanner is used at least daily to identify missing patches or updates for vulnerabilities in online services. (ISM-1698)",
+    "url": "/controls/ISM-1698.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1699",
+    "title": "A vulnerability scanner is used at least weekly to identify missing patches or updates for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products. (ISM-1699)",
+    "url": "/controls/ISM-1699.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1544",
+    "title": "Microsoft’s recommended application blocklist is implemented. (ISM-1544)",
+    "url": "/controls/ISM-1544.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1702",
+    "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices. (ISM-1702)",
+    "url": "/controls/ISM-1702.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1703",
+    "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in drivers. (ISM-1703)",
+    "url": "/controls/ISM-1703.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1900",
+    "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in firmware. (ISM-1900)",
+    "url": "/controls/ISM-1900.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1876",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1876)",
+    "url": "/controls/ISM-1876.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1690",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in online services are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1690)",
+    "url": "/controls/ISM-1690.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1692",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1692)",
+    "url": "/controls/ISM-1692.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1901",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within two weeks of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1901)",
+    "url": "/controls/ISM-1901.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1693",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in applications other than office productivity suites, web browsers and their extensions, email clients, PDF applications, and security products are applied within one month of release. (ISM-1693)",
+    "url": "/controls/ISM-1693.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1696",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within 48 hours of release when vulnerabilities are assessed as critical by vendors or when working exploits exist. (ISM-1696)",
+    "url": "/controls/ISM-1696.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1902",
+    "title": "Patches, updates or other vendor mitigations for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices are applied within one month of release when vulnerabilities are assessed as non-critical by vendors and no working exploits exist. (ISM-1902)",
+    "url": "/controls/ISM-1902.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1659",
+    "title": "Microsoft’s vulnerable driver blocklist is implemented. (ISM-1659)",
+    "url": "/controls/ISM-1659.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1704",
+    "title": "Office productivity suites, web browsers and their extensions, email clients, PDF applications, Adobe Flash Player, and security products that are no longer supported by vendors are removed. (ISM-1704)",
+    "url": "/controls/ISM-1704.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1511",
+    "title": "Backups of data, applications and settings are performed and retained in accordance with business criticality and business continuity requirements. (ISM-1511)",
+    "url": "/controls/ISM-1511.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1810",
+    "title": "Backups of data, applications and settings are synchronised to enable restoration to a common point in time. (ISM-1810)",
+    "url": "/controls/ISM-1810.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1811",
+    "title": "Backups of data, applications and settings are retained in a secure and resilient manner. (ISM-1811)",
+    "url": "/controls/ISM-1811.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1815",
+    "title": "Event logs are protected from unauthorised modification and deletion. (ISM-1815)",
+    "url": "/controls/ISM-1815.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1621",
+    "title": "Windows PowerShell 2.0 is disabled or removed. (ISM-1621)",
+    "url": "/controls/ISM-1621.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1622",
+    "title": "PowerShell is configured to use Constrained Language Mode. (ISM-1622)",
+    "url": "/controls/ISM-1622.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1667",
+    "title": "Microsoft Office is blocked from creating child processes. (ISM-1667)",
+    "url": "/controls/ISM-1667.html",
+    "last_modified": "2026-02-13"
+  },
+  {
+    "ism_control": "ISM-1668",
+    "title": "Microsoft Office is blocked from creating executable content. (ISM-1668)",
+    "url": "/controls/ISM-1668.html",
+    "last_modified": "2026-02-13"
+  }
+]

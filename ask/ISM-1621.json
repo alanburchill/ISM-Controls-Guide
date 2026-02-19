@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1621",
+  "title": "Windows PowerShell 2.0 is disabled or removed. (ISM-1621)",
+  "url": "/controls/ISM-1621.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Windows PowerShell 2.0 is disabled or removed by deploying the UserApplicationHardening-RemoveFeatures.ps1 script.",
+  "source_file": "controls/ISM-1621.md"
+}

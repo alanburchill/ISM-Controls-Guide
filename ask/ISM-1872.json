@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1872",
+  "title": "Multi-factor authentication used for authenticating users of online services is phishing-resistant. (ISM-1872)",
+  "url": "/controls/ISM-1872.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "ISM-1872 requires enforcing phishing-resistant MFA for online services by applying authentication strengths to access policies.",
+  "source_file": "controls/ISM-1872.md"
+}

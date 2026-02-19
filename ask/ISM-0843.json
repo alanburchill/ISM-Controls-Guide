@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-0843",
+  "title": "Application control is implemented on workstations. (ISM-0843)",
+  "url": "/controls/ISM-0843.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "This section documents implementing WDAC-based application control on Windows workstations using App Control for Business, managed via Microsoft Intune.",
+  "source_file": "controls/ISM-0843.md"
+}

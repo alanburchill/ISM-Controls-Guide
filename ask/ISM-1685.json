@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1685",
+  "title": "Credentials for break glass accounts, local administrator accounts and service accounts are long, unique, unpredictable and managed. (ISM-1685)",
+  "url": "/controls/ISM-1685.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Credentials for break-glass emergency accounts are long, unique, unpredictable and managed.",
+  "source_file": "controls/ISM-1685.md"
+}

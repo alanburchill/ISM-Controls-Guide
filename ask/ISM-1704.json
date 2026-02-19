@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1704",
+  "title": "Office productivity suites, web browsers and their extensions, email clients, PDF applications, Adobe Flash Player, and security products that are no longer supported by vendors are removed. (ISM-1704)",
+  "url": "/controls/ISM-1704.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Regularly review the detected application inventory on all devices via the Microsoft Defender admin portal for software that has reached end-of-support.",
+  "source_file": "controls/ISM-1704.md"
+}

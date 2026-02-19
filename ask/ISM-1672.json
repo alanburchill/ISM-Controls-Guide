@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1672",
+  "title": "Microsoft Office macro antivirus scanning is enabled. (ISM-1672)",
+  "url": "/controls/ISM-1672.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Microsoft Office macro antivirus scanning is enabled by configuring Defender Antivirus policy settings via Intune, including forcing runtime scans and enabling macro runtime scan scope for all documents; this requires...",
+  "source_file": "controls/ISM-1672.md"
+}

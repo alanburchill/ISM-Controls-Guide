@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1698",
+  "title": "A vulnerability scanner is used at least daily to identify missing patches or updates for vulnerabilities in online services. (ISM-1698)",
+  "url": "/controls/ISM-1698.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Daily vulnerability scanning identifies missing patches or vulnerabilities for online services. Monitor the Microsoft 365 Admin Portal Service Health to watch for announcements of service vulnerabilities and advisories.",
+  "source_file": "controls/ISM-1698.md"
+}

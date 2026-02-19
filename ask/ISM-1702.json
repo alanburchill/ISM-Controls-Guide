@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1702",
+  "title": "A vulnerability scanner is used at least fortnightly to identify missing patches or updates for vulnerabilities in operating systems of workstations, non-internet-facing servers and non-internet-facing network devices. (ISM-1702)",
+  "url": "/controls/ISM-1702.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Onboard devices to Microsoft Defender for Endpoint to enable vulnerability monitoring and management.",
+  "source_file": "controls/ISM-1702.md"
+}

@@ -1,0 +1,8 @@
+{
+  "ism_control": "ISM-1673",
+  "title": "Microsoft Office macros are blocked from making Win32 API calls. (ISM-1673)",
+  "url": "/controls/ISM-1673.html",
+  "last_modified": "2026-02-13",
+  "excerpt": "Block Win32 API calls from Office macros using the ASR rule.",
+  "source_file": "controls/ISM-1673.md"
+}
