@@ -264,3 +264,68 @@ Maintain a condensed rules document (`generation-quality-issues.md`) used as a s
 
 ### 5.3 Progress tracking
 For large review passes across many pages, maintain a review-progress tracker (`review-progress.md`) with a table of all pages, their review status, and issues found. Allows batching and handoff between sessions.
+
+---
+
+## 6. ISM Controls Guide — Implementation Record
+
+**Date:** 2026-02-19  
+**Branch:** `research-review-controls` → merged to `main`
+
+This section records the specific choices made when applying this playbook to the [Essential 8 Guide](https://e8guide.com) site.
+
+### 6.1 SEO infrastructure — files created
+
+| File | Notes |
+|------|-------|
+| `sitemap.xml` | Sitemap index — submitted to Google Search Console |
+| `sitemap-1.xml` | Full URL list with `<lastmod>` from `date_generated`; priority 0.8 for control pages |
+| `robots.txt` | Liquid template; `Disallow:` empty |
+| `404.html` | Custom 404 with `sitemap: false` front matter |
+| `security.txt` | `/.well-known/security.txt`; Contact → GitHub Issues; Expires 2027 |
+| `feed.xml` | RSS/Atom via `jekyll-feed` plugin |
+| `google010e8f920b8d5758.html` | GSC file-based ownership verification |
+| `_includes/analytics.html` | GA4 conditional block |
+| `_includes/seo.html` | Canonical, description, OG/Twitter cards, GSC meta, SVG emoji favicon 🛡️ |
+
+**`_config.yml` values used:**
+
+```yaml
+google_analytics: "G-542SSSJ56F"
+google_site_verification: "010e8f920b8d5758"
+plugins:
+  - jekyll-feed
+feed:
+  path: feed.xml
+```
+
+**Layout null bypass:** both `index.html` and `view.html` use `layout: null` — includes were added directly to their `<head>` (see §2.6).
+
+**JSON-LD type used:** `TechArticle` — populated with `page.ism_control`, `page.title`, `page.date_generated`.
+
+### 6.2 Layout and CSS
+
+- Container in `_layouts/control.html` widened from **900 px → 1200 px**
+- `overflow-x: auto` applied to `.content-card table` — fixes registry-path tables (ISM-1542, ISM-1690) whose natural width (~1336 px) was being crushed
+
+### 6.3 CI/CD pipeline
+
+- **Preview repo:** `alanburchill/ISM-Controls-Guide-preview`
+- **Preview URL:** `https://alanburchill.github.io/ISM-Controls-Guide-preview/`
+- **PAT secret name:** `PREVIEW_DEPLOY_TOKEN`
+- **Smoke-test wait:** 90 seconds
+- **Smoke-test check count:** 21 checks across homepage, one control page (ISM-0843), and 7 ancillary files
+- Both `preview.yml` and `pages.yml` have a `smoke-test` job (needs: `deploy`)
+
+### 6.4 Tooling artefacts
+
+| File | Purpose |
+|------|--------|
+| `url_inventory.csv` | All footnote URLs across 54 controls for audit |
+| `tools/url-review/footnotes-extract.txt` | Extracted raw footnote definitions |
+| `tools/url-review/generation-quality-issues.md` | Quality gate rules for AI-generated content |
+| `tools/url-review/review-progress.md` | Phase 3 review tracking across all 54 controls |
+| `tools/research-enhancement/research-pass-1.md` | Research enrichment findings — pass 1 (5 controls) |
+| `tools/research-enhancement/research-pass-2.md` | Research enrichment findings — pass 2 (ISM-1485 to ISM-1511) |
+| `.github/agents/Research Agent.agent.md` | AI research agent definition with quality gates |
+| `tools/check-preview.ps1` | Local PowerShell equivalent of CI smoke tests |
