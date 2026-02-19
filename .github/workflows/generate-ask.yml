@@ -43,6 +43,20 @@ jobs:
             git push
           fi
 
+      - name: Ping IndexNow for /ask URLs (optional)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.INDEXNOW_KEY != ''
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          KEY="$INDEXNOW_KEY"
+          KEY_FILE_URL="https://e8guide.com/${KEY}.txt"
+          echo "IndexNow key configured — pinging IndexNow for /ask URLs"
+          jq -r '.[].url' ask/index.json | sed 's#^/#https://e8guide.com/#' | while read -r u; do
+            echo "Pinging: $u"
+            curl -sS -X POST "https://api.indexnow.org/indexnow" -H "Content-Type: application/json" -d "{\"host\":\"e8guide.com\",\"key\":\"$KEY\",\"keyLocation\":\"$KEY_FILE_URL\",\"urlList\":[\"$u\"]}"
+            echo
+          done || true
+
       - name: Upload ask JSON as PR artifact (preview)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4

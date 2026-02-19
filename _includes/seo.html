@@ -1,6 +1,9 @@
 <!-- Canonical URL -->
 <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
 
+<!-- NLWeb manifest (advertise /ask for agent discovery) -->
+<link rel="nlweb-manifest" href="{{ site.baseurl }}/nlweb.json">
+
 <!-- Meta description -->
 {%- assign _page_desc = page.description | default: page.title | truncate: 155 | default: site.description -%}
 <meta name="description" content="{{ _page_desc | strip_html | escape }}">

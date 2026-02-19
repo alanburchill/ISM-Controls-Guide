@@ -1,0 +1,13 @@
+{
+  "name": "Essential 8 Guide — NLWeb manifest",
+  "version": "0.1",
+  "site": "https://e8guide.com",
+  "description": "Lightweight NLWeb manifest advertising the /ask conversational endpoint for ISM controls.",
+  "endpoints": {
+    "ask": "/ask",
+    "mcp": null
+  },
+  "modes": ["list"],
+  "schemas": ["TechArticle"],
+  "contact": "/about"
+}

@@ -23,4 +23,21 @@ layout: none
   </url>
   {%- endunless -%}
 {%- endfor -%}
+
+{%- comment -%} Include generated /ask JSON endpoints (static files under /ask/) {%- endcomment -%}
+{%- for f in site.static_files -%}
+  {%- assign rel = f.path | remove: site.source -%}
+  {%- if rel contains '/ask/' -%}
+  <url>
+    <loc>{{ site.url }}{{ rel }}</loc>
+    {%- if f.modified_time -%}
+    <lastmod>{{ f.modified_time | date_to_xmlschema }}</lastmod>
+    {%- else -%}
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    {%- endif -%}
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  {%- endif -%}
+{%- endfor -%}
 </urlset>
